@@ -1,0 +1,5 @@
+# macOS inference (CPU or Apple GPU via MPS). Keep ultralytics identical to the training pod.
+ultralytics==8.3.253
+opencv-python
+pillow
+numpy

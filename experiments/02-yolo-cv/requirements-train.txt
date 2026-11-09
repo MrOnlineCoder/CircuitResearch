@@ -1,0 +1,4 @@
+# GPU pod (Runpod PyTorch template already provides torch + CUDA)
+ultralytics==8.3.253
+pillow
+numpy

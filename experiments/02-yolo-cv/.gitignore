@@ -1,0 +1,6 @@
+data/
+runs/
+results/
+.venv/
+*.cache
+yolo11*.pt

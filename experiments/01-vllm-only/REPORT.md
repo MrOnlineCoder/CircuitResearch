@@ -9,7 +9,7 @@
 | Model | `anthropic/claude-sonnet-5.5` via OpenRouter, default reasoning, `max_tokens` 16000 |
 | Method | Zero-shot, one request per image: image + prompt listing the CI2N component types and port names → CI2N JSON netlist |
 | Parsing | Last JSON object in the reply containing `ckt_netlist` (handles model self-corrections) |
-| Scoring | `experiments/evaluate.py` (dataset's own GED code), GED timeout 60 s per image |
+| Scoring | `experiments/evaluate.py` + `ged_tools.py`: dataset's GED definition; heuristic upper bound + lower bound, then the dataset's search (60 s) for cheaper paths |
 | Avg. tokens per image | 1,860 in / 1,226 out |
 
 ## Results
@@ -17,8 +17,9 @@
 | Metric | Value |
 |---|---|
 | **Success rate** (GED = 0, exact netlist) | **41.8 %** (51 / 122) |
-| NED, mean / median (all images, upper bound*) | 0.490 / 0.598 |
-| NED, mean / median (56 images with exact GED) | 0.018 / 0.000 |
+| **NED, mean / median** (best known GED*) | **0.137 / 0.110** |
+| NED lower bound, mean / median | 0.079 / 0.055 |
+| Images with exact GED | 65 / 122 (57 bounded) |
 | **Component-count F1** (micro) | **0.954** (P 0.949, R 0.959) |
 | Component-count F1 (macro over images) | 0.959 |
 | Valid JSON output | 122 / 122 (2 recovered from self-corrections, see obs. 4) |
@@ -26,15 +27,15 @@
 | USD per image, mean / median | $0.016 / $0.010 |
 | Total cost / cost per correct netlist | $1.95 / $0.038 |
 
-\* **66 of the 71 imperfect netlists hit the GED timeout**, so their NED is only an upper bound, and often a loose one. Image 095 has 14 predicted vs 12 golden devices with near-identical net structure but scores NED 1.21 (worse than an empty prediction); re-running with a 300 s timeout did not improve it. **The all-images NED overstates the error and should not be reported as-is.** The exact-subset NED is biased the other way (it includes mostly easy, small circuits). The success rate is unaffected because the exact-match (isomorphism) check runs without a timeout.
+\* GED is exact for 65 images (51 identical, 11 search completed, 3 bounds met). For the other 57 the true value lies in a proven range [lower, upper]; NED is reported from the upper bound, so **the true mean NED is between 0.079 and 0.137**. The previous evaluator (dataset search alone) reported 0.490 because it timed out on 66 images with loose values. Example: image 095 went from 1.21 to the range [0.22, 0.30]. The new bounds tightened 65 of the 71 imperfect netlists, never increased a value, and match the old result on every image where the old search finished. The success rate is unchanged.
 
 ### By circuit size (golden device count)
 
-| Size | Images | Success rate | Component F1 (macro) | GED timeouts |
-|---|---|---|---|---|
-| Small (≤ 8) | 31 | 71.0 % | 0.971 | 4 |
-| Medium (9–15) | 61 | 39.3 % | 0.961 | 37 |
-| Large (> 15) | 30 | 16.7 % | 0.942 | 25 |
+| Size | Images | Success rate | NED mean [lower bound] | Component F1 (macro) | GED inexact |
+|---|---|---|---|---|---|
+| Small (≤ 8) | 31 | 71.0 % | 0.059 [0.055] | 0.971 | 1 |
+| Medium (9–15) | 61 | 39.3 % | 0.129 [0.075] | 0.961 | 31 |
+| Large (> 15) | 30 | 16.7 % | 0.233 [0.111] | 0.942 | 25 |
 
 ### Component types with notable errors
 
@@ -62,6 +63,6 @@ Image2Net (hybrid detection + rules pipeline) reports 80.77 % success and 0.116 
 
 ## Caveats and next steps
 
-- **Fix NED reliability before comparing methods.** Options: an exact MIP-based GED or a better initial matching for the search. A longer timeout alone did not help.
+- 57 GED values are still ranges, with an average gap of 0.125 NED, mostly on large circuits. If a method comparison hinges on NED differences smaller than that, an exact solver (integer linear program) would settle it.
 - One run only. VLM output varies, so run 2–3 repeats to get a spread.
 - `log.csv` has 14 extra rows from earlier failed attempts (the JPEG-as-PNG 400 errors, since fixed). The evaluation uses the last row per image.
