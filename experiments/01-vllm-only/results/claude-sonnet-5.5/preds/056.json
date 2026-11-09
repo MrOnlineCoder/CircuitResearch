@@ -1,0 +1,134 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_a",
+                "Gate": "vi1",
+                "Source": "net_tail"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_b",
+                "Gate": "vi2",
+                "Source": "net_tail"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_tail",
+                "Gate": "VBN",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "vo1",
+                "Gate": "VBN",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "vo2",
+                "Gate": "VBN",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_a",
+                "Gate": "VBP",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_b",
+                "Gate": "VBP",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "vo1",
+                "Gate": "net_a",
+                "Source": "net_s7"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "vo2",
+                "Gate": "net_b",
+                "Source": "net_s6"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_s7",
+                "Gate": "vo1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_s6",
+                "Gate": "vo2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net_a",
+                "Neg": "net_c1"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net_c1",
+                "Neg": "vo1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net_b",
+                "Neg": "net_c2"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net_c2",
+                "Neg": "vo2"
+            }
+        },
+        {
+            "component_type": "Voltage",
+            "port_connection": {
+                "Positive": "VDD",
+                "Negative": "VBP"
+            }
+        },
+        {
+            "component_type": "Voltage",
+            "port_connection": {
+                "Positive": "VBN",
+                "Negative": "VSS"
+            }
+        }
+    ]
+}

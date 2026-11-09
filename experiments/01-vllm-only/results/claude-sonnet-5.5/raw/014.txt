@@ -1,0 +1,15 @@
+Reading the schematic: M1 and M2 are PMOS devices with sources at VDD and gates tied together. The gate line drops down and joins M2's drain, so M2 is diode-connected.
+
+M1's drain is the VREF node. The VREF wire runs right and then down to the bases of Q1 and Q2, so the two bases join the VREF net. That makes Q1 diode-connected, with its collector and base both on VREF.
+
+Q1's emitter goes to the bottom wire, which is node X. Q2 (nQ2) has its collector at M2's drain (net1) and its emitter at R1. R1 runs down to X, and R2 runs from X to ground.
+
+Netlist nets:
+- M1 drain = VREF, which connects to the bases and Q1's collector.
+- M2 drain = net1, which connects to the M1/M2 gates and Q2's collector.
+- Q2 emitter = net2, between Q2 and R1.
+- Q1 emitter = X.
+
+The bases of Q1 and Q2 do connect to VREF. The drawing shows the VREF line going right, then down to the base line. The M1/M2 gate line goes down to M2's drain, which sits on the right side.
+
+{"ckt_netlist":[{"component_type":"PMOS","port_connection":{"Drain":"VREF","Gate":"net1","Source":"VDD"}},{"component_type":"PMOS","port_connection":{"Drain":"net1","Gate":"net1","Source":"VDD"}},{"component_type":"NPN","port_connection":{"Base":"VREF","Emitter":"X","Collector":"VREF"}},{"component_type":"NPN","port_connection":{"Base":"VREF","Emitter":"net2","Collector":"net1"}},{"component_type":"Res","port_connection":{"Pos":"net2","Neg":"X"}},{"component_type":"Res","port_connection":{"Pos":"X","Neg":"GND"}}]}

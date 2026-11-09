@@ -1,0 +1,97 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net3",
+                "Source": "VDD",
+                "Body": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Gate": "net3",
+                "Source": "VDD",
+                "Body": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vref",
+                "Gate": "net3",
+                "Source": "VDD",
+                "Body": "VDD"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "net4"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net4",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "net5"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net5",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "net6"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "Vref",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Base": "GND",
+                "Emitter": "net1",
+                "Collector": "GND"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Base": "GND",
+                "Emitter": "net6",
+                "Collector": "GND"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InN": "net4",
+                "InP": "net5",
+                "Out": "net3"
+            }
+        }
+    ]
+}

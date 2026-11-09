@@ -1,0 +1,92 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Source": "VDD",
+                "Gate": "VB1"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Source": "net1",
+                "Gate": "Vi1"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Source": "net1",
+                "Gate": "Vi2"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net4",
+                "Source": "VDD",
+                "Gate": "VB2"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Source": "VDD",
+                "Gate": "VB2"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vo1",
+                "Source": "net4",
+                "Gate": "VBB4"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vo2",
+                "Source": "net5",
+                "Gate": "VBB4"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Vo1",
+                "Source": "net2",
+                "Gate": "VBB3"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Vo2",
+                "Source": "net3",
+                "Gate": "VBB3"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Source": "-VSS",
+                "Gate": "Vcmc"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Source": "-VSS",
+                "Gate": "Vcmc"
+            }
+        }
+    ]
+}

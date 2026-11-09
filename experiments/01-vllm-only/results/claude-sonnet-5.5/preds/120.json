@@ -1,0 +1,81 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Siso_amp",
+            "port_connection": {
+                "In": "VIN",
+                "Out": "net1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Siso_amp",
+            "port_connection": {
+                "In": "net1",
+                "Out": "net2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Siso_amp",
+            "port_connection": {
+                "In": "net2",
+                "Out": "VO"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "VO"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "VO"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VO",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "VO",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net_gate",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vref",
+                "Gate": "net_gate",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "n1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "Vref",
+                "Neg": "net2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "n2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "n1",
+                "Neg": "net3"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "GND",
+                "Emitter": "GND",
+                "Collector": "net3"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "GND",
+                "Emitter": "GND",
+                "Collector": "n2"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InN": "n2",
+                "InP": "n1",
+                "Out": "net_gate"
+            }
+        }
+    ]
+}

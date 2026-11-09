@@ -1,0 +1,89 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Current",
+            "port_connection": {
+                "In": "VDD",
+                "Out": "net_bias"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_bias",
+                "Gate": "net_bias",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_tail",
+                "Gate": "net_bias",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "VOUT",
+                "Gate": "net_bias",
+                "Source": "VSS"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_m3",
+                "Gate": "VIN1",
+                "Source": "net_tail"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net_m4",
+                "Gate": "VIN2",
+                "Source": "net_tail"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_m3",
+                "Gate": "net_m3",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net_m4",
+                "Gate": "net_m3",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VOUT",
+                "Gate": "net_m4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net_m4",
+                "Neg": "VOUT"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "VOUT",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

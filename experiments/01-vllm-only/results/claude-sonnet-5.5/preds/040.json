@@ -1,0 +1,170 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "BNcas",
+                "Source": "VDD",
+                "Gate": "VB"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "BNcas",
+                "Neg": "BN"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "BN",
+                "Source": "nb1",
+                "Gate": "BNcas"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nb1",
+                "Source": "GND",
+                "Gate": "BN"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nb3",
+                "Source": "VDD",
+                "Gate": "BP"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "BP",
+                "Source": "nb3",
+                "Gate": "BPcas"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "BP",
+                "Neg": "BPcas"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "BPcas",
+                "Source": "nb2",
+                "Gate": "BNcas"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nb2",
+                "Source": "GND",
+                "Gate": "BN"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "na1",
+                "Source": "VDD",
+                "Gate": "BP"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "tail",
+                "Source": "na1",
+                "Gate": "BPcas"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nR",
+                "Source": "tail",
+                "Gate": "Vin-"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nL",
+                "Source": "tail",
+                "Gate": "Vin+"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nL",
+                "Source": "GND",
+                "Gate": "BN"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nX",
+                "Source": "nL",
+                "Gate": "Ncas"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nR",
+                "Source": "GND",
+                "Gate": "BN"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Vout",
+                "Source": "nR",
+                "Gate": "Ncas"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "na5",
+                "Source": "VDD",
+                "Gate": "nX"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nX",
+                "Source": "na5",
+                "Gate": "BPcas"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "na7",
+                "Source": "VDD",
+                "Gate": "nX"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vout",
+                "Source": "na7",
+                "Gate": "BPcas"
+            }
+        }
+    ]
+}

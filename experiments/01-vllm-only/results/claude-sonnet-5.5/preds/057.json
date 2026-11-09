@@ -1,0 +1,55 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Dido_amp",
+            "port_connection": {
+                "InN": "net1",
+                "InP": "net2",
+                "OutN": "Vout-",
+                "OutP": "Vout+"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "Vin-",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "Vin+",
+                "Neg": "net2"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "Vout+"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "Vout-"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "Vout+",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "Vout-",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

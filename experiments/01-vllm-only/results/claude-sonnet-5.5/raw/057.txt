@@ -1,0 +1,12 @@
+Reading the schematic, the amplifier is fully differential. The top input terminal is "-" and the top output terminal is "+". The bottom input terminal is "+" and the bottom output terminal is "-".
+
+Connections:
+- Vin- goes through C1 to the top "-" input (net1).
+- Vin+ goes through C1 to the bottom "+" input (net2).
+- C2 on top runs from the top-left input node (net1) to the top output "+" (Vout+). The top wire leaves the left input at x=185 and comes down to the output at x=390.
+- C2 on the bottom runs from the bottom input node (net2) to the bottom output "-" (Vout-).
+- Each CL runs from its output to GND.
+
+The amplifier's InN is the top "-" input (net1) and its InP is the bottom "+" input (net2). Its OutP is Vout+ and its OutN is Vout-.
+
+{"ckt_netlist":[{"component_type":"Dido_amp","port_connection":{"InN":"net1","InP":"net2","OutN":"Vout-","OutP":"Vout+"}},{"component_type":"Cap","port_connection":{"Pos":"Vin-","Neg":"net1"}},{"component_type":"Cap","port_connection":{"Pos":"Vin+","Neg":"net2"}},{"component_type":"Cap","port_connection":{"Pos":"net1","Neg":"Vout+"}},{"component_type":"Cap","port_connection":{"Pos":"net2","Neg":"Vout-"}},{"component_type":"Cap","port_connection":{"Pos":"Vout+","Neg":"GND"}},{"component_type":"Cap","port_connection":{"Pos":"Vout-","Neg":"GND"}}]}

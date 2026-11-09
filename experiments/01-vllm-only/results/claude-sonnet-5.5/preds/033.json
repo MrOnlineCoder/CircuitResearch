@@ -1,0 +1,43 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Voutn",
+                "Gate": "Vip",
+                "Source": "net1"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Voutp",
+                "Gate": "Vin",
+                "Source": "net1"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Voutn",
+                "Gate": "VCMFB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Voutp",
+                "Gate": "VCMFB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Current",
+            "port_connection": {
+                "In": "net1",
+                "Out": "GND"
+            }
+        }
+    ]
+}

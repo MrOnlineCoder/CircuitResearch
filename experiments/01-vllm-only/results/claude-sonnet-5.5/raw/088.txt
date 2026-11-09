@@ -1,0 +1,16 @@
+Reading the schematic: the top rail is VDD, and there are two PMOS devices on top (left and right) and two lower transistors, MP1 and MP2, which are drawn as NMOS.
+
+**Top PMOS pair**
+- Both sources connect to VDD.
+- Their gates are tied together and to the left PMOS drain, which makes the left PMOS diode-connected.
+- The left PMOS drain is net1. It also runs down to the drain of MP1.
+- The right PMOS drain is net2. It connects to the drain and gate of MP2 (diode-connected), and to the gate of MP1.
+
+**Lower NMOS pair**
+- MP1 has its drain on net1, its gate on net2, and its source on net3, which goes to RP1.
+- MP2 has its drain on net2, its gate on net2, and its source on GND.
+- RP1 runs from net3 to GND.
+
+**Gate net:** the line from the MP1 gate to the MP2 gate has a dot that connects it to the MP2 drain wire. The MP2 gate is therefore net2, the same net as its drain.
+
+{"ckt_netlist":[{"component_type":"PMOS","port_connection":{"Drain":"net1","Gate":"net1","Source":"VDD"}},{"component_type":"PMOS","port_connection":{"Drain":"net2","Gate":"net1","Source":"VDD"}},{"component_type":"NMOS","port_connection":{"Drain":"net1","Gate":"net2","Source":"net3"}},{"component_type":"NMOS","port_connection":{"Drain":"net2","Gate":"net2","Source":"GND"}},{"component_type":"Res","port_connection":{"Pos":"net3","Neg":"GND"}}]}

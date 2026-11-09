@@ -1,0 +1,9 @@
+This is a bandgap core. Both bipolar transistors are PNP with the collector and base tied to ground, and the emitter on top.
+
+The left branch runs from the op-amp's inverting node (net1) through R1 to net3, the emitter of the N-times-area PNP. The right branch has the non-inverting node (net2) connected directly to the emitter of the single PNP.
+
+Each R2 connects the op-amp output (VOUT) to one of the two input nets. The left R2 goes from the output to net1, and the right R2 goes from the output to net2.
+
+The diagram shows the base and collector shorted together and to ground, so I treat both as GND.
+
+{"ckt_netlist":[{"component_type":"Diso_amp","port_connection":{"InN":"net1","InP":"net2","Out":"VOUT"}},{"component_type":"Res","port_connection":{"Pos":"VOUT","Neg":"net1"}},{"component_type":"Res","port_connection":{"Pos":"VOUT","Neg":"net2"}},{"component_type":"Res","port_connection":{"Pos":"net1","Neg":"net3"}},{"component_type":"PNP","port_connection":{"Base":"GND","Emitter":"net3","Collector":"GND"}},{"component_type":"PNP","port_connection":{"Base":"GND","Emitter":"net2","Collector":"GND"}}]}

@@ -1,0 +1,351 @@
+Circuit/Schematic Diagram Recognition and Conversion to Machine-Readable Formats: A 2024–
+2026 Survey with Emphasis on VLMs/MLLMs
+TL;DR
+    SPICE netlist is the dominant target, and the field has converged on a clear verdict: hybrid pipelines (object detection + explicit
+    wire/net reasoning + LLM serialization/repair) still decisively beat end-to-end MLLMs for full connectivity. Pipeline systems
+    report 80–97% netlist-level accuracy (Image2Net 80.77% success / 0.116 NED; SINA 96.67%), whereas off-the-shelf MLLMs are
+    strong on component perception but collapse on global connectivity.
+    The perception-vs-connectivity gap is now quantified: on AMSbench, Gemini-2.5-Pro reaches 94% component-type classification
+    but topology NED remains far from ground truth (0.91) and “connection identification” naming drops to ~0.60; on CircuitSense,
+    Gemini-2.5-Pro’s accuracy falls from 80.71% on curated multiple-choice to 19.06% on synthetic equation derivation (~61-point
+    collapse). This is the direct analog of the perception-vs-global-structure gap familiar from table-structure recognition.
+    For a Document-AI practitioner, the actionable recipe is: detector (YOLO/DETR/Swin) for components + designators,
+    deterministic net reconstruction (CCL/Hough + crossing-vs-junction disambiguation), then a fine-tuned code-LLM/VLM
+    (Qwen2.5/3-VL, InternVL) served on vLLM for serialization, error-repair, and bulk corpus/synthetic-data generation — with
+    graph-isomorphism / netlist-edit-distance validation in the loop.
+Key Findings
+ 1. Output formats. SPICE netlist is the near-universal target for analog/mixed-signal (AMS) work; graph/adjacency (heterogeneous
+    graphs, pin-level graphs, GraphML/JSON) is the internal representation of choice for GNN methods and validation; there is no
+    widely adopted “circuit-XML” benchmark standard — CGHD ships PASCAL-VOC XML for bounding boxes, not circuit topology,
+    and EDIF/KiCad/ .asc formats appear as tool outputs rather than recognition targets. Verilog/RTL is a digital target largely disjoint
+    from the schematic-recognition literature (it is generated from specs, not recognized from images). “Compact netlist” DSLs are an
+    emerging token-efficiency play (ChatSCH’s Compact Netlist reduces token overhead by ~85%; AnalogGenie’s Eulerian pin-
+    sequence).
+ 2. Three problem regimes with distinct communities. (a) Printed/typeset AMS schematics from textbooks/papers — the EDA-driven
+    mainstream (AMSNet, Masala-CHAI, Image2Net, Netlistify, SINA, AnalogSeeker). (b) Hand-drawn/handwritten —
+    education/digitization-driven, centered on DFKI’s CGHD and the ICDAR/document-analysis community (Digitize-HCD, JUHCCR-
+    v1, Modular Graph Extraction). (c) Board-level/PCB and digital — smaller, newer (SINA’s PCB support, ChatSCH/DesignSCH-CoT
+    board-level).
+  3. The empirical MLLM result is consistent across benchmarks: perception (component detection/classification) is largely solved by
+     frontier closed models; connectivity reconstruction and downstream symbolic/design reasoning are not.
+Details
+1. Output formats and token-length implications
+SPICE netlist (dominant). The canonical machine-readable target. Each device line ( M0 1 2 4 4 pch , R0 2 0 1k ) binds a component
+to its nets. This is what AMSNet, Auto-SPICE/Masala-CHAI, Image2Net, Netlistify, SINA, and the AMSbench “perception” task all target.
+SPICE is attractive because it is directly simulable (ngspice), enabling simulation-equivalence checking and closed-loop repair.
+Graph/adjacency representations. Internally, most robust methods reconstruct a graph first and serialize to SPICE second. Variants: (i)
+component-nodes + net-nodes bipartite/heterogeneous graphs (Image2Net “transforms the circuit netlist into an equivalent
+heterogeneous graph” for its NED metric; GAT-parsing uses link prediction over detected components); (ii) pin-level graphs where each
+node is a device pin (AnalogGenie), sequentialized into an Eulerian trail for compact autoregressive generation; (iii) subgraph-basis DAGs
+(CktGNN’s two-level nested GNN over a known subgraph basis). JSON/GraphML are used as interchange but no single schema
+dominates.
+XML. Important negative finding for the Document-AI reader: there is no established circuit-topology-XML recognition benchmark.
+CGHD annotations are PASCAL-VOC XML encoding symbol bounding boxes, rotation, and text strings — i.e., detection ground truth, not
+a netlist. EDIF and KiCad/EESchema/Xschem formats exist as EDA tool I/O (Schemato targets LTspice .asc ; automatic schematic-
+generation tools emit Xschem/KiCad), but recognition papers do not evaluate against them as canonical targets. This contrasts sharply
+with document AI, where formats like ALTO/PAGE-XML and HTML-table markup are standardized recognition targets.
+Verilog/RTL. Belongs to the digital design-generation literature (VeriGen, AutoChip, RTLLM). It is generated from natural-language specs
+or synthesized, not recognized from schematic images; the schematic-recognition pipeline and RTL-generation pipeline are largely
+disjoint communities that share only the “LLM for EDA” umbrella.
+Compact-netlist DSLs and token length. Serialized targets have direct VLM-decoding cost. A transistor-level netlist can run to hundreds
+of lines; Masala-CHAI explicitly analyzes the distribution of “#lines of SPICE code” as a difficulty axis. This motivates: (i) compact DSLs —
+per ChatSCH (Wang et al., ICIC 2026, doi 10.1007/978-981-92-3441-7_32), “we construct DesignSCH-CoT, the first board-level schematic
+dataset with explicit Chain-of-Thought supervision, comprising 3,781 samples in a Compact Netlist format that reduces token overhead by
+nearly 85%”; and AnalogGenie’s Eulerian pin-sequence “that efficiently describes large circuit graphs”; and (ii) the practical observation
+that long netlists blow past attention/positional budgets and inflate error rates — the “long-netlist token limit” open problem. For a
+decoder, every extra net name and designator is more tokens to emit correctly, and a single mis-emitted net silently corrupts topology
+(exact-match and simulation-equivalence both fail).
+2. Approaches
+Modular / pipeline methods (current SOTA for connectivity)
+The dominant architecture mirrors document structure recognition: detect primitives → localize connection points → reconstruct
+adjacency → serialize. Component detection ≈ cell detection; wire/net reconstruction ≈ table structure/adjacency recovery.
+     AMSNet (arXiv 2405.09045; IEEE LAD 2024; Tao, Shi et al.). The seminal pipeline+dataset. Component detection (object
+     detection over textbook-harvested symbols) + net detection under two assumptions: nets are solid lines, and intersecting wires
+     without a junction dot are not connected. Summary drawn “from 894 schematics”; the initial public release comprised 734 netlists
+     (the baseline Masala-CHAI later cites). Followed by AMSnet 2.0 (arXiv 2505.09155) adding AI segmentation for net detection and
+     richer visual info, and aiming at netlist→schematic generation.
+     Parsing Netlists via GAT (Hu, Zhan, Tong; Sensors 2024, 24(1):227, doi 10.3390/s24010227). Bottom-up graph encoding: an
+     improved Swin-Transformer detector with a DC-PAFPN feature-fusion neck, a port-coordinate localization module, and a Graph
+     Attention Network link-prediction head. Annotated a 1,200-sample component-detection set and a 3,552-sample circuit set.
+     Canonical example of casting net reconstruction as edge/link prediction over a component graph — directly analogous to adjacency-
+     matrix prediction in table structure recognition.
+     Modular Graph Extraction (Bayer et al., arXiv 2402.11093). The hand-drawn counterpart, built on CGHD. Explicit modular
+     pipeline: object detection → geometric/structural processing (junctions, wire hops) → graph assembly. Uses drafter splits (e.g.,
+     drafters 21–22 for validation) that became a de-facto handwritten baseline.
+     Masala-CHAI (arXiv 2411.14299; evolved from Auto-SPICE). Fully automated textbook→SPICE pipeline: (i) YOLOv8
+     schematic/figure extraction from paginated PDFs, (ii) fine-tuned component detectors, (iii) deep Hough-transform priors for net
+     identification, (iv) LLM prompt-tuning for netlist repair, (v) post-extraction verification via graph matching. Per Bhandari et al., it
+     curated “a corpus of ∼7,500 SPICE netlists with metadata (figure captions, components, and nodes) from 10 textbooks … the largest
+     curated and labeled SPICE dataset available currently,” dwarfing the AMSNet baseline of 734 netlists. A later multi-agent variant
+     (Agent-1 lists components, Agent-2 traces connectivity + runs ngspice, a Judge verifies, up to 2 revisions). Earlier Auto-SPICE (arXiv
+     2411.14299v1) produced ~2,100 netlists from a single sample textbook and did the GPT-4o failure-mode case study (NMOS/PMOS
+     confusion, floating nets).
+     Netlistify (MLCAD 2025, doi 10.1109/MLCAD65511.2025.11189145; Huang, Chen, … Po-Hung Lin, Wen-Hao Liu, Haoxing Ren;
+     NVIDIA/NYCU; Best Artifact Award). Deep-learning-based component recognition + orientation detection + learned connectivity
+     extraction (vs fixed geometric rules). Ships a 100,000-image synthetic schematic dataset for training line detection/interpretation.
+     SINA (arXiv 2607.01609 and DATE’26 version arXiv 2601.22114; Aldowaish et al., Fayazi group). Fully automated, open-source,
+     handles both IC- and PCB-level. YOLOv11 detection + Connected-Component Labeling (CCL) for connectivity + OCR for
+     reference designators + a VLM (GPT-4o) for designator assignment, plus a dedicated crossing-wires detection module
+     (morphological transforms + contour analysis) to separate junctions from crossings. Validated with graph isomorphism. Per
+     Aldowaish et al., “SINA achieves a component detection precision of 98% for IC-level and 94% for PCB-level circuits, along with a
+     text … extraction accuracy of 97.5% … an overall netlist generation accuracy of 96.67%, which is 2.72x higher compared to a state-of-
+     the-art open-source method [Masala-CHAI],” and adds a crossing accuracy of 87% with crossing precision of 100%. The detector is
+     fine-tuned on >700 annotated schematics. (The DATE’26 version reports the alternate figures: 96.47% overall accuracy, detector F1
+     96.47% with precision 94%/recall 99%/weighted mAP 98%.)
+     Img2Sim / Img2Sim-V2 (Gurbuz, Balta et al.). CAD tool for user-independent simulation directly from circuit images — an applied
+     pipeline in the same family.
+     Vision-Based Topology-Consistent Structural Parsing (PMC13259090). Hand-drawn parsing unifying CGHD + Digitize-HCD +
+     new samples into a 57-class label system (54 component + text/terminal/crossover). Reports 98.03% component-classification
+     accuracy on JUHCCR-v1 (33,329/34,000), beating a 91.15% reference by 6.88 pts, and CGHD mAP@0.5:0.95 under the dataset-paper
+     and Bayer-split protocols.
+Validation primitives across these: graph isomorphism (SINA, Masala-CHAI), netlist edit distance (Image2Net), and SPICE-simulation
+checks (ngspice in the loop).
+End-to-end VLM/MLLM methods
+Feeding a schematic image to an MLLM and decoding a netlist directly. Consistent empirical finding: off-the-shelf MLLMs are strong at
+component perception/classification but weak at full connectivity/netlist reconstruction.
+     AMSNet GPT-4/GPT-4o experiments (and the Auto-SPICE/Masala-CHAI case studies) first documented this: GPT-4o mis-lists
+     components, confuses NMOS/PMOS, and produces floating nets.
+     AMSbench (arXiv 2505.24138; Shi et al.). ~8,000 questions over AMS-Perception (6k), AMS-Analysis (2k), AMS-Design (68),
+     evaluating GPT-4o, Gemini-2.5-Pro, Claude-3.7-Sonnet, Grok-3, Doubao-1.5-vision-pro, Kimi-VL-A3B, Qwen2.5-VL-72B (+ DeepSeek-
+     R1 on TQA). Per Shi et al., “For component type classification, Gemini performs well, reaching 94% accuracy. Among open-source
+     models, Qwen2.5-VL achieves 86%.” But interconnect/netlist recognition lags: topology NED 0.91 (Gemini), 1.40 (GPT-4o), 2.38
+     (Qwen2.5-VL); connection-judgment (true/false) ACC reaches ~0.85 for Gemini, yet connection-identification (naming connected
+     elements) ACC is only ~0.60 (Gemini), 0.16 (GPT-4o), 0.14 (Qwen2.5-VL). Authors’ verdict: “While the models can produce
+     reasonably accurate predictions for local connections, they fall short in reconstructing the complete netlist. Even netlists produced
+     by the best-performing model, Gemini-2.5-Pro, require substantial modifications to align with the ground truth.” Root cause: “MLLMs
+     are inaccurate in assigning connection points (i.e. pins and ports) to their parent components.” On analysis, the industry-relevant
+    trade-off (“Engineer”) sub-task is a low point — “Even the best-performing model, GPT-4o, only achieves 58% accuracy.” On design
+    Pass@k, Grok-3/Claude-3.7 lead (Pass@3 up to 0.65), but no model reliably generates syntactically correct testbenches.
+    CircuitSense (arXiv 2509.22339; Akbari et al.). 8,006+ problems, six abstraction levels, Perception (890)/Analysis (7,043)/Design
+    (157). Headline: “Closed-source models achieve over 85% accuracy on perception tasks … yet their performance on symbolic
+    derivation and analytical reasoning falls below 19%.” Gemini-2.5-Pro scores 100% component detection, 100% connection
+    identification, 95% function classification on perception. Per Akbari et al., “Gemini-2.5-Pro’s accuracy drops from 80.71% on curated
+    multiple-choice problems to 70.32% on open-ended versions, and further collapses to 19.06% on synthetic problems requiring direct
+    equation derivation” — an ~61.65-point collapse. Failure-point analysis pins the bottleneck at output-impedance derivation (8%).
+    Design accuracy correlates with symbolic ability (Gemini-2.5-Pro: 36.38% schematic-level, 67.27% block-level, 51.35% hierarchical).
+    Image2Net (arXiv 2508.13157; Xu et al.; ISEDA 2025). Positions hybrid vs pure-LLM head-to-head and wins: 80.77% success rate,
+    +34.62–45.19 pts over prior works; 0.116 average NED, 62.1–69.6% lower than SOTA. Releases device-identification, crossing-
+    identification, and device-orientation datasets (2,914 diagrams, 84,195 annotations) plus a 104-pair manually verified eval set and the
+    NED metric.
+Fine-tuned VLMs and text-side LLMs
+    AnalogSeeker (arXiv 2508.10409). Fine-tunes Qwen2.5-32B-Instruct via a “neighborhood self-constrained SFT” (NSC-SFT) that
+    adds a KL term anchoring to the base model — an explicit catastrophic-forgetting mitigation. Per the paper, “we train the Qwen2.5-
+    32B-Instruct model to obtain AnalogSeeker, which achieves 85.04% accuracy on AMSBench-TQA … with a 15.67% point
+    improvement over the original model, and is competitive with mainstream general-purpose LLMs like DeepSeek-v3 and GPT-4o”
+    (base 69.37%; QwQ-32B 81.54%; GPT-4o 73.99%; DeepSeek-v3 84.41%). Finding: at textbook-corpus scale, SFT alone beats CPT+SFT
+    (<1% delta from adding CPT); “Instruct” models are more robust to fine-tuning than “reasoning” models. Note this is a text-only
+    model (AMSBench-TQA is text QA), not a VLM.
+    NetlistGPT / ChatSCH (Springer, doi 10.1007/978-981-92-3441-7_32). Board-level, logic-geometry-decoupled: NetlistGPT (fine-
+    tuned Qwen2.5-Coder-7B-Instruct) does component selection + netlist construction; deterministic algorithms do layout +
+    Manhattan routing. Introduces DesignSCH-CoT (3,781 Compact-Netlist CoT samples) and DesignSCH-Bench (232 expert tasks).
+    Exemplifies the code-LLM route for the serialization stage.
+    LoRA fine-tuning of Qwen2.5-VL / Qwen3-VL / InternVL on schematic data is the natural open-model recipe; DiagramNet-style
+    progressive training + decoupled multi-agent workflows report large gains (a 3B model + workflow beating GPT-5/Claude-Sonnet-
+    4/Gemini-2.5-Pro by >2× end-to-end on that benchmark, and boosting Gemini-2.5-Pro’s Task-1 performance 128.7×) — evidence that
+    domain adaptation + explicit structure closes much of the frontier-model gap.
+Agentic / multi-agent frameworks
+SPARC (arXiv 2606.20643; Sadia et al.). Multi-agent circuit-diagram QA that grounds reasoning in executable SPICE: a planner
+decides #simulations, agents synthesize/repair ngspice programs (patch generation + repair), and an analysis stage interprets
+outputs. 83% accuracy, up to +58 pts over baselines. (Distinct from the same-acronym VLM test-time-scaling “Separating
+Perception And Reasoning Circuits,” arXiv 2602.06566.)
+MuaLLM (arXiv 2508.08137; Fayazi group). Multimodal LLM agent for circuit-design assistance with hybrid contextual RAG.
+TopoSizing, HeaRT, SABLE. Netlist-understanding/optimization agents: TopoSizing organizes raw netlists into device-module-
+stage hierarchies with LLM hypothesis-verification loops feeding Bayesian optimization; HeaRT is a hierarchical circuit-reasoning-
+tree engine for AMS design optimization. These consume netlists (post-recognition) rather than doing recognition, but define the
+downstream Pass@k tasks that make recognition worthwhile.
+3. Dataset catalog
+Dataset                  Year /       Size                   Classes /        Output / annotation        Regime       Access                       License
+                         venue                               taxonomy
+
+AMSNet / AMSNet-1.0      2024, IEEE   ~894 schematics;       transistor-      SPICE netlists +           Printed     Partial public; tool+full set ⚠ Not
+(arXiv 2405.09045)       LAD          734 netlists public    level (MOS, R,   component/net              (textbooks) promised                      clearly
+                                                             C, junctions)    detection                                                            stated
+
+AMSnet 2.0 (arXiv        2025         Larger; AI-            AMS incl.        Schematic–netlist pairs,   Printed      Project pages                ⚠ Not
+2505.09155)                           segmented nets         richer visual    segmentation                                                         clearly
+                                                             info                                                                                  stated
+
+AMSnet-KG (TODAES        2025, ACM    Schematics+netlists AMS w/        Netlists + KG (RAG for           Printed      ACM DL (paper); data via     ⚠ Not
+2025, doi                TODAES       + knowledge graph functional/perf auto-design)                                  project                      clearly
+10.1145/3736166; arXiv                                    annotations                                                                              stated
+2411.13560)
+
+AMSbench (arXiv          2025         ~8,000 QA              AMS              MCQ/F1/NED/pass@k;         Printed      HF: wwhhyy/AMSBench  ⚠ Per HF
+2505.24138)                           (Perception 6k /                        netlist-from-schematic                  (+AMSbench/AMSbench) card
+                                      Analysis 2k / Design                                                                                 (unverified)
+                                      68)
+
+Masala-CHAI (arXiv       2024/25      ~7,500 netlists, 10    passive+active   SPICE + captions/KPIs;     Printed      GitHub jitendra-             Open-
+2411.14299)                           textbooks              analog           graph-match verify                      bhandari/Masala-CHAI         source (per
+                                                                                                                                                   repo
+                                                                                                                                                   LICENSE;
+                                                                                                                                                   SPDX
+                                                                                                                                                   unverified)
+
+Auto-SPICE (arXiv        2024         ~2,100 netlists (1     analog           SPICE + metadata           Printed      GitHub (same repo)           Open-
+2411.14299v1)                         textbook)                                                                                                    source (per
+                                                                                                                                                   repo; SPDX
+                                                                                                                                                   unverified)
+Dataset                Year /      Size                  Classes /       Output / annotation         Regime        Access                   License
+                       venue                             taxonomy
+
+Image2Net datasets     2025,       2,914 diagrams /      rich device     device-ID / crossing-ID     Printed       Open-sourced (project    ⚠ Per repo
+(arXiv 2508.13157)     ISEDA       84,195 annotations;   types +         / orientation + netlists;   (mixed        repo)                    (unverified)
+                                   104-pair eval         crossings +     NED metric                  styles)
+                                                         orientation
+
+Netlistify dataset     2025        100,000 schematic     AMS             line detection / netlist    Printed       GitHub NYCU-AI-          ⚠ Per repo
+(MLCAD 2025)                       images                components +    interpretation              (synthetic)   EDA/Netlistify (+        (unverified)
+                                                         orientation                                               pretrained models)
+
+SINA benchmark         2026, DATE >700 annotated         IC + PCB        SPICE netlists; graph-      Printed +     Open-sourced             ⚠ Per repo
+(arXiv 2607.01609 /               (detector); IC+PCB     components      iso validation              some                                   (unverified)
+2601.22114)                       eval                                                               hand-
+                                                                                                     drawn
+
+AnalogGenie dataset    2025        >3,000 distinct       Op-Amp, LDO,    pin-level graph /           N/A           GitHub xz-               ✅ MIT
+(arXiv 2503.00205,                 topologies (×70       bandgap,        Eulerian sequence           (topology,    group/AnalogGenie; HF    (confirmed)
+ICLR’25)                           aug); ~2,165 raw      comparator,                                 not           JianGao666/AnalogGenie
+                                   netlists              PLL, LNA, PA,                               images)
+                                                         mixer, VCO …
+
+CktGNN / OCB (arXiv    2023        10,000 op-amps        op-amp         DAG graphs + specs      N/A                GitHub zehao-            ⚠ Per repo
+2308.16406, ICLR’23)               (Ckt-Bench-           subgraph basis (igraph/ptgraph/tensor) (graphs)           dong/CktGNN              (unverified)
+                                   101/301)
+
+CircuitSense (arXiv    2025/26     8,006 problems        18 component    symbolic equations          Printed +     Project data             ⚠ Per
+2509.22339)                        (2,986 curated +      types, 6        (SymPy-checked),            synthetic                              release
+                                   5,020 synthetic);     hierarchy       perception, design                                                 (unverified)
+                                   Perception 890 /      levels
+                                   Analysis 7,043 /
+                                   Design 157
+Dataset                   Year /      Size                  Classes /         Output / annotation       Regime      Access                  License
+                          venue                             taxonomy
+
+CGHD (Zenodo              2021→2024, 3,173 annotated        59 object         bboxes (PASCAL-VOC        Hand-       Zenodo / TC-11; HF      ✅ CC BY
+14042961 / TC-11 /        ICDAR      images, 30 drafters,   classes           XML), rotation/mirror,    drawn       lowercaseonly/cghd;     4.0 (data,
+Thoma & Bayer, DFKI)                 ~300 circuits;         (symbols,         text strings,                         GitHub DFKI/cghd        confirmed);
+                                     245,962 bboxes; 284    junctions, wire   segmentation                                                  code MIT
+                                     segmentation maps;     hops, text)
+                                     59 classes
+
+Digitize-HCD (Data in      2025       1,277 images, 176     17 component-     symbol detection + text   Hand-       Mendeley Data           ✅ CC BY
+Brief 2025, doi                       volunteers; 18,602    symbol classes    label + port-location     drawn       (rngcz5wtv8)            4.0 (Data-
+10.1016/j.dib.2025.111315;            instances; 11,936                       heatmaps (JSON/PNG)                                           in-Brief /
+Mendeley rngcz5wtv8)                  text labels                                                                                           Mendeley
+                                                                                                                                            standard)
+
+JUHCCR-v1 (Sci.           2025        20 component          20 hand-          component images +        Hand-       GitHub                  Article CC
+Reports 2025, s41598-                 classes + synthetic   drawn             class labels (+           drawn       AyushRoy2001/Circuit-   BY 4.0;
+025-22404-5)                          augmentations         component         orientation/distortion                Component-Analysis;     data/code
+                                      (34,000 test          types             aug)                                  Nature                  per repo
+                                      instances used                                                                                        (unverified)
+                                      downstream)
+
+DesignSCH-CoT /           2025/26     3,781 CoT samples;    board-level       Compact-Netlist +         Board-level Springer (paper)        ⚠ Per
+DesignSCH-Bench                       232 eval tasks        components        Chain-of-Thought          (printed)                           paper
+(ChatSCH, Springer)                                                                                                                         (availability
+                                                                                                                                            on request)
+
+SpiceNetlist              —           SPICE netlist         analog devices    SPICE text                N/A         (text corpus)           ⚠ Not
+                                      corpus (text)                                                                                         stated
+
+
+License-column key. ✅ = license verified at source (Zenodo record, HF dataset card, or Data-in-Brief venue policy). ⚠ = an explicit SPDX
+license was not confirmed from the source; the repo/card may still carry one — check the LICENSE file before redistribution or commercial
+use. “Per repo (unverified)” means the code/data is publicly downloadable but I could not confirm the specific license text. Confirmed
+permissive: AnalogGenie (MIT). Confirmed share-with-attribution: CGHD (CC BY 4.0), Digitize-HCD (CC BY 4.0), and the JUHCCR-v1
+article (CC BY 4.0) — note the article license does not automatically cover the linked GitHub data/code. For any dataset marked ⚠, do not
+assume open/commercial terms; several AMSNet-family releases in particular state no license and are best treated as research-only until
+clarified with the authors.
+Additional 2025–2026 datasets/benchmarks surfaced: OmniSch (LMM schematic understanding + spatial netlist graph construction
+benchmark), DiagramNet (10,977 connection annotations + 15,515 CoT QA over system-level diagrams), and the 2024/2025 China
+Postgraduate IC Innovation Competition · EDA Elite Challenge contest data (edachallenge.cn) used as a de-facto competitive
+benchmark.
+4. Benchmarks & metrics
+     Component detection: mAP / mAP@0.5:0.95 (CGHD task, GAT-parsing, Vision-Based Structural Parsing), precision/recall (SINA
+     98% IC / 94% PCB).
+     Text/designator: OCR accuracy (SINA 97.5%).
+     Connectivity/net accuracy: connection judgment ACC + connection identification F1 (AMSbench); link-prediction accuracy (GAT-
+     parsing).
+     Graph-level: graph isomorphism pass (SINA, Masala-CHAI), graph edit distance; Netlist Edit Distance (NED) — Image2Net’s
+     contribution, computed on the heterogeneous graph, and adopted as “Topology NED” in AMSbench.
+     Netlist exact-match / success rate: Image2Net 80.77% success; SINA 96.67%.
+     SPICE-simulation equivalence: ngspice execution in Masala-CHAI, SPARC.
+     Downstream Pass@k: Masala-CHAI (fine-tuned models >40% Pass@1 on complex circuits where base ≈0); AMSbench design
+     Pass@3/5/10; CircuitSense design accuracy.
+The perception-vs-connectivity gap, quantified. AMSbench: 94% component-type classification vs 0.91 topology NED and ~0.60
+connection-identification (Gemini-2.5-Pro), collapsing to 0.14–0.16 for GPT-4o/Qwen2.5-VL. CircuitSense: >85% perception vs 19.06%
+synthetic equation derivation (80.71→19.06, ~61-point drop for the best model). This is the exact structural signature the Document-AI
+reader knows from table structure recognition: local cell/component detection is easy; global adjacency/reading-order/net reconstruction
+is where systems fail, and it is where explicit structural modeling (GNN link prediction, CCL, graph-iso validation) outperforms end-to-
+end decoding.
+5. Parallels to document structure recognition
+     Component detection ≈ cell/word detection. Same detectors (YOLO, Faster R-CNN, DETR-family, Swin), same long-tail-class and
+     small-object problems; textbook uniformity is exploited exactly as in born-digital document harvesting.
+     Net reconstruction ≈ table structure / adjacency recovery. Predicting which pins share a net is isomorphic to predicting which cells
+     share a row/column — hence GAT link-prediction and heterogeneous-graph formulations. Endpoint snapping / junction detection ≈
+     ruling-line and cell-boundary reconstruction.
+     Crossing-vs-junction disambiguation ≈ spanning-cell / merged-cell ambiguity — a local visual cue (junction dot vs hop) with
+     global topological consequences, which is why SINA and Image2Net build dedicated crossing modules (SINA reports 87% crossing
+     accuracy / 100% crossing precision).
+     The perception-vs-global-structure gap is the shared failure mode; the field’s response (hybrid perception + explicit structure +
+     LLM repair) mirrors the trajectory of table recognition away from pure end-to-end image-to-markup.
+     Synthetic data generation — rendering schematics from SPICE (Netlistify’s 100k, CircuitSense’s grid-based generator with SymPy
+     ground-truth) is the direct analog of programmatic table/document synthesis.
+Recommendations
+Staged build recipe (highest expected accuracy today):
+ 1. Perception stage. Fine-tune a strong detector (YOLOv11 as in SINA, or a DETR/Swin variant per GAT-parsing) on CGHD + Digitize-
+    HCD + Image2Net device sets for components, junctions, wire-hops/crossings, and text regions. Target mAP/precision >95% on
+    printed, and expect a domain gap on hand-drawn — train per-regime or mix. Benchmark: if component precision <90%, connectivity
+    cannot recover; fix perception first.
+ 2. Connection points + net reconstruction. Add explicit port/pin localization (port-heatmaps as in Digitize-HCD; port-coordinate
+    module as in GAT-parsing) and reconstruct nets deterministically via CCL + Hough with explicit crossing-vs-junction
+    disambiguation (morphological/contour, SINA-style). This is the single highest-leverage stage — it is where end-to-end MLLMs fail.
+ 3. Serialization + repair. Use a fine-tuned code-LLM (Qwen2.5-Coder-7B/32B, cf. NetlistGPT) or VLM (Qwen2.5-VL / Qwen3-VL,
+    InternVL) to assign reference designators/values and emit SPICE, with the schematic image as visual context (SINA-style VLM
+    designator assignment). Prefer a compact-netlist DSL intermediate (ChatSCH-style, ~85% token reduction) for long circuits, then
+    expand to full SPICE.
+ 4. Validation loop. Verify with graph isomorphism against the reconstructed graph and, where component values exist, ngspice
+    simulation-equivalence (SPARC/Masala-CHAI closed loop). Use NED (Image2Net) as the continuous training/eval signal rather
+    than brittle exact-match.
+When to consider pure end-to-end VLM: only for perception-heavy sub-tasks (component listing/classification, captioning, QA) or as a
+repair/serialization module — not for standalone full-netlist extraction. The benchmarks are unambiguous that this underperforms
+hybrids today.
+Serving with vLLM for bulk conversion + synthetic-data generation:
+     Serve Qwen2.5-VL/Qwen3-VL or InternVL with vllm serve , using tensor/data parallelism ( --tensor-parallel-size , --data-
+     parallel-size ), --limit-mm-per-prompt to cap image inputs, --max-model-len sized to your longest netlist (native 128K; 64K
+     typical), and --mm-encoder-tp-mode data to replicate the small ViT encoder (ViT ≈ 675M vs 72B LM). Use --gpu-memory-
+     utilization 0.95 to maximize KV cache; on A100-80GB, TP≥2 for the 72B to avoid OOM.
+     Exploit vLLM guided/structured decoding (guided_json / grammar) to constrain output to a netlist grammar — this directly attacks
+     format-invalid outputs (the open-source-model failure noted in AMSbench, where some models “fail to produce outputs in the
+     correct format”) and reduces repair cycles.
+     For synthetic-data generation at scale, render schematics from a SPICE/topology corpus (AnalogGenie topologies, OCB, CktGNN
+     generators; Netlistify’s 100k pipeline; CircuitSense’s grid generator with SymPy ground-truth) and use the vLLM-served VLM for
+     augmentation/captioning. Textbook harvesting (AMSNet/Masala-CHAI YOLO-on-PDF) remains the best source of realistic printed
+     styles.
+Open-model choices. Qwen3-VL (multiple sizes incl. 235B-A22B MoE) and InternVL3 for perception; Qwen2.5-Coder-7B/32B for
+serialization/repair; 3–7B fine-tunes are sufficient when paired with an explicit structural stage (DiagramNet-style 3B beating frontier
+models end-to-end with the right workflow).
+Metric thresholds that should change your plan: if topology NED plateaus >0.3 or graph-iso pass-rate <80% after detector
+improvements, the bottleneck is net reconstruction/crossing disambiguation, not perception — invest there. If designator/value errors
+dominate, add OCR + VLM cross-checking (SINA). If long circuits fail disproportionately, move to a compact DSL and chunk.
+Caveats
+     Reported numbers are authors’ own, mostly on self-constructed benchmarks and largely unaudited (AMSbench, CircuitSense,
+     SINA, Image2Net are arXiv preprints; cross-comparability is limited because NED, success-rate, and iso-pass are defined per-paper).
+     SINA’s two versions report 96.67% vs 96.47% overall accuracy — minor version drift.
+     CircuitSense preprint has internal naming inconsistencies (Gemini-2.0 vs 2.5-Pro; Claude-Sonnet-3.5 vs 4; a Table-7 percentage
+     mismatch on total-impedance vs transfer-function-simplification); treat the best model as Gemini-2.5-Pro per its appendix version
+     spec ( gemini-2.5-pro-preview-0605 ).
+arXiv IDs with “26xx” prefixes (SINA 2607.01609, SPARC 2606.20643, AnalogRetriever 2604.x, AnalogToBi 2603.x, DATE’26
+2601.22114) correspond to 2026 submissions consistent with the current date; several are very recent and may revise.
+No standardized circuit-XML recognition target exists — do not expect an EDIF/KiCad benchmark; SPICE + graph are the real
+targets.
+Hand-drawn ↔ printed ↔ PCB generalization is unsolved; models trained on one regime degrade on others (the 57-class
+unification in Vision-Based Structural Parsing is a partial answer).
+Catastrophic forgetting during domain fine-tuning is real; AnalogSeeker’s NSC-SFT (KL-anchored SFT) and preference for
+Instruct-over-reasoning bases are the current mitigations.
+AnalogSeeker is text-only (AMSBench-TQA is textual QA); its 85.04% is not a schematic-image result and should not be read as
+image-netlist accuracy.
+Several “systems” (SpiceNetlist) are thinly documented in public sources; treat as corpora rather than benchmarked pipelines.
+

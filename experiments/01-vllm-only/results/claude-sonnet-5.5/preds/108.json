@@ -1,0 +1,96 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VA",
+                "Gate": "VC",
+                "Source": "VCC"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VB",
+                "Gate": "VC",
+                "Source": "VCC"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "V1",
+                "Gate": "VC",
+                "Source": "VCC"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "V2",
+                "Gate": "VC",
+                "Source": "VCC"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InN": "VA",
+                "InP": "VB",
+                "Out": "VC"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "VA",
+                "Emitter": "GND",
+                "Collector": "VA"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VB",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "net1",
+                "Emitter": "GND",
+                "Collector": "net1"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "V1",
+                "Emitter": "GND",
+                "Collector": "V1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "V1",
+                "Neg": "VREF"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VREF",
+                "Neg": "V2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "V2",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

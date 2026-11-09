@@ -1,0 +1,50 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VREF",
+                "Gate": "net1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "VREF",
+                "Emitter": "X",
+                "Collector": "VREF"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Base": "VREF",
+                "Emitter": "net2",
+                "Collector": "net1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "X"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "X",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

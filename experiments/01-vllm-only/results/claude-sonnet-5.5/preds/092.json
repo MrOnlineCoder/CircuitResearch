@@ -1,0 +1,94 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "Vin+",
+                "Source": "net3"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Gate": "Vin-",
+                "Source": "net3"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "GND",
+                "Gate": "VCMFB",
+                "Source": "net3"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Vout-",
+                "Gate": "net4",
+                "Source": "net1"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "Vout+",
+                "Gate": "net4",
+                "Source": "net2"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vout-",
+                "Gate": "net5",
+                "Source": "net6"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "Vout+",
+                "Gate": "net5",
+                "Source": "net7"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net6",
+                "Gate": "V1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net7",
+                "Gate": "V1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Dido_amp",
+            "port_connection": {
+                "InN": "net1",
+                "InP": "net2",
+                "OutN": "net4",
+                "OutP": "net4"
+            }
+        },
+        {
+            "component_type": "Dido_amp",
+            "port_connection": {
+                "InN": "net6",
+                "InP": "net7",
+                "OutN": "net5",
+                "OutP": "net5"
+            }
+        }
+    ]
+}

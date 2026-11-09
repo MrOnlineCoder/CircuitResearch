@@ -1,0 +1,58 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VPTAT1",
+                "Gate": "VPTAT1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "VPTAT1",
+                "Gate": "VPTAT1",
+                "Source": "GND"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "VREF",
+                "Gate": "net_amp",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Base": "GND",
+                "Emitter": "VREF",
+                "Collector": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VCTAT",
+                "Neg": "net_r"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net_r",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InN": "VPTAT1",
+                "InP": "net_r",
+                "Out": "net_amp"
+            }
+        }
+    ]
+}

@@ -1,0 +1,525 @@
+                                              Image2Net: Datasets, Benchmark and Hybrid
+                                             Framework to Convert Analog Circuit Diagrams
+                                                             into Netlists
+                                                     Haohang Xu1, 3 , Chengjie Liu1, 3 , Qihang Wang1, 3 , Wenhao Huang1, 3 , Yongjian Xu1, 3 ,
+                                               Weiyu Chen1, 3 , Anlan Peng1, 3 , Zhijun Li3 , Bo Li3 , Lei Qi2, 3 , Jun Yang2, 3 , Yuan Du1 , and Li Du*1 ,
+                                                              1 School of Electronic Science and Engineering, Nanjing University, Nanjing, China
+                                                                       2 School of Integrated Circuit, South East University, Nanjing, China
+                                                                      3 National Center of Technology Innovation for EDA, Nanjing, China
+
+                                                                             *Corresponding Author: Li Du         Email: ldu@nju.edu.cn
+arXiv:2508.13157v2 [cs.AR] 8 Dec 2025
+
+
+
+
+                                           Abstract—Large Language Model (LLM) exhibits great po-             Operational Amplifier (OPA) design. Despite these efforts,
+                                        tential in designing of analog integrated circuits (IC) because of    LLMs still cannot independently generate netlists. Studies
+                                        its excellence in abstraction and generalization for knowledge.       such as AMSNet [9] demonstrate that even advanced models
+                                        However, further development of LLM-based analog ICs heavily
+                                        relies on textual description of analog ICs, while existing analog    like GPT-4 perform poorly in this task. It’s largely because
+                                        ICs are mostly illustrated in image-based circuit diagrams rather     analog circuits are often represented as images, not textual
+                                        than text-based netlists. Converting circuit diagrams to netlists     netlists, limiting training data for LLMs. More seriously,
+                                        help LLMs to enrich the knowledge of analog IC. Nevertheless,         circuit diagrams are often the core of a textual description
+                                        previously proposed conversion frameworks face challenges in          of a circuit design method, and the absence of these diagrams
+                                        further application because of limited support of image styles and
+                                        circuit elements. Up to now, it still remains a challenging task to   can affect the accurate understanding of large amounts of text.
+                                        effectively convert complex circuit diagrams into netlists. To this   This further exacerbates the shortage of high-quality data in
+                                        end, this paper constructs and opensources a new dataset with         analog circuits.
+                                        rich styles of circuit diagrams as well as balanced distribution          Efforts to convert circuit diagrams to netlists exist but are
+                                        of simple and complex analog ICs. And a hybrid framework,             constrained by varying scales, styles, and complexities of
+                                        named Image2Net, is proposed for practical conversion from
+                                        circuit diagrams to netlists. The netlist edit distance (NED) is      analog ICs. Existing works like AMSNet [9], CHAI [10],
+                                        also introduced to precisely assess the difference between the        AI-Driven [11], and Img2Sim [12] focus on specific, sim-
+                                        converted netlists and ground truth. Based on our benchmark,          plified drawing styles, lacking the ability to handle diverse
+                                        Image2Net achieves 80.77% successful rate, which is 34.62%-           or complex symbols and connections. The quality of training
+                                        45.19% higher than previous works. Specifically, the proposed         datasets significantly impacts conversion performance, but cur-
+                                        work shows 0.116 averaged NED, which is 62.1%-69.6% lower
+                                        than state-of-the-arts. Our datasets and benchmark are available      rent datasets, such as those from AMSNet [9] and V3que [13],
+                                        at https://github.com/LAD021/ci2n datasets.                           are insufficient for large-scale, complex circuit recognition
+                                           Index Terms—Analog Circuit Design, Dataset, EDA, Netlist,          tasks. Moreover, Existing benchmarks lack practical metrics to
+                                        Object Detection, Valuation Method                                    evaluate the ability of frameworks to transform complex circuit
+                                                                                                              diagrams. While accuracy is commonly used, it is insufficient
+                                                               I. I NTRODUCTION                               as it does not detail the errors in specific cases. CHAI [10]
+                                           Analog Integrated Circuit (IC) design remains challenging          uses Graph Edit Distance (GED) for evaluation, but its graph
+                                        due to its heavy reliance on engineer experience and manual           construction from netlists ignores port information, potentially
+                                        effort. While automation could accelerate the process, tradi-         misclassifying incorrect results as correct.
+                                        tional tools offer limited capabilities due to the complexity of          To address the issues mentioned, we open-source our
+                                        abstracting analog circuits. Large Language Models (LLMs)             dataset, which includes device identification, crossing iden-
+                                        present new opportunities for converting design specifications        tification, and device orientation classification datasets. We
+                                        into circuit designs through their knowledge understanding and        also propose a benchmark with manually annotated netlists for
+                                        generalization. For example, there are plenty of researches on        evaluation and introduce an evaluation metric called Netlist
+                                        LLM digital circuit design [1]–[6]. However, LLMs struggle            Edit Distance (NED). Finally, we present our framework,
+                                        with generating analog circuit designs due to a severe lack of        Image2Net, for robustly converting circuit diagrams to netlists.
+                                        data, particularly netlist data.                                      Our datasets and benchmark are available at [14].
+                                           Recent studies like LADAC [7] and AMPAgent [8] explore                 The contributions of this paper are as follows:
+                                        integrating LLMs with analog design. LADAC uses LLMs to                   • Diverse Datasets: We release datasets for device iden-
+                                        optimize device parameters based on simulation results, while               tification, crossing identification, and device orientation
+                                        AMPAgent employs a multi-agent framework for automatic                      classification, featuring rich image styles and complex
+                                                   Fig. 1: Overall working flow.
+
+
+    annotations. These datasets include 2914 circuit diagrams       the bounding boxes used for device recognition, it affects the
+    and 84,195 annotations from textbooks, papers, and the          recognition outcome. We categorize 22 types of devices and 3
+    internet. They cover comprehensive device types and             types of crossings, define their meanings, provide illustrations,
+    specialized annotations for crossings and orientations.         and explain how different crossing styles affect the circuit
+  • Evaluation Metric and Dataset: We propose an effi-              topology. This content is detailed in Appendix B. In order
+    cient framework for evaluating transitions from circuit         to handle such a variety of image styles, we have established
+    diagrams to netlists using the Netlist Edit Distance (NED)      the following datasets and testing methods to assist in training
+    metric. NED accurately assesses connection correctness          and validation.
+    while ignoring irrelevant factors like device or network
+    names. Our evaluation dataset includes 104 manually             A. Datasets
+    verified pairs, with more cases being added.
+  • Image2Net Framework: It utilizes hybrid methods in-
+                                                                       We made the following datasets open-source: the device
+    cluding neural networks and a series of computer vision         identification dataset, the crossing identification dataset, the
+    (CV) algorithms to solve the above problem. The inno-           device orientation classification dataset, and the netlist evalua-
+    vation lies in initially determining the overall drawing        tion dataset. These datasets are used to train the algorithm for
+    style through the detection of elements, and then judging       each intermediate step in the circuit image-to-netlist process,
+    the information conveyed by each element in the circuit         and for automated evaluation of the final outcome.
+    diagram based on the drawing style and subsequently                1) Device Identification Dataset: We open-sourced 2914
+    processing accordingly, thus enabling a practical imple-        complete circuit images, which feature diverse circuit styles
+    mentation of multi-style complex circuit recognition. Our       and complexities and are derived from papers, textbooks,
+    framework achieves 80.77% accuracy, and 0.657 N ED              the Internet, etc. In these images, we annotated the devices
+    in our benchmark.                                               according to our specifications and the total number of devices
+                                                                    is 48930.
+          II. DATASET AND VALIDATION M ETHOD                           2) Crossing Identification Dataset: We annotate all the
+   The challenges in circuit diagram recognition mainly lie         crossings of circuits in 1983 images from the aforementioned
+in two aspects: the variety of styles and the existing of           2914-image dataset and classify them into three types. The
+interference elements. For the first point, devices and crossings   total number of crossings is 28195.
+in different circuit diagram follows different drawing rules, see      3) Device Orientation Dataset: We collated a dataset for
+Appendix A. Errors in symbol recognition not only lead to           the devices that need orientation and mirror determination.
+type errors in the elements of the netlist, crossing recognition    These device images were snippets by results of device object
+mistakes can directly lead to wrong circuit topology. Secondly,     detection. We collected the data of the up, right, down, and
+if text, dash-lines or other interfering elements intersect with    left orientations of MOS, BJT, Diode, AMP devices, as well
+                                                                                               TABLE I
+as the mirrored data of the two orientations of BJT and AMP                           I NDISTINGUISHABLE P ORTS
+devices. The total number of our annotation is 12086.
+   4) Netlist Dataset: We provide 104 datasets with labeled        Device Type                    Ports                   Rename
+netlists as a validation set, provided in JSON format. The
+                                                                       MOS                    Drain, Source                 D S
+circuits in this set ranging from simple to complex.
+   The detailed statistics is in Appendix C.                          Source        Pos, Neg (Except voltage lines)         Port
+B. Evaluation Metric: NED                                             Passive                   Pos, Neg                    Port
+   To check the accuracy of our circuit diagram recognition
+algorithm on the dataset, we proposed a set of consistency
+checks, and invented our metric called netlist NED. First, we     if and only if their types and topological relations are the same.
+transform the circuit netlist into an equivalent heterogeneous    The value of GED is the minimum cost required to perform
+graph. Subsequently, the GED between the identified resulting     several insertions, deletions, and substitutions of nodes or
+graph and the golden graph is calculated as the quantitative      edges on a graph G2 to transform it into a graph isomorphic to
+outcome of the consistency check. We then divide the GED          another graph G1. The cost of all action types is set to 1, and
+by the total number of devices, nets, and ports in the golden     the value of GED is the length of the least action sequence.
+graph. The result becomes NED.                                       In order to comprehensively evaluate the effects of circuit
+                                                                  diagram transformation on netlist, we devised NED. The maxi-
+                                                                  mum error count of a circuit can be defined as the total number
+                                                                  of devices, nets, and ports of the golden circuit, since this
+                                                                  represents the edit distance from an empty graph to a correct
+                                                                  circuit. Under normal circumstances, the GED will not exceed
+                                                                  this value. We define the NED as the GED calculated by
+                                                                  our graph construction method and divided by the maximum
+                                                                  error count. Thus the NED result is highly likely to be less
+                                                                  than 1. We employ this metric to comprehensively consider
+                                                                  the generation effect and the complexity of the problem,
+                                                                  providing a normalized and refined indicator for assessing the
+                                                                  recognition effect of a graph. Simultaneously, we will take the
+Fig. 2: A circuit diagram image and its corresponding graph.      average NED on the dataset called N ED as the indicator of
+The schematic diagram in Fig.(a) encompasses 3 NMOSs, 2           the recognition effects of the dataset. We give an example of a
+PMOSs, 1 Resistor, and 4 NETs. In Fig.(b), there are              netlist with recognition errors and its NED calculation method
+altogether 3 types of nodes, namely PMOS, NMOS, NET.              in Appendix D.
+There are 4 types of edges, namely PMOS_Gate, PMOS_D_S,              In addition, the conventional metric success rate is also con-
+NMOS_Gate, NMOS_D_S                                               sidered. The following is the formulation of these evaluation
+                                                                  criteria.
+   To transform netlist into graph, we define an undirected
+                                                                                                   GED
+heterogeneous graph G = {V, E}, where V and E denote the                        N ED =
+sets of nodes and edges, respectively. Each node v ∈ V and                                Ndevice + Nnet + Nport
+each edge e ∈ E are associated with their mapping functions                                      P
+                                                                                                    N EDi
+ϕ(v) → A and ϕ(e) → R, respectively. A and R denote                                     N ED =
+                                                                                                  Ntotal
+the sets of node types and edge types, respectively. In the
+heterogeneous graph defined in this scheme, the elements of                                               Nsuccess
+the node type set A are various components (such as PMOS,                          Successful Rate =
+                                                                                                           Ntotal
+NMOS, Capacitor, Resistor, etc.) and the network (of
+type NET), and the elements of the edge type set R are the           Where Nsuccess means the number of success cases in a
+connections from the terminals of each component to the net-      test. Ntotal means the total number of our testcases. Ndevice
+work (such as PMOS_Gate, PMOS_Drain, PMOS_Source,                 represents the total number of devices in a netlist annotation.
+Resistor_Pos, Resistor_Neg). Some edges of certain
+devices are indistinguishable. We internally set their names to   C. Comparison
+be the same and the GED algorithm will consider them to be           Here is a comparison between our dataset and other open-
+the same. The indistinguishable ports are listed in Table I.      source datasets. Our dataset is larger in quantity, more complex
+   The computation of the GED is done via an algorithm            in circuits, and has more types of annotations. Meanwhile, our
+[15]. We invoke the implementation of the NetworkX [16]           dataset is richer in style, derived from books, papers, the web,
+toolkit and perform optimizations to enhance the computa-         and encompasses various drawing styles. We also offer a set
+tional speed. Two nodes or two edges are said to be identical     of validation sets that have undergone manual review.
+   For other datasets, v3que [13] provides many images, but
+the images are not complete circuit diagrams, thus they have
+only 2.488 devices per image in average. And many of the
+devices are truncated, which may bring hidden dangers for
+model training. For AMSNet [9], their diagram are of similar
+styles. They provide netlists of each diagram, but they are
+generated by their solution and they did not make sure that
+these annotations are manually checked.
+   The comparison is shown at Table.II
+                             TABLE II
+                 C OMPARISON WITH OTHER DATASETS
+
+                               Image2Net           AMSNet            v3que              Fig. 3: Device identification Examples.
+      Number of Images              2914              894            4761a
+     Complete Diagrams               yes              yes              no
+ Average Devices per Image         15.070            10.039          2.488
+ Diagrams Over 20 Devices           775                36             NA
+     Device Annotations              yes              yes             yes
+    Crossing Annotations             yes               no              no
+   Orientation Annotations           yes              yes              no
+        Evaluation Set               yes               no              no
+ a v3que provides only randomly sliced images of circuit diagrams,
+ instead of complete circuit diagrams.
+
+
+                            III. M ETHOD
+   Our overall solution is described in Fig.1. We employ                               (a) Raw image                  (b) Skeleton
+YOLO-V8 [17] to identify the positions and types of all
+components and crossings as in Fig.3. We utilize the binary
+image transferred from the raw image to detect wires. We do
+a skeleton algorithm and remove small connectivity domains,
+which eliminates distracting elements such as texts. The port
+positions are determined by the intersection points between
+the bounding boxes of the components and the wires, and
+classification models are used to determine the orientation and
+mirror information of each component, thereby establishing
+the port order. The jumper style of the diagram is determined
+based on the detected crossings, and the crossings considered
+as jumpers are retained as virtual devices. Finally, the wires                        (c) Remove texts             (d) Wire detection
+connected to each port are identified by employing the geomet-               Fig. 4: Wire detection algorithm. Fig.(a) is the raw image.
+ric overlap method, then the connection information is used to               Fig.(b) represents the result of the skeleton algorithm. Fig.(c)
+build a netlist. Some post-processing is performed in order to               represents the result of the removing of texts. Fig.(d) shows
+replace virtual components such as jumpers with the correct                  the final wire detection result.
+description of the connection relations in the final generated
+netlist.
+   We will provide additional details of some key algorithms                 this image to eliminate text and other impurities. We finally
+below.                                                                       remove all the devices in the skeleton image, and then each of
+                                                                             the connectivity domain left represents a network. The result
+A. Wire Identification
+                                                                             is shown in Fig.4.
+   We eliminate interference during the wire identification step
+using binarization and skeletonization algorithms. We conduct                B. Jumper Identification
+threshold segmentation on the images and employ the OTSU                        Jumper means an overpass relationship of wires connected
+[18] algorithm for adaptive threshold computation. Subse-                    to them. The number of wires connected to a jumper must be
+quently, we skeletonize the binary graph with an algorithm                   equal or greater than 4 and must be even. The intersection of
+[19]. The width of the wires in the skeletonized binary graph                each jumper and its bounding box is the port of the jumper.
+is always 1. We fill the bounding boxes of all devices with 1                We can number these ports in clockwise order. Each port is
+values and then remove very small connected domains by a                     connected to its antipodal in pairs and is not connected to other
+threshold of 1/10 pixels of the largest connected domain from                ports. This relationship can be expressed by the following
+formula. Let the port number be i, the antipodal port number     into a single one and removed the GND devices simultaneously.
+be j, the total number of ports be N , and N is always an even   In accordance with the aforementioned jumper logic, we
+number:                                                          merged the networks connected to the paired ports in the
+                                                                 jumper and then deleted the jumper. Finally, we merged the
+                       N                     N                   networks connected to the temporary Conn port added to the
+              j =i+         when 1 ≤ i ≤
+                        2                    2                   Bulk device and its Gate/Base port respectively, and then
+   As shown in Fig.5, port 1 is connected to port 3, and port    removed this temporary port. These procedures are shown in
+2 is connected to port 4. For non-jumper crossings, all of       Fig.6. Eventually, we obtained the correct netlist.
+their ports are connected with each other. We then treat the
+identified jumpers as devices and also subtract them from the
+skeleton image.
+   Following this principle, we adopt some algorithms after
+using YOLO-V8 [17] to identify and filter jumpers. Finally,
+we treat jumpers we detected as new devices.
+
+
+
+
+                                                                 Fig. 6: Post processing. Following the working flow, the first
+                                                                 figure is the raw image of the circuit diagram. the second figure
+                                                                 is the result of connection detection before post processing.
+                                                                 In the next steps, the same color means the wires related
+                                                                 are all connected. the third to fifth figures shows the merge
+                                                                 procedures for cross ports, jumpers, and gnd.
+
+Fig. 5: How to pair the ports of a jumper. For a jumper, we                             IV. E XPERIMENT
+name the ports in clockwise order and treat ports in opposite
+                                                                 A. NED Result
+directions as pairs, and the paired ports and their associated
+nets are connected. For a connection that is not a jumper, all      To evaluate our algorithm, we generated the netlists using
+nets connected to it are connected to each other.                our algorithm on our public test dataset at II-A4 and calculated
+                                                                 the NED in comparison with the golden data. If the result
+                                                                 is all correct, the NED should be 0. After providing each
+C. Port Positioning                                              case with sufficient running time, according to our evaluation
+   Ports of one device are the intersections of it’s bounding    method in chapter II-B, we calculated the NED for each case.
+box with wires. We use MobileNetV2 [20] to identify the          Our solution ultimately achieved an accuracy rate of 80.77%,
+orientation and mirror of each device. By these two messages,    and the N ED is 0.659. Score distribution is presented in
+we can match the intersections one by one with port names,       Fig.7. According to that the calculation of GED is a NP-
+because once you determine a certain port based on the           Hard problem, we use the algorithm mentioned in II-B and
+orientation of the device, the remaining ports can always        calculated for 2 hours for each case.
+be determined by clock sequence. For some devices have                                       TABLE III
+symmetry, we only need to identify the orientation of MOS,                          C OMPARATIVE E XPERIMENT ON
+                                                                             D IFFERENT H ANDLING M ETHODS OF J UMPER
+BJT, AMP, Diode and voltage-lines by Up, Right,
+Down, and Left, and mirror of BJT and AMP by True and                          Method       Successful Rate ↑   N ED ↓
+False.                                                                       Our Method          80.77%          0.116
+                                                                           AMSNet Method         35.58%          0.306
+D. Line Tracking and Post Procedure                                         CHAI Method          46.15%          0.382
+   We finally obtain the interconnections of all device ports
+and output the final netlist. In our wire image, each wire
+corresponds to a connected domain. We consider all ports         B. Comparative Experiment
+that intersect the same connected domain in wire graph to          We refer to the existing studies. Virtually all studies employ
+be connected.                                                    object detection methods to identify devices in images. How-
+   Subsequently, we execute some post-processing logic to        ever, there have been numerous approaches to determine the
+eliminate some virtual devices and virtual ports. We merged      connection between wires, most of which are rather simplistic.
+all the networks to which all the GND devices were connected     Focusing on the judgement of whether a crossing is a jumper,
+                                                                                         A PPENDIX A
+                                                                           VARIETY OF D EVICE AND C ROSSING T YPES
+                                                                     As shown in Fig.8, for MOS devices only, a variety of
+                                                                   drawing styles exist.
+
+
+
+
+Fig. 7: NED distribution. The horizontal axis indicates the
+NED range, The vertical axis indicates the number of such
+cases.
+
+
+AMSNet [9] makes the assumption that all interleaved wires
+are not connected, that means crossings are all treated as
+jumpers. In Masala- chai [10], jumper logic are not processed
+and all pixel connections represent true connections by default.
+                                                                                     Fig. 8: MOS symbols [21].
+These two assumptions and treatment methods are not capable
+of dealing with complex circuit diagram scenarios. We perform
+ablation experiments on our framework and simplify the code
+                                                                                        A PPENDIX B
+for handling jumpers based on the above two setups. The
+                                                                     C OMPLETE DEFINITION OF OUR DEVICE AND CROSSING
+results are presented in Table.III. These two methods can
+                                                                                                TYPES
+handle simple images, while complex images with multiple
+jumper styles are beyond their capabilities.                          In this chapter, we will provide our definition of the circuit
+   Detailed metrics and results of sub-steps in our experiment     diagram recognition problem, including our generalization of
+is shown in Appendix E.                                            device symbols and the definition of device ports.
+                                                                      We categorize 22 types of devices listed in Table IV. If there
+                      V. C ONCLUSION
+                                                                   are highly distinct styles within each type, they will be further
+   In this paper, we open-sourced datasets for identifying         subdivided into subtypes. The examples of each type are
+various elements in the diagrams and designed a GED-based          provided in Fig.9. Here is a description of each type: pmos and
+evaluation scheme. Our own solution got 80.77% accuracy and        nmos represent MOS devices with no external connections
+achieved 0.116 NED on our validation set. Our efforts made it      to the body, while pmos_bulk and nmos_bulk represent
+possible to transfer more complicated and varied analog circuit    MOS devices with external connections to the body. pnp and
+images to netlist, a more concisely and precisely described        npn represent normal BJT. pmos_cross, nmos_cross,
+information form. These data can help LLMs to get a better         pnp_cross, npn_cross represent a device with a set of
+understanding of analog circuits.                                  parallel Gate ports or Base ports. This type of device has two
+                                                                   Gate/Base ports in the legend. voltage represents a voltage
+                                                                   source with a circular icon, and voltage_lines represents
+                                                                   a voltage source with a striped icon. resistor_1 represents
+                                                                   a resistor of the American standard, and resistor_2 rep-
+                                                                   resents a resistor of the European standard. The characteristic
+                                                                   differences between the two icons are striking, particularly
+                                                                   the high similarity of the American standard resistor to an
+                                                                   inductor. Besides, all the other devices can be comprehended
+                                                                   through the literal meanings of their labeled names.
+                                                                      For crossings, as is shown in Fig.10, in general, there are
+                                                                   3 basic styles of symbols for annotating crossings: Bridge,
+                                                                   Flat, Dot. Of which types of work as jumpers in a specified
+                           TABLE IV
+                 D EVICES AND P ORTS DEFINITION
+
+  Group     Type in Netlist     Annotation            Ports
+                                   nmos
+                NMOS            nmos cross
+                                                     Gate,
+                                nmos bulk           Source,
+   MOS
+                                   pmos             Drain,
+                                                    (Body)
+                 PMOS           pmos cross
+                                pmos bulk
+                                    npn                             Fig. 9: Legends for all devices. (a) nmos (b) nmos cross (c)
+                  NPN                                               nmos bulk (d) pmos (e) pmos cross (f) pmos bulk (g) npn (h)
+                                 npn cross          Base,
+   BJT                                             Collector,       npn cross (i) pnp (j) pnp cross (k) siso amp (l) diso amp (m)
+                                    pnp            Emmitter         dido amp (n) diode (o) current (p) voltage (q) voltage lines
+                  PNP                                               (r) resistor 1 (s) resistor 2 (t) capacitor (u) inductor (v) gnd
+                                 pnp cross
+              SISO Amp           siso amp            In, Out
+   Amp        DISO Amp           diso amp         InP, InN, Out
+                                                    InP, InN,
+              DIDO Amp           dido amp
+                                                   OutP, OutN
+  Diode          Diode             diode                                         (a) Bridge     (b) Dot       (c) Flat
+
+                Current            current                                        Fig. 10: Three types of crossings.
+  Source                          voltage
+                Voltage
+                               voltage lines                        of components and crossings. The distribution of the number
+                                                    Pos, Neg
+                                 resistor 1                         of components in the training set images is shown in Fig.11(a),
+                Resistor                                            and the distribution of crossings is shown in Fig.11(b). The
+                                 resistor 2                         distribution of the validation set (see Chapter II-A4) is shown
+  Passive
+               Capacitor         capacitor                          in Fig.11(c).
+
+                Inductor          inductor
+   Gnd            Gnd               gnd            undefined                              A PPENDIX D
+                                                                               A N E XAMPLE OF C ALCULATING NED
+
+diagram, there are several legitimate styles which we have             As illustrated in Fig.12, the two detection errors are in-
+classified:                                                         dicated with red boxes. The first error is a device type
+   • If any Bridge is found, the Bridge should act as a             identification error, which mistakenly identifies a NMOS called
+     jumper, and the other symbols of the crossing are to           M5 as PMOS; the second error is a port connection error, which
+     indicate the connection of related wires.                      incorrectly connects the drain end to the E net instead of the
+   • If there are no Bridge and both Dot and Flat are               P net. In order to convert the graph G2 of the wrong diagram
+     found, the Flat represents jumper.                             (shown in Fig.12) to the graph G1 of the correct diagram
+   • Otherwise, no jumper is found.                                 (shown in Fig.2(b)), it is necessary to perform 1 edge deletion
+                                                                    (delete the edge from PMOS to net E), 1 node deletion (delete
+                         A PPENDIX C                                the E node) , 1 node substitution (replace PMOS with NMOS),
+                  S TATISTICS OF DATASETS                           2 edge substitutions (replace the edges from PMOS to Vb and
+   The quantity distribution of various components and cross-       GND with the edges from NMOS to them) and 1 edge insertion
+ings in the device identification dataset (see Chapter II-A1) and   (insert the edge from NMOS to P node). In total, 6 operations
+crossing identification dataset (see Chapter II-A2) is shown in     are performed, resulting in a GED value of 6. The NED result
+Table.V, and the distribution of various components in device       can be calculated by dividing GED by the sum of total counts
+orientation dataset (see Chapter II-A3) is shown in Table.VI.       of devices, total counts of nets, and total counts of ports. The
+We judge the complexity of the circuit diagram by the number        final result is 0.214.
+    (a) Device number in training dataset    (b) Crossing number in training dataset      (c) Device number in evaluation dataset
+Fig. 11: Data distribution in our datasets. The horizontal axis indicates the number of devices per image, the vertical axis
+represents the number of such images. These histograms indicate the complexity of our datasets.
+
+
+                                                                  Intersection over Union (IoU) threshold of 50%.
+                                                                                                   N
+                                                                                               1 X
+                                                                                  mAP@50 =           APclassi (0.5)
+                                                                                               N i=1
+                                                                  Where:
+                                                                     • N is the number of classes.
+                                                                     • APclassi (0.5) is the average precision for class i at an IoU
+                                                                        threshold of 50%.
+                                                                     The Mean Average Precision (mAP)@IoU=0.5:0.95
+                                                                  (mAP@50-95) metric measures the average precision across
+                                                                  all classes using a range of IoU thresholds from 50% to 95%
+                                                                  in steps of 5%.
+                                                                                                                             
+                                                                                              N        0.95
+                                                                                           1 X 1 X
+                                                                        mAP@50-95 =                         ∆j · APclassi (j)
+Fig. 12: An example of a circuit diagram with a non-zero GED                              N i=1 10 j=0.5
+value.
+                                                                  Where:
+                                                                   • N is the number of classes.
+
+                       A PPENDIX E                                 • APclassi (j) is the average precision for class i at an IoU
+
+             D ETAILED M ETRICS AND R ESULTS                         threshold of j.
+                                                                   • ∆j is the step size, which is 0.05 in this case.
+  For each model in the process, we showcase their metrics         Here are the detailed results of each step in our framework.
+on our dataset. We define the following metrics:
+                                                                  C. Device Identification
+A. Class-Specific Performance                                        For the device identify result, there is no allowance for the
+                                                                  discrimination of the type, and the recognition box should be
+   For each class, we evaluate the results by accuracy and re-
+                                                                  as precise as possible and fit the edge of the device. Therefore,
+call. Accuracy means how many classified positive samples are
+                                                                  we adopt mAP@50 and mAP@50-95. The result on our dataset
+classified correctly, and recall means the number of positive
+                                                                  at II-A1 is mAP@50: 98.38%, mAP@50-95: 74.31%.
+samples that are correctly classified.
+                                                                  D. Crossing Identification
+                           True Positives
+        Accuracy =                                                   Regarding cross-line recognition, to determine the cross-line
+                   True Positives + False Positives               style of the image, we identified all the intersections within
+                                                                  the image. If some non-cross-line intersections are missed, it
+                             True Positives                       might not cause problems, and even some interference such
+         Recall =
+                    True Positives + False Negatives              as text being recognized as cross-line will not impact the
+                                                                  subsequent line tracking. Also, the recognition box does not
+B. Target Detection Performance
+                                                                  need to precisely align with the annotation; it merely requires
+  The Mean Average Precision (mAP)@IoU=0.5 (mAP@50)               the point of intersection to be within the recognition box. We
+metric measures the average precision across all classes at an    devised the following metric to determine the percentage of
+                              TABLE V                                                              TABLE VI
+               S TATISTICS OF D EVICES AND C ROSSINGS                     S TATISTICS OF D EVICE O RIENTATION AND M IRROR DATASETS
+
+       Group       Total Count       Annotation         Count                      Type                    Labels         Total Image Count
+                                          nmos          5286               MOS Orientation                u, r, d, l              1561
+                                    nmos cross           282                BJT Orientation               u, r, d, l              5240
+                                     nmos bulk           670                   BJT Mirror                    T, F                 1310
+        MOS           11316
+                                          pmos          4138               Diode Orientation              u, r, d, l              1248
+                                    pmos cross           477               AMP Orientation                u, r, d, l              1388
+                                     pmos bulk           463                  AMP Mirror                     T, F                 369
+                                           npn          2304          Voltage lines Orientation           u, r, d, l              970
+                                     npn cross           41
+        BJT            3588
+                                           pnp          1215              inside the prediction bounding box.
+                                     pnp cross           28            The result on our dataset at II-A2 is mAP@inside: 97.30%.
+                                        siso amp         154
+                                                                     E. Device Orientation and Mirror Claasification
+        Amp            1044             diso amp         825
+                                                                       Simultaneously, we combine the classifying metric to assess
+                                     dido amp            65          the effects of cross-line recognition. In our dataset, we utilize
+                        953                                          accuracy and recall to evaluate the effect, and the result of
+       Diode                              diode          953
+                                                                     each device on our dataset at II-A3 can be found in Table
+                                         current        1507         VII.
+       Source          2751              voltage        1036                                      TABLE VII
+                                                                           R ESULT OF D EVICE O RIENTATION AND M IRROR D ETECTION
+                                   voltage lines         208
+                                                                                     Type                Labels        Accuracy    Recall
+                                        resistor 1      8178
+                                                                               MOS Orientation          u, r, d, l     99.49%     99.47%
+                                        resistor 2      1775                    BJT Orientation         u, r, d, l     99.90%     99.91%
+       Passive        16806                                                       BJT Mirror              T, F         98.78%     98.32%
+                                        capacitor       5728                  Diode Orientation         u, r, d, l     99.44%     99.47%
+                                                                               AMP Orientation          u, r, d, l     99.64%     99.64%
+                                        inductor        1125                     AMP Mirror               T, F         95.95%     94.74%
+                                                                           Voltage lines Orientation    u, r, d, l     94.85%     94.75%
+        Gnd            7456                gnd          7456
+                                         bridge         1137
+                                                                                                  R EFERENCES
+      Crossing        28195                dot          17548
+                                                                      [1] J. Blocklove, S. Garg, R. Karri, and H. Pearce, “Chip-chat:
+                                           flat         9510              Challenges and opportunities in conversational hardware design,”
+                                                                          in 2023 ACM/IEEE 5th Workshop on Machine Learning for
+                                                                          CAD (MLCAD). IEEE, Sep. 2023, p. 1–6. [Online]. Available:
+                                                                          http://dx.doi.org/10.1109/MLCAD58807.2023.10299874
+the points of intersection that fall within the recognition boxes.    [2] Y. Lu, S. Liu, Q. Zhang, and Z. Xie, “Rtllm: An open-source
+We define mAP@inside, emulating the definition approach                   benchmark for design rtl generation with large language model,” 2023.
+                                                                          [Online]. Available: https://arxiv.org/abs/2308.05345
+of mAP@50. The condition of average precision is modified             [3] M. Liu, N. Pinckney, B. Khailany, and H. Ren, “Verilogeval: Evaluating
+from IoU=0.5 to whether the center of the annotation box is               large language models for verilog code generation,” 2023. [Online].
+within the recognition box.                                               Available: https://arxiv.org/abs/2309.07544
+                                                                      [4] Y.-D. Tsai, M. Liu, and H. Ren, “Rtlfixer: Automatically fixing rtl
+                                    N                                     syntax errors with large language models,” 2024. [Online]. Available:
+                               1 X                                        https://arxiv.org/abs/2311.16543
+             mAP@inside =            APclassi (acip)                  [5] S. Thakur, J. Blocklove, H. Pearce, B. Tan, S. Garg, and R. Karri,
+                               N i=1                                      “Autochip: Automating hdl generation using llm feedback,” 2024.
+                                                                          [Online]. Available: https://arxiv.org/abs/2311.04887
+Where:                                                                [6] K. Xu, J. Sun, Y. Hu, X. Fang, W. Shan, X. Wang, and Z. Jiang,
+ • N is the number of classes.                                            “Meic: Re-thinking rtl debug automation using llms,” 2024. [Online].
+                                                                          Available: https://arxiv.org/abs/2405.06840
+ • APclassi (acip) is the average precision for class i in the        [7] C. Liu, Y. Liu, Y. Du et al., “Ladac: Large language model-driven auto-
+   case where the center of the annotation bounding box is                designer for analog circuits,” TechRxiv, Jan 2024.
+ [8] C. Liu, W. Chen, A. Peng, Y. Du, L. Du, and J. Yang, “Ampagent:                    exact graph edit distance algorithm for solving pattern recognition
+     An llm-based multi-agent system for multi-stage amplifier schematic                problems,” Lisbon, Portugal, pp. 271–278, Jan 2015. [Online].
+     design from literature for process and performance porting,” 2024.                 Available: https://hal.archives-ouvertes.fr/hal-01168816
+     [Online]. Available: https://arxiv.org/abs/2409.14739                         [16] A. A. Hagberg, D. A. Schult, P. J. Swart, and H. Battley,
+ [9] Z. Tao, Y. Shi, Y. Huo, R. Ye, Z. Li, L. Huang, C. Wu, N. Bai, Z. Yu,              “Exploring network structure, dynamics, and function using NetworkX,”
+     T.-J. Lin, and L. He, “Amsnet: Netlist dataset for ams circuits,” 2024.            Proceedings of the 7th Python in Science Conference, pp. 11–15,
+     [Online]. Available: https://arxiv.org/abs/2405.09045                              2008. [Online]. Available: https://networkx.org/documentation/stable/
+[10] J. Bhandari, V. Bhat, Y. He, S. Garg, H. Rahmani, and R. Karri, “Masala-           reference/index.html
+     chai: A large-scale spice netlist dataset for analog circuits by harnessing   [17] Ultralytics, “YOLOv8: Real-time object detection and segmentation,”
+     ai,” 2024. [Online]. Available: https://arxiv.org/abs/2411.14299                   https://yolov8.com/, 2024, accessed: 2024-10-10.
+[11] W. Xiong, X. Meng, Y. Tao et al., “Ai-driven learning and regeneration        [18] N. Otsu, “A threshold selection method from gray-level histograms,”
+     of analog circuit designs from academic papers,” Authorea, Aug 2024.               IEEE Transactions on Systems, Man, and Cybernetics, vol. 9, no. 1, pp.
+[12] H. B. Gurbuz, A. Balta, T. Dalyan, Y. D. Gokdel, and E. Afacan,                    62–66, 1979.
+     “Img2sim-v2: A cad tool for user-independent simulation of circuits           [19] T. Y. Zhang and C. Y. Suen, “A fast parallel algorithm for thinning
+     in image format,” in 2023 19th International Conference on Synthesis,              digital patterns,” Commun. ACM, vol. 27, no. 3, p. 236–239, Mar.
+     Modeling, Analysis and Simulation Methods and Applications to Circuit              1984. [Online]. Available: https://doi.org/10.1145/357994.358023
+     Design (SMACD), 2023, pp. 1–4.                                                [20] M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L.-C. Chen,
+[13] project gtqqq, “v3qwe dataset,” https://universe.roboflow.com/                     “Mobilenetv2: Inverted residuals and linear bottlenecks,” 2019. [Online].
+     project-gtqqq/v3qwe, sep 2022, visited on 2025-01-03. [Online].                    Available: https://arxiv.org/abs/1801.04381
+     Available: https://universe.roboflow.com/project-gtqqq/v3qwe                  [21] B. Razavi, Design of Analog CMOS Integrated Circuits, 2nd ed.
+[14] X. et al., “ci2n datasets,” https://github.com/LAD021/ci2n datasets.               McGraw-Hill Education, 2001, figure 2.5 on page 10.
+[15] Z. Abu-Aisheh, R. Raveaux, J.-Y. Ramel, and P. Martineau, “An
+

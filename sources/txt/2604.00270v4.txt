@@ -1,0 +1,923 @@
+                                             OmniSch: A Multimodal PCB Schematic
+                                            Benchmark For Structured Diagram Visual
+                                                          Reasoning
+
+                                        Taiting Lu1* , Kaiyuan Lin1* , Yuxin Tian2 , Mingjia Wang4 , Yubo Wang1 ,
+                                         Muchuan Wang2 , Sharique Khatri1 , Akshit Kartik1 , Yixi Wang1 , Amey
+                                        Santosh Rane3 , Yida Wang4 , Sung-Liang Chen4 , Yifan Yang5† , Yi-Chao
+                                                       Chen4 , Yincheng Jin3 , and Mahanth Gowda1†
+arXiv:2604.00270v4 [cs.CV] 5 Jun 2026
+
+
+
+
+                                        1
+                                            Pennsylvania State University, USA {txl5518, kjl6302, axk6143, sqk6377,
+                                                           ymw5456, yubow, mahanth.gowda}@psu.edu
+                                                      2
+                                                        Independent Researcher {chelseatiann@gmail.com,
+                                                                starboymc329666@outlook.com}
+                                                3
+                                                  Binghamton University, USA {yjin5, arane4}@binghamton.edu
+                                               4
+                                                  Shanghai Jiao Tong University, China {mingjiawang, yidawang,
+                                                             sungliang.chen, yichao}@sjtu.edu.cn
+                                                         5
+                                                           Microsoft Research yifanyang@microsoft.com
+
+
+
+                                              Abstract. Recent large multimodal models (LMMs) have made rapid
+                                              progress in visual grounding, document understanding, and diagram rea-
+                                              soning tasks. However, their ability to convert Printed Circuit Board
+                                              (PCB) schematic diagrams into machine-readable spatially weighted netlist
+                                              graphs, jointly capturing component attributes, connectivity, and geom-
+                                              etry, remains largely underexplored, despite such graph representations
+                                              are the backbone of practical electronic design automation (EDA) work-
+                                              flows. To bridge this gap, we introduce OmniSch, the first compre-
+                                              hensive benchmark designed to assess LMMs on schematic understand-
+                                              ing and spatial netlist graph construction. OmniSch contains 1,854 real-
+                                              world schematic diagrams and includes four tasks: (1) visual ground-
+                                              ing for schematic entities, with 109,9K grounded instances aligning 423.4K
+                                              diagram semantic labels to their visual regions; (2) diagram-to-graph
+                                              reasoning, understanding topological relationship among diagram ele-
+                                              ments; (3) geometric reasoning, constructing layout-dependent weights
+                                              for each connection; and (4) tool-augmented agentic reasoning for
+                                              visual search, invoking external tools to accomplish (1)-(3). Our results
+                                              reveal substantial gaps of current LMMs in interpreting schematic en-
+                                              gineering artifacts, including unreliable fine-grained grounding, brittle
+                                              layout-to-graph parsing, inconsistent global connectivity reasoning and
+                                              inefficient visual exploration.
+
+                                              Keywords: Visual Grounding · PCB Schematic · Structured Graph Un-
+                                              derstanding
+                                        * Both authors contributed equally.
+                                        † Corresponding author.
+                                        Project Page: https://omnisch.com/
+2          Lu and Lin et al.
+
+
+        Object Detection           Topological Reasoning             Spatial Reasoning
+
+
+
+
+     What is the total component    List the symbol names of the    List the symbol names of the
+     count in this schematic?       components connected to Q1.     components right side of Q3.
+    Claude-Opus                    GPT-5.2                         QwenVL
+                  7                   [J1, J2, LT3426, Q2]                  [U2, C8, C2]
+
+
+Fig. 1: Large multimodal models fail to reliably perform core visual un-
+derstanding tasks on structured schematic diagrams. Errors in component de-
+tection, topological connectivity reasoning, and spatial layout interpretation highlight
+persistent limitations in handling the compositional and relational complexity inherent
+in schematic diagrams.
+
+1      Introduction
+Printed Circuit Board (PCB) schematic diagrams are essential design repre-
+sentations for electronic design automation (EDA) systems, spanning from daily
+smartphones to industrial automotive platforms. However, most real-world schematic
+designs are proprietary and rarely publicly available, and even when accessible
+they require labor-intensive expert annotation, leaving most open design knowl-
+edge confined to textbooks, research papers, and patents, where circuits are pre-
+sented as human-readable diagrams rather than machine-parsable netlists. To
+enable downstream EDA workflows, schematic diagrams must be converted into
+machine-readable netlists that preserve component connectivity and parameters
+for analysis, simulation, and layout synthesis. Recently, several works [11, 16, 36]
+have employed YOLO models [12] to automate this conversion from textbook
+schematics to netlists and released public datasets. As shown in Table 1, exist-
+ing datasets fall short of real-world complexity, covering only a limited number
+of entity types and samples compared to the thousands of component types in
+practical designs.
+    In recent years, large multimodal models (LMMs), such GPT-5 [24] and
+Gemini 2.5 [13], have demonstrated strong open-ended capabilities in geometric
+reasoning, multimodal grounding, and graph-based understanding. These ad-
+vances suggest new opportunities for applying LMMs to engineering workflows,
+particularly for structured visual artifacts such as PCB schematic diagrams
+and generating their corresponding netlists graph. However, schematic-to-netlist
+graph generation remains largely underexplored and unbenchmarked, raising a
+key question: could current LMMs reliably recover component attributes, find-
+grained level connectivity, and geometry-aware edges from real-world, densely
+cluttered schematics?
+    To answer the question above, we conducted preliminary tests with ser-
+val state-of-the-art LMMs, including Claude-Opus-4.6 [6], GPT-5.2 [23] and
+                       OmniSch: A Multimodal PCB Schematic Benchmark           3
+
+Qwen3.5-VL [10]. These tests assessed performance on schematic diagram un-
+derstanding tasks, such as object detection, topological connectivity reasoning
+and spatial layout interpretation. As illustrated in Fig. 1, each model can fail
+one of the schematic diagram understanding tasks. These failures indicate that
+current LMMs still struggle to jointly achieve precise visual grounding and
+topology-consistent reasoning, which constrains their effectiveness in schematic-
+to-netlist generation tasks requiring accurate textual grounding of schematic
+entities, faithful reconstruction of connectivity, and geometric reasoning over
+layout-dependent spatial relationships within schematic diagrams. Recent bench-
+marks, such as Netlistfy [16], MASALA-CHAI [11], and PCB-Bench [19], have
+begun to assess LMM performance on schematic diagram understanding; how-
+ever, they concentrate on simplified schematics with few entities such as Simu-
+lation Program with Integrated Circuit Emphasis (SPICE) style circuits under-
+scoring the need for benchmarks that enable more comprehensive evaluation of
+LMMs.
+
+    To bridge this gap, we introduce OmniSch, a large-scale benchmark of real-
+world schematic diagrams that enables varied evaluation of LMMs across a di-
+verse set of multimodal schematic understanding tasks. As shown in Fig. 2,
+OmniSch provides 1,854 high-quality real-world schematic designs with xx anno-
+tations of 109.9K symbols (3.4K unique types) and 245.4K pins (with bounding
+boxes and semantic attributes), together with 423.4K text instances and 219.8K
+net graphs with spatially weights and attributes. We first propose structured
+evaluation protocols to assess netlist graph generated by LMMs. Our bench-
+mark assesses four core abilities, including (i) visual grounding of schematic
+entities and texts, (ii) diagram-to-graph reasoning for electrical connectiv-
+ity extraction, and (iii) geometry-aware spatial reasoning for constructing
+spatially weighted netlist graphs. (iv) tool-augmented agentic visual search
+for query-specified circuit entities (components, connections, and graphs) within
+a schematic diagram. In summary, the contributions of this work three-fold:
+
+    • OmniSch: We present OmniSch, a comprehensive benchmark for evaluat-
+ing LMMs on schematic-to-graph reasoning, providing 1,854 real-world schematic
+designs with fine-grained annotations of symbols, pins, text instances, and spa-
+tially weighted net graphs, together with structured evaluation protocols.
+
+    • Systematic Model Evaluation.: We systematically evaluate state-of-the-
+art LMMs under varied settings, from single-shot prompting to tool-augmented
+agentic workflow, to quantify the impact of active visual search on schematic-
+to-netlist graph generation across diverse schematic understanding tasks.
+
+   • Tool-augmented Agentic Framework: We provide unified task for-
+mats, evaluation protocols to support reproducible research and standardized
+comparison in this emerging field.
+4           Lu and Lin et al.
+
+Table 1: Comparison of publicly available schematic-to-netlist benchmarks and
+datasets. Abbreviations: Sch.—schematic diagram; Sp.Netlist—spatially weighted
+netlist.
+
+                                 Avg.   Symbol        Spatial    EDA             Annotation
+        Dataset        Images    Sym.          BBox             Render                                 Year
+                                         Cat.         Netlist
+                                 Img                            Engine   Symb.   Pin   Text    Net
+
+      CGHD [34]        2,424      42     45     ✓       ✗         ✗       ✓       ✗      ✓    B-Net    2021
+     AMSNet [32]        894       10     12     ✗       ✗         ✗       ✓       ✗      ✗    B-Net    2024
+       Masala-
+                       7,500      12     12     ✗       ✗         ✗       ✓       ✗      ✗    B-Net    2024
+      CHAI [11]
+    AMSNet 2.0 [29]    2,686      10     12     ✗       ✗         ✗       ✓       ✗      ✗     B-Net   2025
+    Image2Net [36]     2,914      15     22     ✗       ✗         ✗       ✓       ✗      ✗     B-Net   2025
+     MuaLLM [1]        2,914      29     22     ✗       ✗         ✗       ✓       ✗      ✗     B-Net   2025
+     Netlistify [16]   100,000    11     16     ✓       ✗         ✗       ✓       ✗      ✗     B-Net   2025
+       SINA [5]         662        –     10     ✓       ✗         ✗       ✓       ✗      ✗    SW-Net   2026
+      OmniSch
+                       1,854     59     3,480   ✓       ✓         ✓       ✓       ✓      ✓    SW-Net   2026
+        (ours)
+
+
+
+2       Related Work
+2.1       Visual Grounding
+LMMs such as Kosmos-2, Ferret, GLMM and LLaVA-Grounding [20,21,25,27,38]
+and have rapidly moved beyond global image–text alignment to produce verifi-
+able region-level outputs with location-token or box-annotated generation, which
+enables phrase grounding and referring-expression comprehension within a sin-
+gle instruction. Current visual grounding methods [21, 25, 27, 38] typically follow
+either end-to-end architectures or referential grounding formulations. Concur-
+rently emerging benchmarks [22, 39, 40] increasingly emphasize challenging set-
+tings such as dense visual clutter and compositional reasoning, aiming to better
+expose the remaining limitations of current approaches. More recently, agentic
+visual search has emerged as a complementary paradigm for visual grounding,
+framing the task as an iterative decision-making process, such as MM-ReAct,
+DeepEyes, and V* [35, 37, 41]. Despite strong progress in visual grounding,
+LMMs grounding remains unsolved problem in certain important areas such
+as fine-grained localization under crowding, structured diagrams and relational
+referring.
+
+2.2       Benchmarks for Schematic-to-Netlist
+In recent years, schematic-to-netlist conversion has advanced alongside several
+public datasets and evaluation benchmarks. AMSNet [32] provides 894 analog
+mixed-signal (AMS) schematic diagrams paired with SPICE netlists, and AM-
+Snet 2.0 [30] further scales this direction to 2,686 circuits by adding Spectre-
+formatted netlists, OpenAccess digital schematics, and positional annotations.
+Netlistify [16] releases a modular deep-learning pipeline and a 100,000-image
+dataset with component annotations (e.g., bounding boxes and orientations)
+with predefined labels for net extraction, targeting HSPICE-compatible netlist
+reconstruction. Beyond printed analog schematics, CGHD [34] provides hand-
+drawn circuits with 2,424 images. More recently, PCB-Bench [19] broadens the
+scope to PCB placement and routing and design comprehension, including roughly
+                                                                    OmniSch: A Multimodal PCB Schematic Benchmark                                                               5
+
+
+                        Pin (≈490.8K)                                                                                            Symbol (≈219.8K)
+                                 Pin Object                                                                                             Symbol Object
+             Pin Name                                    Pad Name                                                            Symbol Name              Symbol Value
+             Pin BBox                                   Symbol ID                                                            Symbol BBox              Symbol Type
+                                   Example 1                                                                                                  Example 1
+    Pin Name: GND                                        Pad Name: P4*2                                                  Symbol Name: U2                   Symbol Value:
+    Symbol ID: U2                                                                                                        Symbol Type: Sensor               MAX30101EFD
+    Pin BBox: [575, 210, 680, 252]                                                                                       Symbol BBox: [515, 44, 260, 70]
+
+                                                                                             1.8V        5V
+                   Netlist Graph (≈219.8K)
+                                                                                                                                                     𝝆𝟏
+              Graph Object                                                                                                             Symbol
+                                                                                                                                        Node
+               Symbol Node                                                                                              U2
+                                                                                        C8          C7
+                   Pin Node                                                                                        Symbol
+                                                                                                                   Pin                  Pin
+      Spatial Weighted Edge
+                                                                                                                   Net group           Node
+              Edge Attribute                                                Schematic
+                                                                                                                   Schematic                               Spatially Weighted
+                                                                             Diagram                                                                        Schematic Graph
+                                                                                             GND         GND GND    Graph
+
+
+
+                                                                                                    Schematic Diagram                         Source Code
+                          Schematic Design (≈1,854)
+            Meta Information                                      BoM & Attachments
+Overview:
+The system is built around a Nordic nRF52-series
+microcontroller that integrates Bluetooth Low Energy
+communication.
+Design Description:
+•   Microcontroller Core: Nordic nRF52-series MCU
+    providing BLE connectivity and digital interfaces.
+•   Power Management: Voltage regulation and filtering
+    circuits generate stable operating rails for the system
+•   …
+Specifications:
+• Microcontroller: Nordic nRF52 BLE MCU Wireless
+• Communication: Bluetooth Low Energy (BLE)
+• …
+
+
+
+
+                           Fig. 2: Overview of OmniSch benchmark with representative cases.
+
+3,700 QA instances with 174 schematic designs. Current datasets focusing on
+SPICE-style schematic diagrams, which typically contain a limited number of
+entity types and samples, compared with thousands of components types in
+practical schematic designs. Similarly, current methods remain confined to rec-
+ognizing a narrow predefined set of predefined symbols under fixed rules, lacking
+the multimodal reasoning required to interpret authentic schematic design arti-
+facts. Due to limited space, more detailed information is provided in Appendix
+A.
+
+
+3            Benchmark Construction
+
+In this section, we describe the dataset description, annotation curation, statis-
+tics, and evaluation criteria. Due to space limitations, more details can be found
+in the Appendix B.
+
+
+3.1               Task Formulation
+
+To provide a comprehensive evaluation framework for schematic-to-netlist gen-
+eration tasks, we categories. Detailed descriptions of these core capabilities are
+as follows.
+6            Lu and Lin et al.
+
+     Data       Industrial EDA    Proposed Automated Annotation Pipeline                        OmniSch
+    Source     Schematic Source   Our EDA Rendering Engine
+                  XML Code          Automatic Annotation
+                                                                                                 Dataset
+                                      Symbol Rendering                                           𝝆𝟏
+
+                                                                                      Auto
+                                        Net Rendering
+                                                                                     Annota
+                                       Geometry Engine                                tion
+                                                                           Our EDA
+                                       Layout Mapping
+                                                                            Engine
+
+                                  Classic Manual Annotation Workflow
+                                                                                                 Symbol Object
+                                    Industrial EDA
+                                                                                     Human        Pin Object
+
+                                                                                     Expert      Graph Object
+                                                                                     Manual
+                                                                                     Annotat   Schematic Diagram
+
+                                                                                      ion
+                                                                                                      .......
+
+
+
+Fig. 3: Comparison between different data annotation paradigms. (a) Man-
+ual annotation:. Relying on human expert on labeling . (b) Auto annotation: Our
+OmniSch directly directly render schematic source code and automatically label data
+via our EDA rendering engine.
+
+   • Instance Detection. Accurately localizing electronic components and
+pins is fundamental to schematic understanding. This capability is evaluated
+through symbol detection and pin detection tasks, where models must produce
+precise bounding boxes in dense, symbol-rich technical diagrams.
+
+    • Symbol Classification. Recognizing component types and their orien-
+tations is essential for establishing the functional identity of circuit elements.
+This capability is assessed through symbol type classification and orientation
+recognition tasks, requiring domain-specific visual discrimination under diverse
+stylistic variations.
+
+    • Text Referring. Schematics contain densely distributed text serving dis-
+tinct semantic roles — symbol names, parametric values, net labels, and pin
+annotations. The ability to ground each text instance to its associated symbol
+or pin is evaluated through text-to-symbol linking and semantic role disambigua-
+tion tasks.
+
+    • Topological Relation Reasoning. Understanding electrical connectivity
+from visual layout demands multi-hop structural reasoning beyond local percep-
+tion. This capability is assessed through pin–symbol membership prediction and
+pin–pin connectivity prediction tasks, where models must infer how components
+are electrically connected from spatial context.
+
+   • Heterogeneous Graph Construction. Beyond pairwise connectivity
+understanding, converting an entire schematic into a unified structured repre-
+sentation requires holistic diagram parsing. This capability is evaluated by re-
+quiring models to generate a complete spatially weighted heterogeneous graph
+— comprising symbol nodes, pin nodes, membership edges, and net-induced con-
+nectivity edges — that faithfully encodes both the hierarchical composition and
+global topology of the circuit in a single pass.
+                          OmniSch: A Multimodal PCB Schematic Benchmark                   7
+
+3.2    Annotation Curation
+
+The OmniSch benchmark is constructed through a carefully designed pipeline
+for data collection and processing, as illustrated in Figure 3. We began by col-
+lecting real-world schematics from multiple open-source communities, such as
+SparkFun, Arduino, Adafruit, and GitHub [2, 7, 15, 26, 28, 31]. Based on these
+sources, we curate schematic design files created with the industrial EDA tool
+Autodesk EAGLE [8], because its XML-based schematic format, enabling scal-
+able extraction of diagram instances and connectivity for automated annotation.
+    Unlike traditional workflows that rely on time-consuming, costly, and labor-
+intensive manual annotation (Figure 3), we propose an automated pipeline via
+our custom EDA generative rendering engine. Our EDA generative rendering
+engine parses EAGLE XML source files and re-simulates the native schematic
+rendering process to produce high-fidelity schematic images, while simultane-
+ously exporting pixel-aligned annotations at multiple granularities—from fine-
+grained entity localization and semantic labeling (e.g., symbol/pin bounding
+boxes and attributes) to net-level connectivity represented as spatially weighted
+netlist graphs. Due to space limitation, the implementation details can be found
+in Appendix B.
+
+
+
+
+(a) 20 Topic distri-   (b) Symbols per im-   (c) Pins per image.    (d) Nets per image.
+bution.                age.
+
+Fig. 4: Statistical overview of the OmniSch benchmark. The dataset encompasses a
+diverse range of electronic domains, comprising 1-440 symbols, 1-1200 pins, 1-400 nets,
+and 1-1600 text instances. This large-scale diversity provides a comprehensive bench-
+mark for the automatic generation and evaluation of schematic netlists.
+
+
+
+3.3    Statistics of OmniSch Benchmark
+
+As illustrated in Figure 4 and Figure 2, OmniSch comprises 1,854 real-world
+schematic diagrams spanning diverse application domains (e.g., robotics, wire-
+less, and sensing), providing a rich resource for supervised training and fine-
+tuning on practical schematic understanding and EDA tasks.
+    • Schematic Diagram Instance. We construct a fine-grained instance-level
+annotation set that localizes and semantically describes the visual elements in a
+schematic, including symbols, pins, and texts, as illustrated in Figure 2. For each
+symbol instance, we annotate its bounding box, symbol type, orientation, and
+semantic attributes (symbol name and symbol value). For each pin instance,
+we annotate its bounding box, its parent symbol ID, and pin-level attributes
+(pin name and pad name). For each text instance, we annotate its location, its
+content, and its reference target.
+8       Lu and Lin et al.
+
+    • Connectivity Annotations. We construct topological net-level connec-
+tivity annotations by explicitly annotating pin–pin edges that indicate which
+pins are electrically connected in the schematic. Each edge is augmented with
+a spatial weight computed as the diagonal distance between the two parent
+symbols that the connected pins belong to, normalized by the schematic image
+size. When a connection is labeled in the drawing, we additionally annotate the
+corresponding net name as an attribute of the same edge.
+    • Schematic graphs. We construct a heterogeneous, spatially weighted
+schematic graph that unifies instances and connectivity into a single represen-
+tation. The graph contains symbol nodes and pin nodes, includes membership
+edges linking each pin to its parent symbol, and includes net-induced connec-
+tivity edges between pins (and optionally derived symbol links), each associated
+with net attributes and spatial weights. This representation preserves the global
+topology while explicitly retaining local clustering structure that reflects func-
+tional blocks as represented in the schematic drawing.
+
+
+3.4   Evaluation Criteria
+
+We adapt seven types of evaluation metrics tailored to specific task categories.
+In the following, we present an overview of the evaluation metrics and their
+applicability to specific tasks.
+    • Instance Detection Type. To evaluate the model’s ability to localize
+symbols and pins, we employ the F1 score to assess whether each ground-truth
+instance is successfully detected, without requiring precise spatial overlap at this
+stage.
+    • Semantic Attribute Type. For text referring and semantic attribute ex-
+traction, we adopt the F1 score with exact string matching to determine whether
+the grounded text precisely matches the ground-truth annotation. Approximate
+or similarity-based matching is deliberately excluded, as real-world schematic-
+to-netlist conversion demands rigorous character-level correctness in component
+designators and parametric values.
+    • Localization Type. For symbol and pin bounding box evaluation, the
+IoU score is applied to quantify the spatial overlap between predicted regions
+and ground-truth annotations, measuring the model’s fine-grained localization
+precision.
+    • Connectivity Type. To evaluate topological relation reasoning, we em-
+ploy the F1 score to assess the matching accuracy of predicted pin–pin connec-
+tions against ground-truth nets, and additionally report accuracy to measure
+the recall coverage of detected nets across the full circuit.
+    • Graph Structure Type. For heterogeneous graph construction, we adopt
+the IoU score over edge sets to evaluate the structural overlap between the pre-
+dicted graph and the ground-truth graph, capturing how faithfully the generated
+representation preserves both membership and connectivity edges.
+    • Spatial Layout Type. To assess whether the predicted graph preserves
+the relative spatial arrangement of the original schematic, we employ Kendall’s
+                                                                             OmniSch: A Multimodal PCB Schematic Benchmark                                                                                                                                                9
+
+Tau [18] rank correlation coefficient, measuring the consistency of pairwise spa-
+tial orderings between predicted and ground-truth node positions.
+
+3.5                 Netlist Graph Matching Protocol
+To the best of our knowledge, there is no standardized protocol for matching
+netlist graphs predicted by LMMs with ground-truth netlist graphs. To eval-
+uate a predicted netlist graph Gp = (Vp , Ep ) against the ground-truth graph
+Gg = (Vg , Eg ), we consider node sets composed of symbol nodes and pin nodes,
+i.e., Vg = Vgsym ∪ Vgpin . The graph has a hierarchical structure in which symbol
+nodes represent higher-level components, while pin nodes are dependent entities
+associated with symbols, and connectivity is defined through pin participation
+rather than direct symbol–symbol edges. The edge set contains only symbol–pin
+edges and pin–pin edges, i.e., Eg = Egsym-pin ∪ Egpin-pin . Under this formula-
+tion, direct graph comparison is challenging because predicted and ground-truth
+graphs lack shared node identities, and IoU at the geometric level is unreli-
+able due to imprecise bounding box predictions from LMMs. In order to enable
+meaningful evaluation of edges, attributes, and overall topology, we first estab-
+lish node correspondence via bipartite matching and then perform all subsequent
+comparisons under the induced mapping. The matching equations are following:
+Symbol matching equation For symbol nodes, the matching score is defined
+as
+
+  \begin {aligned} S_{\mathrm {sym}}(\hat {u},u) &= w_t\,\mathbf {1}[\hat {T}_{\mathrm {sym}} = T_{\mathrm {sym}}] + w_n\,S_{\mathrm {txt}}(\hat {n}, n) + w_v\,S_{\mathrm {txt}}(\hat {v}, v) + w_r\,S_{\mathrm {pos}}(\hat {r}, r), \end {aligned} \label {eq:sym_unified} 
+                                                                                                                                                                                                                                                                           (1)
+where û and u denote a predicted symbol node and a ground-truth symbol
+node, respectively; T̂sym and Tsym denote their symbol class indices (defined in
+the Appendix); n̂ and n denote the symbol names; v̂ and v denote the symbol
+values; ŝ and s denote degree-based structural signatures; and r̂ and r denote
+relative-position signatures. Here, Stxt (·, ·) measures text similarity, and Spos (·, ·)
+measures agreement in coarse relative position.
+Pin matching equation For pin nodes, the matching score is defined as
+      \begin {aligned} S_{\mathrm {pin}}(\hat {q},q) &= w_n\,S_{\mathrm {txt}}(\hat {n}, n) + w_p\,S_{\mathrm {txt}}(\hat {p}, p) + w_a\,S_{\mathrm {txt}}(\hat {a}, a) + w_c\,S_{\mathrm {comp}}(\hat {c}, c), \end {aligned} \label {eq:pin_unified}              (2)
+where q̂ and q denote a predicted pin node and a ground-truth pin node, re-
+spectively; ĝ and g denote their optional segment identifiers; n̂ and n denote the
+net names; p̂ and p denote the pin names; â and a denote the pad names; and
+ĉ and c denote coarse structural signatures, such as the sizes of the correspond-
+ing connected components in the pin–pin graph. Here, Stxt (·, ·) measures text
+similarity, and Scomp (·, ·) measures coarse structural compatibility.
+    Given the pairwise similarity matrix constructed from Eqs. (1) and Eqs. (2),
+correspondence is established in a hierarchical manner. We first compute one-to-
+one matching between Vpsym and Vgsym via maximum-weight bipartite matching.
+Subsequently, for each aligned symbol pair, we match the associated (Vppin , Vgpin )
+under the dependent-symbol constraint. Based on the resulting node correspon-
+dence, we then evaluate net-level attributes, edge connectivity, and overall graph
+            10                                         Lu and Lin et al.
+
+            consistency. Due to space limitations, further implementation details are pro-
+            vided in the Appendix D.
+
+            3.6                            Evaluation Criteria
+            We define seven types of evaluation metrics tailored to different task categories,
+            each capturing a specific aspect of schematic understanding. Our evaluation
+            metrics include: (i) Instance Detection, which uses F1 score to assess whether
+            ground-truth symbol and pin instances are successfully detected, without requir-
+            ing precise spatial overlap; (ii) Semantic Attributes, which evaluates text
+            referring and attribute extraction using F1 score with exact string matching,
+            enforcing strict correctness for symbol names, values, and pin/pad labels; (iii)
+            Localization, which applies IoU to measure the spatial accuracy of predicted
+            symbol and pin bounding boxes; (iv) Connectivity, which uses F1 score to
+            evaluate predicted pin–pin connections against ground-truth nets, along with
+            accuracy to measure coverage of circuit connectivity; (v) Graph Structure,
+            which adopts IoU over edge sets to quantify structural overlap between predicted
+            and ground-truth graphs; and (vi) Spatial Layout, which employs Kendall’s
+            Tau [18] to measure consistency in relative spatial ordering between predicted
+            and ground-truth node positions. (vii) Agentic Tool Use, which measures us-
+            ing (a) Target Coverage, defined as the maximum IoU between queried regions
+            and the ground-truth target to assess localization accuracy; (b) Step Efficiency,
+            defined as the average number of steps required to reach a correct answer; and
+            (c) Trace-following Quality, which evaluates whether the sequence of queries cor-
+•EDA diagram with symbols and nets in the same color
+
+
+
+
+            rectly follows circuit connectivity to infer topology-dependent information such
+            as net names.
+
+            4                       Experiment and Findings
+
+
+
+
+                   (a) Diagram by industrial EDA                     (b) Diagram by industrial EDA   (c) Diagram by our EDA   (d) Diagram by our EDA
+                            with DPI 150                                       with DPI 50                 with DPI 150          without symbol text
+
+
+            Fig. 5: Synthesized schematic variations generated by our custom EDA generative
+            rendering engine. The first diagram shows the original export from the industrial EDA
+            tool; all remaining diagrams are rendered by our engine under controlled variations.
+            (a) original EDA export; (b) full text; (c) without all text; (d) without symbol names
+            and values.
+
+
+            4.1                            Experimental Setups
+            Study Setup. The tested LMMs in this section include GPT5.2 [24], GPT-
+            5-mini [24], Claude-Sonnet-4.6 [6], Gemini-2.5-Flash-Lite [13], Gemini-3.1-Pro-
+                                                   OmniSch: A Multimodal PCB Schematic Benchmark                                                                                     11
+
+Preview [14], Qwen3-8B-Instruct [10], Qwen3-VL-235B-A22B [10], Ministral-
+14B [4], and LLaMA-4-Maverick-400B [3]. We evaluate these models alongside
+a classical vision pipeline baseline and our proposed agentic framework, as de-
+scribed below. For training the classical pipeline components (e.g., object de-
+tectors), we randomly split OmniSch into 80% training and 10% validation sets,
+with the remaining 10% reserved as a held-out test set for all models. We conduct
+three studies: (i) Zero-shot Evaluation, where all LMMs are tested using a sin-
+gle prompt without intermediate interaction to assess their end-to-end ability to
+convert schematic images into netlist graphs. We also include a domain-specific
+SFT-trained model based on Qwen3-8B-Instruct [9], along with a classical vi-
+sion pipeline (discussed below), for comparison; (ii) Ablation on Synthesized
+Schematics, where we evaluate model robustness on schematics generated by
+our EDA rendering engine under controlled variations (text configurations, res-
+olution, and color), as shown in Figure 5. We also conduct few-shot experiments
+to assess the impact of example schematics on performance; and (iii) Agentic
+Evaluation, where we evaluate the impact of active visual search on schematic-
+to-netlist graph generation using a unified tool-augmented framework (described
+below) under a zero-shot setting. Due to space limitation, full implementation
+details are provided in Appendix D.
+    Implementation of Classical Vision Baseline. We construct a classi-
+cal, modular vision pipeline as a principled baseline for evaluating LMMs on
+schematic understanding, providing a transparent reference to diagnose where
+end-to-end models succeed or fail. The pipeline relies on YOLO11 [17] for vi-
+sual perception and PaddleOCR [33] for text extraction, followed by a series of
+rule-based and algorithmic modules to construct symbol, pin, and net instances
+and recover circuit connectivity. For text referring, we develop a multimodal
+text grounding model that associates OCR tokens with schematic instances to
+extract symbol names, values, and pin/pad labels. These structured outputs are
+then reconciled into a global netlist.
+                                           Symbol                                                                                Symbol                       Pin              Net
+
+Question:
+                                                             Initial answer:
+Given a PCB schematic image, can you
+                                                             “The orange marker shows a small component
+generate a structured netlist graph (etc                     near the top-left around (300, 420), between
+symbol, pin, topology …)?                                    VDD labels..”                                                1                       1                    1
+                                                                         [search starts]
+                                             Pin
+
+                                                                                                                   [search
+                                                                                                                   iterations]
+                                                                                                                                                                           2
+                                            Net                          <question>
+                                                                         What is symbol name of                                   2                       2
+                                                       VQA                 highlight symbol?
+                                                                                                            VQA
+                                                       LMM               <global image>                                                                                        3
+                                                                                                            LMM
+                                                                                                  [search ends;
+                                                                         <search targets>
+                                                                                                  Construct VWM]                                          3                    4
+                                                                                (x1 ,…)
+            Image resolution: 1920 X 830
+                                                                        <target location>                                             3
+                                                                          loc={[x1,x2,y1,y2],…}
+
+                                                                    Visual Working Memory (VWM)
+
+
+        Final answer:                                             Final answer:                                                           Final answer:
+                “Symbol name: R2, Symbol value: 1M”                         “Pin name: GAIN, Pad name: 2”                                             “Pin’s net name: RX”
+
+
+
+Fig. 6: Overview of the ReAct-based agentic framework for LMMs to evaluate usage
+and performance of LMMs using tools in schematic-to-netlist conversion.
+
+   Implementation of LMMs Agentic Framework. We design a React-
+based evaluation framework to benchmark how LMMs perform VQA-style rea-
+12     Lu and Lin et al.
+
+soning to parse PCB schematic images into structured netlists, with a focus
+on text referring tasks such as symbol names, component values, pin names,
+pad names, and net names. The framework presents a high-resolution schematic
+and a structured query, and asks the LMMs to iteratively issue crop operations
+to localize target regions and refine its predictions through a search-and-zoom
+process.
+
+4.2   Main Results and Findings
+Evaluation results of zero-shot study are shown in Table 2. Overall, the
+graph construction performance of LMMs is significantly lower than that of
+human engineers (last row), indicating their limited capability in comprehensive
+schematic understanding. Evaluation results on schematic understanding tasks
+reveal consistent limitations of LMMs across multiple capabilities.
+    • Instance detection. LLMs struggle in dense diagrams, particularly for
+fine-grained elements such as pins, and rely heavily on textual cues rather than
+true visual grounding, with accuracy dropping noticeably when textual informa-
+tion is removed. Furthermore, LMMs exhibit limited capability in precise visual
+grounding. For example, although Gemini 2.5 Flash achieves 66.36% accuracy in
+symbol detection under match by Eq. (1), its IoU-based matching score is only
+0.00%. This gap suggests that while LMMs can roughly identify instances—often
+leveraging textual information—they fail to accurately localize their precise spa-
+tial boundaries.
+    • Symbol Classification. LMMs can identify basic component types (e.g.,
+resistors and capacitors) but fail to generalize to more complex or functional
+symbols.
+    • Text Referring. LMMs exhibit substantial weaknesses, often failing to
+accurately associate textual information (e.g., net names, symbol names, and
+values) with corresponding visual regions, highlighting limitations in precise
+grounding.
+    • Topological Relation Reasoning. LMMs still struggle to understand
+connectivity among schematic instances. From the net perspective, performance
+remains low across models: on real schematics, even the best LMM reaches only
+27.44% net detection F1 and 25.07% net-name accuracy. This suggests that
+current systems remain weak at recovering long-range circuit connectivity and
+assigning semantic identities to nets. Moreover, performance further degrades as
+the number of nets increases, highlighting the difficulty of reasoning over more
+complex connectivity patterns; we discuss this trend further in the appendix.
+    • Geometric Relation Understanding. Table 2 suggests that current
+LMMs still exhibit limited performance in spatially grounded visual understand-
+ing. On real schematics, IoU-based symbol detection for all LMMs remains below
+0.3%, and Kendall’s τ stays below 0.05, indicating that even when the models
+can recognize the correct symbols semantically, they still struggle to ground them
+accurately in image space and to preserve relative geometric relationships
+    • Heterogeneous Graph Construction. These deficiencies propagate to
+overall graph generation, where overall graph quality remains low, as reflected
+                                                           OmniSch: A Multimodal PCB Schematic Benchmark                                                                                                       13
+
+Table 2: Evaluation reults of LMMs on single prompt zero-shot and Abla-
+tion Study schematic-to-netlist generation. Real denotes the schematic exported
+by industrial EDA; Synth. denotes the synthesis schematic by our custom EDA; GED
+denotes as graph edit distance. Symbol attributes (Name, Value, Type) are evaluated
+on matched symbol detections only, and pin attributes (PinName, PadName) are eval-
+uated on matched pin detections only.
+
+                                                                        Symbol                                              Pin                               Net                Graph         Geometric   Pass Rate
+                                       Image
+Model                       Size
+                                       Input           Detection (F1)              Attribute              Detection (F1)             Attribute      Detection Attribute        Structure       Structure
+                                                     Match by Match by                                  Match by Match by
+                                                                           Name     Value      Type                       PinName PadName              F1       NetName       IoU     1-GED Kendall’s τ      Pass
+                                                      Eq. (1)   IoU                                      Eq. (2)   IoU
+                                                                                          Commercial Chatbot Systems
+                             -         Real           0.5276    0.0009    0.1761    0.2434     0.2948    0.5155    0.0003         0.1607   0.1780    0.1987         0.1822   0.1546   0.0945    0.0337      0.7097
+GPT-5.2                             Real Low R.       0.3184    0.0032    0.0363    0.0566     0.0451    0.1756    0.0000         0.0641   0.0547    0.0612         0.0504   0.0480   0.0590    0.0170      0.9946
+                                      Synth.          0.4732    0.0007    0.1460    0.2196     0.2600    0.5217    0.0003         0.2160   0.1738    0.2588         0.2445   0.1722   0.0944    0.0501      1.0000
+                                     w/o Txt.         0.4508    0.0011      —         —        0.1229    0.5369    0.0005         0.1802   0.3896    0.3924         0.0538   0.0116   0.1413    0.0097      1.0000
+                                     FewShot.         0.6196    0.0000    0.1890    0.2999     0.4185    0.5469     0.000         0.1058   0.1724    0.4199         0.1716   0.1450   0.1806    0.0019      1.0000
+                             -         Real           0.2997    0.0010    0.1026    0.1111     0.1320    0.3658    0.0000         0.1233   0.0892    0.1016         0.0921   0.0704   0.0730    0.0192      0.9032
+GPT-5-mini                          Real Low R.       0.1926    0.0033    0.0292    0.0476     0.0306    0.1391    0.0000         0.0362   0.0298    0.0315         0.0280   0.0210   0.0431    0.0057      0.9946
+                                      Synth.          0.2918    0.0010    0.0945    0.1086     0.1287    0.3346    0.0000         0.1125   0.0881    0.0994         0.0905   0.0651   0.0659    0.0180      1.0000
+                                     w/o Txt.         0.2312    0.0009      —         —        0.0474    0.3131    0.0000         0.0565   0.1924    0.1926         0.0297   0.0045   0.0732    0.0207      1.0000
+                                     FewShot.         0.5310    0.0007    0.1713    0.1212     0.2284    0.3812    0.0001         0.0817   0.0000    0.2428         0.0802   0.1062   0.1199    0.0162      1.0000
+                             -         Real           0.5862    0.0009    0.1487    0.2205     0.3637    0.5513    0.0003         0.1073   0.2113    0.1748         0.1594   0.1241   0.1590    0.0301      0.9839
+Claude Sonnet 4.6                   Real Low R.       0.5130    0.0012    0.0475    0.1205     0.2735    0.4017    0.0002         0.0602   0.1356    0.1158         0.1048   0.0837   0.1360    0.0221      0.9946
+                                      Synth.          0.6247    0.0024    0.1780    0.2762     0.4037    0.5703    0.0006         0.0831   0.2131    0.1939         0.1761   0.1381   0.1607    0.0361      0.9194
+                                     w/o Txt.         0.7235    0.0020      —         —        0.3516    0.6728    0.0009         0.0302   0.5306    0.5532         0.1546   0.1747   0.2218    0.0605      0.9194
+                                     FewShot.         0.7185    0.0010    0.3296    0.4023     0.5293    0.6605    0.0000         0.1652   0.1618    0.5575         0.2124   0.2621   0.2913    0.0631      0.9194
+                             -         Real           0.6636    0.0000    0.2411    0.3439     0.3916    0.7062    0.0000         0.3265   0.3481    0.2744         0.2507   0.1945   0.1479     0.0418     0.6505
+Gemini 2.5 Flash                    Real Low R.       0.5596    0.0005    0.0936    0.1485     0.2708    0.5364    0.0000         0.2527   0.2505    0.1581         0.1435   0.1274   0.1065     0.0232     0.5753
+                                      Synth.          0.5622    0.0000    0.1740    0.2909     0.3155    0.4705    0.0000         0.1045   0.1620    0.1766         0.1612   0.1262   0.1321     0.0219     0.7151
+                                     w/o Txt.         0.7241    0.0000      —         —        0.3623    0.7764    0.0000         0.2506   0.0014    0.7044         0.1380   0.2085   0.2539     0.0622     0.5806
+                                     FewShot.         0.7469    0.0000    0.4956    0.4953     0.4128    0.6910    0.0000         0.2341   0.4517    0.7481         0.3231   0.2071   0.2452    -0.0965     0.3226
+                             -         Real           0.5900    0.0003    0.2659    0.3365     0.3523    0.6928    0.0002         0.1710   0.2614    0.2706         0.2490   0.1771   0.1062    0.0432      0.6774
+Gemini 3.1 Pro-Preview              Real Low R.       0.3992    0.0004    0.0918    0.1434     0.1994    0.4077    0.0001         0.0715   0.0904    0.1101         0.1014   0.0844   0.0721    0.0138      0.9516
+                                      Synth.          0.4805    0.0000    0.2125    0.2444     0.2700    0.5571    0.0001         0.1278   0.1703    0.2108         0.1928   0.1290   0.0876    0.0216      0.7849
+                                     w/o Txt.         0.5639    0.0002      —         —        0.3039    0.5817    0.0000         0.1599   0.2142    0.4041         0.1271   0.0404   0.1609    0.1904      0.7903
+                                     FewShot.         0.6683    0.0000    0.3113    0.2897     0.4447    0.6363    0.0000         0.2295   0.3472    0.4657         0.2615   0.1656   0.1853    0.1408      0.9140
+                                                                                                Open-Source MLLMs
+                            400B       Real           0.2527    0.0000    0.0584    0.0821     0.1055    0.2405    0.0000         0.0837   0.0783    0.0672         0.0612   0.0475   0.0434    0.0139      0.8656
+LLaMA 4 Maverick                    Real Low R.       0.1134    0.0002    0.0156    0.0215     0.0401    0.0984    0.0000         0.0311   0.0294    0.0222         0.0204   0.0162   0.0224    0.0045      0.9785
+                                      Synth.          0.2911    0.0000    0.0667    0.0941     0.1265    0.2868    0.0000         0.1088   0.0962    0.0827         0.0757   0.0575   0.0474    0.0168      0.9301
+                                     w/o Txt.         0.1956    0.0000      —         —        0.0350    0.2095    0.0000         0.0123   0.1171    0.1198         0.0185   0.0020   0.0470    0.0052      0.9516
+                                     FewShot.         0.3057    0.0006    0.1102    0.1108     0.1679    0.3063    0.0000         0.0557   0.0149    0.1864         0.0380   0.0770   0.0919    0.0163      0.2849
+                            14B        Real           0.3826    0.0020    0.0867    0.1288     0.1787    0.3794    0.0000         0.0976   0.1219    0.1151         0.1053   0.0825   0.1223    0.0236      0.4409
+Ministral 14B                       Real Low R.       0.2628    0.0003    0.0223    0.0452     0.0875    0.1696    0.0000         0.0440   0.0529    0.0425         0.0392   0.0314   0.0505    0.0088      0.9785
+                                      Synth.          0.4562    0.0000    0.0981    0.1715     0.2464    0.3825    0.0000         0.1244   0.1515    0.1268         0.1152   0.0888   0.0879    0.0288      0.5914
+                                     w/o Txt.         0.4164    0.0011      —         —        0.0691    0.4697    0.0000         0.2462   0.0303    0.3376         0.0317   0.0068   0.1474    0.0336      0.4839
+                                     FewShot.         0.5054    0.0004    0.1733    0.2229     0.3216    0.4401    0.0000         0.1854   0.0566    0.3707         0.0531   0.1184   0.1407    0.0060      0.3548
+                            8B         Real           0.0868    0.0000    0.0202    0.0354     0.0282    0.0195    0.0000         0.0030   0.0037    0.0043         0.0040   0.0023   0.0065    -0.0022     0.7473
+Qwen3-VL 8B                         Real Low R.       0.0544    0.0000    0.0072    0.0102     0.0109    0.0085    0.0000         0.0024   0.0015    0.0019         0.0017   0.0013   0.0045    -0.0006     0.7526
+                                      Synth.          0.0756    0.0000    0.0166    0.0258     0.0221    0.0020    0.0000         0.0001   0.0002    0.0005         0.0004   0.0002   0.0053    -0.0004     1.0000
+                                     w/o Txt.         0.0577    0.0002      —         —        0.0032    0.0083    0.0000         0.0000   0.0000    0.0042         0.0003   0.0000   0.0046     0.0000     0.8118
+                                     FewShot.         0.0847    0.0000    0.0324    0.0325     0.0378    0.0275    0.0000         0.0052   0.0036    0.0156         0.0020   0.0036   0.0079     0.0000     0.3871
+                            122B       Real           0.5584    0.0008    0.2442    0.2826     0.3464    0.5164    0.0000         0.1957   0.1321    0.4237         0.1230   0.1179   0.1452    0.0067      0.9140
+Qwen3.5-122B-A10B                   Real Low R.       0.3190    0.0003    0.0715    0.0920     0.1706    0.2631    0.0000         0.0693   0.0460    0.1831         0.0339   0.0871   0.1018    0.0361      0.9301
+                                      Synth.          0.5137    0.0000    0.2440    0.2577     0.3215    0.5406    0.0000         0.1661   0.1149    0.4301         0.1471   0.2513   0.2711    0.0000      0.7096
+                                     w/o Txt.         0.3649    0.0023      —         —        0.1719    0.3459    0.0002         0.0789   0.0305    0.2499         0.0630   0.1844   0.1947    0.0000      0.6828
+                                     FewShot.         0.6975    0.0008    0.3564    0.4373     0.5328    0.6506    0.0003         0.3341   0.3198    0.5480         0.2068   0.2837   0.3243    0.0140      0.9086
+                             -          Real          0.4294    0.8812    0.5078 0.2487 0.7875           0.1502    0.9174         0.6245   0.4100    0.5871         0.6613   0.1060   0.0311    0.0442      1.0000
+Classical Vision Pipeline           Real Low R.       0.9051    0.9433    0.5055 0.2983 0.8235           0.0000    0.8503         0.7258   0.5288    0.6156         0.4951     —        —         —         1.0000
+                                       Synth.         0.4240    0.9518    0.6087 0.5977 0.8319           0.1960    0.9047         0.8170   0.7347    0.7045         0.7031   0.2280   0.0397    0.1263      1.0000
+                                   Synth. w/o Txt.      —       0.9199      —      —    0.8317             —       0.8554         0.9812   0.8536    0.7081         0.8065     —        —         —         1.0000
+                             -          Real          0.9667    0.9589    0.9842 0.9759 0.9547           0.9534    0.8793         0.9987     1.0     0.9867         0.9353   0.8696   0.9188    0.8876      1.0000
+Human Engineer                         Synth.         0.9649    0.9678    0.9851 0.9748 0.9521           0.9516    0.9732         0.9989   0.9992    0.9893         0.9867   0.8473   0.9136    0.8846      1.0000
+
+
+
+
+by poor IoU and high GED scores. Together, these results demonstrate that
+current LMMs lack robust capabilities in fine-grained perception, and structural
+reasoning required for accurate schematic understanding.
+
+    Evaluation result on ablation study are shown in Table 2. The results of
+this ablation study reveal how LMM performance varies under controlled visual
+conditions and demonstrate the extent to which factors such as resolution, text
+availability, and few-shot examples influence robustness and overall understand-
+ing.
+
+    • Impact of Text Configurations. The effect of text removal is not uni-
+form across models. For some LMMs, the w/o Txt. setting even yields higher
+detection F1 than Synth., suggesting that text can sometimes interfere with
+recognition. For example, symbol detection F1 increases from 62.47% to 72.35%
+for Claude Sonnet 4.6 and from 56.22% to 72.41% for Gemini 2.5 Flash. In
+these cases, precision drops slightly while recall increases more substantially be-
+14              Lu and Lin et al.
+
+Table 3: Evaluation results of agentic evaluation. w/o GT BBox denotes full-
+image search, where LMMs must first localize the target before performing visual
+search; w/ GT BBox denotes detector-assisted search, where an initial bounding box is
+provided and LMMs only expand it without re-localizing the target. Both input images
+are the generated schematic in Fig. 5(d). ∆ denotes the relative improvement (%) of
+w/ GT BBox vs. w/o GT BBox ; * denotes metrics computed only on instances with
+visible text.
+
+Model                    Size   Setting                               Symbol                                                  Pin                         Net
+                                               Name      Name*        Value      Value*        Type     PinName    PinName*     PadName   PadName*      NetName
+                                                                  Commercial chatbot systems
+                         -      w/o GT BBox    0.6948    0.6457       0.6610     0.6507     0.6886      0.7892      0.7621      0.2654      0.1298          –
+GPT-5.2                         w/ GT BBox     0.8565    0.8482       0.8088     0.8252     0.8458      0.9056      0.8567      0.8426      0.9473       0.6926
+                                ∆             +23.28%   +31.36%      +22.36%    +26.82%    +22.83%      +14.76%    +12.41%     +217.57%    +629.43%         –
+                         -      w/o GT BBox    0.5539    0.5835       0.4983     0.4797     0.5292       0.6285     0.5545      0.1311      0.1138          –
+GPT-5 Mini                      w/ GT BBox     0.8932    0.8739       0.8437     0.8799     0.8717       0.8694     0.7615      0.7839      0.8196       0.6517
+                                ∆             +61.26%   +45.36%      +69.31%    +72.01%    +64.72%      +38.33%    +37.34%     +497.94%    +620.21%         –
+                         -      w/o GT BBox    0.5070   0.7414        0.6710    0.7368         0.7452    0.4982     0.5944      0.4022      0.6210          –
+Claude-Sonnet-4.6               w/ GT BBox     0.7955   0.7210        0.7430    0.7589         0.7202    0.8984    0.8864       0.6400     0.9526        0.6411
+                                ∆             +56.91%   +0.71%       +10.73%    +3.00%         -3.36%   +80.33%    +49.11%     +59.15%     +53.38%          –
+                         -      w/o GT BBox  0.2148      0.3991      0.2280     0.2129      0.2482       0.1052     0.1504      0.0998      0.0708          –
+Gemini-2.5-Flash-Lite           w/ GT BBox   0.5123      0.7467      0.5181     0.4776      0.6156       0.8473     0.7870      0.7184      0.7220       0.3873
+                                ∆           +138.49%    +87.06%     +127.24%   +124.33%    +148.02%     +705.42%   +423.01%    +619.64%    +920.34%         –
+                         -      w/o GT BBox   0.8093    0.8726       0.7833     0.8151     0.7870        0.6943     0.8211     0.5824       0.8927         –
+Gemini-3.1-Pro-Preview          w/ GT BBox    0.8958    0.8983       0.8591     0.9013     0.8764        0.8382     0.8140      0.7841      0.8545      0.8911
+                                ∆             +10.69%   +2.95%       +9.68%     +10.58%    +11.36%      +20.72%     -0.86%     +34.62%      -4.28%         –
+                                                                     Open-source MLLMs
+                         400B w/o GT BBox  0.1270        0.1699      0.1389     0.0876      0.2034       0.3346     0.0455      0.1780      0.0273          –
+LLaMA-4-Maverick-400B         w/ GT BBox   0.7934        0.7229      0.7421     0.7579      0.7196       0.7586     0.4964      0.5276      0.5323       0.3758
+                              ∆           +524.72%      +325.37%    +434.41%   +765.41%    +253.77%     +126.70%   +991.21%    +196.40%   +1849.45%         –
+                         14B    w/o GT BBox  0.0990      0.0784      0.1324     0.0421      0.1031       0.1725     0.0380      0.0524      0.0051          –
+Ministral-14B                   w/ GT BBox   0.4179      0.7626      0.3882     0.3622      0.4399       0.3960     0.2742      0.3457      0.1301       0.1113
+                                ∆           +322.12%    +872.70%    +193.25%   +760.57%    +326.61%     +129.57%   +621.58%    +559.92%   +2450.98%         –
+                         8B     w/o GT BBox  0.2337    0.0368   0.1126    0.0280    0.0361               0.6653      0.0106     0.5544      0.0013          –
+Qwen3-8B-Instruct               w/ GT BBox   0.5917    0.7057   0.5872    0.5725    0.6067               0.7418      0.5723     0.6207      0.4153       0.3021
+                                ∆           +153.20% +2039.67% +421.40% +1948.21% +1581.99%             +11.50%    +5299.06%   +11.96%    +31 792.31%       –
+                         235B w/o GT BBox  0.1336        0.2315      0.1570     0.1187      0.2150       0.2099     0.1027      0.0909      0.0130          –
+Qwen3-VL-235B-A22B            w/ GT BBox   0.5753        0.7871      0.5792     0.5809      0.6566       0.7282     0.8283      0.7233      0.8380       0.4532
+                              ∆           +330.64%      +277.44%    +268.92%   +640.69%    +205.39%     +246.88%   +706.40%    +695.99%   +6346.15%         –
+
+
+
+cause the models make more predictions under w/o Txt., recovering more true
+instances but also introducing more false positives.
+    • Impact of Diagram Resolution and FewShot. LMMs exhibit further
+degradation when processing low-resolution images, as the loss of visual detail
+impairs structural understanding, leading to lower Graph IoU and higher Graph
+GED, and ultimately resulting in a significant decline in overall performance.
+    Evaluation results on agentic evaluation are shown in Table 3. LMMs
+show limited capability in text-referred visual search, especially in the full-image
+setting where failures in target localization significantly hinder performance.
+When the target region is already known and does not need to be localized,
+performance improves consistently across all metrics.
+    • Topology Trace Understanding. LMMs remain unable to reliably per-
+form trace-based visual search for circuit connectivity. Notably, Gemini 3.1 Pro
+achieves the strongest performance in trace following, demonstrating precise
+step-by-step tracking over xx steps and successfully covering the target con-
+nectivity.
+
+5       Conclusion
+In this work, we introduce OmniSch, a large-scale real-world schematic bench-
+mark with rich symbol, pin, text, and net graph annotations, along with struc-
+tured evaluation protocols for assessing netlist graph generation by LMMs. Lever-
+                       OmniSch: A Multimodal PCB Schematic Benchmark          15
+
+aging this benchmark, we conduct extensive experiments on representative LMMs
+across diverse evaluation settings, from single-shot prompting to tool-augmented
+agentic pipelines. Based on the results, we identify essential factors that af-
+fect their performance. We observed a tool-augmented agentic framework could
+enable LMMs to perform more active visual search through external percep-
+tion tools, improving the efficiency and accuracy of schematic-to-netlist genera-
+tion. We hope OmniSch benchmark could support further research on improving
+LMMs’ structured diagram understanding capability.
+16      Lu and Lin et al.
+
+References
+ 1. Abbineni, P., Aldowaish, S., Liechty, C., Noorzad, S., Ghazizadeh, A., Fayazi,
+    M.: Muallm: A multimodal large language model agent for circuit design as-
+    sistance with hybrid contextual retrieval-augmented generation. arXiv preprint
+    arXiv:2508.08137 (2025)
+ 2. Adafruit Industries: Adafruit industries. https://www.adafruit.com (2026)
+ 3. AI, M.: Llama 4 technical report. https://ai.meta.com (2025)
+ 4. AI, M.: Ministral 14b. https://mistral.ai (2024)
+ 5. Aldowaish, S., Karumanchi, Y., Chiang, K.C., Noorzad, S., Fayazi, M.: Sina: A cir-
+    cuit schematic image-to-netlist generator using artificial intelligence. arXiv preprint
+    arXiv:2601.22114 (2026)
+ 6. Anthropic: Claude sonnet 4.6. https://www.anthropic.com (2025), claude model
+    family
+ 7. Arduino: Arduino: Open-source electronics platform. https://www.arduino.cc
+    (2026)
+ 8. Autodesk Inc.: Autodesk eagle: Pcb design and schematic software. https://www.
+    autodesk.com/products/eagle (2024), accessed: 2026-03-05
+ 9. Bai, J., et al.: Qwen technical report. arXiv preprint arXiv:2309.16609 (2023)
+10. Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
+    Gao, C., Ge, C., et al.: Qwen3-vl technical report. arXiv preprint arXiv:2511.21631
+    (2025)
+11. Bhandari, J., Bhat, V., He, Y., Rahmani, H., Garg, S., Karri, R.: Masala-chai: A
+    large-scale spice netlist dataset for analog circuits by harnessing ai. arXiv preprint
+    arXiv:2411.14299 (2024)
+12. Cheng, T., Song, L., Ge, Y., Liu, W., Wang, X., Shan, Y.: Yolo-world: Real-time
+    open-vocabulary object detection. In: Proceedings of the IEEE/CVF Conference
+    on Computer Vision and Pattern Recognition (CVPR). pp. 16901–16911 (2024)
+13. DeepMind, G.: Gemini 2.5 flash-lite. https://deepmind.google (2025)
+14. DeepMind, G.: Gemini 3.1 pro preview. https://deepmind.google (2026)
+15. GitHub, Inc.: Github: Software development platform. https://github.com (2026)
+16. Huang, C.Y., Chen, H.I., Ho, H.W., Kang, P.H., Lin, M.P.H., Liu, W.H., Ren, H.:
+    Netlistify: Transforming circuit schematics into netlists with deep learning. In: 2025
+    ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD). pp. 1–8.
+    IEEE (2025)
+17. Jocher, G., Chaurasia, A., Qiu, J.: Ultralytics yolo11. https://github.com/
+    ultralytics/ultralytics (2024)
+18. Kendall, M.G.: A new measure of rank correlation. Biometrika 30(1/2), 81–93
+    (1938)
+19. Li, J., Chen, L., YANG, B., Zhu, J., Wang, Y., Ma, Y., Yang, M.: Pcb-bench:
+    Benchmarking llms for printed circuit board placement and routing. In: The Four-
+    teenth International Conference on Learning Representations
+20. Liu, H., Li, C., Wu, Q., Lee, Y.J.: Visual instruction tuning. arXiv preprint
+    arXiv:2304.08485 (2023)
+21. Ma, C., Jiang, Y., Wu, J., Yuan, Z., Qi, X.: Groma: Localized visual tokenization
+    for grounding multimodal large language models. arXiv preprint arXiv:2404.13013
+    (2024)
+22. Ma, C., et al.: When visual grounding meets gigapixel-level large-scale scenes:
+    Benchmark and approach. In: CVPR (2024)
+23. OpenAI: Gpt-5-mini. https://openai.com (2025), openAI model release
+                         OmniSch: A Multimodal PCB Schematic Benchmark                17
+
+24. OpenAI: Gpt-5.2. https://openai.com (2025), openAI model release
+25. Peng, Z., Wang, W., Dong, L., Hao, Y., Huang, S., Ma, S., Wei, F.: Kosmos-
+    2: Grounding multimodal large language models to the world. arXiv preprint
+    arXiv:2306.14824 (2023)
+26. ProtoCentral: Protocentral: Open source medical electronics. https : / /
+    protocentral.com (2026)
+27. Rasheed, H., et al.: Glamm: Pixel grounding large multimodal model. arXiv
+    preprint arXiv:2311.03356 (2024)
+28. Seeed Technology Co., Ltd.: Seeed studio. https://www.seeedstudio.com (2026)
+29. Shi, Y., Tao, Z., Gao, Y., Huang, L., Wang, H., Yu, Z., Lin, T.J., He, L.: Amsnet
+    2.0: A large ams database with ai segmentation for net detection (2025), https:
+    //arxiv.org/abs/2505.09155
+30. Shi, Y., Tao, Z., Gao, Y., Huang, L., Wang, H., Yu, Z., Lin, T.J., He, L.: Amsnet
+    2.0: A large ams database with ai segmentation for net detection. In: 2025 IEEE In-
+    ternational Conference on LLM-Aided Design (ICLAD). pp. 242–248. IEEE (2025)
+31. SparkFun Electronics: Sparkfun electronics. https://www.sparkfun.com (2026)
+32. Tao, Z., Shi, Y., Huo, Y., Ye, R., Li, Z., Huang, L., Wu, C., Bai, N., Yu, Z., Lin,
+    T.J., et al.: Amsnet: Netlist dataset for ams circuits. In: 2024 IEEE LLM Aided
+    Design Workshop (LAD). pp. 1–5. IEEE (2024)
+33. Team, P.: Paddleocr 3.0 technical report. arXiv preprint arXiv:2409.01704 (2024),
+    https://arxiv.org/abs/2409.01704
+34. Thoma, F., Bayer, J., Li, Y., Dengel, A.: A public ground-truth dataset for hand-
+    written circuit diagram images. In: International Conference on Document Analysis
+    and Recognition. pp. 20–27. Springer (2021)
+35. Wu, P., Xie, S.: V?: Guided visual search as a core mechanism in multimodal llms.
+    In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+    Recognition. pp. 13084–13094 (2024)
+36. Xu, H., Liu, C., Wang, Q., Huang, W., Xu, Y., Chen, W., Peng, A., Li, Z., Li, B., Qi,
+    L., et al.: Image2net: datasets, benchmark and hybrid framework to convert analog
+    circuit diagrams into netlists. In: 2025 International Symposium of Electronics
+    Design Automation (ISEDA). pp. 807–816. IEEE (2025)
+37. Yang, Z., Liu, Z., Wang, X., Wang, Z., Yu, Y., Yang, Z., et al.: Mm-react: Prompt-
+    ing chatgpt for multimodal reasoning and action. arXiv preprint arXiv:2303.11381
+    (2023)
+38. You, H., Zhang, H., Gan, Z., Du, X., Zhang, B., Wang, Z., Cao, L., Chang, S.F.,
+    Yang, Y.: Ferret: Refer and ground anything anywhere at any granularity. arXiv
+    preprint arXiv:2310.07704 (2023)
+39. Zeng, Y., et al.: Investigating compositional challenges in vision-language models
+    for visual grounding. In: CVPR (2024)
+40. Zhao, T., et al.: Rgbt-ground benchmark: Visual grounding beyond rgb in complex
+    real-world scenarios. arXiv preprint arXiv:2512.24561 (2025)
+41. Zheng, Z., Yang, M., Hong, J., Zhao, C., Xu, G., Yang, L., Shen, C., Yu, X.:
+    Deepeyes: Incentivizing" thinking with images" via reinforcement learning. arXiv
+    preprint arXiv:2505.14362 (2025)
+

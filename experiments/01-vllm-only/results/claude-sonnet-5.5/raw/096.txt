@@ -1,0 +1,1 @@
+{"ckt_netlist":[{"component_type":"Diso_amp","port_connection":{"InN":"net1","InP":"viD","Out":"voD"}},{"component_type":"Res","port_connection":{"Pos":"voD","Neg":"net1"}},{"component_type":"Res","port_connection":{"Pos":"net1","Neg":"GND"}}]}
