@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267549-n7GcnoA5WWK6tj9TrDh6",
+  "object": "chat.completion",
+  "created": 1794267549,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"M1\",\"pin\":\"Drain\",\"net\":\"new1\",\"why\":\"M12 drain, M2A source and M2 drain form a separate right-hand node. The horizontal wire crosses the left vertical wire at x≈735 with no dot, so they are not connected.\"},{\"op\":\"set_pin\",\"component\":\"M4\",\"pin\":\"Source\",\"net\":\"new1\",\"why\":\"M2A source belongs to the right-hand node with M12 drain.\"},{\"op\":\"set_pin\",\"component\":\"M5\",\"pin\":\"Drain\",\"net\":\"new1\",\"why\":\"M2 drain connects to the right-hand node (M12 drain and M2A source), not the left one.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm mapping each pipeline label to its original component, and I'm working through the connections between the drains and the source nodes so far.\n\nI'm checking whether the pipeline merged two separate nets that the original kept apart at the crossing, and I'm reassigning the drains and sources so each net stays on its own side. The remaining gate and drain connections, including the bias gates, look consistent with the original.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping each pipeline label to its original component, and I'm working through the connections between the drains and the source nodes so far.\n\nI'm checking whether the pipeline merged two separate nets that the original kept apart at the crossing, and I'm reassigning the drains and sources so each net stays on its own side. The remaining gate and drain connections, including the bias gates, look consistent with the original.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5315,
+    "completion_tokens": 719,
+    "total_tokens": 6034,
+    "cost": 0.01782,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01782,
+      "upstream_inference_prompt_cost": 0.01063,
+      "upstream_inference_completions_cost": 0.00719
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 495,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

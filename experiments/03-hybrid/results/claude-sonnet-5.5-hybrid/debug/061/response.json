@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266000-Q1L71PcnzEIlvVSPl5ob",
+  "object": "chat.completion",
+  "created": 1794266000,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working out how the pipeline's M1 and M2 labels line up with the schematic, since they seem to be swapped. The component identities matter more than the net names, and the netlist puts M1's drain on the right-side net tied to Vb, while the image shows that transistor labelled M2.\n\nI'm checking the rest of the component mapping now: the pipeline's M1 sits on the Vb net, and the R and D labels all match connectivity once I go by net, not by name. The op-amp inputs and output also line up. Everything checks out, so the diode orientation is fine too.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out how the pipeline's M1 and M2 labels line up with the schematic, since they seem to be swapped. The component identities matter more than the net names, and the netlist puts M1's drain on the right-side net tied to Vb, while the image shows that transistor labelled M2.\n\nI'm checking the rest of the component mapping now: the pipeline's M1 sits on the Vb net, and the R and D labels all match connectivity once I go by net, not by name. The op-amp inputs and output also line up. Everything checks out, so the diode orientation is fine too.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5108,
+    "completion_tokens": 485,
+    "total_tokens": 5593,
+    "cost": 0.015066,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.015066,
+      "upstream_inference_prompt_cost": 0.010216,
+      "upstream_inference_completions_cost": 0.00485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 476,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

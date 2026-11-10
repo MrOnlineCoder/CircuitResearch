@@ -1,0 +1,20 @@
+{"edits":[
+{"op":"set_pin","component":"M6","pin":"Gate","net":"net5","why":"tail PMOS gate comes from the gray bias line off the M2 drain, not from VDD"},
+{"op":"set_pin","component":"M6","pin":"Source","net":"VDD","why":"tail source is tied to the vertical Vdd line"},
+{"op":"merge_nets","nets":["net2","net1"],"why":"the drain of M12 is wired back to its gate line"},
+{"op":"merge_nets","nets":["net2","VDD"],"why":"the dot on the Vdd line joins the M12/M13 gate line to Vdd"},
+{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"M12 source goes up to Vdd"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"net8","why":"input pair source goes to the tail node"},
+{"op":"set_pin","component":"M10","pin":"Drain","net":"net20","why":"input drain goes to the M8 diode node"},
+{"op":"set_pin","component":"M8","pin":"Source","net":"net8","why":"input pair source goes to the tail node"},
+{"op":"set_pin","component":"M8","pin":"Drain","net":"net23","why":"input drain goes to the M9 diode node"},
+{"op":"set_pin","component":"M13","pin":"Source","net":"net18","why":"source goes down to Vss"},
+{"op":"set_pin","component":"M13","pin":"Drain","net":"net18","why":"drain is on the same left-hand line as the source, which runs to Vss"},
+{"op":"set_pin","component":"M14","pin":"Source","net":"net18","why":"source goes to Vss"},
+{"op":"set_pin","component":"M16","pin":"Source","net":"net18","why":"source goes to Vss"},
+{"op":"set_pin","component":"M7","pin":"Source","net":"net4","why":"M15 source connects to the M14 drain"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"net17","why":"M15 drain goes to Vout"},
+{"op":"set_pin","component":"M12","pin":"Drain","net":"net17","why":"M16 drain goes to Vout"},
+{"op":"set_pin","component":"M12","pin":"Gate","net":"net7","why":"M16 gate connects to the Rc line, which is the M13 drain net"},
+{"op":"set_pin","component":"M12","pin":"Source","net":"net25","why":"M16 source goes to the M17 drain"}
+]}

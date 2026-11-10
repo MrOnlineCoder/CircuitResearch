@@ -1,0 +1,48 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "net12",
+      "why": "M0 drain connects to the tail node shared with the sources of M1 and M2, not to a separate dangling net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Drain",
+      "net": "net10",
+      "why": "The drain of M3 (pipeline M10) connects to node A, which is net10"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net6",
+        "net8"
+      ],
+      "why": "The A_P output drives both the M7 and M8 gates"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net16",
+        "net15"
+      ],
+      "why": "The A_N output drives both the M5 and M6 gates"
+    },
+    "ok": true,
+    "error": null
+  }
+]

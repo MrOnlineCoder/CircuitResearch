@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267145-PW0njiuIDzYQo24KF0YO",
+  "object": "chat.completion",
+  "created": 1794267145,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm tracing the schematic's current source from VDD to the Vout node, with M2's drain at Vout, its gate driven by the amp output, and its source tied to the amp's minus input and M1's drain, while M1's gate is Vin and its source is ground. The amp's plus input is Vref. The pipeline and C1 connections check out, and the amp's inputs are correct too, though I noticed the M1/M2 labels are swapped, which doesn't change anything.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm tracing the schematic's current source from VDD to the Vout node, with M2's drain at Vout, its gate driven by the amp output, and its source tied to the amp's minus input and M1's drain, while M1's gate is Vin and its source is ground. The amp's plus input is Vref. The pipeline and C1 connections check out, and the amp's inputs are correct too, though I noticed the M1/M2 labels are swapped, which doesn't change anything.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS2gcKEAgTGAI4AUIIdGhpbmtpbmcSDLDnS7zUQZYxg0e3pxoMflTHe6XjkS2D6c8vIjDk3mo2BdHyRxLx9sYnZKCvAsCEgWOYhaZQ02tBbWMZ77SEHgk7liu252UTrZX65M8q9wZ+RAoMpqjC102eyCdrIXr7K5PtoLR2UluD0VmXy4dmkux90GOsyLdiX38L//wDEimNyXUxOSr7a77IR0LATqZz4U4GZn3ngSn6E6OWhB1ISES30m27WTjNaXAxqbmyJ5Y8de3go7jgl018D9C+ThR2Yu39o3j1hAd9pIKeYl+hQsbMz5KGe4o0T17izMLJhx4SfG7T3pRocXPSDO2bBYfit1SSIRpzwxgnsP9wUpb57Glqz8isqlQBGXQUoIHVgDp0jFL1uF4XV3N9thAY0X9YOp57PqzKIdG7x+jzjxwtrASrLrgo//MmxlzAL33AsGU29Zz1rOmXUeXGt/RyhyvZTvmKqxGpuPjnwYl0BKSBUKtnTKsytSfLN21IeXvmxG8/UPuXN/uvuJQZ/XuWrdvAIeLlTfmYZQkDoBTJVtVt2Cc+5x175hK6hGkd1GWt7P36daIZeB/90rfByz7eY2na7cfVFpBg/EBYBIo0IVI/m8/i10//k04wPTIRpoSHCPwja1V2fi8C0eLXRqrl3qvdl/qB82uFLaFtER65ryLCYH55FmZVjy0eAWKtKboB8t0pIkXOy+kBFxgeI5hHYJzNkCNrjDguQf9UO0OHOaIhBSALP+duMtfhdtZWErix4qucdLs+pzD1BC8nK2ivjiMozmLHfxX0ZDYUrLg+h+2RNaelOpKqICQKR5OqqDcDHJ1VBpdcRurnnvSp+C550MA6dYBNAamZJZKDUmFOCdy6D43BMKubc5OqYW0muB8Neqgg31S6ExhWUZAlHo7lSmY9l1TAll0tQo5OMpKU+YpKV5JK/90bK3o5vyV5zTG2hNPrgNMy/obCQ0xEDVQuqcJ89gXb6bXiYVPgNbHB93GPclPLWELot5mKb358W60G90QgN+XRntp4Se0necilslRJRoG7uVpFU10LsTKxyKD/yvQeSizpelkXIUcVqYVwzYa79muacOUTw9rZpdOTL1tw5Jgtr00tLB+Sof3+OFLLaIzj9cBwjf9AsjhtwrQEkCbwrC4F1fpn4CM8dEGGT5zzR75/j7+48ZM+BH3hnxWvJmHFZaUYkodEz3L4cUMWMuLqKMypwV3Tp7zJDkfSY8kHpvhnhW5u6qC8AxTHXgz+A6Q+U9ecxADKA1M+/JTR/JEp9GO/3GNcIwl6RFQgS+wfEhFUFD8qzBgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3011,
+    "completion_tokens": 163,
+    "total_tokens": 3174,
+    "cost": 0.007652,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007652,
+      "upstream_inference_prompt_cost": 0.006022,
+      "upstream_inference_completions_cost": 0.00163
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 154,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

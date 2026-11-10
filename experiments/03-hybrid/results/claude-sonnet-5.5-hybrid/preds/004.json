@@ -1,0 +1,27 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VDD",
+                "Neg": "net2"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Gate": "net3",
+                "Source": "net4"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net4",
+                "Gate": "net5",
+                "Source": "GND"
+            }
+        }
+    ]
+}

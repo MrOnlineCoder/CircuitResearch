@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net6","net4"],"why":"M1's body is tied to the VSS supply (the downward arrow labelled VSS), which is the same VSS net as M2's source."}]}

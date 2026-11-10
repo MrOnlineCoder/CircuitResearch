@@ -1,0 +1,269 @@
+{
+  "id": "060",
+  "variant": "v2",
+  "pipeline_seconds": 0.256,
+  "overlay_scale": 1.639,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.763,
+      "box": [
+        240,
+        93,
+        312,
+        194
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net2",
+        "Emitter": "net3"
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.914,
+      "box": [
+        421,
+        95,
+        491,
+        194
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net2",
+        "Emitter": "net3"
+      }
+    },
+    {
+      "id": "Q3",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.923,
+      "box": [
+        711,
+        172,
+        782,
+        274
+      ],
+      "pins": {
+        "Collector": "net5",
+        "Base": "net4",
+        "Emitter": "net3"
+      }
+    },
+    {
+      "id": "Q4",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.922,
+      "box": [
+        299,
+        177,
+        371,
+        278
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "net1",
+        "Emitter": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.872,
+      "box": [
+        59,
+        218,
+        100,
+        307
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "net6"
+      }
+    },
+    {
+      "id": "Q5",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.87,
+      "box": [
+        481,
+        276,
+        556,
+        378
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net7",
+        "Emitter": "net8"
+      }
+    },
+    {
+      "id": "Q6",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.84,
+      "box": [
+        176,
+        276,
+        253,
+        380
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net9",
+        "Emitter": "net8"
+      }
+    },
+    {
+      "id": "Q7",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.89,
+      "box": [
+        71,
+        437,
+        147,
+        540
+      ],
+      "pins": {
+        "Collector": "net6",
+        "Base": "net6",
+        "Emitter": "net10"
+      }
+    },
+    {
+      "id": "Q8",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.851,
+      "box": [
+        710,
+        437,
+        786,
+        541
+      ],
+      "pins": {
+        "Collector": "net5",
+        "Base": "net11",
+        "Emitter": "net12"
+      }
+    },
+    {
+      "id": "Q9",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.495,
+      "box": [
+        302,
+        439,
+        377,
+        542
+      ],
+      "pins": {
+        "Collector": "net8",
+        "Base": "net6",
+        "Emitter": "net11"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "Q7.Emitter: attached through a very small blob, maybe text rather than a wire (net10).",
+    "Q9: detected as NPN with low confidence (0.50).",
+    "Q9: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "net10: only one pin (Q7.Emitter) and no input/output port - a dangling wire, or it should join another net.",
+    "net12: only one pin (Q8.Emitter) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net5",
+          "Base": "net4",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "net1",
+          "Emitter": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net7",
+          "Emitter": "net8"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net9",
+          "Emitter": "net8"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net6",
+          "Base": "net6",
+          "Emitter": "net10"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net5",
+          "Base": "net11",
+          "Emitter": "net12"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net8",
+          "Base": "net6",
+          "Emitter": "net11"
+        }
+      }
+    ]
+  }
+}

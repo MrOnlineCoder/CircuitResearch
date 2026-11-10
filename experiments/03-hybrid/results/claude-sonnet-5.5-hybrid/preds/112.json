@@ -1,0 +1,58 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "net1",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net4",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net4",
+                "Gate": "net5",
+                "Source": "net7"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net6",
+                "Source": "net7"
+            }
+        },
+        {
+            "component_type": "Current",
+            "port_connection": {
+                "In": "net3",
+                "Out": "GND"
+            }
+        },
+        {
+            "component_type": "Current",
+            "port_connection": {
+                "In": "net7",
+                "Out": "GND"
+            }
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net3",
+        "net6"
+      ],
+      "why": "The short segment above the right NMOS drain is part of the output net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Source",
+      "net": "net9",
+      "why": "The right NMOS source goes to the tail node (M5 drain), not to the output."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net3",
+        "net4"
+      ],
+      "why": "The dashed line joins the output to the + terminal of the VDD/2 source."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "V1",
+      "pin": "Negative",
+      "net": "GND",
+      "why": "The \u2212 terminal of the VDD/2 source goes to the ground symbol."
+    },
+    "ok": true,
+    "error": null
+  }
+]

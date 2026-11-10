@@ -1,0 +1,24 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C2",
+      "pin": "Pos",
+      "net": "net4",
+      "why": "CL top plate connects to the output node V0"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C2",
+      "pin": "Neg",
+      "net": "GND",
+      "why": "CL bottom connects to ground through the dashed line"
+    },
+    "ok": true,
+    "error": null
+  }
+]

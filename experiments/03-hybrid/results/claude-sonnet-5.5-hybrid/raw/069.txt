@@ -1,0 +1,1 @@
+{"edits":[{"op":"change_type","component":"Q1","type":"PNP","why":"In the original schematic Q1's emitter arrow points toward the base bar, the same as Q2, which the pipeline already calls PNP. This matches a substrate-PNP bandgap, so Q1 should be PNP too."}]}

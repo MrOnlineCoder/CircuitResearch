@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265978-pCsNkuo7MgjvCJBIOX4u",
+  "object": "chat.completion",
+  "created": 1794265978,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm double-checking the error amplifier wiring: the minus input is Vref and the plus input is Vfb, which matches the pipeline. The PMOS pass device also looks right, with source on Vin, drain on Vout, and gate driven by the amp output. Now I'm working through the feedback sign, since a PMOS pass device needs the right polarity for negative feedback.\n\nI'm confirming the R1 and R2 divider connections, the cap and load, and the current source's direction and nodes, and they all check out. Nothing looks wrong in the circuit.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm double-checking the error amplifier wiring: the minus input is Vref and the plus input is Vfb, which matches the pipeline. The PMOS pass device also looks right, with source on Vin, drain on Vout, and gate driven by the amp output. Now I'm working through the feedback sign, since a PMOS pass device needs the right polarity for negative feedback.\n\nI'm confirming the R1 and R2 divider connections, the cap and load, and the current source's direction and nodes, and they all check out. Nothing looks wrong in the circuit.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS6wgKEAgTGAI4AUIIdGhpbmtpbmcSDC5zqo56fGi9lxrXlBoMlPCRrly/Ta7iyACsIjDqL5hrpOmwplre3OwDTsxzUMbAMHfgxcHKGhclXz2sg/hc1NvepxOO0OQviS4o518qiAi7rIOZrVEbeEPjJyULi4lxgZdQ5CZ5MqU1DWZ7d/DIi3Kkv5l1SpmU0LwaOKIlGB5m1ZNS4G9Or0cLIv+kn3oN4F4oRgWfyM4/hv8+nV+CWr/HC8l8L6g7auCYSBcX7NS7XUaKJSX1XB5mlwTCQHQXAJ/T0kU4bomPgHyQc5KrwOK1ze3cQ1oSOIJdjHvAYqaV8sx0u0MS/1bADRQOm2WQM8RmHm55ilbudIMZh2tSSPD/+kcX/kzKP611oTO/m3x9UlJ29YGbydtjdiKXUD0+sr55hc2Xj/fXG8xX5wt7DEEEMo92u2mNkCkYZUoKLQPlphM+vqG8bZk/zqLB9jjQfmbzabzTcqtycNo5EXBasZ2tQ8uN0R2RRYhd/jlkuKX/HzvIPx7rvbCTaQQhvPvIX7ixNjknsgDGChT8w0K07miayGzmAVWhbk0X4qC3lhfWPB9KLUNjjdeUy2itkiWKekzzQfcNm977DITpm1ru20ReWbxEXUinVcMlDd7qMR38WjfV+C4WstrjH+z6tPoL+6fjwKMrUMJFLAa9u/1Dd+ZdIpZ/RJT9v3rWKPOnAfdxYVdJ9NTZhz67nAzsPuTJ+tKM3Cj/YUcKBY4xTdhkURo4NEJSp2tv7NYbKsitFHYcvNHE7Er6F/R9JVFpb257DgUvzR1jusftm6ZgFFAuB77D/ZmSMY4faBT5kuXt5pj4K3elJdz5HEHzihNqeWNgmo560zVqtXe19z+WfQgAO2APIzgs7NHnoIhFtdV211RRPS87Yqk5MpcwTnxHwUY6clip6Ehxsp3+GJYtOgH1vE+CTWn3/14tEo6W2yIAMNC/TFMSw8DdxoXbYEcRTRmYcOmI6Iz3Y6MUtCFY9CHCdyewQ8t4cWp2eJK/Ybqt6AhIjHMBYnn6v7zxNJkV5rS4ns7QOZtvAVZrTCQFHlESb7risE1omLWZqvbiB4Tma5OUBuZ2lzZfSsuE1Z71iNVoUpp+cOWS47zDGzpWy4H/TNrjS3aMaiyH5AfrBUvC8o4FqtlPr/amLudapf7DeAqdmbtcGzJ0QpUNDUrMeQlKGKOybRoSduChH/JjOT/9NY/xu82WnoeCzHdmLrcdKaI4Y0Hs3FA3GtywR4MR5Qyaa7IV4rPMDnmclsDtKq1ilZofR/SOPgmXfI2DsMht6WOKKsCWqTAXjvokLZZ5EGkHXAgGwrIN7nuev5Y1LUaM7sD7KRGK2oJqH3AmLy1FDN9h/ID695A4vGNzIkqzfId1Fx6/fZbvSO+3BzvwJA4Fjkxb107STYoXEVQOijuJ9CX/7ujmKcuUyk3KpOdcfo/mPbNzf8za56z4NRIp18ujJknn2Exl0d8obETeE1bTAt/wLfHmPkE1cDkYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 9747,
+    "completion_tokens": 233,
+    "total_tokens": 9980,
+    "cost": 0.021824,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.021824,
+      "upstream_inference_prompt_cost": 0.019494,
+      "upstream_inference_completions_cost": 0.00233
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 224,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

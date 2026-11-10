@@ -1,0 +1,68 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "net7",
+      "why": "Pipeline M7 is the schematic's M8. Its drain ties to the M6 drain and the M10/M11 gate line."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "net12",
+      "why": "The M8 gate is on the VNB2 bias net shared with M9."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "net13",
+      "why": "The M8 source goes to the M10 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Source",
+      "net": "net11",
+      "why": "Pipeline M8 is the schematic's M9. Its source goes to the M11 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "net14",
+      "why": "The M1 source goes to the tail node at the M3 drain. The hop at J1 means it is not joined to the vin- wire."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Source",
+      "net": "net14",
+      "why": "The M2 source goes to the tail node. Only the M2 gate connects to the vin- wire (net9)."
+    },
+    "ok": true,
+    "error": null
+  }
+]

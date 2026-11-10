@@ -1,0 +1,57 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "net8",
+      "why": "M1 source is the tail node, which goes down to the drain of the tail transistor (the pipeline's M9, drawn as M5 in the schematic). It is not on the left diode-connected branch."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Source",
+      "net": "net8",
+      "why": "M2 source also joins the tail node. The + wire only hops over it at J2."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "net7",
+      "why": "The tail transistor's gate is the bias net shared with the M8 and M7 gates, not the diode branch net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "GND",
+      "why": "The tail transistor's source goes to -1.5 V."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "net7",
+      "why": "The diode-connected NMOS (the schematic's M8) has its gate on its own drain net, which also drives the bias net. The pipeline shows its gate on the net1 wire alone, which is wrong."
+    },
+    "ok": true,
+    "error": null
+  }
+]

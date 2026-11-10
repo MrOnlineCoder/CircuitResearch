@@ -1,0 +1,49 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "net1",
+                "InN": "net2",
+                "Out": "VDD"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VDD",
+                "Neg": "net2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VDD",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "GND",
+                "Emitter": "net1"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "GND",
+                "Emitter": "net3"
+            }
+        }
+    ]
+}

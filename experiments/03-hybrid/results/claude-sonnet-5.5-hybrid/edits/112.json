@@ -1,0 +1,25 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "net7",
+      "why": "Left NMOS source goes to the tail current source node, not to the PMOS gate net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net4",
+        "net2"
+      ],
+      "why": "The PMOS mirror gates connect to the left PMOS drain / left NMOS drain node (diode-connected)"
+    },
+    "ok": true,
+    "error": null
+  }
+]

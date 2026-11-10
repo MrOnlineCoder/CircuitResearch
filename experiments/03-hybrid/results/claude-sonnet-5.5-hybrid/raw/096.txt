@@ -1,0 +1,9 @@
+In IMAGE 1, R2 (the feedback resistor) runs from the inverting input node to the op-amp output. R1/2 runs from that same node to ground.
+
+The pipeline's R1 is the resistor labeled R2, with pin 1 on net2 and pin 2 on net4. Its pin 2 should be on the output net, net3, so net4 should merge into net3.
+
+The pipeline's R2 is the resistor labeled R1/2. It connects net2 to GND, which is correct.
+
+Because net4 holds only R1.Neg, setting that pin to net3 fixes it.
+
+{"edits":[{"op":"set_pin","component":"R1","pin":"Neg","net":"net3","why":"Feedback resistor's right end connects to the op-amp output, not to a dangling net"}]}

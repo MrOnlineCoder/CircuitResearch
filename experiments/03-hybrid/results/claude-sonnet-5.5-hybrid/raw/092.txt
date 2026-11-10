@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net4","net6"],"why":"The A_P output drives both cascode PMOS gates (M5 and M6 in the original), so M3.Gate must join A1.Out."},{"op":"merge_nets","nets":["net10","net8"],"why":"The A_N output drives both cascode NMOS gates (M3 and M4 in the original), so M5.Gate must join A2.Out."}]}

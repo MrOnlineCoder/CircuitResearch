@@ -1,0 +1,46 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "net1",
+      "why": "The diode-connected mirror transistor (M6 in IMAGE 1) has its gate tied to its drain, which is the I_Bias node."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "GND",
+      "why": "The source of this transistor goes to ground; the pipeline wrongly put it on the gate line."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net1",
+        "net7"
+      ],
+      "why": "The gate line running to the second mirror transistor is the same node as the diode-connected drain/gate."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M6",
+      "type": "NMOS",
+      "why": "This is the NMOS tail current source (M5 in IMAGE 1), with its source and body at ground."
+    },
+    "ok": true,
+    "error": null
+  }
+]

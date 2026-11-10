@@ -24,14 +24,21 @@ class Contact:
     extent: int = 0  # size of the wire region (max of bbox width/height)
 
 
-def binarize(gray: np.ndarray) -> np.ndarray:
-    """Ink mask (True = drawn line). Otsu threshold; inverts dark-background images."""
+def binarize(gray: np.ndarray, mode: str = "background", contrast: int = 45) -> np.ndarray:
+    """Ink mask (True = drawn line); inverts dark-background images.
+
+    mode "otsu": global Otsu threshold. It splits the darkest class from the rest, so in a
+      drawing with dark text and light-grey wires it drops the wires (validation image 050).
+    mode "background": ink = anything at least `contrast` grey levels away from the
+      background (the median pixel), whatever the line colour.
+    """
     blur = cv2.GaussianBlur(gray, (3, 3), 0)
-    _, ink = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-    ink = ink > 0
-    if ink.mean() > 0.5:  # mostly "ink" -> it is a dark background
-        ink = ~ink
-    return ink
+    if mode == "otsu":
+        _, ink = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+        ink = ink > 0
+        return ~ink if ink.mean() > 0.5 else ink  # mostly "ink" -> dark background
+    bg = float(np.median(blur))
+    return np.abs(blur.astype(np.int16) - bg) >= contrast
 
 
 def stroke_width(ink: np.ndarray) -> float:

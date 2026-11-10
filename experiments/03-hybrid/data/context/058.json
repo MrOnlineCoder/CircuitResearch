@@ -1,0 +1,157 @@
+{
+  "id": "058",
+  "variant": "v2",
+  "pipeline_seconds": 0.208,
+  "overlay_scale": 1.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.893,
+      "box": [
+        395,
+        260,
+        643,
+        534
+      ],
+      "pins": {
+        "InP": "net1",
+        "InN": "net2",
+        "Out": "net3"
+      }
+    },
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.906,
+      "box": [
+        943,
+        269,
+        1127,
+        523
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net3",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.885,
+      "box": [
+        1072,
+        736,
+        1163,
+        898
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net1"
+      }
+    },
+    {
+      "id": "I1",
+      "type": "Current",
+      "detector_label": "current",
+      "confidence": 0.969,
+      "box": [
+        1556,
+        871,
+        1697,
+        1011
+      ],
+      "pins": {
+        "In": "net4",
+        "Out": "GND"
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.902,
+      "box": [
+        1343,
+        925,
+        1433,
+        978
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.867,
+      "box": [
+        1071,
+        1082,
+        1163,
+        1246
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net1",
+          "InN": "net2",
+          "Out": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net3",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Current",
+        "port_connection": {
+          "In": "net4",
+          "Out": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

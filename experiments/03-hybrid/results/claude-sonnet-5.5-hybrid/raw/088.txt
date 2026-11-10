@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"The top PMOS sources connect to the supply symbol at the top, not to ground."},{"op":"set_pin","component":"M2","pin":"Source","net":"VDD","why":"The top PMOS sources connect to the supply symbol at the top, not to ground."}]}

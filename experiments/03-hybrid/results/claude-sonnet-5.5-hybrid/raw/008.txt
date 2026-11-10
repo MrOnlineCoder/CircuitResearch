@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net5","net9"],"why":"Both the MB5 gate/drain node and the MA6/MA7 gates carry the VBN label, so they are one net."}]}

@@ -1,0 +1,187 @@
+{
+  "id": "115",
+  "variant": "v2",
+  "pipeline_seconds": 0.255,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.915,
+      "box": [
+        65,
+        101,
+        102,
+        147
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "net3"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.905,
+      "box": [
+        297,
+        101,
+        333,
+        147
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net2",
+        "Source": "net5"
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos-cross",
+      "confidence": 0.928,
+      "box": [
+        178,
+        102,
+        214,
+        148
+      ],
+      "pins": {
+        "Drain": "net6",
+        "Gate": "net2",
+        "Source": "net7"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.857,
+      "box": [
+        89,
+        154,
+        193,
+        236
+      ],
+      "pins": {
+        "InP": "net1",
+        "InN": "net6",
+        "Out": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.859,
+      "box": [
+        197,
+        286,
+        225,
+        340
+      ],
+      "pins": {
+        "Pos": "net6",
+        "Neg": "net8"
+      }
+    },
+    {
+      "id": "D1",
+      "type": "Diode",
+      "detector_label": "diode",
+      "confidence": 0.857,
+      "box": [
+        53,
+        323,
+        83,
+        343
+      ],
+      "pins": {
+        "In": "net1",
+        "Out": "GND"
+      }
+    },
+    {
+      "id": "D2",
+      "type": "Diode",
+      "detector_label": "diode",
+      "confidence": 0.856,
+      "box": [
+        196,
+        351,
+        225,
+        370
+      ],
+      "pins": {
+        "In": "net8",
+        "Out": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "R1: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "net4: only one pin (M2.Drain) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net2",
+          "Source": "net5"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net6",
+          "Gate": "net2",
+          "Source": "net7"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net1",
+          "InN": "net6",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net6",
+          "Neg": "net8"
+        }
+      },
+      {
+        "component_type": "Diode",
+        "port_connection": {
+          "In": "net1",
+          "Out": "GND"
+        }
+      },
+      {
+        "component_type": "Diode",
+        "port_connection": {
+          "In": "net8",
+          "Out": "GND"
+        }
+      }
+    ]
+  }
+}

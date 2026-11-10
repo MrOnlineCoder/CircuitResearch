@@ -1,0 +1,135 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net10",
+        "net3"
+      ],
+      "why": "both nets are VDD (top supply and the M7/M8 supply rail)"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "net5",
+      "why": "M2 drain goes to the Vout1 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "net4",
+      "why": "M2 gate goes to the Vout2 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "net4",
+      "why": "M4 drain goes to the Vout2 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "net5",
+      "why": "M4 gate goes to the Vout1 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Drain",
+      "net": "net4",
+      "why": "M3 drain goes to the Vout2 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "net5",
+      "why": "M3 gate goes to the Vout1 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "GND",
+      "why": "M3 source is grounded"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "net5",
+      "why": "M1 drain goes to the Vout1 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "net4",
+      "why": "M1 gate goes to the Vout2 net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "GND",
+      "why": "M1 source is grounded"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Drain",
+      "net": "net4",
+      "why": "M11 drain goes to the Vout2 net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

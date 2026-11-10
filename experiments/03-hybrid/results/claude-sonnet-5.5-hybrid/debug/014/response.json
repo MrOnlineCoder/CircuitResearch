@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265117-d1Kji2yyVaKcRFwRxZun",
+  "object": "chat.completion",
+  "created": 1794265117,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping out the circuit's connections: the two PMOS devices share tied gates with M2's drain on net2, M1's drain is the VREF node feeding Q1's collector and the bases of both BJTs, and Q1 is diode-connected. I'm now tracking which nets those drains and collectors sit on as I trace the pipeline.\n\nI'm checking the emitter connections against the image: Q1's emitter runs down to the X wire, and Q2's goes through R1 to X and then R2 to ground. The gate and VREF lines also look right.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping out the circuit's connections: the two PMOS devices share tied gates with M2's drain on net2, M1's drain is the VREF node feeding Q1's collector and the bases of both BJTs, and Q1 is diode-connected. I'm now tracking which nets those drains and collectors sit on as I trace the pipeline.\n\nI'm checking the emitter connections against the image: Q1's emitter runs down to the X wire, and Q2's goes through R1 to X and then R2 to ground. The gate and VREF lines also look right.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQStQoKEAgTGAI4AUIIdGhpbmtpbmcSDF+Azlama8busK/qdRoMzdzqpPuvpno/JZz3IjAlRhgSnqAgvldPonRdPr6DCEzmAErwsKKRJF8Z4JMknJC86kS2d8tFufJf6l6vy2Aq0gl59XWvWeJVzbYIxscwQtxEXISBn4JY0fiX8d/WJigXR16/Ix3q7hPmMxacuUMRXbAF3/DnYyHhRGJOUAZaMJoA5QdDg34YfjuaBHvsPNdASl7svSo6sfdE2+ixj2dMJzBpmZIfVY3QqsEYjlpTAJZc3buMjEtdI12sjdRhP3QZ6klbw4z0gpWAikTiEW7U/PDBiuKGiYk0bB/HV1h2Ez9hsPsvP9v1x/unI1nzWq5QzfyP8YDgLZ9IjRQB0D49YMMJlQRSfGHF1xeLQhPfVl+UKAbVQyq7raoRZiEe0G3sUywDzEoNfcswIfHKU3W5ucBvyrc8f/0AUWKs5496GM0X9r8FlmHYLFN+WqrPRvjG330v0bTWsYU0XolLcnDpE9k2KF9AU9EC4weYlHE58uq+YXiM8/jbBHxLVhgQwSFmLD47R75y8ChTNVR625tHf5L1CceizXfSdViXGSVx8AJqAYmbZYqa4rgW1/Br4qSLfUDwk7cMp/kLHRrt2YClHccCKFXAcc2vAOEM7eVW1fm/T9abfsJhspKDGDTArhAWjE4ho9dSTQzrH5P5/gNhjQsxRnnOrsHeRR7fjVnNpW2dwuVKviZjYENk9vNlw1NweRNbqG+G/zH9aX3RfOGEAJFoHLpC+gPKoRMeMYYdk06lIpyjoOsWkz1EROnDBoOOQ1Pv5WU+3mIzaqzxN14ZqmdpC0EJLXOcrOX6zKyGuoPaY8e6j1An8VLYjLUFTWZt+YNzSVlJSL5fenfPqXyUcgi/3xMF4W9Hd+hzirs3pLdKZhB63zVA/EPX4wZVN9fB1brmA42Tf1dOM8kjrW15/HjVQGDriYenZp+Lgo7U5NrzafQhwjtnPyXyKQFIEivbBXIwdJoLdYx+Xbkq0qQ6tsa2/q1E+/IThsLyX9mluhL9C65qSd3efk0gFaoFB5/Wz0bhjDN5VzRa++RnZzGcC/Lz5wC5sHHdPgY3s8mLC6e30USudEgMXuM2/uzFvI10QObigfFx+E0VNrsuKPqzL5585i5PsPA6o0wN0fvyZxxoDAchKEGorK6U55IAsg2XCgkhOFaQoqVIN3SJk7aKbSN3j/6VlB1pMhRWIDFpM0bnyv7x8taH5RsQSTrMtPsKxQutrQH8Xy0KMgdZkUijia2QFaFT38eo5Z/KC/ubWIwEpz+0jLT0h7fwTCgKTDzRi/rerlLun6BJiALvMdCyE2x6mnVfpp/KkGfX+jLC3REmPW16ZkiOSYeMXhmGt37ic97K6Ke7+FSa4vJRixZJmPjaHE+QTpC9jeO4aRyohfK5gzRABQpRZs0fwwPy6YqXvoWB55pjg+D8ofCqZHZnhRDrZzYNSOMUkgD7klhLON0G7Wd4dwiPq6jOYudBbYtjHhXfGU4TOYCYs/mLZ/P7Drvj2dJCz7ivhOOdhzRhVx4vzwB63efaokXX6AVZ/n32r99V9hb2U0YlPfs81Tcn1gRZWiLChym0+pVhoIZjy/Rkme3YTAGJESH4DucgYJHM5i/xBJDZpfGen1uBpRYJfEewNB2VSk7wmAlbTa8ePJ5F3BZCfB1PnDhgQhAlGTc7Z+EKC0Ga/KI6cKxrvO4q2GKIK6vnhTZsYmj6KxUB+Swb8ZmGATk7t/UTpw/iA9wD8inZGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3182,
+    "completion_tokens": 340,
+    "total_tokens": 3522,
+    "cost": 0.009764,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009764,
+      "upstream_inference_prompt_cost": 0.006364,
+      "upstream_inference_completions_cost": 0.0034
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 331,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "M3 source is tied to VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "net1",
+      "why": "M3 gate is on the M6 diode-connected bias net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "tail",
+      "why": "M3 drain feeds the M11/M12 source tail node, which is not VDD or net1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "net1",
+      "why": "M4 gate is the same bias net as the M6 and M3 gates"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "tail",
+      "why": "M12 source connects to the tail node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Gate",
+      "net": "vinp",
+      "why": "M12 gate is VINP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "tail",
+      "why": "M11 source connects to the tail node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Drain",
+      "net": "na",
+      "why": "M11 drain is the M21 diode node, separate from the M12 drain node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "na",
+      "why": "M21 drain is diode-connected to M21 gate and M22 gate"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "na",
+      "why": "M21 gate ties to its own drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "na",
+      "why": "M22 gate is the M21 diode node"
+    },
+    "ok": true,
+    "error": null
+  }
+]

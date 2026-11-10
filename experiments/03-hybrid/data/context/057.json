@@ -1,0 +1,180 @@
+{
+  "id": "057",
+  "variant": "v2",
+  "pipeline_seconds": 0.116,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.901,
+      "box": [
+        271,
+        26,
+        288,
+        51
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Dido_amp",
+      "detector_label": "diff-amp",
+      "confidence": 0.952,
+      "box": [
+        225,
+        91,
+        379,
+        290
+      ],
+      "pins": {
+        "InP": "net3",
+        "InN": "net1",
+        "OutP": "net2",
+        "OutN": "net4"
+      }
+    },
+    {
+      "id": "C2",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.86,
+      "box": [
+        461,
+        119,
+        486,
+        135
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "C3",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.892,
+      "box": [
+        128,
+        139,
+        145,
+        165
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net1"
+      }
+    },
+    {
+      "id": "C4",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.912,
+      "box": [
+        129,
+        215,
+        146,
+        240
+      ],
+      "pins": {
+        "Pos": "net6",
+        "Neg": "net3"
+      }
+    },
+    {
+      "id": "C5",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.901,
+      "box": [
+        462,
+        245,
+        487,
+        262
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "C6",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.886,
+      "box": [
+        272,
+        328,
+        288,
+        353
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net4"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Dido_amp",
+        "port_connection": {
+          "InP": "net3",
+          "InN": "net1",
+          "OutP": "net2",
+          "OutN": "net4"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net6",
+          "Neg": "net3"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net4"
+        }
+      }
+    ]
+  }
+}

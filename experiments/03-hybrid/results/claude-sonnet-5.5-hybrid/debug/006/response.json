@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794264973-P5VeMkhhhT4n5GhU7Kko",
+  "object": "chat.completion",
+  "created": 1794264973,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"M3\",\"pin\":\"Drain\",\"net\":\"net5\",\"why\":\"The middle PMOS (MP2) drain runs down past the hop arc to the top of R1 and the op-amp minus input, which is net5. The net2 wire only hops over it, so net4 is just a split-off stub of net5.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm going through the schematic and have worked out the MP1 connections: its source is at VDD, its gate is driven by the op-amp output at net2, and its drain goes to net1, which ties to Q1's collector and the op-amp's + input. Q1's base is tied to GND. I'm now moving on to MP2, whose gate is also net2, with its drain connecting to R1's top and the op-amp's − input, and then on to MP3.\n\nNow I'm checking the MP3 gate, which runs from net2 and hops over the MP2 drain line, so it's tied to net2 and its drain feeds Vout, R2 and R3. Then I'm reviewing the pipeline labels, and I think M3's drain should be net5 rather than net4, since the wire below the hop is net5.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the schematic and have worked out the MP1 connections: its source is at VDD, its gate is driven by the op-amp output at net2, and its drain goes to net1, which ties to Q1's collector and the op-amp's + input. Q1's base is tied to GND. I'm now moving on to MP2, whose gate is also net2, with its drain connecting to R1's top and the op-amp's − input, and then on to MP3.\n\nNow I'm checking the MP3 gate, which runs from net2 and hops over the MP2 drain line, so it's tied to net2 and its drain feeds Vout, R2 and R3. Then I'm reviewing the pipeline labels, and I think M3's drain should be net5 rather than net4, since the wire below the hop is net5.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4383,
+    "completion_tokens": 741,
+    "total_tokens": 5124,
+    "cost": 0.016176,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.016176,
+      "upstream_inference_prompt_cost": 0.008766,
+      "upstream_inference_completions_cost": 0.00741
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 624,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

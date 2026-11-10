@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "GND",
+      "why": "The tail transistor M5 in the schematic has its source tied to ground. The wire runs down past the hop-arc crossing without connecting to the bias line, so the source is not on the differential-pair tail net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

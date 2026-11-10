@@ -1,0 +1,83 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net5",
+                "Base": "net4",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "net1",
+                "Emitter": "net2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "GND",
+                "Neg": "net6"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "net7",
+                "Emitter": "net8"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net9",
+                "Emitter": "net8"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net6",
+                "Base": "net6",
+                "Emitter": "net12"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net5",
+                "Base": "net6",
+                "Emitter": "net12"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net8",
+                "Base": "net6",
+                "Emitter": "net12"
+            }
+        }
+    ]
+}

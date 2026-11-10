@@ -1,0 +1,234 @@
+{
+  "id": "043",
+  "variant": "v2",
+  "pipeline_seconds": 0.389,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.902,
+      "box": [
+        223,
+        79,
+        267,
+        137
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.855,
+      "box": [
+        49,
+        80,
+        95,
+        139
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.909,
+      "box": [
+        108,
+        147,
+        209,
+        236
+      ],
+      "pins": {
+        "InP": "net4",
+        "InN": "net5",
+        "Out": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.876,
+      "box": [
+        246,
+        196,
+        279,
+        254
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net6"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.88,
+      "box": [
+        39,
+        311,
+        71,
+        368
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net4"
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.9,
+      "box": [
+        247,
+        311,
+        280,
+        368
+      ],
+      "pins": {
+        "Pos": "net6",
+        "Neg": "net5"
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.873,
+      "box": [
+        39,
+        425,
+        71,
+        483
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net7"
+      }
+    },
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.862,
+      "box": [
+        51,
+        512,
+        107,
+        574
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net7"
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.922,
+      "box": [
+        212,
+        512,
+        267,
+        573
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net5"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "A1: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks)."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net4",
+          "InN": "net5",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net6",
+          "Neg": "net5"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net7"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net7"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net5"
+        }
+      }
+    ]
+  }
+}

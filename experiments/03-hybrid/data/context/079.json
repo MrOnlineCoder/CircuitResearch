@@ -1,0 +1,185 @@
+{
+  "id": "079",
+  "variant": "v2",
+  "pipeline_seconds": 0.153,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.89,
+      "box": [
+        93,
+        112,
+        245,
+        295
+      ],
+      "pins": {
+        "InP": "net1",
+        "InN": "net2",
+        "Out": "net3"
+      }
+    },
+    {
+      "id": "A2",
+      "type": "Siso_amp",
+      "detector_label": "single-input-single-end-amp",
+      "confidence": 0.486,
+      "box": [
+        119,
+        132,
+        248,
+        278
+      ],
+      "pins": {
+        "In": "nc1",
+        "Out": "nc2"
+      }
+    },
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.932,
+      "box": [
+        344,
+        165,
+        401,
+        243
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net3",
+        "Source": "net5"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.841,
+      "box": [
+        285,
+        297,
+        317,
+        353
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net1"
+      }
+    },
+    {
+      "id": "I1",
+      "type": "Current",
+      "detector_label": "current",
+      "confidence": 0.983,
+      "box": [
+        371,
+        342,
+        422,
+        393
+      ],
+      "pins": {
+        "In": "net4",
+        "Out": "GND"
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.912,
+      "box": [
+        532,
+        359,
+        566,
+        382
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.844,
+      "box": [
+        285,
+        385,
+        318,
+        442
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "A2: detected as Siso_amp with low confidence (0.49).",
+    "A2.In: no wire found at this lead (left unconnected as nc1).",
+    "A2.Out: no wire found at this lead (left unconnected as nc2).",
+    "A2: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks)."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net1",
+          "InN": "net2",
+          "Out": "net3"
+        }
+      },
+      {
+        "component_type": "Siso_amp",
+        "port_connection": {
+          "In": "nc1",
+          "Out": "nc2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net3",
+          "Source": "net5"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Current",
+        "port_connection": {
+          "In": "net4",
+          "Out": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

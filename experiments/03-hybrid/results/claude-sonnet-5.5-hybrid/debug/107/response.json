@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267337-Wzo3yJiXEslcUDJLCNyh",
+  "object": "chat.completion",
+  "created": 1794267337,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"change_type\",\"component\":\"M1\",\"type\":\"PMOS\",\"pins\":{\"Source\":\"net4\",\"Drain\":\"net5\",\"Gate\":\"net3\",\"Body\":\"net5\"},\"why\":\"The pass element has the arrow pointing into the channel, so it is a PMOS. Its source is at the top on VIN and its drain is at the bottom on VOUT.\"},{\"op\":\"set_pin\",\"component\":\"I1\",\"pin\":\"In\",\"net\":\"net5\",\"why\":\"The load current flows down from VOUT, so the top terminal is In.\"},{\"op\":\"set_pin\",\"component\":\"I1\",\"pin\":\"Out\",\"net\":\"GND\",\"why\":\"The bottom terminal of the load source goes to ground, which is what the dangling net7 wire is.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm reading the schematic: VIN feeds both the error amplifier supply and the source of the PMOS pass element at the top. The drain at the bottom goes to VOUT, and I'm trying to pin down how the body is tied.\n\nI'm checking the body tie on the PMOS, which looks odd but works with the body at VOUT. I'm setting the pass element to PMOS with source at VIN and drain at VOUT, and I'm checking that the error amp and resistor and capacitor wiring is right. For the load current source, the top should be net5 and the bottom should be ground, so I need to fix the pin swap.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm reading the schematic: VIN feeds both the error amplifier supply and the source of the PMOS pass element at the top. The drain at the bottom goes to VOUT, and I'm trying to pin down how the body is tied.\n\nI'm checking the body tie on the PMOS, which looks odd but works with the body at VOUT. I'm setting the pass element to PMOS with source at VIN and drain at VOUT, and I'm checking that the error amp and resistor and capacitor wiring is right. For the load current source, the top should be net5 and the bottom should be ground, so I need to fix the pin swap.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3950,
+    "completion_tokens": 875,
+    "total_tokens": 4825,
+    "cost": 0.01665,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01665,
+      "upstream_inference_prompt_cost": 0.0079,
+      "upstream_inference_completions_cost": 0.00875
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 631,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

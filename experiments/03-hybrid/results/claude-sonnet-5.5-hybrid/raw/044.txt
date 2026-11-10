@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M8","pin":"Drain","net":"src","why":"M5 drain joins the M1/M2 source node; the vin wire only hops over it at J1"},{"op":"set_pin","component":"M5","pin":"Source","net":"src","why":"input-pair source is the tail node, not vin"},{"op":"set_pin","component":"M6","pin":"Source","net":"src","why":"input-pair source is the tail node, not vin"}]}

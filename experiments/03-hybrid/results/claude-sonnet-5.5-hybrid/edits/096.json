@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "net3",
+      "why": "Feedback resistor's right end connects to the op-amp output, not to a dangling net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

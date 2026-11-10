@@ -1,0 +1,131 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net10",
+        "net1"
+      ],
+      "why": "The drain of the original M16 runs down across the hop arc J2 to the diode-connected original M14, so it is on net10"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "net8",
+      "why": "The drain of the original M3 joins the common node via a dot, so it is not on net10"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net8",
+        "net12"
+      ],
+      "why": "The source of the original M4 sits on the same node as M2/M3 drains, M6 drain and M5 source / M7 drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Drain",
+      "net": "net8",
+      "why": "The drain of the original M6 is on the common node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Source",
+      "net": "GND",
+      "why": "The source goes over hop J1 to the ground symbol"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Source",
+      "net": "GND",
+      "why": "The source goes over hop J7 to the ground symbol"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Neg",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "bias",
+      "why": "R1 bottom, the drain and gate of the original M12, and the gates of M6 and M7 form the bias net, not ground"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Drain",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Gate",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  }
+]

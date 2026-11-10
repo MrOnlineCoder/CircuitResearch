@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265136-P9tQgM95M9egblA6AuM0",
+  "object": "chat.completion",
+  "created": 1794265136,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"R1\",\"pin\":\"Neg\",\"net\":\"jL\",\"why\":\"The R2B1/R2B2 junction is a separate node from the left drain wire; the pipeline merged them at a crossing with no dot\"},{\"op\":\"set_pin\",\"component\":\"R4\",\"pin\":\"Pos\",\"net\":\"jL\"},{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"InN\",\"net\":\"jL\"},{\"op\":\"set_pin\",\"component\":\"R2\",\"pin\":\"Neg\",\"net\":\"jR\",\"why\":\"The R2A1/R2A2 junction is a separate node from the middle drain wire; the pipeline merged them at a crossing with no dot\"},{\"op\":\"set_pin\",\"component\":\"R5\",\"pin\":\"Pos\",\"net\":\"jR\"},{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"InP\",\"net\":\"jR\"}]}",
+        "refusal": null,
+        "reasoning": "I'm trying to match the pipeline labels to the netlist, but the labels conflict: the left box says \"M2\" while the netlist IDs don't line up, and the right box is M1, which the netlist ties to the Vref drain net.\n\nNow I'm checking the transistor drains against the netlist: net3 is the green left transistor, and net4 is the purple middle one. The resistor pins look wrong, since the R1 negative side seems to share net3 when it should be a separate junction.\n\nNow I'm working out the junctions: the left one feeds R1's negative side, R4's positive side, and the inverting input of the op-amp, while the right one feeds R2's negative side, R5's positive side, and the non-inverting input. The transistor emitters line up with the netlist, and the op-amp polarity checks out. I'm planning to set R1's negative pin to a new junction node and do the same for R4's positive pin.\n\nI'm assigning the new junction nodes now: the op-amp's inverting input goes to the left junction, and the right junction covers R2's negative pin, R5's positive pin, and the non-inverting input.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm trying to match the pipeline labels to the netlist, but the labels conflict: the left box says \"M2\" while the netlist IDs don't line up, and the right box is M1, which the netlist ties to the Vref drain net.\n\nNow I'm checking the transistor drains against the netlist: net3 is the green left transistor, and net4 is the purple middle one. The resistor pins look wrong, since the R1 negative side seems to share net3 when it should be a separate junction.\n\nNow I'm working out the junctions: the left one feeds R1's negative side, R4's positive side, and the inverting input of the op-amp, while the right one feeds R2's negative side, R5's positive side, and the non-inverting input. The transistor emitters line up with the netlist, and the op-amp polarity checks out. I'm planning to set R1's negative pin to a new junction node and do the same for R4's positive pin.\n\nI'm assigning the new junction nodes now: the op-amp's inverting input goes to the left junction, and the right junction covers R2's negative pin, R5's positive pin, and the non-inverting input.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4528,
+    "completion_tokens": 1229,
+    "total_tokens": 5757,
+    "cost": 0.021346,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.021346,
+      "upstream_inference_prompt_cost": 0.009056,
+      "upstream_inference_completions_cost": 0.01229
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 940,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

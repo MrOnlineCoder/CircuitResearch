@@ -1,0 +1,11 @@
+Checking the original schematic against the pipeline netlist:
+
+- **Error amplifier:** the original shows VREF on the − input and the feedback node on the + input. The pipeline matches this, with InP = net1 and InN = net2 (VREF).
+- **A2:** this is a spurious second detection of the same amplifier, so it should be removed.
+- **M1:** the pass transistor is a PMOS with its source at VIN and drain at VOUT, and the pipeline has this right.
+- **Feedback divider:** RF1 runs from VOUT to the feedback node, and RF2 runs from the feedback node to ground. The pipeline has this right.
+- **Load and capacitor:** I_Load and C_L both connect to VOUT and ground, which matches.
+
+The only fix needed is removing A2.
+
+{"edits":[{"op":"remove_component","component":"A2","why":"duplicate spurious detection inside the error amplifier"}]}

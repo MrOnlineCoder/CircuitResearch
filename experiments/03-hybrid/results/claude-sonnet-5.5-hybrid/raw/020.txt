@@ -1,0 +1,18 @@
+{"edits":[
+{"op":"change_type","component":"M8","type":"NMOS","pins":{"Drain":"net16","Gate":"net17","Source":"net5"},"why":"input transistor is NMOS; body was tied to gate"},
+{"op":"change_type","component":"M9","type":"NMOS","pins":{"Drain":"net18","Gate":"net19","Source":"net5"},"why":"input transistor is NMOS; dangling body removed"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"net17","why":"left cascode drain goes to the Vin node, not GND"},
+{"op":"set_pin","component":"M13","pin":"Drain","net":"net17","why":"left Vb1 NMOS drain is on the Vin node"},
+{"op":"merge_nets","nets":["net17","net13"],"why":"Cc1, the MZ1 gate and Vin are one node"},
+{"op":"merge_nets","nets":["net16","net25"],"why":"M13 source joins the M1 drain / M17 drain node"},
+{"op":"set_pin","component":"M17","pin":"Source","net":"GND"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"GND","why":"MZ1 source and drain are both tied to GND"},
+{"op":"set_pin","component":"M6","pin":"Drain","net":"net19","why":"right cascode drain goes to the Vip node"},
+{"op":"set_pin","component":"M12","pin":"Drain","net":"net19","why":"right Vb1 NMOS drain is on the Vip node"},
+{"op":"merge_nets","nets":["net19","net14"],"why":"Cc2, the MZ2 gate and Vip are one node"},
+{"op":"set_pin","component":"M11","pin":"Gate","net":"net19"},
+{"op":"set_pin","component":"M11","pin":"Drain","net":"GND"},
+{"op":"set_pin","component":"M11","pin":"Source","net":"GND"},
+{"op":"set_pin","component":"M14","pin":"Source","net":"GND"},
+{"op":"merge_nets","nets":["net15","net7"],"why":"M13 drain connects to Voutp"}
+]}

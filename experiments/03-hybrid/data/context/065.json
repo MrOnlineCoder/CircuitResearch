@@ -1,0 +1,630 @@
+{
+  "id": "065",
+  "variant": "v2",
+  "pipeline_seconds": 0.208,
+  "overlay_scale": 1.728,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos-cross",
+      "confidence": 0.949,
+      "box": [
+        411,
+        80,
+        433,
+        115
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "VDD",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos-cross",
+      "confidence": 0.942,
+      "box": [
+        132,
+        80,
+        154,
+        115
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "VDD",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.892,
+      "box": [
+        490,
+        81,
+        512,
+        114
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "VDD",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M4",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.877,
+      "box": [
+        455,
+        111,
+        478,
+        145
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M5",
+      "type": "PMOS",
+      "detector_label": "pmos-cross",
+      "confidence": 0.933,
+      "box": [
+        569,
+        111,
+        593,
+        146
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M6",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.873,
+      "box": [
+        327,
+        137,
+        350,
+        174
+      ],
+      "pins": {
+        "Drain": "net2",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M7",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.909,
+      "box": [
+        263,
+        137,
+        285,
+        174
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M8",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.896,
+      "box": [
+        645,
+        161,
+        669,
+        198
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M9",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.877,
+      "box": [
+        263,
+        209,
+        285,
+        245
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "net3"
+      }
+    },
+    {
+      "id": "M10",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.87,
+      "box": [
+        327,
+        209,
+        350,
+        246
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.839,
+      "box": [
+        656,
+        241,
+        676,
+        285
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "M11",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.845,
+      "box": [
+        489,
+        253,
+        512,
+        287
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M12",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.864,
+      "box": [
+        171,
+        303,
+        194,
+        338
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "GND",
+        "Source": "net1"
+      }
+    },
+    {
+      "id": "M13",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.886,
+      "box": [
+        105,
+        304,
+        128,
+        338
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net5",
+        "Source": "net1"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.796,
+      "box": [
+        765,
+        342,
+        785,
+        385
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.843,
+      "box": [
+        656,
+        353,
+        676,
+        397
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "M14",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.91,
+      "box": [
+        553,
+        359,
+        575,
+        392
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.89,
+      "box": [
+        718,
+        360,
+        741,
+        377
+      ],
+      "pins": {
+        "Pos": "GND",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "M15",
+      "type": "NMOS",
+      "detector_label": "nmos-cross",
+      "confidence": 0.832,
+      "box": [
+        246,
+        380,
+        268,
+        413
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "net6",
+        "Source": "net4"
+      }
+    },
+    {
+      "id": "M16",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.894,
+      "box": [
+        327,
+        380,
+        350,
+        414
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "net6",
+        "Source": "net4"
+      }
+    },
+    {
+      "id": "C2",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.865,
+      "box": [
+        392,
+        426,
+        408,
+        454
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "M17",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.902,
+      "box": [
+        328,
+        488,
+        350,
+        522
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net7",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M18",
+      "type": "NMOS",
+      "detector_label": "nmos-cross",
+      "confidence": 0.839,
+      "box": [
+        246,
+        489,
+        268,
+        522
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net7",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M19",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.89,
+      "box": [
+        490,
+        490,
+        512,
+        523
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M20",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.911,
+      "box": [
+        428,
+        490,
+        450,
+        523
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "GND",
+        "Source": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "VDD",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "VDD",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "VDD",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net2",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "GND",
+          "Source": "net1"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net5",
+          "Source": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "GND",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "net6",
+          "Source": "net4"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "net6",
+          "Source": "net4"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net7",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net7",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "GND",
+          "Source": "GND"
+        }
+      }
+    ]
+  }
+}

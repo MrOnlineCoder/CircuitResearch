@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266876-JqIlzYMfEitDsu83iYEl",
+  "object": "chat.completion",
+  "created": 1794266876,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm reviewing the schematic: the error amplifier has VREF on the minus input and the feedback node between R2 and R1 on the plus input. R1 runs from that node to the output, which is the drain of M1 with the cap and current source.\n\nThe op-amp inputs check out: the minus input is on VREF and the plus input is on net1, the feedback node.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm reviewing the schematic: the error amplifier has VREF on the minus input and the feedback node between R2 and R1 on the plus input. R1 runs from that node to the output, which is the drain of M1 with the cap and current source.\n\nThe op-amp inputs check out: the minus input is on VREF and the plus input is on net1, the feedback node.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSgAgKEAgTGAI4AUIIdGhpbmtpbmcSDLETb39tJ4YoOtkz3RoMw6nVtIHiHgiG5MFwIjDs8t/pBJUcWUkpWmCOzd30+e10IJRBru/qbPRz7o//7kuBYdzHe3OEqstvuwWwsSoqnQfs79IebKPc3QAhz0aDzXw6JemnKP7x0ra5qdqcclir09PQyErfNveo1Xy6ZElYmDVkSNt5IqgPWjNRDXrOcM4VslE/DJqEEsmGLyubfD9HCz7UHIkF8DzC5lcnB01bLol5d1d38LD6CGgDpVfGrBK6g1ayvkUOuf+OQw//Fu+lO3ZAod6A7pCv7Tr4rR8MLm15/DHX6njg/nDfJgThY4EB1aoixDw6CBvVE3SxFa+bArX2pezS5O3he0fojNUtw6yzNAhSEK01Li3QZygwxc61hpeqKLS8xiXI7sIvUu1aj9Ad67i9H9YVT2YxOxU1qhjaqfn+0nNXojYU84B/uvK/+Ev5EnbvyQ7Uf6aYuKC8qiYGalaMn+Qc8JtPrV1m/3XmFE4ksaxLraPb+tZ7XUGmej1ouwCDLtNkeZr7gVnPvQlE7VdCGRt6Cn3cZ83unN/qpfnR7RuBby1HYETluAA8P+tHN3/nh17EbsOFjLG8b+1TSozKMlDksKNzqN1GgAcuT9K4a2s1kpVtP/maIRvLtrkvQaW6TbdVjNJP7SRe2UunfNpnzDNQrznaxo59ZiVgsQtfni7Uz11JlZKyGxZbGCWuwvoorsVdpvgbuh6QOSuvkdn1k+/sdze3+a5vi8Z02OJJalO9Bs+fnpRYSEXYhYvOkreK9DfUxifhpEczl9NPCDNdCE2oBNh6vpvP70uTFUOPxeTK7cb74sI9QZ292kSDaxeFWk9OTf7gj9VsNreX2rx/PjJkAYRmrJ2sHn5sbcrQdSYCLkIrgdEp43M0GlCKcxVgyOOK91zPYIk6Q+8Fvb5eXnDzX9xoNZqbplNuOTOwy2ueEyx6h6wCSPTT5DSrz/aS2hcPzzXA5gNMc5Qxn2gJ1tsCTwwHXhbbbfZdt3kYsXkJLhPyrqSQeYgkzqkT0sB1k6+X+fZfJQGFTXlFIN6r7KdH7YPDPYVAWisdaL2YVrM+0ifg5yY2FtXkVnCvOTRzEtKLhQmlRPRKAIoqHHugTEoa7bMfew6DhD5qUC/SzNF8RDCAr8jVcm0vTugjGzi7KO1UYczAMvYxEvFAF2I9DXRkGvYZXVZy3HQzekV+aRptsxqvJmtvYc1in2riJ5MhcCwOtnNju5cDX9KnXHpJCAhqfw4ZXRetd/+s1zkt0i8c/jC0Jf7CCZqeKG1LYJ0b/DqJwHHIdstmNiSQi15yv1B93+YVDvF3Wxj54nLooftagbUdDgy+GAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2388,
+    "completion_tokens": 193,
+    "total_tokens": 2581,
+    "cost": 0.006706,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006706,
+      "upstream_inference_prompt_cost": 0.004776,
+      "upstream_inference_completions_cost": 0.00193
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 184,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

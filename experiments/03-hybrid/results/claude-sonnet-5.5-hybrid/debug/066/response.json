@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266240-aPFuHOZR3FKbfgQCrLlN",
+  "object": "chat.completion",
+  "created": 1794266240,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching the pipeline's labeled components to the actual transistors in the netlist, starting with M1 in the pipeline, which corresponds to the real M4, with its drain on net1 and its gate on the shared net.\n\nI'm checking the remaining transistor mappings against the netlist: M2 to M3, M3 to M6, M4 to M2, M5 to M1, M6 to M7, and M7 to M5, with their drains, gates and sources. The + input wire hops over the tail wire without connecting to it, and the M2 gate and the M5 and M7 gates tie to the right nets. The device types also look right.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the pipeline's labeled components to the actual transistors in the netlist, starting with M1 in the pipeline, which corresponds to the real M4, with its drain on net1 and its gate on the shared net.\n\nI'm checking the remaining transistor mappings against the netlist: M2 to M3, M3 to M6, M4 to M2, M5 to M1, M6 to M7, and M7 to M5, with their drains, gates and sources. The + input wire hops over the tail wire without connecting to it, and the M2 gate and the M5 and M7 gates tie to the right nets. The device types also look right.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4012,
+    "completion_tokens": 659,
+    "total_tokens": 4671,
+    "cost": 0.014614,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014614,
+      "upstream_inference_prompt_cost": 0.008024,
+      "upstream_inference_completions_cost": 0.00659
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 650,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

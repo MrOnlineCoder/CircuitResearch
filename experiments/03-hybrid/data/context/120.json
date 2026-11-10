@@ -1,0 +1,273 @@
+{
+  "id": "120",
+  "variant": "v2",
+  "pipeline_seconds": 0.145,
+  "overlay_scale": 1.683,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.898,
+      "box": [
+        552,
+        36,
+        578,
+        83
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "C2",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.885,
+      "box": [
+        551,
+        92,
+        578,
+        148
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Siso_amp",
+      "detector_label": "single-input-single-end-amp",
+      "confidence": 0.682,
+      "box": [
+        327,
+        154,
+        441,
+        238
+      ],
+      "pins": {
+        "In": "net4",
+        "Out": "net4"
+      }
+    },
+    {
+      "id": "A2",
+      "type": "Siso_amp",
+      "detector_label": "single-input-single-end-amp",
+      "confidence": 0.717,
+      "box": [
+        82,
+        154,
+        208,
+        239
+      ],
+      "pins": {
+        "In": "net5",
+        "Out": "net1"
+      }
+    },
+    {
+      "id": "A3",
+      "type": "Siso_amp",
+      "detector_label": "single-input-single-end-amp",
+      "confidence": 0.589,
+      "box": [
+        521,
+        157,
+        634,
+        235
+      ],
+      "pins": {
+        "In": "net3",
+        "Out": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.853,
+      "box": [
+        237,
+        229,
+        255,
+        260
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.855,
+      "box": [
+        734,
+        231,
+        751,
+        262
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "C3",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.877,
+      "box": [
+        264,
+        234,
+        290,
+        250
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net6"
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.843,
+      "box": [
+        466,
+        234,
+        483,
+        265
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "C4",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.88,
+      "box": [
+        761,
+        238,
+        787,
+        253
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "C5",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.855,
+      "box": [
+        493,
+        239,
+        518,
+        254
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "A1: 2 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "A2: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "C3: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "net6: only one pin (C3.Neg) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Siso_amp",
+        "port_connection": {
+          "In": "net4",
+          "Out": "net4"
+        }
+      },
+      {
+        "component_type": "Siso_amp",
+        "port_connection": {
+          "In": "net5",
+          "Out": "net1"
+        }
+      },
+      {
+        "component_type": "Siso_amp",
+        "port_connection": {
+          "In": "net3",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

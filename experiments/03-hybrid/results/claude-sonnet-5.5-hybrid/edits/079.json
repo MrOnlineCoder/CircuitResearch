@@ -1,0 +1,11 @@
+[
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "A2",
+      "why": "duplicate spurious detection inside the error amplifier"
+    },
+    "ok": true,
+    "error": null
+  }
+]

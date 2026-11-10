@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267149-YQoURZelpJVLn13nfMro",
+  "object": "chat.completion",
+  "created": 1794267149,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"M2\",\"pin\":\"Drain\",\"net\":\"net9\",\"why\":\"The drain of the top-right PMOS (M4 in the schematic) connects to the source of M4A (pipeline M5), which is net9.\"},{\"op\":\"set_pin\",\"component\":\"M8\",\"pin\":\"Source\",\"net\":\"net12\",\"why\":\"The source of M1A runs down to the node shared by the M1 drain and the M11 drain, which is net12.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm mapping each pipeline component ID to its place in the schematic. M1 sits near M3 at the top middle, and its drain, gate, and source go to net1, net2, and VDD. M2 is at the top right, and its drain, gate, and source go to net3, net2, and VDD. M3 is the tail device, labeled M5, with its drain on net4, its gate on net5, and its source on VDD. I'm now working out which device the M4 label, M3A, corresponds to.\n\nI'm checking the remaining component mappings against the schematic. M4A's source is net9, which means M2's drain should be net9 rather than net3. I'm also tracing where M1A's source connects, since its net15 link appears to run down to the shared node with M1 and M11.\n\nI'm settling two netlist edits: M2's drain should go to net9 to match M4A's source, and M8's source should be net12 rather than net15, since it lands on the shared M1 and M11 drain node. The hop markers J1 and J2 check out, and J3 is correctly unconnected. The gate nets for M1, M2 and M5 also look right as they are.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping each pipeline component ID to its place in the schematic. M1 sits near M3 at the top middle, and its drain, gate, and source go to net1, net2, and VDD. M2 is at the top right, and its drain, gate, and source go to net3, net2, and VDD. M3 is the tail device, labeled M5, with its drain on net4, its gate on net5, and its source on VDD. I'm now working out which device the M4 label, M3A, corresponds to.\n\nI'm checking the remaining component mappings against the schematic. M4A's source is net9, which means M2's drain should be net9 rather than net3. I'm also tracing where M1A's source connects, since its net15 link appears to run down to the shared node with M1 and M11.\n\nI'm settling two netlist edits: M2's drain should go to net9 to match M4A's source, and M8's source should be net12 rather than net15, since it lands on the shared M1 and M11 drain node. The hop markers J1 and J2 check out, and J3 is correctly unconnected. The gate nets for M1, M2 and M5 also look right as they are.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5266,
+    "completion_tokens": 980,
+    "total_tokens": 6246,
+    "cost": 0.020332,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.020332,
+      "upstream_inference_prompt_cost": 0.010532,
+      "upstream_inference_completions_cost": 0.0098
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 825,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

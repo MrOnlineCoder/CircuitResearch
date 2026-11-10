@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267249-Qsfh3zOCnObzujvl3T5T",
+  "object": "chat.completion",
+  "created": 1794267249,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the schematic wiring: the op-amp has VREF on the inverting input and the feedback node on the non-inverting input, and the PMOS source, drain, and gate connections all line up. The resistor network also checks out. Next I'm reasoning through the feedback: if Vout rises, the non-inverting input rises, the op-amp output goes up, and the PMOS turns off, so the loop is negative feedback.\n\nThe list is empty, so I'm moving on to checking the rest of the connections.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the schematic wiring: the op-amp has VREF on the inverting input and the feedback node on the non-inverting input, and the PMOS source, drain, and gate connections all line up. The resistor network also checks out. Next I'm reasoning through the feedback: if Vout rises, the non-inverting input rises, the op-amp output goes up, and the PMOS turns off, so the loop is negative feedback.\n\nThe list is empty, so I'm moving on to checking the rest of the connections.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS+gcKEAgTGAI4AUIIdGhpbmtpbmcSDA7EfDT6ROQNKeXtqBoM1kSNz3ywEyxogUE3IjDJ6KWJsfigqdbzrALoftUtb4fPS9RiVIk330l7BBsv9Wzm0JRm3sC6tdyTf2EPxX8qlwfSocLLEB6EX9mKcgGW2y8+YGxJJpHQRHW0maMTDgxs5nE7onfW3cLyvqBkXEktVPDV2Vr/isz8XaLeZ/Qt6cwPqRQfnFVysKVtV+9d7ws5FuFiHr4Gwx4L1gPPo+OuFUbm7pcyRyqy96y2PN1MSn4W3U6sLJXrzIbTWkVe8/Om+qQxzAKOD33uXxTT6WRQw1TcAGZU8mWOfV37TlWqvD8PBSfsWTHRcrNBuZH6uCpdA2u6T/QPsyeXRHi2Ih2uMvrWHx+Gs1v5fy/Sk2qzyaK663DD6zpvAxgcNKfkpp6/xCBy2PjnPwic9eUzpKGemGqHwaLIhV5tQT4oKnDs/qAhHaX0w43o2jQdD8uGjHO7+wa/aHgnfBtDvuGaih/Xl/gOF+C+q3ZvvFDq8+ypBWoiRFLzNUj4gjaqVZzeV5uc999pvhy2UQg9clNJyw80sR6MstU6J6qh9PubFNpptwanr37jvoorJ6iCI4YrK24F9fLX2GrbO/S3MC4pIg5xSmKVN9Gl5AigclsN2urnZDcExTf9ffNEPGszZgEuCnB2pKgmAvaY9/7cQB+tm7kN144xvsKIe2BwlyS50BGv6Oh+HKPhvw3sR4xvEOCydJ0IeZzGELEQsmOmzUhPQJKpx9pshrgUTNpWQBhrh+tRBUI1L1bRB5VakdHoQRT3nqz2CpAoMwQivpRpFdCSFezdfBqDvQ34vk03NwU7LDjnO1Sa02a1CkDnAsrFNvZIVB1AuETfAPV55NndBR8bkpLPClgqWkqIZC2ldEzJjOUgUOOUyhquaPppGe+lEBE8dGdAeRjzsp65587PvYCjlIdvhfr9F9GnUAKLKUX/Dlbi+xPw52TAA93FOD4hu7PXtMlmuWc2BR2zk0lWJWYFMfhmmpf0nc+o231ZDjoS0oKrXn5weWHME3dY1QWH5bIFh/UlQKMTvbpZnBFCOSyfQcI3oBZqg4MM5KKCl1guCjK/fIVun1wX/t+bF2zTMGiJ9YDfpwmz3dc3LODRpJWXciZtxvXGkDR7cjVa5MDwEwJxKbfMBzHX1cJgdNHC4wiOnVFczrw2cZe7DVlU/RgKNkAjhR9bnEfyQCtr6U2mh/WuzvlH4KJXtDWLsMbQAy36Rx/rebN/ZHddUxL0xv2eHdqjzC0ultkHNfklhQPixQZAXJQD4X3d7VDTuW1XGR6xnvCaBaFDZhFZW/sb1O9LpU9rWFKvtjYjO1CrGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3982,
+    "completion_tokens": 173,
+    "total_tokens": 4155,
+    "cost": 0.009694,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009694,
+      "upstream_inference_prompt_cost": 0.007964,
+      "upstream_inference_completions_cost": 0.00173
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 164,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

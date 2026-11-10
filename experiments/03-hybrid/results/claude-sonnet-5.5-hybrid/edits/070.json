@@ -1,0 +1,90 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "net7",
+      "why": "M5's drain goes to the M1/M2 tail node, passing under the + input line with a hop. net10 is only a stub."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "the gate belongs to the VBIAS+ line, not VSS"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "the gate is on the bias line"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "the gate is on the bias line"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "the gate is on the bias line"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "net11",
+      "why": "the source goes to VSS, which must be separate from the bias net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "net11",
+      "why": "the source goes to VSS, which must be separate from the bias net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Source",
+      "net": "net11",
+      "why": "the source goes to VSS, which must be separate from the bias net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

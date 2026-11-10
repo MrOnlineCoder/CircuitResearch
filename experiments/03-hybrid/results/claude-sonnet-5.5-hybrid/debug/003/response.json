@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794264964-J1Oiu1vwH4SvhUyHgT2e",
+  "object": "chat.completion",
+  "created": 1794264964,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the tail current source: its bottom connects to -VSS along with R_TAIL in parallel, so net5 is -VSS and that's fine. The outputs look right too, with voc at both drains and net1 on the right, net2 on the left. The gate wiring also checks out: the left gate goes to V1+ and the bottom wire to M2's gate.\n\nChecking the ground symbols on voc: they look like ground references rather than components, and the negative terminals are already tied to ground, so nothing needs changing there.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the tail current source: its bottom connects to -VSS along with R_TAIL in parallel, so net5 is -VSS and that's fine. The outputs look right too, with voc at both drains and net1 on the right, net2 on the left. The gate wiring also checks out: the left gate goes to V1+ and the bottom wire to M2's gate.\n\nChecking the ground symbols on voc: they look like ground references rather than components, and the negative terminals are already tied to ground, so nothing needs changing there.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSlwkKEAgTGAI4AUIIdGhpbmtpbmcSDJzUI25u/JG+7YJxAhoMTIubqXmqvcB5emhUIjDRNZ5TXOZ/RraAM3QoZkGXzp+ckpD8DBaDtvNcaDclySDozOlqmArMrBjF/SZY+h8qtAjlbb5s9Rdqx6ahRjkX07ROukiwlZNOTzAIf/mhwcgDHoL5CXpKHGq9a/MCI7jRs0QnZzVIOTBRwdU6YDjZSdzpH76t3AZkHOTqdSJEfuS0bnl/ZLaAwGIfrEv7DweDRETxEkZ3sf95AMnuDw3otyHsHQYtLTtFGXBga2jbKOlG7h8EsBc2DSIr6nrNfd5/jo1CmYMxo/++0clWEQj9i/A9EhlrO6ydNun3KO/6bnWuVzb5i3vN+SnHL3nTzScSPUkuZOGlEDgbR0v5lJuabmuNUqIIR4DO9g7Y8jXVFb0oUZ6coS1bDyvH7oDX7j+p1MftxwII09tte4QFgntrnIYboYLY526BmkHBnJxQSZfaH3P3uqHlGAZoZEcdZpBjXGD1GGwQ0f7Dfn/gAitV2ZDQkIsZ7MoDq3lawqDd3JvAoIsnh83k9SGOISWBXJtNIUx7ySavMzsgaTJ9eGV3cuBljBSuPrlajEBvqre284z7qtWKGcfVaUH4mxdIoivlXhhnU7CjegXegGkoQeZ9sFzn+DWV4HlHtkwJ0wrGCrzXBTqCtNizG7aVsY/f+Mvlh6h6bP+dkDuweYurFoEw/fqqYm/GGtmFBoIqMUNHQBa5pGDBXfaPFF8sgv/19IHzB3i2ZvTmqXzLb/lcFblR2aj6FfDRLwwaTVTKmxRxAxZXd9+qcy+B2xITIHqM2bt4fSGQQ0mHs45dU5ZHQmH89xgWqYeY+IYLP2IWVZLG0Bo/0sjiz3TQj6cBUmUikwvev5Oh4SBN1Dz7QvzOgaODTkAqiWzk2ybSGzYUHqaP/OmgR4i+isEvYr3HhXb+DJDYZI0QC3QP9P55Iw4qEKgZaSAjr8y3czX3xjohn1ZNSNSShDCEy2MQt9j1fq/wCwbzPAaVzed0Run6Qmp/p3+zvMa/tvNIqsM7pNbLWsNHNv+rsTiG6Uc/co+giEsPm0iTbC9CqkhwioMW3/TPy4YaMORT7f8VRvODJuKaUjLZhQbtrjOWgArr+ILAwHcA4sddJjzR/zLQfjjjU9zsFAV/ysUS6AMBnvVniRYYdDjRgt9VpPwqUKsfgUqDGGZp1m65SZ1lo0+/mQG4me8OV63HaldlhXS7HpjQhVlr2J+oK/MnzAcQGScDfAB5N/SGXNz1pkgUmnn4tKEqgEHZoJjj/3xAx1v/f16R++8lLmmNYkd4T+WsPMsXht70xzMYJ4QoSTdbOeDOEtdgAjpYGzk8GD5Np0dn9psWaca7YOx8ZDHutlIVn3a0s5nD2b4z7D0weJU20VYWlTQuj/TqZCkZD+hIsD0bxle/STgHBjZtAkWTGxvcSJ2ZC4PePwqIbWxAt/grXLDwnS3JkHv8KsRVUU+y5ZEPl69yzwC8VYHoPZxWSvj392RHBMrcnb/kejVsN5sgeJfC+R0X9aSL6jJXmx42FO3SPhgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5011,
+    "completion_tokens": 218,
+    "total_tokens": 5229,
+    "cost": 0.012202,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012202,
+      "upstream_inference_prompt_cost": 0.010022,
+      "upstream_inference_completions_cost": 0.00218
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 209,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

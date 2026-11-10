@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net4","net2"],"why":"In the schematic, the gates of M1, M2 and M3 are all tied to VP1. The wire from M3's gate to M1's gate was left as a separate net (net2)."}]}

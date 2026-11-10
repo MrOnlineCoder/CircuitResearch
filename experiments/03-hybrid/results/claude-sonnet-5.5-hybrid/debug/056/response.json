@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265962-UxtoJxnqdBCHrkxxf3oA",
+  "object": "chat.completion",
+  "created": 1794265962,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working out which pipeline label corresponds to which device in the original schematic, since the component IDs in the annotation image don't line up with the original numbering.\n\nI'm tracing how the drain and source nets connect across M10, M11, M7, and M6, since the VBP line ties several of them together.\n\nNow I'm checking the remaining devices: the caps and resistor connect to net3, net7 and net4, and M1, M2 and M9 pick up their drain, gate and source nets.\n\nI'm checking the remaining gate connections, like M7's gate on the M3 drain and M6's gate on net5, and confirming net2 and net3 pick up the right gates. Everything looks consistent, so I'm not making any edits.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out which pipeline label corresponds to which device in the original schematic, since the component IDs in the annotation image don't line up with the original numbering.\n\nI'm tracing how the drain and source nets connect across M10, M11, M7, and M6, since the VBP line ties several of them together.\n\nNow I'm checking the remaining devices: the caps and resistor connect to net3, net7 and net4, and M1, M2 and M9 pick up their drain, gate and source nets.\n\nI'm checking the remaining gate connections, like M7's gate on the M3 drain and M6's gate on net5, and confirming net2 and net3 pick up the right gates. Everything looks consistent, so I'm not making any edits.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4284,
+    "completion_tokens": 1054,
+    "total_tokens": 5338,
+    "cost": 0.019108,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.019108,
+      "upstream_inference_prompt_cost": 0.008568,
+      "upstream_inference_completions_cost": 0.01054
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1045,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

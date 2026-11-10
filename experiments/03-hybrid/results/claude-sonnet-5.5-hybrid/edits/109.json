@@ -1,0 +1,66 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "net1",
+      "why": "M3 in the original is diode-connected: its drain (bottom pin) goes to node 2 and its gate, not to VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "net3",
+      "why": "M4 in the original has its drain (bottom pin) on node 3, not on VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "net7",
+      "why": "M1 in the original has its source on the tail node 4"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Body",
+      "net": "GND",
+      "why": "The body of M1 in the original goes to the ground symbol in the middle"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Body",
+      "net": "GND",
+      "why": "The body of M2 in the original goes to the ground symbol in the middle"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "V1",
+      "why": "The middle symbol is a ground symbol, not a voltage source"
+    },
+    "ok": true,
+    "error": null
+  }
+]

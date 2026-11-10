@@ -1,0 +1,67 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net5",
+        "net4"
+      ],
+      "why": "M2 drain and Cc's right side both go to the output node vO"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M2",
+      "pin": "Body",
+      "why": "the body label sits on the drain/output wire; the other PMOS devices have no body pin"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M5",
+      "pin": "Body",
+      "why": "spurious body pin on a tiny blob, left dangling"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "new1",
+      "why": "the tail node does not connect to the bias/gate bus; the bus crosses it with no dot"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "new1",
+      "why": "same tail node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "the middle tail transistor drain is the tail node, not the bias net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

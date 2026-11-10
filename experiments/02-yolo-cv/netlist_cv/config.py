@@ -98,6 +98,17 @@ class Settings:
     imgsz_devices: int = 1024
     imgsz_jumpers: int = 1024
 
+    # Ink threshold:
+    #   "otsu"       global Otsu. Ignores light-grey annotations (current arrows, maths text),
+    #                but loses light-grey wires when the text is darker (validation image 050).
+    #   "background" anything >= ink_contrast grey levels from the background. Finds grey wires,
+    #                but grey annotations then touch wires and merge nets (v2: 29.5 % -> 23.0 %).
+    #   "auto"       Otsu; redo with "background" when more than ink_fallback_nc_frac of all
+    #                pins are unconnected (only 050 in validation: 93 %, next highest 12.5 %).
+    ink_threshold: str = "auto"
+    ink_contrast: int = 45
+    ink_fallback_nc_frac: float = 0.5
+
     # Erase padding around boxes. 0 measured best: padding cuts wires running along boxes
     # (ground-truth-box test on 46 circuits: 8.7 % -> 15.2 % exact netlists going 4 % -> 0).
     box_pad_frac: float = 0.0

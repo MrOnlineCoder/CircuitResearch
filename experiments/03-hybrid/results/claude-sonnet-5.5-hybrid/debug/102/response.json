@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267254-lTtkBAXg1uKOkaGmHXfQ",
+  "object": "chat.completion",
+  "created": 1794267254,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping out the transistor connections in the schematic, starting with the PMOS mirror devices and how their gates and drains tie to the bias and output nodes.\n\nI'm checking the remaining connections against the net labels: the PMOS devices, the op-amp inputs and output, and the resistor and current source nodes. Each one looks consistent with the schematic, so I don't see any errors to list.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping out the transistor connections in the schematic, starting with the PMOS mirror devices and how their gates and drains tie to the bias and output nodes.\n\nI'm checking the remaining connections against the net labels: the PMOS devices, the op-amp inputs and output, and the resistor and current source nodes. Each one looks consistent with the schematic, so I don't see any errors to list.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS/QoKEAgTGAI4AUIIdGhpbmtpbmcSDNkP/MD4g5jECaV/IBoMZLRos71v5dblE7qiIjD1vaUARaiqq+d9QPLagwRLqcVv67oS9yPwe/bpUxB/iLnGEPGE8KA1jKShR2J5GaAqmgrwold2gaCYLHAkV42rnAew/VZj2mpZNLGqJ+KI1V+k4SC8zpFQgMVp+bL6cCD7eAYJ7McCsoE+1WpHjDkPgNSRMoUQNeqmfE6gxleC7kdwbpWBrCjCCq66c/QbtuYd6bdEtbEO1cQtx4JJ8fj8JsLUDme6vf4J5m9Qq+rogChn9aDmnRgyMZ5r2wAxjU2f4IKUuPSE3PbJpDigqztqp3obHGpmsVL91z76Rn1tNTtt8vdFHw9BRiN/GBVT1QaQqaYOMvnt9HgNJ3QRlOeSOYXFN7oNzWXsXdV5nNF1rVHaPp396wUncaxtk0CdtSLx3nUV2/Ke/Wj3guwuvqG682ErhCLIOM47uzCZUFXxrr+GxcQFFF5SGryvPvncATf6FyrQfK4eEqRg5T2uyfzljxb9sSrnOKCqip69iTp8FEd9S0fj/DhScZd0GR8l62aN924hCw97qYn/I1scREUymnxpbcjXHC5pN8m5ABxpJ6yTeY9vrwk6H43xZ/wldwEHfF5x/PvLJO5dPLGBE93i3pd68ZpMfBHAjX8I1BqFFHSrz8dAN5oCCheJ2btFae7Qp9/4j353nUA4VXCrLoQVF2vIhFtx3LodmxtKjHX7l2omI/3Os/kSvdN8Vfj8V0EXclLNrWJ5mdlA9Ei7Qnp5uyk2rBMv0lwDl4SJUSYqkIGremmuPb0X1Jb2rue1pKzD5cFdJuHV4wPf9GP/hTfGMaYEtoCtPWpiVWDoG96RRWAjSNmXUJRQoZmL/eu4V7KbS6ZO+L2rSPPRouMBRiLAOZjzI2ATGlyodehUZRYTYLf45xd0Msx2pcpOXgrUJD6dkWUFmK02qbZnKjZe3u+ZwiqdqDN9JaytIA+5Li3XqNF/J3CGLH8U7KJNMFHUL1tqsu2ivH5k/LSJcpRU6xyl/KkeFGzayifIIB9D3AB9TMmaq/6JhPxOHIdiaFGgrPgYZRnl9h+cZN31C9KNadCXQw/Jbp+lTPPGFDnlBvGgqenenXqlOfGWhQ7Z+gZb7jiAM4f6wciX/IVFWsuIYoGeLfvG2gAluXhUseVf4B0KslaJGsRZBAHZ2pHXeS5dsy9qGs7Wgupbj2lQ4vtVdcg6jf+Prx/HNsfikWq6r6BdtmJdx/n0D+6P9parZqW3O77BJJLquAsu4Sv62bFOJfQXAqLMw5tAX5yfNVHGhtMZj+h+a5pe1NWq599HjYH0bLvJ9Qjs9JeGhW3FzTe40k14kZXQaof+jqmvxrVMWGzolGz8sJD7j8wtttwkaa4CLhrKN+bBoe4b2B96XzEdbSZuFZWYyoHMWKGu6GCF4SgRNBB0yglJxvvMTUwq791xXFHUJmTMbJRYfAA78tuHcKyoG74VG+2o6SOLL0rCeIx7xBH8WkedQOT3sqXdWyZIOopLUaGPUzblti4wJI9irL3qD8ABWee6LM0NsXgWW3ZXcA8AgjgE+f5zd31rWpNPzFjlL7yiHn0hnua+gwJF0GkTFHMxAkqkwoKq65bYKJE0Y9a6Fkc7xHwDb3Kp+B6dbZ9vPOgHpHzyumi21dNblNmpxI5+0eQPNguxoJuSc3Kzuc23eInporUVtmmB6g0ZXbngE4okiSd1w6C4iEhr2QzWKru7/un1uoCeVzYclnSeyWz9ykpBwr+IDDI2AK8TyKRgqmMvi6y55CSg4/8n+Tqr/HAucAqKY+ZjjGMAqJO2xA03+UcwxxW4UttpBjXq1LxiN2xhpDISO6uFPnThGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6594,
+    "completion_tokens": 410,
+    "total_tokens": 7004,
+    "cost": 0.017288,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.017288,
+      "upstream_inference_prompt_cost": 0.013188,
+      "upstream_inference_completions_cost": 0.0041
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 401,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

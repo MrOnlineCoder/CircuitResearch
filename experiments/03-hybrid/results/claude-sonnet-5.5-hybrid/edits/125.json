@@ -1,0 +1,35 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "M12 drain, M2A source and M2 drain form a separate right-hand node. The horizontal wire crosses the left vertical wire at x\u2248735 with no dot, so they are not connected."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "new1",
+      "why": "M2A source belongs to the right-hand node with M12 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "M2 drain connects to the right-hand node (M12 drain and M2A source), not the left one."
+    },
+    "ok": true,
+    "error": null
+  }
+]

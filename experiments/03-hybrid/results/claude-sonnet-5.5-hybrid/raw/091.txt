@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M2","pin":"Drain","net":"net9","why":"The drain of the top-right PMOS (M4 in the schematic) connects to the source of M4A (pipeline M5), which is net9."},{"op":"set_pin","component":"M8","pin":"Source","net":"net12","why":"The source of M1A runs down to the node shared by the M1 drain and the M11 drain, which is net12."}]}

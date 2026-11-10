@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "net5",
+      "why": "The gate of the output PMOS (schematic M9) connects to the M8 drain / Cc node (net5). The pipeline left it as a dangling net4."
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M6",
+      "type": "NMOS",
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net7",
+        "Source": "GND"
+      },
+      "why": "MO9 is an NMOS with its drain at VOUT and its source at GND. The pipeline detected it as a PMOS with drain and source swapped."
+    },
+    "ok": true,
+    "error": null
+  }
+]

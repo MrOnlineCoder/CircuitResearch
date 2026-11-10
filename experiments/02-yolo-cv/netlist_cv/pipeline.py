@@ -43,11 +43,13 @@ class _UnionFind:
 class Trace:
     """Intermediate results, for debugging overlays and analysis."""
 
+    ink_mode: str = "otsu"  # threshold actually used (see Settings.ink_threshold)
     components: list = field(default_factory=list)  # (Box, contacts, pins)
     symbols: list = field(default_factory=list)
     terminals: list = field(default_factory=list)
     jumpers: list = field(default_factory=list)
     connected_crossings: list = field(default_factory=list)
+    guessed_inputs: list = field(default_factory=list)  # amp boxes whose +/- inputs were guessed
     labels: np.ndarray = None
     region_net: dict = field(default_factory=dict)  # wire region -> net name
     timings: dict = field(default_factory=dict)
@@ -117,7 +119,20 @@ class Pipeline:
         self.models = Models(models_dir, settings)
 
     def run(self, image_path) -> tuple[dict, Trace]:
+        """Image -> (CI2N netlist, trace). With ink_threshold "auto": Otsu first; if most pins
+        come out unconnected, the wires were lost (light-grey drawing), so redo with the
+        background threshold."""
+        mode = self.s.ink_threshold
+        netlist, tr = self._run(image_path, "otsu" if mode == "auto" else mode)
+        if mode == "auto":
+            pins = [n for c in netlist["ckt_netlist"] for n in c["port_connection"].values()]
+            if pins and sum(n.startswith("nc") for n in pins) / len(pins) > self.s.ink_fallback_nc_frac:
+                netlist, tr = self._run(image_path, "background")
+        return netlist, tr
+
+    def _run(self, image_path, ink_mode: str) -> tuple[dict, Trace]:
         s, t, tr = self.s, time.time(), Trace()
+        tr.ink_mode = ink_mode
         bgr = cv2.imread(str(image_path), cv2.IMREAD_COLOR)  # decodes by content (JPEG-as-.png ok)
         if bgr is None:
             bgr = cv2.cvtColor(np.array(Image.open(image_path).convert("RGB")), cv2.COLOR_RGB2BGR)
@@ -129,7 +144,7 @@ class Pipeline:
         tr.symbols = [d for d in dets if d.label in NET_SYMBOLS]
         tr.terminals = [d for d in dets if d.label in TERMINALS]
         bridges = [d for d in dets if d.label in BRIDGES]
-        ink = W.binarize(cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY))
+        ink = W.binarize(cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY), ink_mode, s.ink_contrast)
         sw = W.stroke_width(ink)
         if s.crossings == "model":
             crossings = self.models.crossings(bgr)
@@ -223,6 +238,7 @@ class Pipeline:
             tr.components.append((comp, contacts, pins))
         for k in guessed_amps:
             _apply_feedback_rule(tr.components, k, uf)
+        tr.guessed_inputs = [tr.components[k][0] for k in guessed_amps]
         tr.timings["wires_pins"] = time.time() - t - tr.timings["detect"]
 
         # 6. net names and JSON

@@ -1,0 +1,49 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net4",
+        "net7"
+      ],
+      "why": "Both M6 and M7 gates (C and D) connect to the Ap output"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "net13",
+      "why": "M7 drain connects to Vout+, shared with M9 drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net19",
+        "net17"
+      ],
+      "why": "Both M10 and M11 gates (G and H) connect to the A_N output"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net23",
+        "net22"
+      ],
+      "why": "M13 gate is tied to VCMFB together with the M12 gate"
+    },
+    "ok": true,
+    "error": null
+  }
+]

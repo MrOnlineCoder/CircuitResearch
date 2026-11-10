@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266255-9AcljNAMXTEreZTixdLt",
+  "object": "chat.completion",
+  "created": 1794266255,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working through the op-amp circuit: the minus input sits at the node between R2 and R1, and the plus input connects directly at the bottom of the other R2, with both R2 tops tied to the output.\n\nI'm going through the resistor and transistor nets now, checking that each pin lands on the node I expect. The op-amp inputs look right, with the minus input on the left node and the plus input on the net to the right. The PNP orientation and the diode-connected bases tied to ground also check out.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working through the op-amp circuit: the minus input sits at the node between R2 and R1, and the plus input connects directly at the bottom of the other R2, with both R2 tops tied to the output.\n\nI'm going through the resistor and transistor nets now, checking that each pin lands on the node I expect. The op-amp inputs look right, with the minus input on the left node and the plus input on the net to the right. The PNP orientation and the diode-connected bases tied to ground also check out.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2606,
+    "completion_tokens": 399,
+    "total_tokens": 3005,
+    "cost": 0.009202,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009202,
+      "upstream_inference_prompt_cost": 0.005212,
+      "upstream_inference_completions_cost": 0.00399
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 390,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

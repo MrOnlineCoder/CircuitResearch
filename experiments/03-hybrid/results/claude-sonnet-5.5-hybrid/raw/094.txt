@@ -1,0 +1,16 @@
+{"edits":[
+{"op":"set_pin","component":"M2","pin":"Gate","net":"net8","why":"M4 gate ties to the M0/M1 gate bias line, not VDD"},
+{"op":"set_pin","component":"M2","pin":"Source","net":"VDD","why":"M4 source is on the VDD rail"},
+{"op":"set_pin","component":"M1","pin":"Gate","net":"net8","why":"M9 gate ties to the bias line, not VDD"},
+{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"M9 source is on the VDD rail"},
+{"op":"merge_nets","nets":["net7","net8"],"why":"M1 drain connects to the M0/M1 gates"},
+{"op":"merge_nets","nets":["net7","net17"],"why":"M12 drain connects to the M1/M3 drain node"},
+{"op":"set_pin","component":"M14","pin":"Gate","net":"net9","why":"M13 gate connects to the M2/M3 gate node"},
+{"op":"set_pin","component":"M9","pin":"Source","net":"GND","why":"M7 source goes to VSS"},
+{"op":"set_pin","component":"M7","pin":"Source","net":"net4","why":"M6 source connects to the M4 drain tail node"},
+{"op":"set_pin","component":"M7","pin":"Gate","net":"new1","why":"M6 gate is the VIP input"},
+{"op":"merge_nets","nets":["net20","net12"],"why":"M6 drain connects to the M8 drain"},
+{"op":"merge_nets","nets":["net20","net15"],"why":"R2 connects to the M6/M8 drain node"},
+{"op":"merge_nets","nets":["net20","net21"],"why":"M10 gate connects to the M8 drain node"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"GND","why":"M8 source goes to VSS"}
+]}

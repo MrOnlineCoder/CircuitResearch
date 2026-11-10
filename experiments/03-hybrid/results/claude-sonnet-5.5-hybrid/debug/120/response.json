@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267487-66lQ5dHHNfswwy9wRPrj",
+  "object": "chat.completion",
+  "created": 1794267487,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"In\",\"net\":\"net1\",\"why\":\"Gm2 input is on the node shared by Gm1 output, R1, C1 and the Cc left plate\"},{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"Out\",\"net\":\"net3\",\"why\":\"Gm2 output drives the node shared by R2, C2, the Cp left plate and the -GmP input\"},{\"op\":\"set_pin\",\"component\":\"C3\",\"pin\":\"Neg\",\"net\":\"GND\",\"why\":\"C1 bottom plate goes to ground\"}]}",
+        "refusal": null,
+        "reasoning": "I'm mapping out the actual circuit: Gm1 takes Vin and drives net1, which ties to R1, C1 and the left plate of Cc, plus the input of Gm2. Gm2's output is net3, with R2, C2, the left plate of Cp, and the input of the -GmP stage. Then I'm checking the pipeline capacitors, confirming Cc sits between net1 and net2 while Cp is still being tied to net3 and net2.\n\nI'm going through the pipeline checks and most of the nodes look right. A1 is wrong, since both its input and output sit on net4 when it should run from net1 to net3, and C3's negative side is on net6 when it belongs on ground. I'll make those two fixes, which also leaves net4 empty.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping out the actual circuit: Gm1 takes Vin and drives net1, which ties to R1, C1 and the left plate of Cc, plus the input of Gm2. Gm2's output is net3, with R2, C2, the left plate of Cp, and the input of the -GmP stage. Then I'm checking the pipeline capacitors, confirming Cc sits between net1 and net2 while Cp is still being tied to net3 and net2.\n\nI'm going through the pipeline checks and most of the nodes look right. A1 is wrong, since both its input and output sit on net4 when it should run from net1 to net3, and C3's negative side is on net6 when it belongs on ground. I'll make those two fixes, which also leaves net4 empty.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS3gkKEAgTGAI4AUIIdGhpbmtpbmcSDIPzXQsBp+SR+SE8KRoMjNGTR+ergrMaJcTnIjDiFtQ3WYrwRwSRPyuxPft5P409V72ou8r+mHXzNdLp6KMA4QKCZ6Vi86MTr434mBIq+wjB7ntf8EiEfrBA4cmmsIxZqb2rbyvOuRx3vrLZAaPi2SS1SNW49i5sLGmnY3ktFh58lcyP6inacoA6GuRXblHVwCYi0owmdZRNtnkbTUVB/iqEq9QP2Ll/1lMc6KNtzDKTZRT9uutFK65kb+6Jo/x7sMpFQaprossurlfCVfziT99SW0OUhlD1EqGyxNSC9CZ8PnL8SjA/CCWBL/RUPVwJ0O7eFx9by1eL9C5VZtmmwewwPitTk8FdXbtt5sZ1Jn3PSQgzlontQRsfciPyO47l5b3tXkiwWLZnfVozFPAfsAGexQFN2cRV3oTOENUk6wsCIVaxfG4vAjbCg92m2GWGpNmjZAVwVnBz6pASDpxbZkY9UVHr7UqI2/1lRBNhpKW9bk0Wqj+5p0H02v7RJmJeYOxnRB3Iv3zs4XudqLgrOFbEFAT4EpIYJL22qLyd5o3iDghAKaNsZZSOIHCFKykm7UuVMbFXBatsIHEQhdgIQ4cF9AOmZCQDA7L0Rkm+cqTt39/6FqBkPquLpdLqnn5RE+9RQkRPXH9qfMs+FqQDR9hEoYre/B6xH8WMC9bQwIvjtgWkLUf/owyHng242chEVQMXXdjBcuNEJ8tahGfSC3s+ebJ82kt+WdPpOZlTaLievJJ4q/OBzuL5P2X/KcVjFQ+6zuiwNX56mIiazt3hSbu3JdxsfN8lRAjDRNTkeW0/q0UaClz78e55QF+mj3hiQ8OwTNM/7BRD105szw9gvaPwMHqu/S0B4orLukvlBJqmSoe4t6XfWiKQMx0gvJQ03vHlKnKD6VjeeOEbxGurbVX3ba0xpQLcKfrrxTM/v1UzDU5A4bicOjvPORfeSl2B75IwF9b33XmXNvj91DBxon1cPejKx72gTGsYcjeqDCk3GwfHLyYqwZbAAZ3XESYo93c4fomu4UyCJW4YpJKj9c4GeitN7tA++H5WyPduty6iA+KEZQE1w65UTQgVjtpB0dZk6uyeYFmBdM5Eb0Hp66+AME5JDKq2aXLIo3cSojlYEoKeGC+w3bBp5fYKYJfrBncjK/Pu3MplUbjzwKTtwgh6aCZJPRFtjemTHBGRbhbMDIqXoU0FhR4acmka+xB6VeBWoOF2Zjk8zfnsz37ooiUmzw5HsFAARLdU2H1EEs2LLY4qstbs0/BdTE0/fIhS92lk+9QmuT4kYBwj69zQ58+BPnQleRqM7nL8USLugNnG4jg/zxr/l2yAXGaZqYJiyuT5eRNP0D02taZgnWFzw6YceNwMibQR32kC8c06ApiPRmGvtBVvo7lHjQg6H+eAo82DL3WN5PCz2hsL7AnIpIz2XVxcifI7tjHoaGUaEkf0r/6VNGKpYTBJD+530ouvzj5JrTl22YJx8kZ6DITGedlqU1oPcB8ZRBtMk11pvDDpjavmITtP6DUghsWpYsZvlIlA0xxl/hY/Pci4XytNneUwzlZc34VW5No5x47AHwzbk2J0YQcrdho997E+cvEV2AEPb1aGesPgqRuNlGVCi8bHfx9C5GsJV/6PGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3379,
+    "completion_tokens": 535,
+    "total_tokens": 3914,
+    "cost": 0.012108,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012108,
+      "upstream_inference_prompt_cost": 0.006758,
+      "upstream_inference_completions_cost": 0.00535
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 343,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

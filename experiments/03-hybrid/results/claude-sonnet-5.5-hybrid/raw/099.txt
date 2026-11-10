@@ -1,0 +1,7 @@
+{"edits":[
+{"op":"set_pin","component":"M3","pin":"Drain","net":"new1","why":"S4 drain goes to node Y; the pipeline merged X and Y, but the cross-coupling wires only cross, with no dot"},
+{"op":"set_pin","component":"M5","pin":"Gate","net":"new1","why":"M5 gate connects to Y"},
+{"op":"set_pin","component":"M6","pin":"Drain","net":"new1","why":"M6 drain is Y; its gate stays on X"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"new1","why":"M4 drain is Y; its gate stays on X"},
+{"op":"set_pin","component":"M8","pin":"Gate","net":"new1","why":"M3 gate connects to Y; its drain stays on X"}
+]}

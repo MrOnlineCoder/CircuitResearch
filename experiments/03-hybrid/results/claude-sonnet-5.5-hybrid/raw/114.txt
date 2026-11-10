@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M1","pin":"Gate","net":"new1","why":"The gate net is the op-amp output, not VDD"},{"op":"set_pin","component":"M2","pin":"Gate","net":"new1"},{"op":"set_pin","component":"M3","pin":"Gate","net":"new1"},{"op":"set_pin","component":"A1","pin":"Out","net":"new1"}]}

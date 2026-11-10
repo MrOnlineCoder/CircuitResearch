@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267424-zitRkZ1ytd50fZu08Vgt",
+  "object": "chat.completion",
+  "created": 1794267424,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching the transistor labels in the image to the netlist. The netlist puts M2 on the right transistor and M3 on the middle one, so the labels don't line up neatly, but the net names don't matter for the check. Next I'm checking the connections on the middle transistor, which is M2 in the schematic.\n\nI'm checking the rest of the connections now: the resistor's top side goes to net6 and its other end to net8, and the op-amp's minus input sits on net6 with the plus input on net1. The gate nets all tie to net2, and everything seems to line up.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the transistor labels in the image to the netlist. The netlist puts M2 on the right transistor and M3 on the middle one, so the labels don't line up neatly, but the net names don't matter for the check. Next I'm checking the connections on the middle transistor, which is M2 in the schematic.\n\nI'm checking the rest of the connections now: the resistor's top side goes to net6 and its other end to net8, and the op-amp's minus input sits on net6 with the plus input on net1. The gate nets all tie to net2, and everything seems to line up.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3051,
+    "completion_tokens": 365,
+    "total_tokens": 3416,
+    "cost": 0.009752,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009752,
+      "upstream_inference_prompt_cost": 0.006102,
+      "upstream_inference_completions_cost": 0.00365
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 356,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

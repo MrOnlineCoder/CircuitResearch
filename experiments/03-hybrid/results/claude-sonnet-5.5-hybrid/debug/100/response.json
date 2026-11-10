@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267244-P1rENF5DIsjkeMksLdsv",
+  "object": "chat.completion",
+  "created": 1794267244,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm going through the schematic from the left side first: M2's drain goes to the VREF node, and R2 runs from there down to the V_CTAT1 node that feeds Q1's emitter and the op-amp's minus input. On the right, M1's drain connects to the op-amp's plus input, with R1 leading down to Q2's emitter. I'm now checking which drain nets are which, starting with M1 being net1.\n\nI'm checking the rest of the netlist now: R1 in the pipeline is the left resistor, running from net3 to net4, and R2 goes from net1 to net5. The emitters of Q1 and Q2 sit on net4 and net5, and the op-amp inputs match up on net1 and net4. The grounded collector and base connections look fine too, so nothing needs editing.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the schematic from the left side first: M2's drain goes to the VREF node, and R2 runs from there down to the V_CTAT1 node that feeds Q1's emitter and the op-amp's minus input. On the right, M1's drain connects to the op-amp's plus input, with R1 leading down to Q2's emitter. I'm now checking which drain nets are which, starting with M1 being net1.\n\nI'm checking the rest of the netlist now: R1 in the pipeline is the left resistor, running from net3 to net4, and R2 goes from net1 to net5. The emitters of Q1 and Q2 sit on net4 and net5, and the op-amp inputs match up on net1 and net4. The grounded collector and base connections look fine too, so nothing needs editing.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS4QkKEAgTGAI4AUIIdGhpbmtpbmcSDPq89j5zjjX4Y5Bu+hoM+B4/uUnR+8nPLNYqIjDIqKNW/+obDbc6+Dv/tju01KBjIIlB967314XJWtoyaSyvgV/My/qBQRLfZ0G/vzwq/gh33JNKkL6pnEstHm419wy30r5+PilJBI7v/V+lYttI5ldS+GasYKttn/eh5vuTHxvgsWx5qE2W3pubw7ysyWux5O8ebZhH6UZ5XtfqF9IDBb3ik7iRmAoZSwCrSf9MlgUGC5h8lL2jsFVancRN+J+JrcO/hUdh+Py9D/dKQv5IPGxSQQanl+buq1sEoR1KMdRd9NHiz/HXgJQJVwxwQeD2Cid5R3aLBXZntST9Ogo/NYKUDC/S3ywMDMstGbyEhH6iTZkJ4lzkhmIlmgCrE+VTZhei9MpdELkt1skdIixVpj793SAy2Pci/uDwg7+MUWjWeopxqOvdqYaS5828bVEDVJ37FGJjb7FcthTLZt6GKKdac9EtfoMozyUmwdP3IWJUolOhLJnNws/yJsDt+JPYWXiU93cdUerwtlpY0lMMErQF7cqT/qwJkmBetEVbLo61peOgKqiAJBjTOlLqlLuxsYsj2ySeGXDaqjzIAkhHx15/cB50EO6g1XxIaVn3o9b76r1nDItVZ7sIRx6NFWLDB3hPXtrhvZNZ3DsYtRqCxJqhHHedyK5Oww0qbz6Ho2ZextU9Yt0TueadpPj2etyXawLZLl3PpqKnCTCWevbuBxvpUKyD5VcghaHP0itX61jbF8FY9BX/WJ62iLNeCJ5zpacE14jrUX0yxvwtMwvIbxgOkjxlHcg1pUFS8ME0UXKutrnccayZn0bbssI8cJTi1E/utknF+MvqiJaufVqS1V7FWn0Z6DX/sbbwau9ZKBgV17PkLnD36Ln3UedsTHomq73JgtExJjUby5WLG0/h509rmgGNEpD+cZfnN1hbAVfwD62NCByxDE6SPWydeYEl5RMVQNFeC5xu33U/rHv26S6Omjh6KeOG7ktoGH4BR7PtpagbXsO6x5IAmMSjIXYEVzJej2n5h2D8xsbN/fl/3/WpWfyM2+laT3W2QkwcZDx30K3CPUeioz4pvpR9hKZJRM846dFvdMrdjmzOL7n2zAyY73n5ebzg3OTXSeJoH2T5RSgrmvY4a2uoYxV4hNBVSjpu6F/p3aRbZw1UQyCwG8ZmUSFNbbCmqX+Ezzr0X8KyZ0iOrJWS7tWR7K/8Fabj9Q/sqiDm/pbF0LT4m+GY6ascoruts+Rs+7RsLP6KX88TgQ7IEWWDqT5tH4QNNP/FkV8J/1wOpJ3oZvcDCNDIIxz/xH0VuFRLWz0TOY9n3SkvuJ4fwheLWgztC+jqiQpjaqYErwmqxrTfYxZcFtFHhoB/0w+tWA4JfrMGpDOA3oTb76BhIQGfinKfgvAgP60DFcTdbLlA3Z+MeNueTZtOl2IYPGK/9CHushSbRz9LQ6CWyoBrTyHzsqaoY2kKddTFFv1WtI4v2s94apPrRe/dm4vKPWRaCHaKXz44fmqU6F3GwALoQXDBWAw+VFqsz+i5nnVKj8EiT8ViEVKRh6bJTkadVGSAHltmtxQuV4OGlWNlXpTksw64uR89bRu1i6dPqmqqWKPR/RQud6OsNQKQ8gAh2VLEx2fu2kNKzaFdGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4986,
+    "completion_tokens": 313,
+    "total_tokens": 5299,
+    "cost": 0.013102,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.013102,
+      "upstream_inference_prompt_cost": 0.009972,
+      "upstream_inference_completions_cost": 0.00313
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 304,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

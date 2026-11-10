@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The + input wire hops over the tail-current wire (J1) and goes only to the gate of M2, which the pipeline calls M8. It must not share a net with the M1/M2 sources and the M7 drain."
+    },
+    "ok": true,
+    "error": null
+  }
+]

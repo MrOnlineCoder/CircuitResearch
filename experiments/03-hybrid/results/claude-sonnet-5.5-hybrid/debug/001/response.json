@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794264952-t2AWF09A7uhAkwFjOP14",
+  "object": "chat.completion",
+  "created": 1794264952,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm sorting out the circuit's top half: a PMOS current mirror (M1 and M2) tied to VDD, with M4 and M6 hanging off it and feeding a shared tail node.\n\nI'm checking the rest of the connections now: M5 and M9 tie to VDD and out with gate on net4, M10 and M8 sit on net4, and the crossings at J1, J2 and J3 all turn out to be unconnected.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm sorting out the circuit's top half: a PMOS current mirror (M1 and M2) tied to VDD, with M4 and M6 hanging off it and feeding a shared tail node.\n\nI'm checking the rest of the connections now: M5 and M9 tie to VDD and out with gate on net4, M10 and M8 sit on net4, and the crossings at J1, J2 and J3 all turn out to be unconnected.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4153,
+    "completion_tokens": 622,
+    "total_tokens": 4775,
+    "cost": 0.014526,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014526,
+      "upstream_inference_prompt_cost": 0.008306,
+      "upstream_inference_completions_cost": 0.00622
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 613,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

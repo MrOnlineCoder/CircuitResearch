@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265129-c2bxV4Z5aMjFQq0F5M1N",
+  "object": "chat.completion",
+  "created": 1794265129,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working out which component is which: M1 sits at the left as MP1, M3 is MP2, and M2 is MP3. From the netlist, M2's drain goes to VREF, while M1 and M3 drive Vx and Vy.\n\nI'm checking the resistors against the annotations, and R3's bottom end ties into the base line and VSS, so both bases sit at ground. Q1's emitter is on Vx with its base and collector at ground, and Q2's emitter runs through R1 to net6. The op-amp's minus input is on Vx, and the PNP arrow checks out.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out which component is which: M1 sits at the left as MP1, M3 is MP2, and M2 is MP3. From the netlist, M2's drain goes to VREF, while M1 and M3 drive Vx and Vy.\n\nI'm checking the resistors against the annotations, and R3's bottom end ties into the base line and VSS, so both bases sit at ground. Q1's emitter is on Vx with its base and collector at ground, and Q2's emitter runs through R1 to net6. The op-amp's minus input is on Vx, and the PNP arrow checks out.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4993,
+    "completion_tokens": 486,
+    "total_tokens": 5479,
+    "cost": 0.014846,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014846,
+      "upstream_inference_prompt_cost": 0.009986,
+      "upstream_inference_completions_cost": 0.00486
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 477,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

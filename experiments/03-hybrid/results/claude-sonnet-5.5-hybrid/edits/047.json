@@ -1,0 +1,58 @@
+[
+  {
+    "edit": {
+      "op": "swap_pins",
+      "component": "M1",
+      "pins": [
+        "Drain",
+        "Source"
+      ],
+      "why": "The PMOS arrow is on the left terminal, which connects to VIN, so the source is on VIN and the drain is on the output side."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net5",
+        "net3"
+      ],
+      "why": "The MOS output-side terminal runs along the top wire to VOUT, which is net5."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M1",
+      "pin": "Body",
+      "why": "The schematic shows no separate body terminal."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "C1",
+      "why": "C1 is the MOS gate symbol, not a capacitor."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net7",
+        "net10"
+      ],
+      "why": "R_ESR's lower end connects directly to the top of C_L."
+    },
+    "ok": true,
+    "error": null
+  }
+]

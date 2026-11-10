@@ -1,0 +1,12 @@
+Comparing the annotation with the original schematic, the labels M1 and M2 are swapped, but that does not change the connectivity, so I left it alone.
+
+Each part of the netlist checks out against the original:
+- R1 runs from VDD (net1) to the output node (net2), so net1 is VDD, which is correct.
+- The pipeline's "M1" is the original M2. Its drain is on net2, its gate is on the op-amp output (net5) and its source is on net4. This is correct.
+- The pipeline's "M2" is the original M1. Its drain is on net4, its gate is on Vi (net6) and its source is on GND. This is correct.
+- The op-amp has + on VBIAS (net3) and − on net4, which is correct.
+- V1 has its positive terminal on net3 and its negative terminal on GND, which is correct.
+
+The only flag is that net1 has one pin. It is the VDD supply net, so it is not a mistake.
+
+{"edits": []}

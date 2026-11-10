@@ -1,0 +1,12 @@
+{"edits":[
+{"op":"set_pin","component":"M9","pin":"Source","net":"tail","why":"the input-pair sources join m10's drain on a separate tail net, not the cascode-bias line"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"tail"},
+{"op":"set_pin","component":"M13","pin":"Drain","net":"tail"},
+{"op":"set_pin","component":"M13","pin":"Gate","net":"bias","why":"m10's gate joins the Ibias / m9 diode node"},
+{"op":"set_pin","component":"M14","pin":"Drain","net":"bias"},
+{"op":"set_pin","component":"M14","pin":"Gate","net":"bias"},
+{"op":"set_pin","component":"M12","pin":"Source","net":"netA","why":"m15's source goes to the m7 drain/gate node, not -Vss"},
+{"op":"set_pin","component":"M16","pin":"Drain","net":"netA"},
+{"op":"set_pin","component":"M16","pin":"Gate","net":"netA"},
+{"op":"set_pin","component":"M15","pin":"Gate","net":"netA","why":"m8's gate ties to the m7 gate/drain node"}
+]}

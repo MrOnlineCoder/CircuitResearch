@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "net6",
+      "why": "The schematic's M3 is diode-connected, so its gate is on the common gate line (net6). The pipeline left that gate wire unassigned (red '?') and put the gate on a separate net8."
+    },
+    "ok": true,
+    "error": null
+  }
+]

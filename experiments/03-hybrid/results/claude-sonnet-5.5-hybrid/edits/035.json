@@ -1,0 +1,57 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "net7",
+      "why": "M1 and M2 gates both connect to v1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Source",
+      "net": "net6",
+      "why": "Source goes to the tail node (the red '?' lead)"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "net5",
+      "why": "Gate connects to v2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "net6",
+      "why": "Source goes to the tail node, not to v2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "net5",
+      "why": "Gate connects to v2, not GND"
+    },
+    "ok": true,
+    "error": null
+  }
+]

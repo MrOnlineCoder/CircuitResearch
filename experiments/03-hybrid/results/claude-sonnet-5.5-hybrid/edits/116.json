@@ -1,0 +1,27 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net4",
+        "net3"
+      ],
+      "why": "MP5 drain connects to Von and MN8 drain, so M2.Drain should share net4 with M3.Drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "swap_pins",
+      "component": "M5",
+      "pins": [
+        "Drain",
+        "Gate"
+      ],
+      "why": "MN9 drain goes to the tail node (net6) and its gate goes to Vb (net8)"
+    },
+    "ok": true,
+    "error": null
+  }
+]

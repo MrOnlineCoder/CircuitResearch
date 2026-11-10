@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265973-e5zdryJGbwvfuvjBssfs",
+  "object": "chat.completion",
+  "created": 1794265973,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the amplifier's input and output terminals, and confirming that C1 feeds the inverting input while C2 runs from that same node to the positive output.\n\nI'm checking the remaining connections: C2 and C5 have their polarities set so the ground and output nodes line up, the C3, C4 and C6 couplings all look consistent, and the amplifier's input and output nets match the intended wiring.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the amplifier's input and output terminals, and confirming that C1 feeds the inverting input while C2 runs from that same node to the positive output.\n\nI'm checking the remaining connections: C2 and C5 have their polarities set so the ground and output nodes line up, the C3, C4 and C6 couplings all look consistent, and the amplifier's input and output nets match the intended wiring.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSwQsKEAgTGAI4AUIIdGhpbmtpbmcSDFgDuXN4ubJ8upSUFBoMmLcCFKOzcbrQ//DSIjAG21hIKZDAkbkCDrw+MwgrI9sK2Ydwmj3zIRJRFL8s764P7mfcmprbWhfsQPqTIcQq3go/AMXAdyHyxSARq9S5Yhad2yaoxiEsPaKjvbSvLOdNBVIijEG+v2TCF1mo1fWMbV97jCgFX6JZX/cdHigGNRu+kFRZ0RfdrFvaMiQhWs1n5XB8SUr7Y51E2OhNZEn+HIk1U2EX7/GHTl5xXforfWrJrAlxyRZnKebQqKDTXgeLiA04zy2iObJbAKLkXVDGsl4oshEHZQdjzIDFX/diTyheuXaZPc9XrjHlo76Iah3vYuUgbgAhd6k3uY/ispxgcZcQMIhSLKBvKY+L0tXarSElGfZnuKSMDuycD9h6lnF+LICFuzw4z0N9IB1feIngphKcAFgwlKRtSiNXQ4LjsMVQF/tyMRqBaNESoYGWaWUukGyQ3hZs4x/Sx20+Wiq6byDnVj+p0SdAqwnkMQ5m0xSrixcHuB1xOEgT+zKgvBTTKHn0etbRAGWK3mXBIKXI92u1daZoeD5n5ds57nNlpMoGZUezdIusZBu7g787c93aoxbH5hoCwIdfjxUxoKI2HWr/9YczrrXzDAcFktd9hwUyG26sg1lI2sB8/7UkFHAIXRc2zTMCsFRg31XXJTBn9SJ5v/RrYKuB7X87NB0BUOCRFP5JCrk3GkltkJZgjI++7svucSwr+cGJhWHf94J9tP9JDd08Ac1UjvHp9z9oHFOGptH0QKQKkIOsCz8JO5nh/ZpDZqlo/GUdELuww0HV/RV/RXX5UNBOZ/PdHkc4Z0exx1ZQuFWna7MteTsat/JbHFEdLyTui2YOp5yqYk3YIF7G1KL9vLNhkkhswnWM2MURE6YxpqdRNtE3eDU5JkcbQxoa20v14FQMlN8BprkvXhnwX7H2y/XX75aQsTy+RuGVSV2+gRNrkuNIIXOk90l11C4h6GmfE7zeOtLE2mPIQOEoBQhy3PuVh4BVbTWe1Jfu05tczqftVOobdLUlr2F+X1nXKvWODuZpfh1TiDtVBptSPqjK6Wgght0thn4X+yb3N7MbxQ8jro5EfeBd5VMp6YK4p66mGlTrMz35jLNQ10svWWLjHIAfRSr9IM8vXGGcIm2J+3G0g5/k6+ssmg8v+X+f/Ky4pkRNss74comakrC9dQG5cQTAfUbSBPodSeF4GD31lANKnEbnJg0FC9lwG8ED5eWzub+QA0hs32t1zQ6/sGJ03tBqfiqJiu/izJg77IcUGoDI7DyPT+Yyr5u0/oJhwUs4ScScMiNpR94EwFt92OjLGc1goN09cGbg3PRuZauN4m6S7rUPkAyJrvwgLbcXUZW+/FyCy9ZDY3SLfgGGGzYq4kbZL7qcoEdBuCp5ipHl7j1EKKkv2/6Pz0AgLXBnTrj1paaQDLl7Ny6aA6lwVrKUMrh6Pd2BTFhyZ91QsqJJ8Kigjo+AW06mPSYQY99XQLGktmF+g7IWodZ5TRGbxzmL70A8Bo/Q7lIiPV1bpN93QDpOYca26LCXBTeZTfi5FLPqxIq5RxTc/XLd9DvsJs4HSjArldzGeYXuM5Os3Ua/IlsFuXGO6x3RFq46l3FDwzgQlca7UtIcFb3X/IsIC6WZjTpCy5+CKnEzlwNFQXxiT3vH8dkictJIQF/olEh4uaGhQ0hXTir5AreIBnEsN+TjQzj63tt6AJELKsrHpWn8okHZLkrdnzbIRnCue3XGFDWAxZNdZW8D4+vej1qgGERUGKxpPi+XjWv4A3IAgfNFSL41wT++gGVAGzi9YAUuBM452HEzG1HURkmkBph4mEd+iYH2EVC2lKAYLPNAYuEf6bMIG81eP+Vhi0dtKBLKEF7Ode3m2XDJLI9gNRzTOA9YX6vjNz5F5zjp3SMyt1Jd7Zw8zJhjpdVa45sYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3316,
+    "completion_tokens": 416,
+    "total_tokens": 3732,
+    "cost": 0.010792,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010792,
+      "upstream_inference_prompt_cost": 0.006632,
+      "upstream_inference_completions_cost": 0.00416
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 407,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

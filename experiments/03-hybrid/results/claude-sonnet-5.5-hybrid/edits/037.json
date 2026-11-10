@@ -1,0 +1,46 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "net10",
+      "why": "Schematic M6 drain connects to the output (-) node, not to a dangling net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "net4",
+      "why": "Schematic M6 source ties to the M4 drain node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The vin- wire hops over the tail line (not connected), so M2's gate is not on the tail net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "net9",
+      "why": "The tail current source M3 drain connects to the M1/M2 source tail node"
+    },
+    "ok": true,
+    "error": null
+  }
+]

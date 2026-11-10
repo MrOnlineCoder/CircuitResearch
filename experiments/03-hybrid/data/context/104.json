@@ -1,0 +1,449 @@
+{
+  "id": "104",
+  "variant": "v2",
+  "pipeline_seconds": 0.249,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.899,
+      "box": [
+        569,
+        73,
+        603,
+        115
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.889,
+      "box": [
+        426,
+        74,
+        459,
+        116
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net2",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.858,
+      "box": [
+        481,
+        216,
+        548,
+        275
+      ],
+      "pins": {
+        "InP": "net3",
+        "InN": "net1",
+        "Out": "net4"
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.904,
+      "box": [
+        426,
+        252,
+        459,
+        294
+      ],
+      "pins": {
+        "Drain": "net5",
+        "Gate": "net4",
+        "Source": "net3"
+      }
+    },
+    {
+      "id": "M4",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.92,
+      "box": [
+        569,
+        252,
+        603,
+        294
+      ],
+      "pins": {
+        "Drain": "net6",
+        "Gate": "net7",
+        "Source": "net1"
+      }
+    },
+    {
+      "id": "M5",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.903,
+      "box": [
+        281,
+        314,
+        314,
+        355
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net8",
+        "Source": "net9"
+      }
+    },
+    {
+      "id": "M6",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.924,
+      "box": [
+        85,
+        314,
+        118,
+        355
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net10",
+        "Source": "net9"
+      }
+    },
+    {
+      "id": "M7",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.929,
+      "box": [
+        426,
+        364,
+        459,
+        406
+      ],
+      "pins": {
+        "Drain": "net5",
+        "Gate": "net11",
+        "Source": "net12"
+      }
+    },
+    {
+      "id": "M8",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.93,
+      "box": [
+        568,
+        364,
+        603,
+        405
+      ],
+      "pins": {
+        "Drain": "net13",
+        "Gate": "net11",
+        "Source": "net14"
+      }
+    },
+    {
+      "id": "M9",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.913,
+      "box": [
+        171,
+        441,
+        207,
+        483
+      ],
+      "pins": {
+        "Drain": "net9",
+        "Gate": "net15",
+        "Source": "net16"
+      }
+    },
+    {
+      "id": "M10",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.913,
+      "box": [
+        569,
+        453,
+        603,
+        495
+      ],
+      "pins": {
+        "Drain": "net14",
+        "Gate": "net17",
+        "Source": "net18"
+      }
+    },
+    {
+      "id": "M11",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.92,
+      "box": [
+        426,
+        453,
+        459,
+        495
+      ],
+      "pins": {
+        "Drain": "net12",
+        "Gate": "net19",
+        "Source": "net20"
+      }
+    },
+    {
+      "id": "A2",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.919,
+      "box": [
+        482,
+        472,
+        547,
+        532
+      ],
+      "pins": {
+        "InP": "net20",
+        "InN": "net18",
+        "Out": "net19"
+      }
+    },
+    {
+      "id": "M12",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.928,
+      "box": [
+        172,
+        568,
+        207,
+        610
+      ],
+      "pins": {
+        "Drain": "net16",
+        "Gate": "net21",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M13",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.929,
+      "box": [
+        569,
+        590,
+        603,
+        634
+      ],
+      "pins": {
+        "Drain": "net18",
+        "Gate": "net22",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M14",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.891,
+      "box": [
+        401,
+        590,
+        433,
+        632
+      ],
+      "pins": {
+        "Drain": "net20",
+        "Gate": "net23",
+        "Source": "GND"
+      }
+    }
+  ],
+  "crossings": [
+    {
+      "id": "J1",
+      "decision": "NOT connected",
+      "kind": "hop arc",
+      "box": [
+        420,
+        574,
+        440,
+        587
+      ]
+    },
+    {
+      "id": "J2",
+      "decision": "NOT connected",
+      "kind": "hop arc",
+      "box": [
+        419,
+        164,
+        440,
+        178
+      ]
+    }
+  ],
+  "uncertain": [
+    "A1: 3 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M3: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M4: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "A2: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M13.Gate: attached through a very small blob, maybe text rather than a wire (net22).",
+    "M14.Drain: attached through a very small blob, maybe text rather than a wire (net20).",
+    "net17: only one pin (M10.Gate) and no input/output port - a dangling wire, or it should join another net.",
+    "net22: only one pin (M13.Gate) and no input/output port - a dangling wire, or it should join another net.",
+    "net6: only one pin (M4.Drain) and no input/output port - a dangling wire, or it should join another net.",
+    "net7: only one pin (M4.Gate) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net3",
+          "InN": "net1",
+          "Out": "net4"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net5",
+          "Gate": "net4",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net6",
+          "Gate": "net7",
+          "Source": "net1"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net8",
+          "Source": "net9"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net10",
+          "Source": "net9"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net5",
+          "Gate": "net11",
+          "Source": "net12"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net13",
+          "Gate": "net11",
+          "Source": "net14"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net9",
+          "Gate": "net15",
+          "Source": "net16"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net14",
+          "Gate": "net17",
+          "Source": "net18"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net12",
+          "Gate": "net19",
+          "Source": "net20"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net20",
+          "InN": "net18",
+          "Out": "net19"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net16",
+          "Gate": "net21",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net18",
+          "Gate": "net22",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net20",
+          "Gate": "net23",
+          "Source": "GND"
+        }
+      }
+    ]
+  }
+}

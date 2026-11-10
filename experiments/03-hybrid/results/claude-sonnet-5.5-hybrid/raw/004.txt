@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net2","net1"],"why":"The bottom of R_D connects to the Vout wire and the drain of the upper (cascode) transistor, so R1.Neg belongs on net2 and net1 is not a separate net."}]}

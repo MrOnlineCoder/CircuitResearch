@@ -1,0 +1,17 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M6",
+      "type": "PMOS",
+      "pins": {
+        "Drain": "net6",
+        "Gate": "net2",
+        "Source": "VDD"
+      },
+      "why": "M6 is the left precharge switch. It mirrors M2 and shares the FCLK gate with M1, so it should be a PMOS with its source on VDD and its drain on the net6 node. This is based on circuit symmetry, because the arrow direction in the image is hard to read."
+    },
+    "ok": true,
+    "error": null
+  }
+]

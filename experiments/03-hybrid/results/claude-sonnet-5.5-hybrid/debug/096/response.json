@@ -1,0 +1,46 @@
+{
+  "id": "gen-1794267171-tJU6puKgTkYG6QYEf7Cf",
+  "object": "chat.completion",
+  "created": 1794267171,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "In IMAGE 1, R2 (the feedback resistor) runs from the inverting input node to the op-amp output. R1/2 runs from that same node to ground.\n\nThe pipeline's R1 is the resistor labeled R2, with pin 1 on net2 and pin 2 on net4. Its pin 2 should be on the output net, net3, so net4 should merge into net3.\n\nThe pipeline's R2 is the resistor labeled R1/2. It connects net2 to GND, which is correct.\n\nBecause net4 holds only R1.Neg, setting that pin to net3 fixes it.\n\n{\"edits\":[{\"op\":\"set_pin\",\"component\":\"R1\",\"pin\":\"Neg\",\"net\":\"net3\",\"why\":\"Feedback resistor's right end connects to the op-amp output, not to a dangling net\"}]}",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2466,
+    "completion_tokens": 263,
+    "total_tokens": 2729,
+    "cost": 0.007562,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007562,
+      "upstream_inference_prompt_cost": 0.004932,
+      "upstream_inference_completions_cost": 0.00263
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

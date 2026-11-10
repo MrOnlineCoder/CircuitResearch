@@ -1,0 +1,54 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R2",
+      "pin": "Neg",
+      "net": "net3",
+      "why": "R2 bottom is node N, which is separate from M; the vertical N wire crosses the M wire with no junction dot"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InN",
+      "net": "net3",
+      "why": "The op-amp minus input is at node N, not M"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M1",
+      "type": "PNP",
+      "pins": {
+        "Emitter": "net4",
+        "Base": "GND",
+        "Collector": "GND"
+      },
+      "why": "Q2 is a PNP with its emitter on R3 and base and collector tied to ground"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M2",
+      "type": "PNP",
+      "pins": {
+        "Emitter": "net2",
+        "Base": "GND",
+        "Collector": "GND"
+      },
+      "why": "Q1 is a PNP with its emitter at M and base and collector tied to ground"
+    },
+    "ok": true,
+    "error": null
+  }
+]

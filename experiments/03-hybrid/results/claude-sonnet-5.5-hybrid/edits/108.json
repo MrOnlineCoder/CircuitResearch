@@ -1,0 +1,67 @@
+[
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M3",
+      "pin": "Body",
+      "why": "M3 has no body connection in the schematic; the blue wire only links the M3 and M4 gates"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "net4",
+      "why": "M4 (annotated M1) has its gate on the common VC bias line"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InN",
+      "net": "newA",
+      "why": "The op-amp '-' input connects to VA, which is separate from VB; the wire crosses the VB line without a dot"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "newA",
+      "why": "M1 (annotated M2) drain is VA, not VB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "Q2",
+      "pin": "Collector",
+      "net": "newA",
+      "why": "Q1 (annotated Q2) collector and base are at VA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "Q2",
+      "pin": "Base",
+      "net": "newA",
+      "why": "Q1 base is tied to its collector at VA"
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,346 @@
+{
+  "id": "109",
+  "variant": "v2",
+  "pipeline_seconds": 0.238,
+  "overlay_scale": 1.887,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.636,
+      "box": [
+        329,
+        108,
+        360,
+        149
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net1",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.482,
+      "box": [
+        178,
+        108,
+        210,
+        149
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net1",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.902,
+      "box": [
+        554,
+        169,
+        586,
+        209
+      ],
+      "pins": {
+        "Drain": "net2",
+        "Gate": "net3",
+        "Source": "VDD"
+      }
+    },
+    {
+      "id": "I1",
+      "type": "Current",
+      "detector_label": "current",
+      "confidence": 0.919,
+      "box": [
+        50,
+        231,
+        90,
+        271
+      ],
+      "pins": {
+        "In": "VDD",
+        "Out": "net4"
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.856,
+      "box": [
+        524,
+        232,
+        537,
+        271
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.85,
+      "box": [
+        386,
+        239,
+        431,
+        263
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net5"
+      }
+    },
+    {
+      "id": "M4",
+      "type": "NMOS",
+      "detector_label": "nmos-bulk",
+      "confidence": 0.343,
+      "box": [
+        353,
+        283,
+        385,
+        325
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net6",
+        "Source": "net7",
+        "Body": "net8"
+      }
+    },
+    {
+      "id": "M5",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.827,
+      "box": [
+        155,
+        283,
+        186,
+        325
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net9",
+        "Source": "net8"
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage-lines",
+      "confidence": 0.456,
+      "box": [
+        250,
+        317,
+        290,
+        337
+      ],
+      "pins": {
+        "Positive": "nc1",
+        "Negative": "nc2"
+      }
+    },
+    {
+      "id": "C2",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.882,
+      "box": [
+        657,
+        348,
+        698,
+        363
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "M6",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.849,
+      "box": [
+        554,
+        414,
+        587,
+        455
+      ],
+      "pins": {
+        "Drain": "net2",
+        "Gate": "net4",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M7",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.858,
+      "box": [
+        241,
+        414,
+        274,
+        455
+      ],
+      "pins": {
+        "Drain": "net7",
+        "Gate": "net4",
+        "Source": "GND"
+      }
+    },
+    {
+      "id": "M8",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.548,
+      "box": [
+        66,
+        414,
+        97,
+        456
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net4",
+        "Source": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M1: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M2: detected as PMOS with low confidence (0.48).",
+    "M2: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M4: detected as NMOS with low confidence (0.34).",
+    "M5: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "V1: detected as Voltage with low confidence (0.46).",
+    "V1.Positive: no wire found at this lead (left unconnected as nc1).",
+    "V1.Negative: no wire found at this lead (left unconnected as nc2).",
+    "V1: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M6: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M7: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "M8: 1 extra line(s) touch the box but were not assigned to any pin (red '?' marks).",
+    "net6: only one pin (M4.Gate) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net1",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net1",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net2",
+          "Gate": "net3",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Current",
+        "port_connection": {
+          "In": "VDD",
+          "Out": "net4"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net5"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net6",
+          "Source": "net7",
+          "Body": "net8"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net9",
+          "Source": "net8"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "nc1",
+          "Negative": "nc2"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net2",
+          "Gate": "net4",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net7",
+          "Gate": "net4",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net4",
+          "Source": "GND"
+        }
+      }
+    ]
+  }
+}

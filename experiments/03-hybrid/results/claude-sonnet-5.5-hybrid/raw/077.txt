@@ -1,0 +1,20 @@
+{"edits":[
+{"op":"set_pin","component":"Q2","pin":"Base","net":"bias","why":"Q8 base and collector are the bias node, which only crosses the V+ riser without a junction"},
+{"op":"set_pin","component":"Q2","pin":"Collector","net":"bias"},
+{"op":"set_pin","component":"Q4","pin":"Base","net":"bias","why":"Q9 base joins the Q8 base bias line, not V+"},
+{"op":"set_pin","component":"Q6","pin":"Base","net":"net6","why":"Q1 base is the non-inverting input; base and collector were swapped"},
+{"op":"set_pin","component":"Q6","pin":"Collector","net":"bias"},
+{"op":"set_pin","component":"Q7","pin":"Collector","net":"bias"},
+{"op":"set_pin","component":"Q10","pin":"Base","net":"nA","why":"Q4 base is on the Q9 collector / Q10 collector line"},
+{"op":"set_pin","component":"Q11","pin":"Base","net":"nA","why":"Q3 base is on the same line"},
+{"op":"set_pin","component":"Q4","pin":"Collector","net":"nA","why":"Q9 collector line crosses the y=330 line without a junction"},
+{"op":"set_pin","component":"Q18","pin":"Collector","net":"nA"},
+{"op":"set_pin","component":"Q18","pin":"Base","net":"nX","why":"Q10 base is on the Q11 diode node, with R5"},
+{"op":"set_pin","component":"Q20","pin":"Collector","net":"nX"},
+{"op":"set_pin","component":"Q20","pin":"Base","net":"nX"},
+{"op":"set_pin","component":"R1","pin":"Neg","net":"nX"},
+{"op":"set_pin","component":"Q14","pin":"Emitter","net":"nE","why":"Q17 emitter is separate from its base net (R12 / Q15 emitter)"},
+{"op":"set_pin","component":"R11","pin":"Pos","net":"nE"},
+{"op":"set_pin","component":"Q16","pin":"Base","net":"nE","why":"Q22 base connects to the Q17 emitter and R11, and crosses the R12 line without a junction"},
+{"op":"change_type","component":"Q15","type":"NPN","pins":{"Collector":"net16","Base":"net12","Emitter":"net17"},"why":"This is Q20, an NPN with its collector at the output and its emitter at V-"}
+]}

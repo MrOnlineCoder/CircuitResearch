@@ -1,0 +1,68 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "net4",
+                "Emitter": "net2"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net5",
+                "Base": "net1",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "net6",
+                "Emitter": "tail"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net8",
+                "Emitter": "tail"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net5",
+                "Base": "vb",
+                "Emitter": "vneg"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "tail",
+                "Base": "vb",
+                "Emitter": "vneg"
+            }
+        }
+    ]
+}

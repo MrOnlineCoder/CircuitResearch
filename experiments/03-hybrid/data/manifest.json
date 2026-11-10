@@ -1,0 +1,7 @@
+{
+  "variant": "v2",
+  "models_dir": "/Users/mronlinecoder/University/PhD/CircuitResearch/experiments/02-yolo-cv/models",
+  "dataset": "/Users/mronlinecoder/University/PhD/CircuitResearch/datasets/ci2n_datasets-main/validation",
+  "images": 122,
+  "overlay_long_side": 1400
+}

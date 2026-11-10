@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265922-ohHnuPDp5AniNzY35iz3",
+  "object": "chat.completion",
+  "created": 1794265922,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping the pipeline's component IDs onto the schematic names, working from the netlist. The first PMOS, with its drain and gate both on net2 and its source on VDD, is schematic M3, the diode-connected one. The next PMOS, drain on net4 and gate on net2, is M4. The M2 PMOS corresponds to schematic M6, and the NMOS labeled M4 is schematic M1, while M5 is schematic M2.\n\nChecking the rest of the connections against the schematic: M1's drain and gate tie to M3 on net2, M2's drain goes to M4 on net4 along with the Cc left plate and M6's gate, and the M8 drain feeds the current source output and gate on net1. The current source and the input nets look consistent too.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping the pipeline's component IDs onto the schematic names, working from the netlist. The first PMOS, with its drain and gate both on net2 and its source on VDD, is schematic M3, the diode-connected one. The next PMOS, drain on net4 and gate on net2, is M4. The M2 PMOS corresponds to schematic M6, and the NMOS labeled M4 is schematic M1, while M5 is schematic M2.\n\nChecking the rest of the connections against the schematic: M1's drain and gate tie to M3 on net2, M2's drain goes to M4 on net4 along with the Cc left plate and M6's gate, and the M8 drain feeds the current source output and gate on net1. The current source and the input nets look consistent too.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4040,
+    "completion_tokens": 511,
+    "total_tokens": 4551,
+    "cost": 0.01319,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01319,
+      "upstream_inference_prompt_cost": 0.00808,
+      "upstream_inference_completions_cost": 0.00511
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 502,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

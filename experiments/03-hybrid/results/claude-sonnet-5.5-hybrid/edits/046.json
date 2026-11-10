@@ -1,0 +1,26 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net5"
+      ],
+      "why": "All the 'latch' labels are one net, so the gates of M4a, M5a, M4b and M5b are shared"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net10"
+      ],
+      "why": "The tail transistor Mc is also gated by 'latch'"
+    },
+    "ok": true,
+    "error": null
+  }
+]

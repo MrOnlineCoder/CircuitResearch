@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265759-Fx6Rucj7rR7XyVt0EKWl",
+  "object": "chat.completion",
+  "created": 1794265759,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the schematic: M01 is on the left and M02 on the right, with the op-amp's + input on n1 and - on n2, and the output feeding the gates. The left branch runs from M01's drain through R4 and R1 to Q1's emitter, while the right runs from M02's drain through R3 and R2 to Q2's emitter, with Vref at M02's drain. Now I'm working out that M1 corresponds to M02 on the right, with its drain on net1.\n\nI'm verifying the pipeline mapping: M2 sits on the left with its drain on net3, and the resistor labels and nets line up with the op-amp inputs, net4 and net5. Then I'm questioning whether the transistors are PNP or NPN, and I'm reading the arrow direction at the emitter to settle it, concluding they are PNP.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the schematic: M01 is on the left and M02 on the right, with the op-amp's + input on n1 and - on n2, and the output feeding the gates. The left branch runs from M01's drain through R4 and R1 to Q1's emitter, while the right runs from M02's drain through R3 and R2 to Q2's emitter, with Vref at M02's drain. Now I'm working out that M1 corresponds to M02 on the right, with its drain on net1.\n\nI'm verifying the pipeline mapping: M2 sits on the left with its drain on net3, and the resistor labels and nets line up with the op-amp inputs, net4 and net5. Then I'm questioning whether the transistors are PNP or NPN, and I'm reading the arrow direction at the emitter to settle it, concluding they are PNP.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3505,
+    "completion_tokens": 536,
+    "total_tokens": 4041,
+    "cost": 0.01237,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01237,
+      "upstream_inference_prompt_cost": 0.00701,
+      "upstream_inference_completions_cost": 0.00536
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 527,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

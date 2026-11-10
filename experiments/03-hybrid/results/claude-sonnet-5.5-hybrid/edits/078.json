@@ -1,0 +1,12 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M6",
+      "type": "NMOS",
+      "why": "Original M8, the pass transistor between VB and Cc, is drawn as an NMOS (no gate bubble) with its gate on the VA net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

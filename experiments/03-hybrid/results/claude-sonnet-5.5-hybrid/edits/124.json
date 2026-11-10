@@ -1,0 +1,37 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net8",
+        "net1"
+      ],
+      "why": "M20's drain wire runs down to the M22 source node and left to the M17 drain; the pipeline split this net in two."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Source",
+      "net": "net3",
+      "why": "M21's source connects to the M19 drain node (net3). The M17 line crosses it with a hop arc and does not touch it."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net17",
+        "net19"
+      ],
+      "why": "M23's source connects directly to M25's drain."
+    },
+    "ok": true,
+    "error": null
+  }
+]

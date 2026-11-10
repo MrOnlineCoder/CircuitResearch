@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266396-Ixeq9QSD62rsSGrZWp1c",
+  "object": "chat.completion",
+  "created": 1794266396,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm going through the schematic, starting with the M3/M4 PMOS current mirror and how its drains connect to the M1, M2 and M6 branches.\n\nNow I'm checking the rest of the connections, including M5's gate and where Vbias feeds the M6 and M7 pair at the output.\n\nNow I'm checking the rest of the wiring: M5's drain, the Vbias connections to the M5 and M7 gates, and the Vbias- line to Vss. Those all look right to me, and the wire crossing over the vertical line near Vin+ is a hop, not a connection.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the schematic, starting with the M3/M4 PMOS current mirror and how its drains connect to the M1, M2 and M6 branches.\n\nNow I'm checking the rest of the connections, including M5's gate and where Vbias feeds the M6 and M7 pair at the output.\n\nNow I'm checking the rest of the wiring: M5's drain, the Vbias connections to the M5 and M7 gates, and the Vbias- line to Vss. Those all look right to me, and the wire crossing over the vertical line near Vin+ is a hop, not a connection.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3981,
+    "completion_tokens": 830,
+    "total_tokens": 4811,
+    "cost": 0.016262,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.016262,
+      "upstream_inference_prompt_cost": 0.007962,
+      "upstream_inference_completions_cost": 0.0083
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 821,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

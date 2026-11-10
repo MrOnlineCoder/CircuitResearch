@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266248-GDPDtEKljNyaDWoqQpCD",
+  "object": "chat.completion",
+  "created": 1794266248,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "Now I'm tracing how the PMOS transistors connect to the supply and to the nodes on the right, and I'm checking where Mg2's drain wire crosses the Mg3–Mg5 vertical line, with the crossing point at\n\nI'm checking the net connections against the pipeline, and every transistor's drain and source land on the right nets. The bias devices and the Mg0 tail look correct too, so I'm moving on.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "Now I'm tracing how the PMOS transistors connect to the supply and to the nodes on the right, and I'm checking where Mg2's drain wire crosses the Mg3–Mg5 vertical line, with the crossing point at\n\nI'm checking the net connections against the pipeline, and every transistor's drain and source land on the right nets. The bias devices and the Mg0 tail look correct too, so I'm moving on.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4454,
+    "completion_tokens": 548,
+    "total_tokens": 5002,
+    "cost": 0.014388,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014388,
+      "upstream_inference_prompt_cost": 0.008908,
+      "upstream_inference_completions_cost": 0.00548
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 539,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

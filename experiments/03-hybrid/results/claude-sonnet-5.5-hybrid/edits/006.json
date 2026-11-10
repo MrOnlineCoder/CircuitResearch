@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "net5",
+      "why": "The middle PMOS (MP2) drain runs down past the hop arc to the top of R1 and the op-amp minus input, which is net5. The net2 wire only hops over it, so net4 is just a split-off stub of net5."
+    },
+    "ok": true,
+    "error": null
+  }
+]

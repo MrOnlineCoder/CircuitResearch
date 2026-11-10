@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "net9",
+      "why": "In the original, M5's drain runs down the vertical wire to the junction at the sources of M1 and M2. The hop at J1 only crosses the separate v_i- wire, which is net8. So M5's drain joins net9 and is not left dangling."
+    },
+    "ok": true,
+    "error": null
+  }
+]

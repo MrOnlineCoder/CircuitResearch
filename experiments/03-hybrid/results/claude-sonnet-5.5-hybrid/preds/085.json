@@ -1,0 +1,28 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net2",
+                "Source": "net3",
+                "Body": "net6"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "net5",
+                "Source": "net6"
+            }
+        },
+        {
+            "component_type": "Voltage",
+            "port_connection": {
+                "Positive": "net5",
+                "Negative": "GND"
+            }
+        }
+    ]
+}

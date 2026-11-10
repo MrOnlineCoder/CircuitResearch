@@ -1,0 +1,15 @@
+{"edits":[
+{"op":"swap_pins","component":"M1","pins":["Gate","Source"],"why":"original M6: source is at Vdd and gate is at V1 (net3)"},
+{"op":"set_pin","component":"M6","pin":"Source","net":"net2","why":"original M8 source connects to M6 drain, which is the V1 node going to the M14 gate"},
+{"op":"set_pin","component":"M4","pin":"Source","net":"newA","why":"the M10 source to M11 line crosses the V1 wire without a connection"},
+{"op":"set_pin","component":"M11","pin":"Drain","net":"newA"},
+{"op":"set_pin","component":"M7","pin":"Source","net":"newV2","why":"V2 node is separate from V1"},
+{"op":"set_pin","component":"M12","pin":"Gate","net":"newV2"},
+{"op":"change_type","component":"M10","type":"NMOS","pins":{"Drain":"newV2","Gate":"net14","Source":"net12"},"why":"original M13 is an NMOS: drain at V2, source at Vss"},
+{"op":"set_pin","component":"M15","pin":"Gate","net":"net5","why":"original M5 gate is the mirror gate line from M16"},
+{"op":"set_pin","component":"M15","pin":"Source","net":"net12"},
+{"op":"set_pin","component":"M15","pin":"Drain","net":"tail","why":"original M5 drain goes to the M1/M2 tail node"},
+{"op":"set_pin","component":"M8","pin":"Source","net":"tail"},
+{"op":"set_pin","component":"M9","pin":"Source","net":"tail"},
+{"op":"merge_nets","nets":["net5","net17"],"why":"the gate line to M7 is the same net as the M16 gate and drain"}
+]}

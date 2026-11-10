@@ -1,0 +1,68 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "net3",
+      "why": "Original M1 drain connects to M3 drain (net3), not to the M4 drain net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "net9",
+      "why": "Original M1 source joins the tail node with M2 source"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Source",
+      "net": "net12",
+      "why": "Tail transistor M5 source goes to -3 V; the pipeline left it dangling"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "Original M4 drain is a separate node (M2 drain, M7 source) and must not merge with the bias net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "Original M2 drain connects to M4 drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Source",
+      "net": "new1",
+      "why": "Original M7 source connects to M4 drain; its gate stays on the bias net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

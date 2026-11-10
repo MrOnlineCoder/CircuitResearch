@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265504-eU6k9HPBrANToH6skZjb",
+  "object": "chat.completion",
+  "created": 1794265504,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching the netlist labels to the image labels: M1 and M2 are the PMOS devices at the top, M3 and M4 the NMOS. Since only the structure matters, the naming differences don't affect the check.\n\nChecking the rest of the connections against the netlist, the mapping looks right. M3's drain is net1 with its gate on net4 (Vip), and M4's gate is net6 (Vin). The left NMOS gate on the image matches net4, so nothing needs changing.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the netlist labels to the image labels: M1 and M2 are the PMOS devices at the top, M3 and M4 the NMOS. Since only the structure matters, the naming differences don't affect the check.\n\nChecking the rest of the connections against the netlist, the mapping looks right. M3's drain is net1 with its gate on net4 (Vip), and M4's gate is net6 (Vin). The left NMOS gate on the image matches net4, so nothing needs changing.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSmAkKEAgTGAI4AUIIdGhpbmtpbmcSDAsSM7EhTIZqdl/zNhoMNm7q2uA8jZVIy0qhIjBdhJF8cszjJTnEJD/SZMjaobj7FasUi2KCdFUp5d5evShmfGJR2cT7rK2xFJRMc4AqtQgDSzKLrrptGDj06EFkfs37zkBNaavTSc0SV2yO3wDQJo+DyCKVAQyeHF1eG4DLN75q98hmq7pxegaCiTDQhm0FKzF+0OnArwTMV5VlrQe2xfYAlYAzxKYtyiAalCBqew+GMJlc5pApO1S8WwlFzSevkTSjRDaEb/XON4lW2hhLpj61uFsOvvy7BF6q9gu4z8/SvjI02JLL3sy+8IcVEo9yxTz8bu+koCHj1P3CXX6hg6HJSrf5Hs66+HzvBqpjbwWwHJPRRKZh23n199D+LT5E4uWOGkR1BZopiACd1nEoRCmgJLlL8XFUsLBaBC8l/2pg/tXG01aCCbMy69Ec16wxtDLunsDY33zaxZeWfzGRSFWB47FTZ1gUQ49fZodP2wTZJSpBSxRIXHpatZXOIA1wfuEz1MUib74j6VaPa6zsMMoeE89Xt5ccijssY62Ig6xCNCatjD6FAVbtnp0hWRQGn9ORFNdIYX7XrCNwoVYdfu5teeOy9G6c21MJx3mpa0lBSJFtSrtkQ93PfZHk82dtAE0m2K9Sxb31oagGnBV9F8qfnGG66nZi/VwXzB2UjYhKVbsJqzr4WY4uS298GKcHb+kP4WqLtzOpymXYazX1z5w5+oIv6v4CSY9Y/LCWzQQsRXF+eEnrVhpNWSv10PA3Du/jvokPXk2h9O7EsVt+ffMAfqY4Lq/juLFqupdOgq7F1I9KnqxaKp9Gq5ZyOq/v4mThVkcJt30H4d5Fb5XFTLO9V4G0CawJYyw2+A5BVEjiplcMpQ7V0aB58ubxywwNf2dzdI/AaPoblKJu13QSEgZzhVh5aWbLLpy3dKCuQccBlZYyaB/jlzMUVn5N1ZtCLQBCvGSounzdcWJ0v+o72FoceeYvXJaJyCKjUO2WPfo5JwlfnHUiA0piai0w51bbb2J37wdOS2HYHhZvcIWQ0KIEUA0S27e2hsx8h7F+uPJxmL59G/ve1COJc14XfZ6kMDWVSR7HkrkeUPpnDUwEL6jH8RBO9YO71vpQnj+TS1k4GKIyO9DYZJIB/OvqF4fbesCUSRFjkEzd/BOcYa5IptRTcayLHUkScDRMs7qGa70oOvlG42KC45N1rqgLziIoZ9/L5WeRHaBrKTZ36/KWqMC3le/aS+L1vnAwTw051tdH0kuUeiz9SM/2iFt+KFKyRNAE++eF6Y8duGzRovMmsD05A60FawsMjuymMjNc3G5wVyqczHVsaBRYQtfsh8TuwyS7hoUZ3yP2oSxdSby34O91U+AYFkgbCmEdMHaFo3GNEDmCk1R0iMqonl0VzBIbQTf5HjpPOlzLDlJG7HF8PpT4tainmyo7sgiOOlle24Wgqbsw47ToMCII15q08Yb1G2d1qw41xTVBoHCQPXAtg3IsDTRFlNi2SPz7JaXTpe0b5EyFWzVW+Wa/6xaempD3gzQ2bI8YAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2299,
+    "completion_tokens": 262,
+    "total_tokens": 2561,
+    "cost": 0.007218,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007218,
+      "upstream_inference_prompt_cost": 0.004598,
+      "upstream_inference_completions_cost": 0.00262
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 253,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M13",
+      "type": "PMOS",
+      "pins": {
+        "Drain": "new1",
+        "Gate": "GND",
+        "Source": "net2"
+      },
+      "why": "Mb8 is a PMOS with its gate grounded. Its source goes to the Mb6 drain (net2) and its drain goes down to the Mb9 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M10",
+      "type": "PMOS",
+      "pins": {
+        "Drain": "net11",
+        "Gate": "GND",
+        "Source": "net2"
+      },
+      "why": "M9 is a PMOS with its gate grounded. Its source is the Mb7 drain (net2) and its drain goes to Cc and the Mb10 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "The Mb9 drain connects up to the Mb8 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Gate",
+      "net": "net6",
+      "why": "Mb9 is on the bias line at the M8 gate."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Source",
+      "net": "net13",
+      "why": "The Mb9 source goes to VSS."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M18",
+      "pin": "Gate",
+      "net": "net6",
+      "why": "Mb10 is on the bias line."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M19",
+      "pin": "Gate",
+      "net": "net6",
+      "why": "M7 is on the bias line."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Pos",
+      "net": "net12",
+      "why": "RB connects to the Mb5 source."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "net13",
+      "why": "RB's other end goes to VSS."
+    },
+    "ok": true,
+    "error": null
+  }
+]

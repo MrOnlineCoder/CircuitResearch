@@ -1,0 +1,79 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "newA",
+      "why": "M7 is diode-connected and its drain goes to the M9 drain; this net is not VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "newA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "newA",
+      "why": "M8 gate is on the M7 mirror net, not VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "newA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M10",
+      "type": "NMOS",
+      "pins": {
+        "Drain": "net16",
+        "Gate": "net11",
+        "Source": "GND"
+      },
+      "why": "M10 is an NMOS with its source at ground and its drain at M13"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "C2",
+      "why": "The Vout capacitor is a single device; C2 is a false detection on the wire"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Neg",
+      "net": "GND",
+      "why": "The capacitor goes from Vout to the ground rail"
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "model": "anthropic/claude-sonnet-5.5",
+  "max_tokens": 16000,
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "IMAGE 1 (original schematic):"
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "<image/png image, 147560 bytes: /Users/mronlinecoder/University/PhD/CircuitResearch/datasets/ci2n_datasets-main/validation/images/083.png>"
+          }
+        },
+        {
+          "type": "text",
+          "text": "IMAGE 2 (pipeline annotation):"
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "<image/png image, 593928 bytes: /Users/mronlinecoder/University/PhD/CircuitResearch/experiments/03-hybrid/data/overlays/083.png>"
+          }
+        },
+        {
+          "type": "text",
+          "text": "You are checking a netlist that an automatic computer-vision pipeline extracted from an analog circuit schematic. Your job is to find and fix its mistakes.\n\nYou are given two images:\n  IMAGE 1: the original schematic. This is the ground truth - trust it over everything else.\n  IMAGE 2: the same schematic annotated by the pipeline (enlarged x1.65):\n    - grey boxes with IDs (M1, R2, ...) = detected components;\n    - letters next to black dots = the pin the pipeline assigned to that lead\n      (MOSFET D/G/S/B, BJT C/B/E, op-amp +/-/out, o+/o- for differential outputs,\n      sources +/- or in/out, two-terminal parts 1 = Pos, 2 = Neg);\n    - wires are coloured by net, and each net has a name tag in its colour;\n      the SAME colour means the pipeline thinks the wires are connected;\n    - red \"?\" dot = a line touching a component that was not assigned to any pin;\n    - red box \"J\" = crossing treated as NOT connected; green box \"X\" = crossing treated as connected.\n  The annotation can be wrong. Check every suspicious spot against IMAGE 1.\n\nPipeline netlist (component ID, type, pin -> net). GND and VDD come from ground / supply\nsymbols; netK are the other nets; ncK means the pin was left unconnected:\n  M1   PMOS      Drain=net1, Gate=net2, Source=VDD\n  M2   PMOS      Drain=net3, Gate=net3, Source=VDD\n  M3   PMOS      Drain=net4, Gate=net3, Source=VDD\n  M4   PMOS      Drain=net5, Gate=net2, Source=VDD\n  M5   PMOS      Drain=net2, Gate=net2, Source=VDD\n  M6   PMOS      Drain=net6, Gate=net7, Source=net4\n  M7   PMOS      Drain=net7, Gate=net7, Source=net3\n  M8   PMOS      Drain=net8, Gate=net9, Source=net5\n  M9   PMOS      Drain=net10, Gate=net11, Source=net5\n  M10  NMOS      Drain=net7, Gate=net10, Source=net12\n  M11  NMOS      Drain=net6, Gate=net10, Source=net8\n  R1   Res       Pos=net2, Neg=GND\n  C1   Cap       Pos=net6, Neg=net13\n  M12  NMOS      Drain=net10, Gate=net10, Source=net14\n  M13  NMOS      Drain=GND, Gate=GND, Source=GND\n  M14  NMOS      Drain=net14, Gate=net14, Source=net15\n  M15  NMOS      Drain=net10, Gate=GND, Source=net16\n  M16  NMOS      Drain=net8, Gate=GND, Source=GND\n\nCrossings:\n  J1: hop arc -> NOT connected\n  J2: hop arc -> NOT connected\n  J3: hop arc -> NOT connected\n  J4: hop arc -> NOT connected\n  J5: hop arc -> NOT connected\n  J6: hop arc -> NOT connected\n  J7: hop arc -> NOT connected\n\nSpots where the pipeline itself was unsure:\n  - M1.Drain: attached through a very small blob, maybe text rather than a wire (net1).\n  - M10.Source: attached through a very small blob, maybe text rather than a wire (net12).\n  - M14.Source: attached through a very small blob, maybe text rather than a wire (net15).\n  - M15.Drain: attached through a very small blob, maybe text rather than a wire (net10).\n  - M15.Source: attached through a very small blob, maybe text rather than a wire (net16).\n  - net1: only one pin (M1.Drain) and no input/output port - a dangling wire, or it should join another net.\n  - net12: only one pin (M10.Source) and no input/output port - a dangling wire, or it should join another net.\n  - net13: only one pin (C1.Neg) and no input/output port - a dangling wire, or it should join another net.\n  - net15: only one pin (M14.Source) and no input/output port - a dangling wire, or it should join another net.\n  - net16: only one pin (M15.Source) and no input/output port - a dangling wire, or it should join another net.\n\nAllowed component types and their pins:\n  NMOS: Drain, Source, Gate, Body  (Body optional)\n  PMOS: Drain, Source, Gate, Body  (Body optional)\n  NPN: Base, Emitter, Collector\n  PNP: Base, Emitter, Collector\n  Res: Pos, Neg\n  Cap: Pos, Neg\n  Ind: Pos, Neg\n  Diode: In, Out\n  Voltage: Positive, Negative\n  Current: In, Out\n  Diso_amp: InN, InP, Out\n  Siso_amp: In, Out\n  Dido_amp: InN, InP, OutN, OutP\n\nTypical pipeline errors to look for:\n- a wire attached to the wrong pin, or a MOSFET drain and source swapped;\n- two different nets merged (text, arrows or labels touching wires join them) or one net split;\n- a crossing decided wrongly (dot = connected; hop arc = not connected);\n- a wrong component type (NMOS/PMOS/NPN/PNP, single-ended vs fully differential amplifier),\n  a missed component, or a detection that is not a component;\n- op-amp + and - inputs swapped.\n\nRules:\n- Most of the netlist is probably correct. Only edit what IMAGE 1 shows to be wrong.\n- Net names do not matter, only which pins share a net. Do not rename nets.\n- Ground and supply symbols are not components.\n- If everything is correct, return an empty list.\n\nReturn ONLY a JSON object (no markdown fences) of the form\n{\"edits\": [ ... ]}\nwhere each edit is one of the following (you may add a short \"why\" field to any edit):\n{\"op\": \"set_pin\", \"component\": \"M3\", \"pin\": \"Drain\", \"net\": \"net5\"}\n    Connect one pin to a net. Use an existing net name, or a NEW name (e.g. \"new1\") to give\n    the pin a net of its own / to split a net (give every pin that moves the same new name).\n{\"op\": \"swap_pins\", \"component\": \"M3\", \"pins\": [\"Drain\", \"Source\"]}\n    Exchange the nets of two pins of one component (e.g. drain/source, InP/InN, Pos/Neg).\n{\"op\": \"merge_nets\", \"nets\": [\"net2\", \"net7\"]}\n    The listed nets are one net (wires that are actually connected). The first name is kept.\n{\"op\": \"change_type\", \"component\": \"Q1\", \"type\": \"PNP\", \"pins\": {\"Collector\": \"net1\", ...}}\n    Wrong component type. \"pins\" is optional when the pins map one-to-one\n    (NMOS/PMOS/NPN/PNP: Drain<->Collector, Gate<->Base, Source<->Emitter;\n    Res/Cap/Ind; Diode/Current); otherwise give the full pin -> net mapping for the new type.\n{\"op\": \"add_component\", \"type\": \"Res\", \"pins\": {\"Pos\": \"net1\", \"Neg\": \"GND\"}}\n    A component the pipeline missed.\n{\"op\": \"remove_component\", \"component\": \"R4\"}\n    Not a real component (e.g. a detection on text or a symbol that is not a device).\n{\"op\": \"remove_pin\", \"component\": \"M2\", \"pin\": \"Body\"}\n    Only for the optional MOSFET Body pin.\n"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "include": true
+  }
+}

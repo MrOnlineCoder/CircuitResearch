@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267503-iyTjQceiSIChkorVXkms",
+  "object": "chat.completion",
+  "created": 1794267503,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching each pipeline component to its counterpart in the original circuit. M2 is the diode-connected PMOS at the top left, corresponding to original M3, with its drain and gate on net2 and its source on VDD. M1 at the top right corresponds to original M4, with its drain on net1 and its gate on net2. M3 corresponds to original M6, with its drain on net3, its gate on net1, and its source on VDD. Those three check out, and I still need to confirm C1, whose positive terminal is on net.\n\nI'm checking the remaining pipeline components against the original circuit: M5 and M4 map to original M1 and M2, both with drains and sources on the expected nets, and C2 sits between net3 and GND. M6 and M7 correspond to original M7 and M5, with their gates tied to net7 and the Vbias line running through M7's gate. Everything still lines up, and net1 stays a separate net from VDD in the netlist.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching each pipeline component to its counterpart in the original circuit. M2 is the diode-connected PMOS at the top left, corresponding to original M3, with its drain and gate on net2 and its source on VDD. M1 at the top right corresponds to original M4, with its drain on net1 and its gate on net2. M3 corresponds to original M6, with its drain on net3, its gate on net1, and its source on VDD. Those three check out, and I still need to confirm C1, whose positive terminal is on net.\n\nI'm checking the remaining pipeline components against the original circuit: M5 and M4 map to original M1 and M2, both with drains and sources on the expected nets, and C2 sits between net3 and GND. M6 and M7 correspond to original M7 and M5, with their gates tied to net7 and the Vbias line running through M7's gate. Everything still lines up, and net1 stays a separate net from VDD in the netlist.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSuwsKEAgTGAI4AUIIdGhpbmtpbmcSDP3gH8qg5LpLUa4ZIxoM/hh0JtiswIHH4lqaIjAZD9y6Fe0c0AwHZ2Xwd/CbZ5saiHcmJvjpPwMmIfTk0pejqquussRVDbi67YAa7Rwq2AowMoBQfcQTGKiVuexfJ5CmFnfkzbb46SEO41kceS0lL4meUPJ3tWIO6VsREcbxiS/rtd1FiUH5yKJwD1JQptrOTFLDBf/oxtTIlbQQiVYRgHd2CUM7kf1OyiN06QkQ6iS/AuiL/9HqTW4Z5RCBemJm4d3yGsQDt/JRFVKVpU4NkwCNa82Jp97sUVXSqDMX5pjChG7ZEptmVOsG7nlUUVtdk6yFvK4Qxzl599a9KaJXzeBsTHNGaiyuzkzYGlDH/gu6bPR3iOVV/JI1sY0P6m36uuJsozgswJbfeLIT1aPJniiNH/Ty3bj91YiNCGCXu9VdSp+AQ/70sMBQT5FBFc1AnBaQP1eoGw1I6aGiYwHBwwuUlxwUI+gDiTrGU5eKJd1o5m+3MfOLZL2DxswoGn9gqJXsEukl1eUHhxd0Z4WSWVg0vAJIwdrg8SSyGEopr6bldGzFOab3iCn0ZAwR7rPEp4wqa/VnWrzHaGqT77NFRx65SeVgT/+oPTzjCVQcR8oRzHt2G//NiWg73eMz1w5Y+YZmGproDgEezTemnPuTUT3RIWJB39/IXvbKALURvbGc+9gzLEXDSZG2CCCWx+/4wnucUG1UaAAe47GvFIRp4Kf+ngkc2DqjQDzFSgDSk4wuiB47ma76egeO5URyS/tKMXwnjvVK4pQ+XuKmO8Z8ycTM/B1xAvcYRaDqbiuWNx9fNfnHiGyZHxvyMdP7isu33yFnpMzzFDuCxiFPIMhxhfCWCmSs+Bo7D7CUVhrrhIn98ojp3fgukpqyz5c8QnWoxmTRdXkamOA3Y9rWAluDAtXfsixY5wfsEMTjChA1YKycnKU7qPj1lh2CnGLGhy0y/JbG7MUe2bBigooZaOCu9QkP/VrjzrwvokX6Pa85QpE508pCzRx8M9e2PomY+Z8Ftj/TtvR6d57VquPd65uB+NYS9VJM01d06N1TSx3zOUo6CpbESGm750+/12Wv9GzyDSi06hdCEsOVM6DB0u/44Oc19iooqdyWcYU5oc83SAFDEJ+WeiwM3rqis7J8EwakhaFhwbmMMDClauT7ep+U7L2N+fBe+Me7uUkvgOtE0XiqC8qqan46SVMk/ONj59/eLFoWJNXMe9eNVtxfAx4fDFLW4slTDDj8S4bYGloMvpfeNsDdV2fvmlJnt1hc/FaJ8mMCN8AFTlkXHLGDpfTCjHDyF84sTyaJZQRf374j9xrqTSfnCW2tWTxPjGu/tsSYF6G5hLOwAzkNrTut07n0XkVgxAn4EFrhK0nEsUFIr6LIk80Y6HSxe2pAWfpu7MBDccIhiBHxHcPpd/kqDsro5/ndPI37+ghW9AkPzs8YSV0PlhEUgKpqoZMwR7zXMVYECxM4yjb+5B1o9xYcX4p7hEO+vB463fSvcK9dzkQ+TpYljLBygteJg1igaSvX+o/G9JNf5USwJms455vDg35CpWIalgqUoh0OpdgBGE1nLPo635KNofRRGYzT8DYczwQhe1ru2oEBY3r4P/hnJJf/U3R6KTgOK1J7xwMxLu+x1Ct2n1DY7ta9JE2S5Xn4OrTNzasYWfH2weR90Nx1MuknmANlK8Fflpp4yQ92WSeouBwYSQtzcRzJuHuuLfiUpTyKhUor8ilN9QVIctecINPmUd1/bAt9+qu+vakFeF9oVSn77ojYZENiqF7TiY2LrByswGQFrCyqXvZAoMkQrTkwUDDaRg5kyUXqpoNJUBx3vUAEx0oEib0JmI+cifzzWcYp3hB8Xh92Vy4ozxLLzaupF7iMLBRB3Rd+UWMUGGMxwg1xmvlnpLRasTkaliT/XcYIFxO952M1fAQYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 11434,
+    "completion_tokens": 412,
+    "total_tokens": 11846,
+    "cost": 0.026988,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.026988,
+      "upstream_inference_prompt_cost": 0.022868,
+      "upstream_inference_completions_cost": 0.00412
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 403,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

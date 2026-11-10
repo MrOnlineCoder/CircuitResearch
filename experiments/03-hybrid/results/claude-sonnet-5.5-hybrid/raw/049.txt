@@ -1,0 +1,8 @@
+{"edits":[
+{"op":"set_pin","component":"M6","pin":"Gate","net":"vn","why":"the VN input is the gate of this diff-pair device, not the tail net"},
+{"op":"set_pin","component":"M5","pin":"Gate","net":"vp","why":"the VP input is the gate of this diff-pair device, not the tail net"},
+{"op":"set_pin","component":"M2","pin":"Drain","net":"new1","why":"the M4 drain wire crosses the net3 line without a junction; it joins the mirror diode node (M6 drain)"},
+{"op":"set_pin","component":"M2","pin":"Gate","net":"new1","why":"the mirror gate is tied to the M6 drain, not net3"},
+{"op":"set_pin","component":"M3","pin":"Gate","net":"new1","why":"the M5 gate is tied to the mirror node"},
+{"op":"change_type","component":"M10","type":"NMOS","pins":{"Drain":"new1","Gate":"net3","Source":"GND","Body":"GND"},"why":"M4 is an NMOS; its drain goes up to the mirror node and its gate to net3"}
+]}

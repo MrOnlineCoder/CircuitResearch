@@ -1,0 +1,35 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "The drain of the third PMOS goes down the vertical wire to the Vout1 node. It is not ground; the pipeline read the Vout1 terminal as GND."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R4",
+      "pin": "Pos",
+      "net": "new1",
+      "why": "The top of the resistor above Q3 sits on the Vout1 node, not on ground."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The gate of the NMOS in the top-right corner connects to the Vout1 vertical wire, not to ground."
+    },
+    "ok": true,
+    "error": null
+  }
+]

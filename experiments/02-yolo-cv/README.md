@@ -8,7 +8,7 @@ Converts a circuit-diagram image into a CI2N netlist JSON with trained detectors
 |---|---|---|---|
 | 1 | Find components, gnd/vdd symbols, ports, hop arcs | YOLO11s detector (`models/devices.pt`) | `netlist_cv/detect.py` |
 | 2 | Find crossings; decide which are jumpers | YOLO11s-OBB (`models/jumpers.pt`), **or** model-free: intersect horizontal/vertical strokes and count arms (`wires.find_crossings`); then a drawing-style rule | `pipeline.py: _choose_jumpers` |
-| 3 | Wire regions | Otsu threshold → erase component and jumper boxes → connected components: **one region = one net** | `netlist_cv/wires.py` |
+| 3 | Wire regions | Otsu threshold (redone with a background-relative threshold if most pins end up unconnected, i.e. light-grey wires) → erase component and jumper boxes → connected components: **one region = one net** | `netlist_cv/wires.py` |
 | 4 | Join nets | Jumpers: lead *i* ↔ opposite lead *i + N/2*. All regions under `gnd` symbols → `GND`, under `vdd` symbols → `VDD`. | `pipeline.py` |
 | 5 | Pins | Wire blobs in a thin ring around each box = contacts. Pin names from orientation classifiers (v2) or geometry rules (v0/v1). | `netlist_cv/pins.py` |
 | 6 | Output | Net names (`GND`, `VDD`, `net1…`; an unconnected pin gets its own `ncK` net), CI2N JSON | `pipeline.py` |

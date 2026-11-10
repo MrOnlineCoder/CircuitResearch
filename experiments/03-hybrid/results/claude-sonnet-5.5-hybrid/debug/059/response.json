@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265984-n0QTQkPcSvJ9rK03mCCl",
+  "object": "chat.completion",
+  "created": 1794265984,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping out the transistor roles: M3 and M4 form the PMOS mirror at the top, with M3 diode-connected into M1's drain. M4's drain feeds M2, the gate of M6, and Cc. M5 is the tail, M6 the PMOS output at the top and M7 the NMOS at the bottom. The pipeline's labeling of M1 appears to correspond to the actual M6.\n\nI'm cross-checking the pipeline's transistor labels against the actual netlist, and the mapping lines up: each device's drain, gate and source match. I'm also confirming the gate nets, that net5 is unique, and that the capacitor and resistor connections are right. The M5 tail gate matches M7's gate, so the mapping looks consistent.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping out the transistor roles: M3 and M4 form the PMOS mirror at the top, with M3 diode-connected into M1's drain. M4's drain feeds M2, the gate of M6, and Cc. M5 is the tail, M6 the PMOS output at the top and M7 the NMOS at the bottom. The pipeline's labeling of M1 appears to correspond to the actual M6.\n\nI'm cross-checking the pipeline's transistor labels against the actual netlist, and the mapping lines up: each device's drain, gate and source match. I'm also confirming the gate nets, that net5 is unique, and that the capacitor and resistor connections are right. The M5 tail gate matches M7's gate, so the mapping looks consistent.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSyQsKEAgTGAI4AUIIdGhpbmtpbmcSDH0k65PhQQSpv3if+xoMUkWJSOJs0pnRsXw1IjCs7GW5puc4jDUXho09KJurUi2cYNbQ/Gl1a5Ehlqhyq1BV5D4a9Ox+gPFtxl2ZEJsq5gryl5KgyIk2nQyk6f1NT3Y40yRlYh9QR9iZcb6y7w1b7wH/MqqlnWKyPvvnU+IiRvWCIpvwwhtEi9Cp0Fxo36dEZWgRqAQnQVTyGVprf2snk4tvIf4BLVFZ94xU+Fj9Jnt+jDLfnvbt002HWRUJG1kQ7bTkNIGH7YZDb1bm+lfV2Mo7bePbLlzYljiuMgiAL1N/Hap6EO0myT1C1agVaKtHYcySTXD9B0EpTdHKlIu+rZakFlBWMcI6Nov2w0SjYRRo0j+K9Tvl5cPKQtHU2t5dmgwSRUTRHMApr4C+vUc9bxuJw7VwBQNOw494M8RU49GZg+1I8XtQwxVDpc6mzreka6qHeMRoEPBuqDh8V8tdKSOT3EVQOdDjU0LLjU4Wb02Fog20VQKuFqSCOV5FDn3cU4OY4BRvLZpsblFLtsj6/cXL2tlw/P+IHj9LTMfviKG9U10DFh4HpiBwIU/6ThXSYIudRNFBc/qEG7+OoEsTLR8TsZ3OzpmsuPTVdnFTx99kadZmo1G1B0vp/GGa1++hcFXg4eBFn5O1MB4HUa96ahtiamztIdUank3VMjaW9WwIKfHm/S5IozsuJZINav0808YSvfTPJSigV/8ynNAZ+dDV5NWsO8bau8KzrFJ/FmPs/JShXwpD1u4j52TuYeOQ+lo4Y7oYzodNZ6kaH4/XMuBXo3V8d+H9BYXwiBFu7xhh2tRouuuE4vkUBM8z0Ivg7Hcatz16pC9lWxYl6Oe4WVlVUhOm3BtcW5Axp+dyMDnI45qzJFV3UjoWrN1v5OapgJP2yegyDXjELG02nOyZI/cII/Murb8BvYXn8T4WUIzuBdvdD5Rct/jRjedcYFoJdEkCv5rNQKSBO3MIogUqX/2aWBFLoBU9pbRiqHl2k5AcyWRpxHwT0VP2EGuRtY4xPCD6aP02NI9D+NzkkUtPSrQyCvY5YvYrcZ/ommjPvYRr4KhY/TuLyHj+FZ0DHIjMIgRxcqKEwosKdUs0MUo/kbmDC+mnGOMTHx9EGAsJYt3EbkdJNyF1C4onS8jQ5jGy2pFMeiwxukep8aR/3iclIU4L/qU6V1UulIbY0R1sd8etdIgE498y5A1ZQt/AAOF1PXLwRqJ7KsbExwJocuKjEeBrsv7jgeIc9I7rLZreNAka7eTIapwXiVPcAM8iAbGgIHunVBhIbrkvXEwgrc1OK8WjFChbBk+z/VyQixXB18Opr26LyhzlhiwhUWD33AaBdBYUj095F93vTZ1Tr6cZSdrP6qfY+avndjjl+KKgI11ccA3c42gTaD8e1lBeGLIabHoS8bByUXaMasECMqJoB9P69vWUexypaoBrKlmCSIT7jgfTlocuAZbyypdVR6BUniB6hC53MJ4bGc3O5wxIpCG3HlZMvSjWANKgSF7NXesvagcfoRGgwRXlhcBqkYTZPWwmHO25kAuNNWPbwVFssYMTvDm8V6QcibzGPH2XCV3M9zIUQ5nsw3wAAIxGCDru1BjqohUekgv3zXBy+bkv4iD+BRrIeI30XKh1rD1Fl0H+y4p0FgP/t8fIKDv4Z/F7iHSO7URlAGS7WPiWsFX+fBqNIWovbKjOS7/NXC3OI39NA8E0El1TXlOqETlv0nGNCVKx3YvB++yrGBWDBWkNcCSl7X/FyKIvJkyYJhNzTr9I9Aqpeb89A58MKw5Sj658/W6D63O55vdazYoBf2CigAhaBVmjXQ245SMmMbC146FNfiDmmSE1+Obm7POf9BHlCLSCc2EhHN6f90aBSx2hvlJyxlgGjwIX2dedXc2x3SrmuIkF9W07V33i7PvNJs2FKWPSV/Yeo0sWZAImvjyJmqaiw4LkbhgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3108,
+    "completion_tokens": 444,
+    "total_tokens": 3552,
+    "cost": 0.010656,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010656,
+      "upstream_inference_prompt_cost": 0.006216,
+      "upstream_inference_completions_cost": 0.00444
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 435,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

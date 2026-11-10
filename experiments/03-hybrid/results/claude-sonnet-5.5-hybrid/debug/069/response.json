@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794266262-dIOlZjH0HYv9wwLXT3SA",
+  "object": "chat.completion",
+  "created": 1794266262,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"change_type\",\"component\":\"Q1\",\"type\":\"PNP\",\"why\":\"In the original schematic Q1's emitter arrow points toward the base bar, the same as Q2, which the pipeline already calls PNP. This matches a substrate-PNP bandgap, so Q1 should be PNP too.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm tracing the schematic: R2's top goes to net1, and its bottom node, net3, runs left to V1's positive terminal, hopping over R1's vertical wire. R1's bottom connects to net2, which feeds the op-amp's positive input and Q1's emitter. I'm now checking Q2, whose emitter arrow points toward the base.\n\nI'm checking Q2's emitter arrow, which seems to point toward the base bar, and I'm comparing that with Q1's arrow, which looks similar. Going by how the arrows are drawn, I think Q1 should also be a PNP rather than an NPN, which fits this being a bandgap circuit.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm tracing the schematic: R2's top goes to net1, and its bottom node, net3, runs left to V1's positive terminal, hopping over R1's vertical wire. R1's bottom connects to net2, which feeds the op-amp's positive input and Q1's emitter. I'm now checking Q2, whose emitter arrow points toward the base.\n\nI'm checking Q2's emitter arrow, which seems to point toward the base bar, and I'm comparing that with Q1's arrow, which looks similar. Going by how the arrows are drawn, I think Q1 should also be a PNP rather than an NPN, which fits this being a bandgap circuit.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3859,
+    "completion_tokens": 754,
+    "total_tokens": 4613,
+    "cost": 0.015258,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.015258,
+      "upstream_inference_prompt_cost": 0.007718,
+      "upstream_inference_completions_cost": 0.00754
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 645,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

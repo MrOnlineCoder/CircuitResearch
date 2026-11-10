@@ -1,0 +1,174 @@
+{
+  "id": "050",
+  "variant": "v2",
+  "pipeline_seconds": 0.293,
+  "overlay_scale": 2.0,
+  "ink_mode": "background",
+  "components": [
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.877,
+      "box": [
+        214,
+        75,
+        246,
+        146
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.88,
+      "box": [
+        81,
+        76,
+        113,
+        146
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.878,
+      "box": [
+        303,
+        137,
+        450,
+        317
+      ],
+      "pins": {
+        "InP": "net2",
+        "InN": "net2",
+        "Out": "net1"
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.862,
+      "box": [
+        213,
+        292,
+        246,
+        361
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net4"
+      }
+    },
+    {
+      "id": "M1",
+      "type": "NMOS",
+      "detector_label": "nmos-bulk",
+      "confidence": 0.321,
+      "box": [
+        189,
+        386,
+        234,
+        467
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net5",
+        "Source": "net6",
+        "Body": "net6"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "NMOS",
+      "detector_label": "nmos-bulk",
+      "confidence": 0.431,
+      "box": [
+        56,
+        386,
+        101,
+        467
+      ],
+      "pins": {
+        "Drain": "net2",
+        "Gate": "net7",
+        "Source": "GND",
+        "Body": "net8"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "The lines are faint (light grey), so wire tracing used a lenient threshold; nearby text or arrows may have been merged into wires.",
+    "R3.Pos: attached through a very small blob, maybe text rather than a wire (net3).",
+    "M1: detected as NMOS with low confidence (0.32).",
+    "M1.Gate: attached through a very small blob, maybe text rather than a wire (net5).",
+    "M2: detected as NMOS with low confidence (0.43).",
+    "M2.Body: attached through a very small blob, maybe text rather than a wire (net8).",
+    "net3: only one pin (R3.Pos) and no input/output port - a dangling wire, or it should join another net.",
+    "net5: only one pin (M1.Gate) and no input/output port - a dangling wire, or it should join another net.",
+    "net7: only one pin (M2.Gate) and no input/output port - a dangling wire, or it should join another net.",
+    "net8: only one pin (M2.Body) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net2",
+          "InN": "net2",
+          "Out": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net5",
+          "Source": "net6",
+          "Body": "net6"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net2",
+          "Gate": "net7",
+          "Source": "GND",
+          "Body": "net8"
+        }
+      }
+    ]
+  }
+}

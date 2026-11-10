@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265493-PrJ1vfg7I1aEsga7rw2G",
+  "object": "chat.completion",
+  "created": 1794265493,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping the pipeline's labels onto the actual circuit, starting with the PMOS mirror of M3 and M4 and where M1 and M2 connect to it.\n\nI'm checking the pipeline's component labels against the schematic: M1 and M3 both look right, and the M5 tail matches too. M4 and M2 are where it stops lining up, since I'm trying to work out where the M2 gate really connects, whether to the + input line or the tail node.\n\nI'm checking the rest of the components: the M6, M7, and M8 labels all line up with their positions, and so do R1, C1, and R2. The net feeding vout also looks consistent across the output stage.\n\nEverything checks out here: the M7 drain connection is fine, the components all match, and the list of mismatches is empty.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping the pipeline's labels onto the actual circuit, starting with the PMOS mirror of M3 and M4 and where M1 and M2 connect to it.\n\nI'm checking the pipeline's component labels against the schematic: M1 and M3 both look right, and the M5 tail matches too. M4 and M2 are where it stops lining up, since I'm trying to work out where the M2 gate really connects, whether to the + input line or the tail node.\n\nI'm checking the rest of the components: the M6, M7, and M8 labels all line up with their positions, and so do R1, C1, and R2. The net feeding vout also looks consistent across the output stage.\n\nEverything checks out here: the M7 drain connection is fine, the components all match, and the list of mismatches is empty.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4039,
+    "completion_tokens": 938,
+    "total_tokens": 4977,
+    "cost": 0.017458,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.017458,
+      "upstream_inference_prompt_cost": 0.008078,
+      "upstream_inference_completions_cost": 0.00938
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 929,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "id": "041",
+  "variant": "v2",
+  "pipeline_seconds": 0.386,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.813,
+      "box": [
+        164,
+        39,
+        189,
+        93
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.81,
+      "box": [
+        66,
+        40,
+        90,
+        93
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net3"
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.9,
+      "box": [
+        278,
+        97,
+        365,
+        181
+      ],
+      "pins": {
+        "InP": "net4",
+        "InN": "net3",
+        "Out": "net1"
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.842,
+      "box": [
+        65,
+        136,
+        91,
+        191
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net5"
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage",
+      "confidence": 0.735,
+      "box": [
+        208,
+        142,
+        242,
+        175
+      ],
+      "pins": {
+        "Positive": "net2",
+        "Negative": "net4"
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.825,
+      "box": [
+        384,
+        194,
+        410,
+        251
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      }
+    },
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.926,
+      "box": [
+        144,
+        236,
+        180,
+        290
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net2"
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.935,
+      "box": [
+        46,
+        237,
+        81,
+        289
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net5"
+      }
+    }
+  ],
+  "crossings": [
+    {
+      "id": "J1",
+      "decision": "NOT connected",
+      "kind": "hop arc",
+      "box": [
+        165,
+        109,
+        188,
+        124
+      ]
+    }
+  ],
+  "uncertain": [
+    "R1.Neg: attached through a very small blob, maybe text rather than a wire (net2).",
+    "A1: 2 extra line(s) touch the box but were not assigned to any pin (red '?' marks)."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net3"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net4",
+          "InN": "net3",
+          "Out": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net5"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net2",
+          "Negative": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net2"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net5"
+        }
+      }
+    ]
+  }
+}

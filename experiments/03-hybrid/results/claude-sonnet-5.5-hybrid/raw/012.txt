@@ -1,0 +1,9 @@
+Checking the schematic in IMAGE 1 against the pipeline netlist:
+
+- V1 connects through R1 to the inverting node, and R2 runs from that node to the output. In the netlist, R2 (Pos=net3, Neg=net1) is the input resistor and R1 (net1 to net2) is the feedback resistor, which matches.
+- V2 connects through R3 to the non-inverting node, and R4 runs from that node to GND, which matches.
+- The op-amp has its − input on net1, its + input on net4, and its output on net2, which matches.
+
+The pipeline netlist agrees with the original schematic, so no edits are needed.
+
+{"edits": []}

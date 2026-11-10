@@ -1,0 +1,1 @@
+{"edits":[{"op":"change_type","component":"Q1","type":"PNP","pins":{"Emitter":"net2","Base":"net4","Collector":"net4"},"why":"Current flows from VREF down through the BJT into R2, and V_CTAT is + at the top. So the top terminal is the emitter. This looks like a substrate PNP with base and collector tied together at the bottom."}]}

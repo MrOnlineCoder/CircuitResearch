@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794267556-8E7mGGIrUeDfJD3o5Z4t",
+  "object": "chat.completion",
+  "created": 1794267556,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm mapping the pipeline component IDs onto the labels in the schematic, so I can line up each pipeline transistor with its counterpart in the original circuit.\n\nI'm tracing which nodes each transistor's drain and gate attach to in the original circuit, checking the left and right nodes one by one against the pipeline mapping. So far M1 through M4 line up, and I'm now working through M5 and M9, where the drain runs down to M10.\n\nI'm checking the remaining connections against the pipeline mapping: M5 and M9 share the VDD side, and M10 ties its gate to M11's. The bias device M11 looks right with its gate and drain on the bias node, and I'm confirming that the M5 gate hops over the source line to M8 without touching anything.\n\nI'm checking the M10 gate line, which hops over the net7 vertical to M11's gate, and confirming it reaches M5's drain correctly. I1 has its input at VDD and its output at net1, so that one checks out too.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm mapping the pipeline component IDs onto the labels in the schematic, so I can line up each pipeline transistor with its counterpart in the original circuit.\n\nI'm tracing which nodes each transistor's drain and gate attach to in the original circuit, checking the left and right nodes one by one against the pipeline mapping. So far M1 through M4 line up, and I'm now working through M5 and M9, where the drain runs down to M10.\n\nI'm checking the remaining connections against the pipeline mapping: M5 and M9 share the VDD side, and M10 ties its gate to M11's. The bias device M11 looks right with its gate and drain on the bias node, and I'm confirming that the M5 gate hops over the source line to M8 without touching anything.\n\nI'm checking the M10 gate line, which hops over the net7 vertical to M11's gate, and confirming it reaches M5's drain correctly. I1 has its input at VDD and its output at net1, so that one checks out too.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4429,
+    "completion_tokens": 976,
+    "total_tokens": 5405,
+    "cost": 0.018618,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.018618,
+      "upstream_inference_prompt_cost": 0.008858,
+      "upstream_inference_completions_cost": 0.00976
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 967,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

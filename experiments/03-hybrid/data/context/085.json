@@ -1,0 +1,92 @@
+{
+  "id": "085",
+  "variant": "v2",
+  "pipeline_seconds": 0.153,
+  "overlay_scale": 2.0,
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "NMOS",
+      "detector_label": "nmos-bulk",
+      "confidence": 0.807,
+      "box": [
+        148,
+        92,
+        196,
+        153
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "net3",
+        "Body": "net4"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.918,
+      "box": [
+        148,
+        217,
+        196,
+        278
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net5",
+        "Source": "net6"
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage-lines",
+      "confidence": 0.958,
+      "box": [
+        89,
+        259,
+        139,
+        300
+      ],
+      "pins": {
+        "Positive": "net5",
+        "Negative": "GND"
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M1: 2 extra line(s) touch the box but were not assigned to any pin (red '?' marks)."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "net3",
+          "Body": "net4"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net5",
+          "Source": "net6"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net5",
+          "Negative": "GND"
+        }
+      }
+    ]
+  }
+}

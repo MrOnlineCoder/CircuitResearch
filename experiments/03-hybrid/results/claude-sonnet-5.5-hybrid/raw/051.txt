@@ -1,0 +1,10 @@
+{"edits":[
+{"op":"merge_nets","nets":["net2","net7"],"why":"both gates are Vbp"},
+{"op":"merge_nets","nets":["net27","net28"],"why":"both gates are Vbn"},
+{"op":"merge_nets","nets":["net13","net12"],"why":"the R1 bottom node joins Mp7 gate, Mp8 gate and Ib1 at a dot"},
+{"op":"set_pin","component":"M16","pin":"Drain","net":"net11","why":"Mn4 drain runs up to the Mp8 drain node"},
+{"op":"set_pin","component":"M10","pin":"Drain","net":"newB","why":"Mp9 drain runs down to the Mn5 drain and Mn10 gate node"},
+{"op":"set_pin","component":"M17","pin":"Drain","net":"newB","why":"Mn5 drain joins the Mp9 drain and Mn10 gate node"},
+{"op":"set_pin","component":"M14","pin":"Gate","net":"newB","why":"Mn10 gate is on the Mp9 drain node, not the Ib3 bias node"},
+{"op":"set_pin","component":"M19","pin":"Gate","net":"newB","why":"Mn7 gate is on the Mn10 gate node"}
+]}

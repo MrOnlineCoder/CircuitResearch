@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265543-foK7O6cvKDuPjRa12SeF",
+  "object": "chat.completion",
+  "created": 1794265543,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"M4\",\"pin\":\"Drain\",\"net\":\"net10\",\"why\":\"Schematic M6 drain connects to the output (-) node, not to a dangling net\"},{\"op\":\"set_pin\",\"component\":\"M4\",\"pin\":\"Source\",\"net\":\"net4\",\"why\":\"Schematic M6 source ties to the M4 drain node\"},{\"op\":\"set_pin\",\"component\":\"M6\",\"pin\":\"Gate\",\"net\":\"new1\",\"why\":\"The vin- wire hops over the tail line (not connected), so M2's gate is not on the tail net\"},{\"op\":\"set_pin\",\"component\":\"M9\",\"pin\":\"Drain\",\"net\":\"net9\",\"why\":\"The tail current source M3 drain connects to the M1/M2 source tail node\"}]}",
+        "refusal": null,
+        "reasoning": "I'm matching the pipeline's M1 through M11 labels to their schematic counterparts. M1 and M5 map to schematic M5 and M1, with M2, M3 and M4 going to M4, M7 and M6, and M5 through M9 covered by the rest of the list.\n\nI'm checking the pin assignments for M4 against the schematic, where M4's drain should go to net10 and its source to net4, so the current net7 assignment looks swapped. I'll correct it with a set_pin change and let net7 drop out.\n\nI'm checking the M6 gate against the schematic, which shows it on the vin- terminal line. That line hops over the tail connection, so they aren't the same net, and I need to split the gate off from the tail. The M9 drain is currently dangling at net14 and should join the tail net9 with the M5 and M6 sources.\n\nI'm settling the M6 gate and the M9 drain: the gate goes on its own net for the vin- terminal, since the hop means it isn't the tail, and the M9 drain joins the tail net9. The rest of the M6, M3, M7 and M9 connections check out against the schematic.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the pipeline's M1 through M11 labels to their schematic counterparts. M1 and M5 map to schematic M5 and M1, with M2, M3 and M4 going to M4, M7 and M6, and M5 through M9 covered by the rest of the list.\n\nI'm checking the pin assignments for M4 against the schematic, where M4's drain should go to net10 and its source to net4, so the current net7 assignment looks swapped. I'll correct it with a set_pin change and let net7 drop out.\n\nI'm checking the M6 gate against the schematic, which shows it on the vin- terminal line. That line hops over the tail connection, so they aren't the same net, and I need to split the gate off from the tail. The M9 drain is currently dangling at net14 and should join the tail net9 with the M5 and M6 sources.\n\nI'm settling the M6 gate and the M9 drain: the gate goes on its own net for the vin- terminal, since the hop means it isn't the tail, and the M9 drain joins the tail net9. The rest of the M6, M3, M7 and M9 connections check out against the schematic.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4564,
+    "completion_tokens": 1395,
+    "total_tokens": 5959,
+    "cost": 0.023078,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.023078,
+      "upstream_inference_prompt_cost": 0.009128,
+      "upstream_inference_completions_cost": 0.01395
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1147,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

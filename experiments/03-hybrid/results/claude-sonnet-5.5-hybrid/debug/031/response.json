@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265487-eP01jxQNP5XATZO5Bfx5",
+  "object": "chat.completion",
+  "created": 1794265487,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm going through the schematic, starting with MP20, a PMOS diode-connected to VDD with its drain feeding Rx and then MN24, which is also diode-connected to ground. Next I'm looking at the differential pair: MP21 sets the tail current at net3, and MP22 and MP23 take Vin1- and Vin2+ into the drains of MN25 and MN26.\n\nI'm checking the rest of the connections now: MN25 and MN26 are wired as diodes into MN27 and the compensation cap, and MN27 and MP24 both drive Vout. The pipeline stage nets look consistent too, and the diode-connected devices on net6 and net8 match what I expect. Nothing looks wrong, so I don't need to change anything.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the schematic, starting with MP20, a PMOS diode-connected to VDD with its drain feeding Rx and then MN24, which is also diode-connected to ground. Next I'm looking at the differential pair: MP21 sets the tail current at net3, and MP22 and MP23 take Vin1- and Vin2+ into the drains of MN25 and MN26.\n\nI'm checking the rest of the connections now: MN25 and MN26 are wired as diodes into MN27 and the compensation cap, and MN27 and MP24 both drive Vout. The pipeline stage nets look consistent too, and the diode-connected devices on net6 and net8 match what I expect. Nothing looks wrong, so I don't need to change anything.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3854,
+    "completion_tokens": 464,
+    "total_tokens": 4318,
+    "cost": 0.012348,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012348,
+      "upstream_inference_prompt_cost": 0.007708,
+      "upstream_inference_completions_cost": 0.00464
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 455,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

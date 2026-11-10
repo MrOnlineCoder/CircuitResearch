@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794265409-1gBtKsY4b3lr78Nr7NCH",
+  "object": "chat.completion",
+  "created": 1794265409,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm tracing the schematic's nets: the op-amp output ties to the VREF top wire, and the left resistor R1 runs from VREF down to the Vx node, which feeds the op-amp's + input and Q1's emitter. The right side mirrors that with R2 to Vy, the op-amp's - input, then R3 and Q2, so the naming differs from the pipeline but the connections match.\n\nI'm checking the Q1 PNP's emitter, collector, and base connections, and the net structure on both sides of the circuit, including whether merging the pipeline's VDD with Vref holds up. It all looks correct, so I'm not making any edits.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm tracing the schematic's nets: the op-amp output ties to the VREF top wire, and the left resistor R1 runs from VREF down to the Vx node, which feeds the op-amp's + input and Q1's emitter. The right side mirrors that with R2 to Vy, the op-amp's - input, then R3 and Q2, so the naming differs from the pipeline but the connections match.\n\nI'm checking the Q1 PNP's emitter, collector, and base connections, and the net structure on both sides of the circuit, including whether merging the pipeline's VDD with Vref holds up. It all looks correct, so I'm not making any edits.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSzAoKEAgTGAI4AUIIdGhpbmtpbmcSDGYag9p1fO0wM5m1kxoMLPZv7ivYzkn+ocnXIjA5fDT6VXw2zIrDYtXFsPJMkarx7tqX3ERnv+tbVBCfPR01nss7+4YMVrNPWgAJrxwq6QlJaaCyWb4wPO0nGwI0cTUh18H7V0ki9HtIA2Mc1BaQpJOhDjYmgYJJIH2JSzhQg+1RveLB8eIadZs+6n/n45D5o7vBDYzOCDM6zuqwmCeu7I3WTj4RzRdOJwUVR+eGW9L4+z0etmi9H85t6YT9Wv+vxqiECtOABF4+fJahB4diinvsJ+vb3pC/yLh+CABBQYohZQgEsuazutqJAmNlPjjF80pcV70TskBo8YFY6EVVDdm4f+WhpowxcD2D+cpOkpsNYs1JBXCnN8LiAaQVYm+j4LwmmwABEKT1bmw7fTpLnJTvnDvESdH/KyfssE3axU1lj89aVE9lClYToNM5Im2eRejRSGTGVbESRqof89yDLIG7GMQnrxJpRnsgv1HcnnZm3A+QTdNC30cS+mAiZgUeQJWzSRAqku702ckiJYdFqqyiPpWMIXJJFPyR1SiEEWDktT4DiVXQZuLBEzmYo2CAI1kqQMf35JVJo3rA2iIW9DO1isTVb1j2a6MJJOmokdR+f+I+X3BGnIfUCAW2OSyPHEihkNT0E6ta2r4ZrEig5Qv8aRDnsqL4kFM2EnkZEGat41O1QrBnmGzT6ObUK7Yb9pEoznOn50Uy+hTIEGXC+Oz4L2+84XjQfVHwLLfCVGmiDDAt8UtojwkgC8zFM+GPdKL0qEOw0tbYC3IBlWzIQZSX4DGCDKeDT7MVqleEgQouVu5+ptst3mhTmYFW/3/+dKTNVGyoJsH2CndDeScIcb+5OghToMpkeda4RUoRhfsm7ojwWWWWFev/VoOQoZ3rt3Br9mlQJRKIGYEp4Rz39DjfdQMVbNL6TsyvYcdXpAcfNZyygwMm8DFDjKy7gZgeNMmFdoAN4MOsFlDFpFVjfDDogeGHWsvBzYk60VjW+G7AQTMMtppGHgdx6PLKWTu5moLqx/hTchRikL79vj8rEV/605PgheEAvrODDS4DbAxfH9oQ4a+DRuNK7NK9zFJQeE7hAP16tKDR3H/cDiOK2GCBjfwOAop1WcpzZdoINXkDL1rHDSBNEETcGmsyFj0XZ2EtHMP+E8Q10+bieEPTswU3TGDAL57h+Q76tkFqqLjZ25fZmmhQ6PMk2W/vxiuYSI+RHjq2u/KGGFWhfymmVNp+ZcqTt7scFddMDJ16YgcIhDzxkL4FADy/OPQQV+XZv10Gomhk0lhtevBs00Wc9qCUajSt1xBY/15K8zicy9t/YFSIeyGSJMuUDOnOevqnMqclmQeGH+YN9tf/t5TRrApL6Ft1WKxiokRfKVmNm2IBAP4cqpDmc8hHpUOtlZm/9XMSW0bo4AJnoTP3sjiM5xIPMj5RS78SZQxgMigtRizBJKfkeBFGKxfyfRijHVmcU8yLTsXT2B1aP2KpRDn5+cxIg0DNaxAd0epyB4fwQRLxCbF/vxWcLYrpAb1f4fokAt4nY8WQhT6bIM19/vTEOxwijtrK8BBLSjYhJz7VYZlN+uU4iyBO+D7bIvui2ZDXvwRUtnpEJcLLrLyRk53Bk3LSA4goLyDvEY0zNW13MzSgDfsCbsO2O1viIQMz+wC2zWQVbQlx7MgSZncK1vZj0LIjsrTLreQHkNnXfEMsV6EfZZSU8b1bs+AUEKpLx0a4+FxZQgPqdwhQssPRcanPKqOTOCGB5oDKsfAQ2N45ZY0lyER3SxEwXKEYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3734,
+    "completion_tokens": 329,
+    "total_tokens": 4063,
+    "cost": 0.010758,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010758,
+      "upstream_inference_prompt_cost": 0.007468,
+      "upstream_inference_completions_cost": 0.00329
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 320,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
