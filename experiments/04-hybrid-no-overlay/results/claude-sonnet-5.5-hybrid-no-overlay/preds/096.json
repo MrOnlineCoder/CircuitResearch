@@ -1,0 +1,26 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "net1",
+                "InN": "net2",
+                "Out": "net3"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "net3"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "GND"
+            }
+        }
+    ]
+}

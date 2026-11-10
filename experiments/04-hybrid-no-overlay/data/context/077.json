@@ -1,0 +1,1200 @@
+{
+  "id": "077",
+  "variant": "v2",
+  "pipeline_seconds": 0.377,
+  "image_size": [
+    858,
+    564
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.932,
+      "box": [
+        629,
+        48,
+        661,
+        97
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net2",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          626,
+          72
+        ],
+        "Emitter": [
+          657,
+          46
+        ],
+        "Collector": [
+          657,
+          99
+        ]
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.914,
+      "box": [
+        201,
+        49,
+        234,
+        98
+      ],
+      "pins": {
+        "Collector": "net3",
+        "Base": "net3",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          236,
+          73
+        ],
+        "Emitter": [
+          206,
+          46
+        ],
+        "Collector": [
+          206,
+          100
+        ]
+      }
+    },
+    {
+      "id": "Q3",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.905,
+      "box": [
+        458,
+        49,
+        491,
+        98
+      ],
+      "pins": {
+        "Collector": "net2",
+        "Base": "net2",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          492,
+          72
+        ],
+        "Emitter": [
+          462,
+          46
+        ],
+        "Collector": [
+          462,
+          100
+        ]
+      }
+    },
+    {
+      "id": "Q4",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.931,
+      "box": [
+        350,
+        50,
+        383,
+        99
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net3",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          348,
+          73
+        ],
+        "Emitter": [
+          378,
+          46
+        ],
+        "Collector": [
+          378,
+          100
+        ]
+      }
+    },
+    {
+      "id": "Q5",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.895,
+      "box": [
+        767,
+        81,
+        799,
+        133
+      ],
+      "pins": {
+        "Collector": "net3",
+        "Base": "net1",
+        "Emitter": "net5"
+      },
+      "pin_xy": {
+        "Base": [
+          764,
+          105
+        ],
+        "Emitter": [
+          794,
+          136
+        ],
+        "Collector": [
+          794,
+          77
+        ]
+      }
+    },
+    {
+      "id": "Q6",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.927,
+      "box": [
+        103,
+        124,
+        135,
+        175
+      ],
+      "pins": {
+        "Collector": "net6",
+        "Base": "net3",
+        "Emitter": "net7"
+      },
+      "pin_xy": {
+        "Base": [
+          130,
+          120
+        ],
+        "Emitter": [
+          131,
+          178
+        ],
+        "Collector": [
+          136,
+          151
+        ]
+      }
+    },
+    {
+      "id": "Q7",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.935,
+      "box": [
+        239,
+        124,
+        271,
+        175
+      ],
+      "pins": {
+        "Collector": "net3",
+        "Base": "net8",
+        "Emitter": "net9"
+      },
+      "pin_xy": {
+        "Base": [
+          272,
+          147
+        ],
+        "Emitter": [
+          242,
+          176
+        ],
+        "Collector": [
+          243,
+          122
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.845,
+      "box": [
+        455,
+        142,
+        470,
+        174
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "net4"
+      },
+      "pin_xy": {
+        "Pos": [
+          462,
+          140
+        ],
+        "Neg": [
+          462,
+          176
+        ]
+      }
+    },
+    {
+      "id": "Q8",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.934,
+      "box": [
+        698,
+        159,
+        730,
+        210
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net5",
+        "Emitter": "net10"
+      },
+      "pin_xy": {
+        "Base": [
+          732,
+          182
+        ],
+        "Emitter": [
+          702,
+          212
+        ],
+        "Collector": [
+          702,
+          156
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.828,
+      "box": [
+        600,
+        159,
+        632,
+        174
+      ],
+      "pins": {
+        "Pos": "net11",
+        "Neg": "net1"
+      },
+      "pin_xy": {
+        "Pos": [
+          598,
+          166
+        ],
+        "Neg": [
+          634,
+          166
+        ]
+      }
+    },
+    {
+      "id": "Q9",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.922,
+      "box": [
+        630,
+        189,
+        662,
+        239
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net11",
+        "Emitter": "net12"
+      },
+      "pin_xy": {
+        "Base": [
+          628,
+          212
+        ],
+        "Emitter": [
+          657,
+          242
+        ],
+        "Collector": [
+          657,
+          186
+        ]
+      }
+    },
+    {
+      "id": "Q10",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.92,
+      "box": [
+        215,
+        204,
+        247,
+        254
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net3",
+        "Emitter": "net9"
+      },
+      "pin_xy": {
+        "Base": [
+          212,
+          229
+        ],
+        "Emitter": [
+          242,
+          200
+        ],
+        "Collector": [
+          242,
+          256
+        ]
+      }
+    },
+    {
+      "id": "Q11",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.889,
+      "box": [
+        126,
+        205,
+        159,
+        254
+      ],
+      "pins": {
+        "Collector": "net13",
+        "Base": "net3",
+        "Emitter": "net7"
+      },
+      "pin_xy": {
+        "Base": [
+          160,
+          229
+        ],
+        "Emitter": [
+          131,
+          202
+        ],
+        "Collector": [
+          130,
+          256
+        ]
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.892,
+      "box": [
+        514,
+        205,
+        541,
+        219
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net4"
+      },
+      "pin_xy": {
+        "Pos": [
+          528,
+          203
+        ],
+        "Neg": [
+          528,
+          222
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.842,
+      "box": [
+        787,
+        223,
+        802,
+        255
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net10"
+      },
+      "pin_xy": {
+        "Pos": [
+          794,
+          220
+        ],
+        "Neg": [
+          794,
+          257
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.831,
+      "box": [
+        601,
+        252,
+        633,
+        268
+      ],
+      "pins": {
+        "Pos": "net11",
+        "Neg": "net12"
+      },
+      "pin_xy": {
+        "Pos": [
+          598,
+          259
+        ],
+        "Neg": [
+          634,
+          259
+        ]
+      }
+    },
+    {
+      "id": "Q12",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.91,
+      "box": [
+        569,
+        309,
+        601,
+        359
+      ],
+      "pins": {
+        "Collector": "net12",
+        "Base": "net4",
+        "Emitter": "net14"
+      },
+      "pin_xy": {
+        "Base": [
+          566,
+          332
+        ],
+        "Emitter": [
+          597,
+          362
+        ],
+        "Collector": [
+          602,
+          311
+        ]
+      }
+    },
+    {
+      "id": "Q13",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.916,
+      "box": [
+        149,
+        309,
+        181,
+        360
+      ],
+      "pins": {
+        "Collector": "net3",
+        "Base": "net13",
+        "Emitter": "net15"
+      },
+      "pin_xy": {
+        "Base": [
+          146,
+          332
+        ],
+        "Emitter": [
+          176,
+          362
+        ],
+        "Collector": [
+          176,
+          306
+        ]
+      }
+    },
+    {
+      "id": "R5",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.838,
+      "box": [
+        788,
+        345,
+        803,
+        378
+      ],
+      "pins": {
+        "Pos": "net10",
+        "Neg": "net16"
+      },
+      "pin_xy": {
+        "Pos": [
+          794,
+          342
+        ],
+        "Neg": [
+          795,
+          380
+        ]
+      }
+    },
+    {
+      "id": "Q14",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.923,
+      "box": [
+        631,
+        360,
+        662,
+        410
+      ],
+      "pins": {
+        "Collector": "net12",
+        "Base": "net14",
+        "Emitter": "net14"
+      },
+      "pin_xy": {
+        "Base": [
+          628,
+          383
+        ],
+        "Emitter": [
+          657,
+          412
+        ],
+        "Collector": [
+          657,
+          356
+        ]
+      }
+    },
+    {
+      "id": "Q15",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.919,
+      "box": [
+        768,
+        408,
+        800,
+        458
+      ],
+      "pins": {
+        "Collector": "net17",
+        "Base": "net12",
+        "Emitter": "net16"
+      },
+      "pin_xy": {
+        "Base": [
+          764,
+          433
+        ],
+        "Emitter": [
+          795,
+          406
+        ],
+        "Collector": [
+          795,
+          460
+        ]
+      }
+    },
+    {
+      "id": "Q16",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.94,
+      "box": [
+        539,
+        410,
+        571,
+        461
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net14",
+        "Emitter": "net17"
+      },
+      "pin_xy": {
+        "Base": [
+          572,
+          432
+        ],
+        "Emitter": [
+          543,
+          464
+        ],
+        "Collector": [
+          543,
+          406
+        ]
+      }
+    },
+    {
+      "id": "Q17",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.921,
+      "box": [
+        215,
+        410,
+        247,
+        463
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net15",
+        "Emitter": "net18"
+      },
+      "pin_xy": {
+        "Base": [
+          212,
+          434
+        ],
+        "Emitter": [
+          242,
+          464
+        ],
+        "Collector": [
+          242,
+          406
+        ]
+      }
+    },
+    {
+      "id": "Q18",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.935,
+      "box": [
+        374,
+        410,
+        406,
+        462
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net4",
+        "Emitter": "net19"
+      },
+      "pin_xy": {
+        "Base": [
+          408,
+          434
+        ],
+        "Emitter": [
+          378,
+          464
+        ],
+        "Collector": [
+          378,
+          408
+        ]
+      }
+    },
+    {
+      "id": "Q19",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.943,
+      "box": [
+        127,
+        410,
+        159,
+        462
+      ],
+      "pins": {
+        "Collector": "net13",
+        "Base": "net15",
+        "Emitter": "net20"
+      },
+      "pin_xy": {
+        "Base": [
+          160,
+          434
+        ],
+        "Emitter": [
+          130,
+          464
+        ],
+        "Collector": [
+          130,
+          408
+        ]
+      }
+    },
+    {
+      "id": "Q20",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.913,
+      "box": [
+        434,
+        411,
+        467,
+        462
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net4",
+        "Emitter": "net17"
+      },
+      "pin_xy": {
+        "Base": [
+          432,
+          434
+        ],
+        "Emitter": [
+          462,
+          464
+        ],
+        "Collector": [
+          462,
+          408
+        ]
+      }
+    },
+    {
+      "id": "R6",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.833,
+      "box": [
+        123,
+        494,
+        139,
+        527
+      ],
+      "pins": {
+        "Pos": "net20",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          130,
+          490
+        ],
+        "Neg": [
+          130,
+          528
+        ]
+      }
+    },
+    {
+      "id": "R7",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.82,
+      "box": [
+        589,
+        495,
+        605,
+        528
+      ],
+      "pins": {
+        "Pos": "net14",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          597,
+          492
+        ],
+        "Neg": [
+          597,
+          530
+        ]
+      }
+    },
+    {
+      "id": "R8",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.835,
+      "box": [
+        184,
+        495,
+        199,
+        528
+      ],
+      "pins": {
+        "Pos": "net15",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          192,
+          492
+        ],
+        "Neg": [
+          192,
+          530
+        ]
+      }
+    },
+    {
+      "id": "R9",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.832,
+      "box": [
+        371,
+        496,
+        385,
+        528
+      ],
+      "pins": {
+        "Pos": "net19",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          378,
+          492
+        ],
+        "Neg": [
+          378,
+          530
+        ]
+      }
+    },
+    {
+      "id": "R10",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.854,
+      "box": [
+        235,
+        496,
+        250,
+        528
+      ],
+      "pins": {
+        "Pos": "net18",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          242,
+          494
+        ],
+        "Neg": [
+          243,
+          530
+        ]
+      }
+    },
+    {
+      "id": "R11",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.817,
+      "box": [
+        650,
+        496,
+        665,
+        529
+      ],
+      "pins": {
+        "Pos": "net14",
+        "Neg": "net17"
+      },
+      "pin_xy": {
+        "Pos": [
+          657,
+          494
+        ],
+        "Neg": [
+          658,
+          532
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "Q6.Collector: attached through a very small blob, maybe text rather than a wire (net6).",
+    "Q7.Base: attached through a very small blob, maybe text rather than a wire (net8).",
+    "Q10: 1 extra line(s) touch the box but were not assigned to any pin, at (248, 229).",
+    "net6: only one pin (Q6.Collector) and no input/output port - a dangling wire, or it should join another net.",
+    "net8: only one pin (Q7.Base) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net3",
+          "Base": "net3",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net2",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net3",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net3",
+          "Base": "net1",
+          "Emitter": "net5"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net6",
+          "Base": "net3",
+          "Emitter": "net7"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net3",
+          "Base": "net8",
+          "Emitter": "net9"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net5",
+          "Emitter": "net10"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net11",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net11",
+          "Emitter": "net12"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net3",
+          "Emitter": "net9"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net13",
+          "Base": "net3",
+          "Emitter": "net7"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net10"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net11",
+          "Neg": "net12"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net12",
+          "Base": "net4",
+          "Emitter": "net14"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net3",
+          "Base": "net13",
+          "Emitter": "net15"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net10",
+          "Neg": "net16"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net12",
+          "Base": "net14",
+          "Emitter": "net14"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net17",
+          "Base": "net12",
+          "Emitter": "net16"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net14",
+          "Emitter": "net17"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net15",
+          "Emitter": "net18"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net4",
+          "Emitter": "net19"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net13",
+          "Base": "net15",
+          "Emitter": "net20"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net4",
+          "Emitter": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net20",
+          "Neg": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net14",
+          "Neg": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net15",
+          "Neg": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net19",
+          "Neg": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net18",
+          "Neg": "net17"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net14",
+          "Neg": "net17"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "bp",
+      "why": "BP net is separate from BPcas"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "bp"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "bp",
+      "why": "MPB4 drain ties to BP and RB2 top"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Pos",
+      "net": "bp"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "mir",
+      "why": "cascode mirror node, not BPcas"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Gate",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Drain",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R2",
+      "pin": "Neg",
+      "net": "bn",
+      "why": "RB1 bottom is the BN node, separate from BNcas"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "bn"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "bn"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M19",
+      "pin": "Gate",
+      "net": "bn"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Gate",
+      "net": "bn"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M18",
+      "pin": "Gate",
+      "net": "bn"
+    },
+    "ok": true,
+    "error": null
+  }
+]

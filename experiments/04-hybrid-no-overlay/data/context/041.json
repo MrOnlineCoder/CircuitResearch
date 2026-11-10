@@ -1,0 +1,315 @@
+{
+  "id": "041",
+  "variant": "v2",
+  "pipeline_seconds": 0.389,
+  "image_size": [
+    490,
+    344
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.813,
+      "box": [
+        164,
+        39,
+        189,
+        93
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      },
+      "pin_xy": {
+        "Pos": [
+          176,
+          36
+        ],
+        "Neg": [
+          176,
+          96
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.81,
+      "box": [
+        66,
+        40,
+        90,
+        93
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net3"
+      },
+      "pin_xy": {
+        "Pos": [
+          77,
+          36
+        ],
+        "Neg": [
+          77,
+          96
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.9,
+      "box": [
+        278,
+        97,
+        365,
+        181
+      ],
+      "pins": {
+        "InP": "net4",
+        "InN": "net3",
+        "Out": "net1"
+      },
+      "pin_xy": {
+        "InP": [
+          274,
+          158
+        ],
+        "InN": [
+          275,
+          119
+        ],
+        "Out": [
+          366,
+          138
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.842,
+      "box": [
+        65,
+        136,
+        91,
+        191
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net5"
+      },
+      "pin_xy": {
+        "Pos": [
+          77,
+          134
+        ],
+        "Neg": [
+          77,
+          194
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage",
+      "confidence": 0.735,
+      "box": [
+        208,
+        142,
+        242,
+        175
+      ],
+      "pins": {
+        "Positive": "net2",
+        "Negative": "net4"
+      },
+      "pin_xy": {
+        "Positive": [
+          206,
+          158
+        ],
+        "Negative": [
+          244,
+          158
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.825,
+      "box": [
+        384,
+        194,
+        410,
+        251
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          396,
+          192
+        ],
+        "Neg": [
+          397,
+          252
+        ]
+      }
+    },
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.926,
+      "box": [
+        144,
+        236,
+        180,
+        290
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net2"
+      },
+      "pin_xy": {
+        "Base": [
+          140,
+          263
+        ],
+        "Emitter": [
+          176,
+          233
+        ],
+        "Collector": [
+          176,
+          292
+        ]
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.935,
+      "box": [
+        46,
+        237,
+        81,
+        289
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "GND",
+        "Emitter": "net5"
+      },
+      "pin_xy": {
+        "Base": [
+          44,
+          263
+        ],
+        "Emitter": [
+          77,
+          234
+        ],
+        "Collector": [
+          77,
+          292
+        ]
+      }
+    }
+  ],
+  "crossings": [
+    {
+      "id": "J1",
+      "decision": "NOT connected",
+      "kind": "hop arc",
+      "box": [
+        165,
+        109,
+        188,
+        124
+      ]
+    }
+  ],
+  "uncertain": [
+    "R1.Neg: attached through a very small blob, maybe text rather than a wire (net2).",
+    "A1: 2 extra line(s) touch the box but were not assigned to any pin, at (323, 94), (323, 182)."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net3"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net4",
+          "InN": "net3",
+          "Out": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net5"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net2",
+          "Negative": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net2"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "GND",
+          "Emitter": "net5"
+        }
+      }
+    ]
+  }
+}

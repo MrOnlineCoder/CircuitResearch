@@ -1,0 +1,18 @@
+{"edits":[
+{"op":"set_pin","component":"M1","pin":"Gate","net":"net3","why":"M6 gate connects to V1, not to VDD"},
+{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"M6 source is on the VDD rail"},
+{"op":"set_pin","component":"M1","pin":"Drain","net":"nx","why":"M6 drain goes to the M8 source node and the V1 line to M14 gate, not to the V2 net"},
+{"op":"set_pin","component":"M6","pin":"Source","net":"nx","why":"M8 source is fed from the M6 drain, not from VDD"},
+{"op":"set_pin","component":"M5","pin":"Gate","net":"nx","why":"M14 gate is on the V1 line; the line crosses the V2 wire without connecting"},
+{"op":"change_type","component":"M7","type":"PMOS","pins":{"Drain":"net2","Gate":"net1","Source":"VDD"},"why":"M12 is a PMOS with its source on VDD and its drain at V2"},
+{"op":"change_type","component":"M10","type":"NMOS","pins":{"Drain":"net2","Gate":"net14","Source":"net12"},"why":"M13 is an NMOS with drain at V2 and source on the negative rail"},
+{"op":"set_pin","component":"M4","pin":"Source","net":"net14","why":"M10 source connects to the M11 node and M13 gate, not to V2"},
+{"op":"set_pin","component":"M11","pin":"Drain","net":"net14"},
+{"op":"remove_pin","component":"M11","pin":"Body"},
+{"op":"set_pin","component":"M15","pin":"Gate","net":"net5","why":"M5 gate is on the mirror line from M16"},
+{"op":"set_pin","component":"M15","pin":"Drain","net":"tail","why":"M5 drain goes to the input pair tail node"},
+{"op":"set_pin","component":"M15","pin":"Source","net":"net12","why":"M5 source goes to -Vss"},
+{"op":"set_pin","component":"M16","pin":"Gate","net":"net5","why":"M7 gate is on the same mirror line"},
+{"op":"set_pin","component":"M8","pin":"Source","net":"tail","why":"M1 source goes to the tail node, not -Vss"},
+{"op":"set_pin","component":"M9","pin":"Source","net":"tail","why":"M2 source goes to the tail node, not -Vss"}
+]}

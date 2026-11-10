@@ -1,0 +1,56 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "net4",
+      "why": "M4 (image) gate is on the VC net with the other mirror gates"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M3",
+      "pin": "Body",
+      "why": "No body connection is drawn; it wrongly tied this pin to another net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "The VB branch is a separate net from VA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InP",
+      "net": "new1",
+      "why": "The + input connects to VB, not VA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R3",
+      "pin": "Pos",
+      "net": "new1",
+      "why": "R1 (image) top connects to VB"
+    },
+    "ok": true,
+    "error": null
+  }
+]

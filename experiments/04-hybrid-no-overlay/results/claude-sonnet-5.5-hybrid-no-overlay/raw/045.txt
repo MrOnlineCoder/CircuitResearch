@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M8","pin":"Gate","net":"new_vplus","why":"In the image, the + input wire goes only to the gate of M2 (pipeline M8). The hop at the crossing means it does not touch the tail node, so the gate must not share the net with the source."}]}

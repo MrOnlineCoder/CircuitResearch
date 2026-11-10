@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net2","net5"],"why":"The gates of M1, M2, M3 and M4 are all driven by the same latch signal."},{"op":"merge_nets","nets":["net2","net10"],"why":"The tail transistor M11 is also gated by the latch signal."}]}

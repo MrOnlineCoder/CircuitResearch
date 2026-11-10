@@ -1,0 +1,55 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VDD",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "VDD",
+                "Neg": "net2"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net2",
+                "Gate": "net3",
+                "Source": "net4"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net3",
+                "Source": "net4"
+            }
+        },
+        {
+            "component_type": "Voltage",
+            "port_connection": {
+                "Positive": "net3",
+                "Negative": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net4",
+                "Neg": "net5"
+            }
+        },
+        {
+            "component_type": "Current",
+            "port_connection": {
+                "In": "net4",
+                "Out": "net5"
+            }
+        }
+    ]
+}

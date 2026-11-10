@@ -1,0 +1,126 @@
+{
+  "id": "096",
+  "variant": "v2",
+  "pipeline_seconds": 0.113,
+  "image_size": [
+    361,
+    283
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.898,
+      "box": [
+        156,
+        7,
+        235,
+        112
+      ],
+      "pins": {
+        "InP": "net1",
+        "InN": "net2",
+        "Out": "net3"
+      },
+      "pin_xy": {
+        "InP": [
+          152,
+          39
+        ],
+        "InN": [
+          152,
+          76
+        ],
+        "Out": [
+          236,
+          58
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.911,
+      "box": [
+        157,
+        111,
+        220,
+        146
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "net4"
+      },
+      "pin_xy": {
+        "Pos": [
+          154,
+          130
+        ],
+        "Neg": [
+          182,
+          149
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.894,
+      "box": [
+        115,
+        158,
+        149,
+        222
+      ],
+      "pins": {
+        "Pos": "net2",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          132,
+          156
+        ],
+        "Neg": [
+          132,
+          224
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "R1: 1 extra line(s) touch the box but were not assigned to any pin, at (222, 130).",
+    "net4: only one pin (R1.Neg) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net1",
+          "InN": "net2",
+          "Out": "net3"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net2",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net5","net4"],"why":"The gate wire of the right-hand PMOS (image M9) runs left and drops to the node shared by the M8 drain, M6 drain and Cc. Its gate therefore belongs on net5, not on a dangling net4."}]}

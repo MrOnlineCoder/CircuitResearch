@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270495-loxcMLVyLkpWaBweKh9O",
+  "object": "chat.completion",
+  "created": 1794270495,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm tracing the schematic component by component: Mg0 is the tail NMOS with gate Vicm, and Mg1 takes Vin+ with its drain running up to the node at (510,190). Mg2's drain goes up to the y=245 line, but the crossing at (510,245) is a hop, so those wires don't connect. Now I'm working out how Mg1 connects through that node.\n\nI'm checking the rest of the connections against the net labels: Mg2 drains to net1 with Mg4 and Mg6, and the gate nets for Vin+, Vin- and Vicm all line up. Mg3 drains to net3 and runs down to Mg5's source, and the PMOS pins and output nets look consistent. I don't see any errors so far.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm tracing the schematic component by component: Mg0 is the tail NMOS with gate Vicm, and Mg1 takes Vin+ with its drain running up to the node at (510,190). Mg2's drain goes up to the y=245 line, but the crossing at (510,245) is a hop, so those wires don't connect. Now I'm working out how Mg1 connects through that node.\n\nI'm checking the rest of the connections against the net labels: Mg2 drains to net1 with Mg4 and Mg6, and the gate nets for Vin+, Vin- and Vicm all line up. Mg3 drains to net3 and runs down to Mg5's source, and the PMOS pins and output nets look consistent. I don't see any errors so far.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2617,
+    "completion_tokens": 598,
+    "total_tokens": 3215,
+    "cost": 0.011214,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011214,
+      "upstream_inference_prompt_cost": 0.005234,
+      "upstream_inference_completions_cost": 0.00598
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 589,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

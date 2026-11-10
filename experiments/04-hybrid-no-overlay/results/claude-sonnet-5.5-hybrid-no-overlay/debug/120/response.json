@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794271468-ipzWg8Qv3aI1CSFJafNc",
+  "object": "chat.completion",
+  "created": 1794271468,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"In\",\"net\":\"net1\",\"why\":\"Gm2 input connects to the node shared by Gm1 output, R1, C1 and Cc\"},{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"Out\",\"net\":\"net3\",\"why\":\"Gm2 output connects to the node shared by R2, C2, Cp and the -GmP input\"},{\"op\":\"set_pin\",\"component\":\"C3\",\"pin\":\"Neg\",\"net\":\"GND\",\"why\":\"C1 bottom goes to ground, not a dangling net\"}]}",
+        "refusal": null,
+        "reasoning": "I'm working out the actual netlist from the schematic. The Gm1 amplifier feeds node N1, which ties to R1, C1 and the Gm2 input, and Cc sits on its left side. Gm2's output goes to N2 with R2, C2, Cp and the -GmP input, and the -GmP output drives Vo along with Cc, Cp, Ro and Co.\n\nChecking the pin connections against the schematic now: the C1 and Cp terminals look right, but Gm2's input and output are both tied to net4 and need to be corrected. I also see that C3's negative side should go to ground rather than net6.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out the actual netlist from the schematic. The Gm1 amplifier feeds node N1, which ties to R1, C1 and the Gm2 input, and Cc sits on its left side. Gm2's output goes to N2 with R2, C2, Cp and the -GmP input, and the -GmP output drives Vo along with Cc, Cp, Ro and Co.\n\nChecking the pin connections against the schematic now: the C1 and Cp terminals look right, but Gm2's input and output are both tied to net4 and need to be corrected. I also see that C3's negative side should go to ground rather than net6.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSgQoKEAgTGAI4AUIIdGhpbmtpbmcSDDlIHUr0zmzKWBrxihoMqSsLUqKtHrIeDHmwIjB9K/fXXxMx7ou72j1aNaUvGUP3i4I3zjZssSSjvjxRdwYFqH/4GdLUBHL05rLb968qngn6AQ97LDnSWn+KjaMUkrGNtgIUQ5hVTRO0c0rIDie1XJHUeWI5zftHZ2NJ6vcbDRFq1pj3XsueEzkE0wZQUSK02RcTykIO5Ek8XGiGaRFy1tXGSfL9j61q1G71FXj6jzTrVMLnYewep6NFdjTZG7U7z7iM7R0AZSEjiiqryhoyxE2fFS4dOF0otjwrkSiIyGsPcM0cQYXaRsMk+LrwArhF+6SDXmGoHoAkCoNJkAerVGv+KPVyN/1UrOJuI3oAQtJ0KkzKMs4hPbJO0EG0jM3A/iRz0uKh2CAGTrx0AZQppYL4AJ5Q6naCgH8lSA+fjdE9+jzJ0cL29KaeE/K5jN6A3yn8dWl5btEIimNuG441DKZqUlttrevBiVZWsAFMGNIwaxZ5nBql6qPrrmXtnIMX/4nv9D4sNMqLVuEZFBWsKZn6BBVSQHnmAy0182hFAt32BwXVr6LfTwvaGQjRmtrvhb8Yv6Z94ZA3te/SPrgZwBZWPghZM5qORcqbpND2NCncSpkjO4lVcnZRq9a1b72FnQi7+MjkHLYC5Gl8rGYxhPSvMRvbCB2ZU1kprywLoJfHlY137XIq8kona4eqcEooiWl+r7/noQA7at8hMVln90r7BsOrkWs0XoopAf6mGmjf+IE4pwqw7BldtPjEh10EmLyOtR23UppCfaF85Huw/l73+AfOwANu3c66yGSvr/MZCDJl5FRVUloEKPfmmmkhRUkTI8VXHlrnYIgcML10NCikDzeQCotTpQNPUC6qkTDE0fT2OZvb+Ayl4o3BO1rqkzhJ4MZnZw2+DgxfA6DwuyaZnnVjs87412RyDri9gNQyGd4UXylr3/X+DG5Bn4emkO66GhMCdBRuRMT3wuSZO3/xWZleSDj5SQOB/FeVRtcdxK5qXpz4MjMGa4hnUEgRlckXmhBCxjshICbzF1jcNkww6e2gnQ5Tduf0wCsSIH9qY9+2gX/8hSKH+d2ILYdtadWDWBLcfhHcvVyP24ZWs6RjAOfiyzwtPuEL+Qj4m1Of+Ib2CVsvgPA39nQKflgRkbMX62LevyOmohe7meASlZwLC6Lb/lwhF2FfGA0CHRq2nSeh9TgbqA8+e4pK0cizwp6VsFeDZ94LdLMF9pT84VjdhgixSqvcoYrncQvZVTanJSD44OngM+cbFD2F1pIOeUvMWrs3fnSKQLCJizIHj///vBlLINpNrj52UHPYu1hklS5Nwpz2gD2MYGdxB2fhVf0mu7ES3PwjjVLdsBROmmnQD0Cq5l41hjBWTlLqNolCsQ02XtVx+8UxGnNqzSvHZDuDyJtm43idNvGySvHoNmwpkpjQ0/1lB6mqxxmmX+t3ZhOtOEr3U1UyRKDgYmpdlhnB+k1XaVmeYvqzngCz3VbnY2RowiJJYZLx6liM88fykbTf/9RuMqJYlA4EHiqToYT/SivIv2r/qg8OlF8d3CKsjz0rMNKEC1ZcQbhDiYMKu2dwyVGonKlHcfLoom7PL8I1DBlMn0wKBIqoPGyi2np03DK03GKRyM6nN75bBRqzom67tUuQCWgO01MsxDLCPYgl/cd81T9VSoufRJwYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2451,
+    "completion_tokens": 572,
+    "total_tokens": 3023,
+    "cost": 0.010622,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010622,
+      "upstream_inference_prompt_cost": 0.004902,
+      "upstream_inference_completions_cost": 0.00572
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 381,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

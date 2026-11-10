@@ -1,0 +1,46 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "Out",
+      "net": "new1",
+      "why": "The op-amp output drives the PMOS gate bus and is not tied to VDD."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The gate connects to the op-amp output, not VDD."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The gate connects to the op-amp output, not VDD."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The gate connects to the op-amp output, not VDD."
+    },
+    "ok": true,
+    "error": null
+  }
+]

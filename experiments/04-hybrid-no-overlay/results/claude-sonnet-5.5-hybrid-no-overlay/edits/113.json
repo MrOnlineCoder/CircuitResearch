@@ -1,0 +1,58 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "net11",
+      "why": "The drain of the top PMOS on the right (labelled M8 in the image) goes down to the output node and to the drain of the NMOS below it, not to a separate dangling net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net6",
+        "net11"
+      ],
+      "why": "The output wire joins the vertical M8/M7 branch at a dot, so Vout is the same net as the M8 and M7 drains."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "The tail node is separate from the bias line; the tail crosses the bias line without connecting."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "new1",
+      "why": "The sources of the input pair join the tail node, not the bias net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Source",
+      "net": "new1",
+      "why": "The sources of the input pair join the tail node, not the bias net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

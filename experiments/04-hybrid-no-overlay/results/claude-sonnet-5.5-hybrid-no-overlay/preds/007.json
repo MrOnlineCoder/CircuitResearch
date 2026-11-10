@@ -1,0 +1,191 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "PB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "PB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net4",
+                "Gate": "PB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Gate": "PB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net6",
+                "Gate": "PB",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "N2",
+                "Gate": "B",
+                "Source": "net4"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "N1",
+                "Gate": "B",
+                "Source": "net5"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net7",
+                "Gate": "B",
+                "Source": "net1"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "T",
+                "Gate": "B",
+                "Source": "net6"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "B",
+                "Gate": "B",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "PB",
+                "Gate": "B",
+                "Source": "net3"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "O",
+                "Gate": "N2",
+                "Source": "T"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "D3",
+                "Gate": "N1",
+                "Source": "T"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "N2",
+                "Neg": "net8"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "N2",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net7",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "N1",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "B",
+                "Gate": "O",
+                "Source": "GND"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "PB",
+                "Gate": "O",
+                "Source": "GND"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "D3",
+                "Gate": "D3",
+                "Source": "GND"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "O",
+                "Gate": "D3",
+                "Source": "GND"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "GND",
+                "Emitter": "net8"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "GND",
+                "Base": "GND",
+                "Emitter": "N1"
+            }
+        },
+        {
+            "component_type": "Voltage",
+            "port_connection": {
+                "Positive": "O",
+                "Negative": "GND"
+            }
+        }
+    ]
+}

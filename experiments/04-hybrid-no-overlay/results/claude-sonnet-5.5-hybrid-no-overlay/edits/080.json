@@ -1,0 +1,217 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M5",
+      "type": "PMOS",
+      "pins": {
+        "Drain": "nb2",
+        "Gate": "n1",
+        "Source": "VDD"
+      },
+      "why": "top PMOS mirror device, drain feeds M13 devices"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Drain",
+      "net": "n1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "n1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "n1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "n2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "n2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "n1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "n2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "n1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "n2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "n3"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Pos",
+      "net": "n3"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Gate",
+      "net": "nb2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "n2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Gate",
+      "net": "net6"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Drain",
+      "net": "n3"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Gate",
+      "net": "net6"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Drain",
+      "net": "nb2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "net6"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  }
+]

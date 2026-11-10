@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270759-eTy5g2BmgoDLCYMztIsv",
+  "object": "chat.completion",
+  "created": 1794270759,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"remove_component\",\"component\":\"A2\",\"why\":\"Spurious low-confidence detection on the error amplifier's body; the real amplifier is A1, so A2 is not a separate component.\"}]}",
+        "refusal": null,
+        "reasoning": "Checking the schematic: the error amplifier's inputs are VREF on the minus side and the feedback node between RF1 and RF2 on the plus side, with its output driving the gate of the pass device. I'm also dropping A2 since it was a spurious detection. Now I'm confirming M1 is a PMOS with its source tied to VIN and its drain going to VOUT, and I'm starting to trace the resistor divider with RF1.\n\nI'm checking the other connections: R1 runs from the output net to the feedback node, R2 from the feedback node to ground, and the load capacitor and current source both hang off the output net, each returning to ground.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "Checking the schematic: the error amplifier's inputs are VREF on the minus side and the feedback node between RF1 and RF2 on the plus side, with its output driving the gate of the pass device. I'm also dropping A2 since it was a spurious detection. Now I'm confirming M1 is a PMOS with its source tied to VIN and its drain going to VOUT, and I'm starting to trace the resistor divider with RF1.\n\nI'm checking the other connections: R1 runs from the output net to the feedback node, R2 from the feedback node to ground, and the load capacitor and current source both hang off the output net, each returning to ground.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSrQgKEAgTGAI4AUIIdGhpbmtpbmcSDG56NQSsqFAnCFyawBoMegwzkVpWtEmeymgEIjCXGruo5POvD1G9/abO/vKwzYRvpldwvd/BtDmgO+JICsywWndw01yalpnn5nL9Q/UqygcORgae889K3/qqAzXP1mhCQNmiPufyZPla1s2XZPj+W+8VkvohkpVDfJ8JcaKueSL7CtSrlwsez5DJ6/ZpXOTFHCwV7J5lmL4Z5WiRC2yLve0wqW1hkGWVXA66d3xuUFh8yUuilZiLkPvRH3N8nmHItBP1+r67rcBa085i2sMGZe4olH2pG4WltvFh8N+B0YrQAKCsblu3+I6ZGsZLgQflXgE6aPAORE7ZFIWl+erI1iAG6jjt7axnI3lrrX/BeJLCbTLZo2/UXVTq9Tt3Mu3zxXjI7tDlojyuJqONUAsmst3y8UJ13FNglN2QDBOXjSlLuy4eH9UDYy3wZ7M0HdWOImafnrGVfLc1en6CDuL1Grj0sBAA8jbhP6C6CaDloKilKo+HYEIg8J6BqX1eZiHRw1d9wm9UbsmLqKFXaq/sbDmz8iW3ok4rQYvCwJbBLSgxd6FJbeT/nxJr4tAjVYWU8Up9ptFwxr4wuFpG+Y8+ffLdmTwu7jTPTFUphIVZ9L3RcsFFmajQc2UQdBK+4G7T+vj4F0DyuOa3d7wVbayP/ov0RlHxSgXcJHp2HELNzV/R0GKdW+D5aP/PBa8vBwMQSLwayrt118Jwp8cAKYbt5TXdpwi1/eJtTvI6DSraR1mjL82Z8DH9Hn7cxKrIAZSORg7mPFb5/2RN8uLp3czFoCfjlUjOSvdmf9CjLIQ+5Vm0HW6Ml+ko6fopbCe6p/uVpI27ZhaWY4coBGSQoZmUzWHKrOZX99e0MB1HLEzsVVbutN+WzmioQcTQSdu4RUWUA9NwR4O9WMQHcl4psprw4bgFSP8d5NkL7pa6jYCSubRlAJUoRECkGNBqiaycJZK2lhSbGs0pcMexj4rufpMV6Se8UsFkRgYAwr+umJG4Ci9x4RMHPba0w0UxwjimhX1QrtFC7n4Js6rBuf5V2QYSLPrTaSLhSxIXMM1enWvWioP6uqvGhhvj9CszEp8yFgERbp90rwaRFXKJyMByYwAx4cI5JLfYCCYCa3sYKSnTrDsTyRkJkFHMeN+nDwO25xGiIm3slSSLh7wrfMSzXju4rt2yKskbLes9Plq+zb/y/Hym7HOQwJJRGeGO5SnuCN7IdWrKNZPwy5h8qp2DPwhb0kKw9Wxt7F/jW4PIbBYfRNSEosg44BNffIZqX0qkMyTf3thEsEGv4jxAYy9+BNTeve4qKFT+Tu82ySNZcR4gkeuSdf25KEMmdU3MbSMVqQn1SVfe/Yzq5y+xjj/GK4fEyfp9cy2ytipNScCCBC0fUwiVKDYXDu+AmzvdGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2268,
+    "completion_tokens": 301,
+    "total_tokens": 2569,
+    "cost": 0.007546,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007546,
+      "upstream_inference_prompt_cost": 0.004536,
+      "upstream_inference_completions_cost": 0.00301
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 229,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269725-2AQYrFORE5UzrUYb7LFL",
+  "object": "chat.completion",
+  "created": 1794269725,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm going through the circuit, starting with the top PMOS MP20 and its diode connection to the bus. Then I'm checking MP21, which feeds the tail node net3 that drives the M4 and M5 sources.\n\nI'm working through the remaining transistors now: MP22 and MP23 as the differential pair, with their drains landing on the diode-connected MN25 and the MN26 and MN27 gates. Then I'm checking the output stage, M1 and M6, along with the compensation caps, and tracing the net2 and net8 connections back to their gates and drains. So far every node looks consistent.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the circuit, starting with the top PMOS MP20 and its diode connection to the bus. Then I'm checking MP21, which feeds the tail node net3 that drives the M4 and M5 sources.\n\nI'm working through the remaining transistors now: MP22 and MP23 as the differential pair, with their drains landing on the diode-connected MN25 and the MN26 and MN27 gates. Then I'm checking the output stage, M1 and M6, along with the compensation caps, and tracing the net2 and net8 connections back to their gates and drains. So far every node looks consistent.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS0A4KEAgTGAI4AUIIdGhpbmtpbmcSDAP+B8xWR+2KHPCGrxoMs+UQElIdLxdG45mXIjA1SE6xkWaWPzFYqJCG/CVvtSG98ALGIwpBIcksjqrFNWL81Q+j9HiVh2wFtJPZEOAq7Q2xg9eOwsafiIlf/AWVvboSc+YC3us9/95ApU0C3BAbTQPNmQ/WbprS44vSsLjPVH12FB/K5CBh/dQRxj6ydqF1OtXlqZAnUZEPxUHR8a2weuiuzi9tVotlcT7JBL45CNhji3jktqeToKQdQ4QPURDCbYMeU0aMFouhvFTotD+ph78Qyns3esUHfpIQB/ObWHbtQHFCs2PnvM+NRWCTvsa2VJ37DEMaA0QPUqHF+5yLKXqb7smlDA7Rj8E/oX9tu139nxQX80YY0upBh43AL8+dbGsInqHHT4wERQW56y1KRy49PnyiN8KTM18Q2KnUUIBqrer3/wG/B+AbfFWzTYCNuABIC1qEj8AvrkxcD0YEveKy0UBoNQ1Z/a353dJDPoxvqsg0nb2F0lanYc4mmLh4+vHFCAyTnohUVAIjWOBW4lEqHqYjEoDVkCQNVoD8zSjEAxwv/hYJLeoJehHKCKcU8JaRYtuO8zpobxuf4rTGY6IMfaWH0LcFcbCwOOP6YJDUkneK4rWQ9O7RuAtwnEm9BruOyutz4xbUQ0oQgy9J1L4uCJCMbddGYSQvgW06ogSYAaPXuJpWwkK20w/3IY1RDL+/aKYR2q5L8a2kIIrJ5pDQnFDUcy3RKbgXspYsSNLNZaFNL/BqjBRlZpxRDZPauYLj1fegHakpfvpfxd8AK/+5mgprT4HmAR9NBWjrFV07toPfL5bAOX/tomWVcn9PKJ+XCID+HyC4ENXRFuqKLSr3VBhaQWeguumx9c1Y2T4D6C5ODbDxSj7MCZk8/TcnXR1QuFQXqmya6A9T4XJEBxCRGli0+MXUY3brX6ho6YJ1OIStJWGKIu54q0x01aLQsmrC86KG3cS5Qn7tA9JE1H7TnPZxzQ3QGE8G7ewayCyIiyKTX9wtzP7fL1DtxXZ2utg29+cRuFeXehtytsfgqx1CAR8XENBnx3sm7SPdA8o3ET654dKFdDfRwSKU2zQJ+H7R/2GA/2rb8sg9KomxxlfJZywPQjLGeYTkwC1Wq/F/L4ytuwFNFVkbCH6CFh2UVUQ0fNKsOnTPnDR+aodyXY+n8vluL9HuqWYLdHtdSL8wH5Rq0W5q9otezrfKDh4l8uFw+TKbNAtbNc/qhqHKEDTYidK6240sKVv5xJoTbj/FmEG9dFoXquwKiglW1dbqgRusUgF0CApXlSz+59lD+PcRGfCPBueQPPkZ+n71j2FLjVkCdKdusrrfLjGTtucKkJ0JEAJlNyLopYFMJb3H48ZDGdy7BxQ183PtOGULLfuOEyieSMpgsU0N6IH/x3VgyjCUr4Q22zwY4AhSgI9GiOmUYCU3yDKNJRktnVRj8dPcs4h4NWL9mdByur6mTUC+guricunwnCv9H5V1rHvxZFnmUHDoy1h83cr570TxJLn32DsIg9FXpIb3DndTd3/LFWy5sk2agF2s25CECtUjvJjpOCDWDq4lilzOiSCyBNboor1txLKSUZGuM8fO7w/OrBimJOwlidUI3WsluSgBEsYzKVaYz5mkTbr+l4bndU9VE3IPXEOdpbyS7JHzRJ7BPSrg+ke/HR6Erv3JzJwPBx9YQo8qnbKKo+clY0KXoCCxalOUbCd+O1DoGb3t1xtT8jMQfyn/PDD2bzqQnZT61QdnbPAefwWI7JzT9vhcVvI3lvYBj6awDac1GAkmcBAhA9Sl+S6XWL1gBKb/GjJ3v12Z3vK3tkG7dDACMjUM6xJj4qy+Z9kJJn2R8avb+GSaYTWwKgLhMhxZgRS/ezbA20ZoVpTS7ho/Z37xphAQ13dqxZly0NLqoWTDadxu8GpuDxmnxhZrbf8Z4C2Dtv5wOCB7RldfJM5gwX6O16gxl7S8TEaDeUrbz0UhafX8z9VdvIIW6yJVF+OBOqg8dvrRXC6QcRz7PVKcY9CzxogLXGbEtBDL4RAZFDw7VRGmel0NCYLPzrbr4fNQmW0DmN9dbBEXddbKUq6mW0tUKjGUVVl/+UnTSc0QqBC/DoCnRWwTmaYjKNbSekf3U1oC432UMLfkMzIKgjSoWrfrKXWlgUCyXOAE8NvCOvyijs6Ui3PuyRGFTDWPOYRjQwzBBht4T5cGrZP/MVg+9RmeZbrGf56SHscy3esV4QA8zk+akcciPbKjX+nkuXEXn/FfMYkGMFSNHBvDAH0VsreXyraEKKnKuEWCofXabysO/jJymXCPrusWT+oKEODd4g5UIPjPVGtvzje5FKCsCUElBqwUcX6b4HVHSh1u/bBv+ush6Q2FC6UVYsOIVXV6kEBUOdjQb7XyGXnOLpHnq5B2f/g77tVe251mmlsp43aXOlV12/eAo126yvC+hO1WwyVvKaqnsIIfIW29pqVR6R0tS0oYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2500,
+    "completion_tokens": 623,
+    "total_tokens": 3123,
+    "cost": 0.01123,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01123,
+      "upstream_inference_prompt_cost": 0.005,
+      "upstream_inference_completions_cost": 0.00623
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 614,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

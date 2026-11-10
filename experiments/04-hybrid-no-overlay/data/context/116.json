@@ -1,0 +1,218 @@
+{
+  "id": "116",
+  "variant": "v2",
+  "pipeline_seconds": 0.139,
+  "image_size": [
+    381,
+    385
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.75,
+      "box": [
+        105,
+        81,
+        133,
+        116
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          136,
+          98
+        ],
+        "Source": [
+          108,
+          78
+        ],
+        "Drain": [
+          108,
+          118
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.818,
+      "box": [
+        246,
+        81,
+        274,
+        116
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net2",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          244,
+          98
+        ],
+        "Source": [
+          270,
+          78
+        ],
+        "Drain": [
+          276,
+          97
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.873,
+      "box": [
+        267,
+        189,
+        291,
+        223
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net5",
+        "Source": "net6"
+      },
+      "pin_xy": {
+        "Gate": [
+          293,
+          206
+        ],
+        "Source": [
+          270,
+          224
+        ],
+        "Drain": [
+          270,
+          186
+        ]
+      }
+    },
+    {
+      "id": "M4",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.88,
+      "box": [
+        89,
+        189,
+        112,
+        222
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net7",
+        "Source": "net6"
+      },
+      "pin_xy": {
+        "Gate": [
+          86,
+          206
+        ],
+        "Source": [
+          108,
+          224
+        ],
+        "Drain": [
+          108,
+          186
+        ]
+      }
+    },
+    {
+      "id": "M5",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.851,
+      "box": [
+        169,
+        297,
+        193,
+        331
+      ],
+      "pins": {
+        "Drain": "net8",
+        "Gate": "net6",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          189,
+          294
+        ],
+        "Source": [
+          189,
+          332
+        ],
+        "Drain": [
+          197,
+          304
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M2: 1 extra line(s) touch the box but were not assigned to any pin, at (270, 118).",
+    "M5: 1 extra line(s) touch the box but were not assigned to any pin, at (197, 318).",
+    "net3: only one pin (M2.Drain) and no input/output port - a dangling wire, or it should join another net.",
+    "net8: only one pin (M5.Drain) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net5",
+          "Source": "net6"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net7",
+          "Source": "net6"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net8",
+          "Gate": "net6",
+          "Source": "GND"
+        }
+      }
+    ]
+  }
+}

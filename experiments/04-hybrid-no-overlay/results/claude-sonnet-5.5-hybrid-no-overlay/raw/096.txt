@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"R1","pin":"Neg","net":"net3","why":"The horizontal feedback resistor's right end goes up to the op-amp output node, not to a dangling net."}]}

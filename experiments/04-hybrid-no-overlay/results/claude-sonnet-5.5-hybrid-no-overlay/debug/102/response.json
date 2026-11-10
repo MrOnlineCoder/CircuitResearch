@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794271191-XpUkM15vwr7z2cCUip1T",
+  "object": "chat.completion",
+  "created": 1794271191,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching each device in the pipeline to its counterpart in the schematic. The PMOS at [1101..] looks like schematic M3, with its drain feeding net1, the gate of Mp, and its source on VDD.\n\nI'm going through the rest of the device mappings to the schematic, and each one checks out: the PMOS at 827, the Mp PMOS, the op-amp inputs, and the NMOS and resistor connections. Everything lines up, so the list of problems is empty.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching each device in the pipeline to its counterpart in the schematic. The PMOS at [1101..] looks like schematic M3, with its drain feeding net1, the gate of Mp, and its source on VDD.\n\nI'm going through the rest of the device mappings to the schematic, and each one checks out: the PMOS at 827, the Mp PMOS, the op-amp inputs, and the NMOS and resistor connections. Everything lines up, so the list of problems is empty.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4396,
+    "completion_tokens": 492,
+    "total_tokens": 4888,
+    "cost": 0.013712,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.013712,
+      "upstream_inference_prompt_cost": 0.008792,
+      "upstream_inference_completions_cost": 0.00492
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 483,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

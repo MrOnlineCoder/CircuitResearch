@@ -1,0 +1,96 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "new1",
+                "Gate": "net4",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "new1",
+                "InN": "net3",
+                "Out": "net4"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net6",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net5",
+                "Neg": "net6"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "new1",
+                "Neg": "net7"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net5",
+                "Base": "net5",
+                "Emitter": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net3",
+                "Base": "net3",
+                "Emitter": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net7",
+                "Base": "net7",
+                "Emitter": "GND"
+            }
+        }
+    ]
+}

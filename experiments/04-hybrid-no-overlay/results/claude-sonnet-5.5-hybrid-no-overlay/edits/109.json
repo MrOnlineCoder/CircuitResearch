@@ -1,0 +1,54 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "net3",
+      "why": "The PMOS mirror output transistor's drain goes to node 3, not VDD."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "net1",
+      "why": "The diode-connected PMOS has its drain tied to its gate (node 2), not VDD."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "net7",
+      "why": "The input transistor's source goes to the tail node (node 4), the same net as the other input transistor's source."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M4",
+      "pin": "Body",
+      "why": "The body pin was wrongly attached to a separate net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "V1",
+      "why": "This is a ground symbol, not a voltage source."
+    },
+    "ok": true,
+    "error": null
+  }
+]

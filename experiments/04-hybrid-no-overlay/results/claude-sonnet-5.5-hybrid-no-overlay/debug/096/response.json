@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794271032-QPhWLsW5MEWrOOuEj4Us",
+  "object": "chat.completion",
+  "created": 1794271032,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"R1\",\"pin\":\"Neg\",\"net\":\"net3\",\"why\":\"The horizontal feedback resistor's right end goes up to the op-amp output node, not to a dangling net.\"}]}",
+        "refusal": null,
+        "reasoning": "I'm checking the schematic: the op-amp's inverting input sits on the node tied to R2 going to the output and R1/2 going to ground. The pipeline shows R1 wired between net2 and net4, but that box is really R2 lying horizontal, so R1 is the feedback resistor that needs its Neg pin tied to net3, the output. I'll set that pin on R1.\n\nI'm also confirming that the input InP on net1 is vID and that's fine, and that the extra line touching at (222,130) is the wire running to the output. The component types check out too, and the swapped names don't matter.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the schematic: the op-amp's inverting input sits on the node tied to R2 going to the output and R1/2 going to ground. The pipeline shows R1 wired between net2 and net4, but that box is really R2 lying horizontal, so R1 is the feedback resistor that needs its Neg pin tied to net3, the output. I'll set that pin on R1.\n\nI'm also confirming that the input InP on net1 is vID and that's fine, and that the extra line touching at (222,130) is the wire running to the output. The component types check out too, and the swapped names don't matter.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS+QgKEAgTGAI4AUIIdGhpbmtpbmcSDDjDXKiVuKGXyB4QVRoMJZqoLkIAdIuttGkvIjAJzk7NwHdnfdzdtifkY9QI4FclVhg0gun7I245BxXFxI0M42gq5GD/WNt1ACmtbWsqlggprND7YX3yR7F1MNshv4voZ8u04WeXPOXiOnW+9VEx8Ajr5jaGzpYn9RHyogJxS3QHYkevxYQ+B5g0ZatV7mcdP/YeOl+GjfI+srq+QJ7Z9kb5o2+QMKj0TbDT41fDLm7c4uUhvQofWKN92+NTUx9M52b9G6LB6BxZl/oBIA1yio1tTTkVt5Z2tOt3xBYwUHzv0GpIaXrpumqF6/MJwV7eLX96FZes4oJvPHI9PDTm4l81IPDrHnxUCCGe6KCVjCua8IC8HhuGugtDYm3T9QADQHYCbNwbOIyoJW7V5iwrI/p6lOsFqiMveCiTWqfRxzy3IvKV6kTlmTlJivHmTXfV7H6cu2b0DFLjq0ZZ3/T73ujAQWHZRsOlsJ7a0+95KlTwWxRpa/5ZB3Wwd3Z1GSx+OF260esIcxeK1fbfpNhveAm4TCuwTNqi0nNpiIEhJtsjBwUXqmD08JeQDKA+2e4OGAWCVqBcmxG3n/GcNnt6PHhPUFjy2sCZNUsPkUzZ4wtTPw2wSx5v+bzgbKr1G3dsf0xE893HJ9Eb1TWgUnPugw1noP4u6X9UVDYvCkHGdAM7HITaQAipMMpouoaHpsrZgCWoG3s5oGw+IeL5CG1g2L1CFdghFIT9X2ByQXKHucFjXTbV2szN+Q5aIM46jMdv9SDDMXm4EpAiOvma5Zh6i5hOnmYdkjrb0WQnVjO4r7AE1ntARh0BNWxtI9crDTJCNfshgFU3aSfdqJu4TQIwstlHwRA1/HLqUnBrBmpAWTTS315cw5ojr8PHZAeRQw4OTLYMEsbkjdzDHYDTArpvGn0Crd2U6JDXzaZBF+UlKVAbExFEcdysAC/dmDzkQFWy9SlcqiMP4OL4rS9Pokqhgzw5GDqrHWqQQMfyreliNrep8kU9DhMluB+FWfDdSueierVLS2tU1rcnPzWF/UjhoplPrxn/eQSF8za4Oa2PTuADU0EzWpJDqoAQxUf5qCWmNZzaHF1GfzPMtst6zCiqiJ0yeHMk2F0vhwl9veWjaWVDfb01h7snylyLU2y1A69BgZYy5GZ5IHu3sJQ7Og0azcFJMpgLNF8qjObiYwf5qufny6mVcRYvRLKMI4NePtfI84kFgVb+uRalwOPtun4iKgkG7yDI3q8vAZy24sXpLsz+/qZkvnA3IMBjUhvYqpOXLqjR8Kg9cS0aid4zpkhs2ZD/rlUlojmcvuKbKGmJ0I90m3x8b0czkoUXIOGRb4Bm+8eu+KgSwj5ihsCbjbw5ufCvqeYBCaoMJfEgju5XBuwrB4xKPukkQiepRRtsWL4yN5IbD8/DiVmHXboiX7JF2SbtM2qx5CalkVFfHsB4RPzr3LK1r/Qj4OX1CMqysccAMS9gu/IxuE4WlxyM17q5KqSNRhPsPxgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1784,
+    "completion_tokens": 294,
+    "total_tokens": 2078,
+    "cost": 0.006508,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006508,
+      "upstream_inference_prompt_cost": 0.003568,
+      "upstream_inference_completions_cost": 0.00294
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 216,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

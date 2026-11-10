@@ -1,0 +1,1 @@
+{"edits":[{"op":"remove_component","component":"A2","why":"Spurious low-confidence detection on the error amplifier's body; the real amplifier is A1, so A2 is not a separate component."}]}

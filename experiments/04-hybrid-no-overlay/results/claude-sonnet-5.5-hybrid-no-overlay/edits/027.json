@@ -1,0 +1,182 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Gate",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Drain",
+      "net": "gA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Drain",
+      "net": "gB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "nR"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "nR"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "nR"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "nR"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Gate",
+      "net": "nR"
+    },
+    "ok": true,
+    "error": null
+  }
+]

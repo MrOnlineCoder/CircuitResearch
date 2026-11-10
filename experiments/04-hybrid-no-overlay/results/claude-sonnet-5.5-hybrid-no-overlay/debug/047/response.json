@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270105-G0dMMRccz8tmnMITefk0",
+  "object": "chat.completion",
+  "created": 1794270105,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"M1\",\"pin\":\"Source\",\"net\":\"net1\",\"why\":\"The PMOS arrow is on the left terminal, so the source is the VIN side\"},{\"op\":\"set_pin\",\"component\":\"M1\",\"pin\":\"Drain\",\"net\":\"net5\",\"why\":\"The drain at the right is the VOUT node, shared with the feedback divider, the compensation branch and RL\"},{\"op\":\"remove_pin\",\"component\":\"M1\",\"pin\":\"Body\",\"why\":\"The symbol has no separate body terminal, so this pin is dangling\"},{\"op\":\"remove_component\",\"component\":\"C1\",\"why\":\"This is the MOSFET gate symbol, not a capacitor\"},{\"op\":\"merge_nets\",\"nets\":[\"net7\",\"net10\"],\"why\":\"RESR connects in series to CL, so R2.Neg and C2.Pos are the same node\"}]}",
+        "refusal": null,
+        "reasoning": "I'm sorting out the correct netlist for this PMOS pass transistor: source on VIN, drain tied to VOUT, gate driven by the error amp output. The error amp's plus input is VFB and its minus input is VREF, with Rfb1 running from VOUT to VFB and Rfb2 from VFB to ground. I'm also placing the ESR in series with the load capacitor to ground, hanging off VOUT.\n\nI'm now going through the pipeline on the PMOS: its drain is currently on VIN and its source on the output, which is backwards, so I'm swapping them so the source sits on VIN and the drain on VOUT. The body pin is dangling and I'm dropping it, and C1 is a false detection of the MOS gate, so I'm removing that too. I still need to check the net3 merge that follows.\n\nI'm settling the edits now: pin the drain to net5 and the source to net1 directly, drop the Body pin and C1, and merge net7 with net10.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm sorting out the correct netlist for this PMOS pass transistor: source on VIN, drain tied to VOUT, gate driven by the error amp output. The error amp's plus input is VFB and its minus input is VREF, with Rfb1 running from VOUT to VFB and Rfb2 from VFB to ground. I'm also placing the ESR in series with the load capacitor to ground, hanging off VOUT.\n\nI'm now going through the pipeline on the PMOS: its drain is currently on VIN and its source on the output, which is backwards, so I'm swapping them so the source sits on VIN and the drain on VOUT. The body pin is dangling and I'm dropping it, and C1 is a false detection of the MOS gate, so I'm removing that too. I still need to check the net3 merge that follows.\n\nI'm settling the edits now: pin the drain to net5 and the source to net1 directly, drop the Body pin and C1, and merge net7 with net10.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2652,
+    "completion_tokens": 961,
+    "total_tokens": 3613,
+    "cost": 0.014914,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014914,
+      "upstream_inference_prompt_cost": 0.005304,
+      "upstream_inference_completions_cost": 0.00961
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 676,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

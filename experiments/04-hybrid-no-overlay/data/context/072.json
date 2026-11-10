@@ -1,0 +1,291 @@
+{
+  "id": "072",
+  "variant": "v2",
+  "pipeline_seconds": 0.216,
+  "image_size": [
+    762,
+    655
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "Q1",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.901,
+      "box": [
+        327,
+        94,
+        398,
+        194
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net2",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          324,
+          144
+        ],
+        "Emitter": [
+          394,
+          90
+        ],
+        "Collector": [
+          394,
+          196
+        ]
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.721,
+      "box": [
+        144,
+        95,
+        218,
+        195
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net2",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          220,
+          144
+        ],
+        "Emitter": [
+          151,
+          92
+        ],
+        "Collector": [
+          151,
+          196
+        ]
+      }
+    },
+    {
+      "id": "Q3",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.914,
+      "box": [
+        205,
+        175,
+        277,
+        280
+      ],
+      "pins": {
+        "Collector": "GND",
+        "Base": "net4",
+        "Emitter": "net2"
+      },
+      "pin_xy": {
+        "Base": [
+          202,
+          226
+        ],
+        "Emitter": [
+          271,
+          172
+        ],
+        "Collector": [
+          271,
+          282
+        ]
+      }
+    },
+    {
+      "id": "Q4",
+      "type": "PNP",
+      "detector_label": "pnp",
+      "confidence": 0.904,
+      "box": [
+        618,
+        175,
+        690,
+        275
+      ],
+      "pins": {
+        "Collector": "net5",
+        "Base": "net1",
+        "Emitter": "net3"
+      },
+      "pin_xy": {
+        "Base": [
+          614,
+          224
+        ],
+        "Emitter": [
+          685,
+          172
+        ],
+        "Collector": [
+          685,
+          278
+        ]
+      }
+    },
+    {
+      "id": "Q5",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.825,
+      "box": [
+        80,
+        278,
+        160,
+        382
+      ],
+      "pins": {
+        "Collector": "net4",
+        "Base": "net6",
+        "Emitter": "net7"
+      },
+      "pin_xy": {
+        "Base": [
+          78,
+          329
+        ],
+        "Emitter": [
+          151,
+          384
+        ],
+        "Collector": [
+          151,
+          274
+        ]
+      }
+    },
+    {
+      "id": "Q6",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.869,
+      "box": [
+        386,
+        279,
+        462,
+        382
+      ],
+      "pins": {
+        "Collector": "net1",
+        "Base": "net8",
+        "Emitter": "net7"
+      },
+      "pin_xy": {
+        "Base": [
+          464,
+          328
+        ],
+        "Emitter": [
+          394,
+          384
+        ],
+        "Collector": [
+          394,
+          276
+        ]
+      }
+    },
+    {
+      "id": "Q7",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.729,
+      "box": [
+        618,
+        441,
+        695,
+        547
+      ],
+      "pins": {
+        "Collector": "net5",
+        "Base": "net7",
+        "Emitter": "net7"
+      },
+      "pin_xy": {
+        "Base": [
+          616,
+          492
+        ],
+        "Emitter": [
+          687,
+          548
+        ],
+        "Collector": [
+          687,
+          438
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net2",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "GND",
+          "Base": "net4",
+          "Emitter": "net2"
+        }
+      },
+      {
+        "component_type": "PNP",
+        "port_connection": {
+          "Collector": "net5",
+          "Base": "net1",
+          "Emitter": "net3"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net4",
+          "Base": "net6",
+          "Emitter": "net7"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net1",
+          "Base": "net8",
+          "Emitter": "net7"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net5",
+          "Base": "net7",
+          "Emitter": "net7"
+        }
+      }
+    ]
+  }
+}

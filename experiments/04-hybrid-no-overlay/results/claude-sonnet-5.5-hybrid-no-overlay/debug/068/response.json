@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270501-4DSDjM84a4TYzs4CowLJ",
+  "object": "chat.completion",
+  "created": 1794270501,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm sorting out the circuit layout from the image: the op-amp sits at the top with its output joining the tops of two R2 resistors, the left one feeding the inverting input and the right one feeding the non-inverting input. Below each side, the resistors connect down to the emitters of the two BJTs. I'm also noting where R1 is labeled on the right side of the diagram.\n\nI'm checking the resistor connections: the right resistor links the op-amp's non-inverting input to the right emitter, and the left one links the inverting input to the other side. The bases and collectors all tie to ground, and the inputs line up with the nets I'd expect. Everything checks out, so there's nothing to change.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm sorting out the circuit layout from the image: the op-amp sits at the top with its output joining the tops of two R2 resistors, the left one feeding the inverting input and the right one feeding the non-inverting input. Below each side, the resistors connect down to the emitters of the two BJTs. I'm also noting where R1 is labeled on the right side of the diagram.\n\nI'm checking the resistor connections: the right resistor links the op-amp's non-inverting input to the right emitter, and the left one links the inverting input to the other side. The bases and collectors all tie to ground, and the inputs line up with the nets I'd expect. Everything checks out, so there's nothing to change.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1910,
+    "completion_tokens": 528,
+    "total_tokens": 2438,
+    "cost": 0.0091,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0091,
+      "upstream_inference_prompt_cost": 0.00382,
+      "upstream_inference_completions_cost": 0.00528
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 519,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

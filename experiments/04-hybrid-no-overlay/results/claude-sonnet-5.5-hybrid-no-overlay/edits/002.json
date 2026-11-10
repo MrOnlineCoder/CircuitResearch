@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Pos",
+      "net": "VDD",
+      "why": "The top of R connects to the V_DD supply rail, so it should not be a dangling net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,16 @@
+{"edits":[
+{"op":"set_pin","component":"M3","pin":"Gate","net":"bp","why":"BP net is separate from BPcas"},
+{"op":"set_pin","component":"M2","pin":"Gate","net":"bp"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"bp","why":"MPB4 drain ties to BP and RB2 top"},
+{"op":"set_pin","component":"R1","pin":"Pos","net":"bp"},
+{"op":"set_pin","component":"M1","pin":"Gate","net":"mir","why":"cascode mirror node, not BPcas"},
+{"op":"set_pin","component":"M4","pin":"Gate","net":"mir"},
+{"op":"set_pin","component":"M8","pin":"Drain","net":"mir"},
+{"op":"set_pin","component":"M15","pin":"Drain","net":"mir"},
+{"op":"set_pin","component":"R2","pin":"Neg","net":"bn","why":"RB1 bottom is the BN node, separate from BNcas"},
+{"op":"set_pin","component":"M12","pin":"Drain","net":"bn"},
+{"op":"set_pin","component":"M16","pin":"Gate","net":"bn"},
+{"op":"set_pin","component":"M19","pin":"Gate","net":"bn"},
+{"op":"set_pin","component":"M17","pin":"Gate","net":"bn"},
+{"op":"set_pin","component":"M18","pin":"Gate","net":"bn"}
+]}

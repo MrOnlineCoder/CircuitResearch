@@ -1,0 +1,21 @@
+{"edits":[
+{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"PMOS source is the top terminal tied to the VDD rail"},
+{"op":"set_pin","component":"M1","pin":"Drain","net":"net4","why":"M9 drain goes to the left rail node"},
+{"op":"set_pin","component":"M4","pin":"Source","net":"VDD"},
+{"op":"set_pin","component":"M4","pin":"Drain","net":"net4","why":"M7 drain goes to the left rail node"},
+{"op":"set_pin","component":"M2","pin":"Source","net":"VDD"},
+{"op":"set_pin","component":"M2","pin":"Drain","net":"netR","why":"M10 drain goes to the right rail node"},
+{"op":"set_pin","component":"M3","pin":"Source","net":"VDD"},
+{"op":"set_pin","component":"M3","pin":"Drain","net":"netR","why":"M8 drain goes to the right rail node"},
+{"op":"set_pin","component":"M4","pin":"Gate","net":"netR","why":"M7 gate is cross-coupled to the right node (Vout1); left and right nodes were wrongly merged"},
+{"op":"set_pin","component":"M5","pin":"Drain","net":"netR","why":"M6 drain is on the right rail"},
+{"op":"set_pin","component":"M8","pin":"Gate","net":"netR","why":"M3 gate is Vout1, the right node"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"net5","why":"M4 drain connects to the M6 source"},
+{"op":"set_pin","component":"M7","pin":"Source","net":"net7","why":"M4 source connects to the M2/M12 drain node"},
+{"op":"merge_nets","nets":["net6","net9"],"why":"M5 source connects to M3 drain"},
+{"op":"set_pin","component":"M9","pin":"Drain","net":"net7"},
+{"op":"set_pin","component":"M9","pin":"Gate","net":"vin2","why":"gate is Vin2"},
+{"op":"set_pin","component":"M10","pin":"Drain","net":"net7","why":"M12 drain joins the M2 drain node"},
+{"op":"set_pin","component":"M11","pin":"Gate","net":"vin1","why":"gate is Vin1"},
+{"op":"change_type","component":"I1","type":"Voltage","pins":{"Positive":"net12","Negative":"GND"},"why":"this is the Vref1 voltage source"}
+]}

@@ -1,0 +1,126 @@
+[
+  {
+    "edit": {
+      "op": "remove_component",
+      "component": "M7",
+      "why": "Spurious detection on the P5 drain wire; the real P7 is M9."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "tail",
+      "why": "P2 drain feeds the P5/P6 source tail, not the mirror gate net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "tail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Source",
+      "net": "tail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Body",
+      "net": "tail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "net6",
+      "why": "P7 source connects to the P5 drain."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "mir",
+      "why": "P7 drain connects to the N3 drain, which is the N3/N4 mirror node."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Drain",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Gate",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Gate",
+      "net": "mir"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "net14",
+      "why": "R1 is in series with C."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Neg",
+      "net": "net3",
+      "why": "The other end of C goes to OUT."
+    },
+    "ok": true,
+    "error": null
+  }
+]

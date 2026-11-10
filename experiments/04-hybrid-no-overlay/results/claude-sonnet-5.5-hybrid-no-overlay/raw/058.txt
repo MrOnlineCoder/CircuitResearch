@@ -1,0 +1,10 @@
+Reading the schematic:
+- The error amplifier has Vref on the − input and Vfb on the + input.
+- The pipeline has InN on net2 at (389, 339), which is the Vref side, and InP on net1 at (389, 456), which is the Vfb side. Both match the image.
+- M1 is a PMOS. Its source goes to Vin, and its drain goes to Vout.
+- The Vout net runs from the drain through R1, Co and I_load.
+- R1 connects Vout to the Vfb node, and R2 connects the Vfb node to ground.
+
+The pipeline's connections all match this, so there is nothing to fix.
+
+{"edits": []}

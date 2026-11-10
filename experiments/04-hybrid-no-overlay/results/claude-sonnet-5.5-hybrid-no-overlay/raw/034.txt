@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M9","pin":"Source","net":"GND","why":"The tail-current transistor (M5 in the image) has its source at ground. The pipeline tied the source to its own drain net (net8)."}]}

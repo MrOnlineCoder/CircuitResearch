@@ -1,0 +1,14 @@
+{"edits":[
+{"op":"set_pin","component":"M1","pin":"Gate","net":"enb","why":"ENB transistor gate is the ENB input, not the IB node"},
+{"op":"set_pin","component":"M6","pin":"Gate","net":"vn","why":"left diff-pair gate is VN"},
+{"op":"set_pin","component":"M5","pin":"Gate","net":"vp","why":"right diff-pair gate is VP"},
+{"op":"set_pin","component":"M6","pin":"Drain","net":"nA","why":"left diff drain goes to the M1 diode node and the M3 gate"},
+{"op":"set_pin","component":"M5","pin":"Drain","net":"nB","why":"right diff drain goes to the M2 diode node and the M4 gate"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"nA"},
+{"op":"set_pin","component":"M7","pin":"Gate","net":"nA"},
+{"op":"set_pin","component":"M8","pin":"Drain","net":"nB"},
+{"op":"set_pin","component":"M8","pin":"Gate","net":"nB"},
+{"op":"set_pin","component":"M9","pin":"Gate","net":"nA"},
+{"op":"set_pin","component":"M10","pin":"Gate","net":"nB"},
+{"op":"change_type","component":"M10","type":"NMOS","why":"bottom mirror transistor connected to AGND is an NMOS"}
+]}

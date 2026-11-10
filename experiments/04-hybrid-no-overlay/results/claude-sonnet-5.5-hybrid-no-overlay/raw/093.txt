@@ -1,0 +1,1 @@
+{"edits":[{"op":"change_type","component":"M6","type":"NMOS","pins":{"Drain":"net1","Gate":"net7","Source":"GND"},"why":"MO9 is an NMOS with its source at GND and its drain at VOUT"}]}

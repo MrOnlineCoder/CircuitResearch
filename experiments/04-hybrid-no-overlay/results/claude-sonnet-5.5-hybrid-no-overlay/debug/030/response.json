@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269715-5OfcnxnQTc7Xg7UvC8Qd",
+  "object": "chat.completion",
+  "created": 1794269715,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm going through the schematic components and their positions, and noting that the pipeline netlist labels some transistors differently, with what's called M1 in the pipeline being a PMOS on the right.\n\nI'm mapping the pipeline's transistor names onto the schematic's labels, and checking which nets each device's gate and drain land on. The left side looks like the gates of M5 and M7 tie to the same node as M1's and M3's drains, and the right side's cross-coupled gates reach the other drain net.\n\nChecking the remaining pipeline devices against their image counterparts, I'm confirming that the gate and drain nets line up for each one, with the PMOS pair and the NMOS pair both matching the expected connections.\n\nI'm checking the remaining devices for errors, including the arrow directions that tell PMOS from NMOS, and so far the gate and drain nets all check out.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the schematic components and their positions, and noting that the pipeline netlist labels some transistors differently, with what's called M1 in the pipeline being a PMOS on the right.\n\nI'm mapping the pipeline's transistor names onto the schematic's labels, and checking which nets each device's gate and drain land on. The left side looks like the gates of M5 and M7 tie to the same node as M1's and M3's drains, and the right side's cross-coupled gates reach the other drain net.\n\nChecking the remaining pipeline devices against their image counterparts, I'm confirming that the gate and drain nets line up for each one, with the PMOS pair and the NMOS pair both matching the expected connections.\n\nI'm checking the remaining devices for errors, including the arrow directions that tell PMOS from NMOS, and so far the gate and drain nets all check out.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3444,
+    "completion_tokens": 1064,
+    "total_tokens": 4508,
+    "cost": 0.017528,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.017528,
+      "upstream_inference_prompt_cost": 0.006888,
+      "upstream_inference_completions_cost": 0.01064
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1055,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

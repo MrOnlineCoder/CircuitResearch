@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269221-gMyd3QfD4JIVwUyvbb4g",
+  "object": "chat.completion",
+  "created": 1794269221,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the schematic: R3 sits in parallel with I1, with R3's top at net4 and its bottom at net5, which ties to -VSS, so that looks right. Next I'm confirming the sources of M1 and M2 both sit on net4 and the gates are joined to net3 with V1 positive, and then I'm starting on the drain nets, where M1's drain is net2 running toward R2.\n\nThe outputs at the drains need no components, and the current source's arrow points down with its input at the top, which checks out. Both resistors tie to VDD, so the schematic looks consistent overall.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the schematic: R3 sits in parallel with I1, with R3's top at net4 and its bottom at net5, which ties to -VSS, so that looks right. Next I'm confirming the sources of M1 and M2 both sit on net4 and the gates are joined to net3 with V1 positive, and then I'm starting on the drain nets, where M1's drain is net2 running toward R2.\n\nThe outputs at the drains need no components, and the current source's arrow points down with its input at the top, which checks out. Both resistors tie to VDD, so the schematic looks consistent overall.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQS2ggKEAgTGAI4AUIIdGhpbmtpbmcSDAv+pcRZqSCo4zXSFxoMC0isSUjDDgBXq0MDIjAFtIqPUhAGT3Lh0b35SIc5sscII3jdHsOLL1KCgNxWzWcb/eJJIOBtOBOoS2ZxTW8q9wd5YNxYev4w9ERneXED1nRv07uS839Tl7pAiab3Qv1ulPWaBJ3AqXEh4gt/1q2AJEbjazoZG5enJ5R/qo6dPjbiLD0siMCiXdA0c5gH27UJjcdYyj64qiYpeptJsA9ZbeRPKaFq1oO1QFHxndC68w4dUDjnvyxVwLptGzjEK03FI0o4kf3ZyjRVo0BgJ2ayNl9i30F+MKWbOA83ViO/Xu3gZi7wsmqtQEe4ywgIgcoVAprd8wexbeFEU1ogf/3X96YFmrpkiU4qP9jWAITj3M2q4+Ss5SKhT0rX2o79L+MvF5jR088Yy8vjOC/UeOgsa8329gCgTwEF6n8hY2fPYCrmcL8h/CRnj0OLOX1eQhwZB0SCYu3qbkNt1UxkCFeDCg6w19PIuITqpEhgDTOMZ2QjqwXjivx5LLHbGYaKA/hCBiIfRNui2Q9oUHU97dRz+wERBOm8vNiRymvgJ7CIGO2DHE4XsY8Ghb0pFbzAotWwJn2c+IbfW6nK2c0kh62fRZ6pGdRSqxc9pgpxDCwJkNSiUs8OaBWRn0rGYzyqrMPJj5Jw2+D6WVr+9ltpC4K3gAx0nkO+MRjLUi3Ao3P6tG4tFx43t0nn9sqmlihMUDY1woA5yQOfIZAdCjyqZKc4oc23d2Mg/txufHl5e+0BPEfPAGB5uqyU715ew4mtw+W9EowiwPJoQLp3+MqF1RGWLr81GUEutgrvLFKD6QE+rwdXw81NiCxrEXUlW5OqnrslRYZ5S/lo9b6JJXkNcxMru1DYgRlryz5xmLm+wtgYJVc4JEhJxYPMpWSYW7FHAM8J/JJQHZEwtiLuhWRLDN8H2M7aM0ZgCkJHy5Xn5zPiItGI1UgRz/SY90WybC23xcd0ztOBifSKP0sJ71yjJZjPsiqGAqlegzLb6QwxIIywNkb8EL0fCM9z7c4Bw3Z1bs6NMaA1y9e7QeWgsf1XEhlP5FVoDVpKXsh3twaQTpDYIriy5UKnClQTXCmGePz2qJhPqG80L28rarH9VZdKAbh6oip3/tC0tyZGhH96njpY6cfko+GwdCo0jdNO4y5kZ7Jud17qi8JDptW1SsOg0+bQ2wkX4Wk/DzfKbFkPM79Oq3gudcyD4zhE/Jdy3vDToqTrGRW9iDXNNkCJHqTDdgyLuAXorz5Btb1T8lE5eOIATx0zQVS6Z36YLf0fB9vrw0ghkn4RVZMXyZr+/NN7zu6VPp6jbUUOR/v+wEhW1nQGAjkTwAa6NNOprO2CSE4lmYqeYnHCx8S0B/L6ovlHDGXiClUeiVE4cv/3hFSAVphJrdlYo0aE2MFVF8J+G6dsZpr/9YK6wrje1O0+SAem4kTITdWFrY6+gn+GGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2585,
+    "completion_tokens": 230,
+    "total_tokens": 2815,
+    "cost": 0.00747,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00747,
+      "upstream_inference_prompt_cost": 0.00517,
+      "upstream_inference_completions_cost": 0.0023
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 221,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

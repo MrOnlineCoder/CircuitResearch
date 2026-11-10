@@ -1,0 +1,81 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "netY",
+      "why": "S4 drain goes to the right output node Y, not the left node X"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Drain",
+      "net": "netY",
+      "why": "M6 drain is on node Y"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "netY",
+      "why": "M5 gate is cross-coupled to Y"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "netY",
+      "why": "M4 drain is on node Y"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "netY",
+      "why": "M3 gate is cross-coupled to Y"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net4"
+      ],
+      "why": "all CK gates are one net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net9"
+      ],
+      "why": "the tail transistor gate is also CK"
+    },
+    "ok": true,
+    "error": null
+  }
+]

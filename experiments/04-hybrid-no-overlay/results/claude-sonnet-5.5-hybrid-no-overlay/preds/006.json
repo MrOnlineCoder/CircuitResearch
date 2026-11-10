@@ -1,0 +1,81 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "net2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Gate": "net2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "net1",
+                "InN": "net5",
+                "Out": "net2"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net3",
+                "Neg": "net6"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net5",
+                "Neg": "net7"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net3",
+                "Neg": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "GND",
+                "Emitter": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net6",
+                "Base": "GND",
+                "Emitter": "GND"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net7",
+                "Base": "GND",
+                "Emitter": "GND"
+            }
+        }
+    ]
+}

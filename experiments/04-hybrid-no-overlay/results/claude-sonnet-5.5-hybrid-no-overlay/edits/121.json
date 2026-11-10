@@ -1,0 +1,47 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "M33 source connects to the VDD rail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "net10",
+      "why": "M33 drain feeds M35 source"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net3",
+        "net8"
+      ],
+      "why": "M32 drain connects to M34 source (the line hops over the gate wire)"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "net15",
+      "why": "M36 source joins the M27 drain wire and the M38 drain; the M28 line only hops over it"
+    },
+    "ok": true,
+    "error": null
+  }
+]

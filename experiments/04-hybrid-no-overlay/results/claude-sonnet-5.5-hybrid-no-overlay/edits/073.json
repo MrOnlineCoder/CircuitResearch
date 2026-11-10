@@ -1,0 +1,242 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "netP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Drain",
+      "net": "netN"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "netN"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "netP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Drain",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Drain",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Pos",
+      "net": "netN"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C2",
+      "pin": "Pos",
+      "net": "netP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "netP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Source",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Drain",
+      "net": "netN"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Source",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Drain",
+      "net": "netP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Gate",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Drain",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M17",
+      "pin": "Drain",
+      "net": "netA"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M18",
+      "pin": "Drain",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M19",
+      "pin": "Drain",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M19",
+      "pin": "Gate",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M20",
+      "pin": "Drain",
+      "net": "netN"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M20",
+      "pin": "Gate",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M21",
+      "pin": "Gate",
+      "net": "netB"
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270284-w6NrpDztfvo817FTT7X4",
+  "object": "chat.completion",
+  "created": 1794270284,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working through the schematic's amplifier pinout: the top left input is the negative terminal, the bottom left is positive, and the outputs are Vout+ at top right and Vout- at bottom right. I'm now tracing the top connection of C2, which runs from the Vin- input node after C1 to the Vout+ output.\n\nI'm checking the rest of the connections: the load caps go from each output to ground, the input caps tie into the input nodes, and the amp pins line up with the right nets.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working through the schematic's amplifier pinout: the top left input is the negative terminal, the bottom left is positive, and the outputs are Vout+ at top right and Vout- at bottom right. I'm now tracing the top connection of C2, which runs from the Vin- input node after C1 to the Vout+ output.\n\nI'm checking the rest of the connections: the load caps go from each output to ground, the input caps tie into the input nodes, and the amp pins line up with the right nets.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2086,
+    "completion_tokens": 455,
+    "total_tokens": 2541,
+    "cost": 0.008722,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008722,
+      "upstream_inference_prompt_cost": 0.004172,
+      "upstream_inference_completions_cost": 0.00455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 446,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

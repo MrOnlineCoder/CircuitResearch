@@ -1,0 +1,119 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "net2",
+      "why": "The drain joins the diode-connected mirror node that feeds the gates of M15 and M16"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net10",
+        "net12"
+      ],
+      "why": "The source of the pipeline's M10 shares a node with the M14 drain, the M9 drain and the M15 drain, so it is not dangling"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "bias",
+      "why": "The bottom of R1 goes to the drain of the diode-connected bias transistor, not to ground"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Drain",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Gate",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "The gate is on the bias net; the drain is the separate net14"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "bias",
+      "why": "The bottom bias line runs to the M6/M7 gates and hops over the ground leads"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "bias"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Neg",
+      "net": "GND",
+      "why": "The capacitor bottom goes to a ground symbol"
+    },
+    "ok": true,
+    "error": null
+  }
+]

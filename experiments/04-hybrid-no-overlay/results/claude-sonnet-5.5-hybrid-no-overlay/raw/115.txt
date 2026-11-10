@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net3","net5"],"why":"The M1 and M2 sources each go to a VDD arrow, so they are the same supply net."},{"op":"merge_nets","nets":["net3","net7"],"why":"The third source also goes to a VDD arrow, so it joins the same supply net."}]}

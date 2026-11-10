@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "new_vin",
+      "why": "The gate of this input transistor (right-hand differential-pair device) connects to the vin wire, which runs from the vin terminal down to y\u2248370 and right to x\u2248520. It is not tied to the tail/source net net6."
+    },
+    "ok": true,
+    "error": null
+  }
+]

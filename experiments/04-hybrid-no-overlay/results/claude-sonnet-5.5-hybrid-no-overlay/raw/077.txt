@@ -1,0 +1,20 @@
+{"edits":[
+{"op":"set_pin","component":"Q2","pin":"Collector","net":"nY","why":"Q2 collector, base and Q9 base form one net with the Q1/Q2 collectors; it is not V+"},
+{"op":"set_pin","component":"Q2","pin":"Base","net":"nY"},
+{"op":"set_pin","component":"Q4","pin":"Base","net":"nY"},
+{"op":"set_pin","component":"Q6","pin":"Collector","net":"nY","why":"the collector joins the Q1/Q2 collector line; net6 is the non-inverting input at the base"},
+{"op":"set_pin","component":"Q6","pin":"Base","net":"net6"},
+{"op":"set_pin","component":"Q7","pin":"Collector","net":"nY"},
+{"op":"set_pin","component":"Q10","pin":"Base","net":"nZ","why":"Q3/Q4 base line is tied to the Q9 collector and the Q10 collector, not V+"},
+{"op":"set_pin","component":"Q11","pin":"Base","net":"nZ"},
+{"op":"set_pin","component":"Q4","pin":"Collector","net":"nZ"},
+{"op":"set_pin","component":"Q18","pin":"Collector","net":"nZ"},
+{"op":"set_pin","component":"R1","pin":"Neg","net":"nA","why":"the bias node of Q10/Q11 is separate from the net4 node at C1"},
+{"op":"set_pin","component":"Q18","pin":"Base","net":"nA"},
+{"op":"set_pin","component":"Q20","pin":"Collector","net":"nA"},
+{"op":"set_pin","component":"Q20","pin":"Base","net":"nA"},
+{"op":"set_pin","component":"Q14","pin":"Emitter","net":"new1","why":"Q17 emitter drives the Q22 base and R11; it is not the Q17 base node"},
+{"op":"set_pin","component":"Q16","pin":"Base","net":"new1"},
+{"op":"set_pin","component":"R11","pin":"Pos","net":"new1"},
+{"op":"change_type","component":"Q15","type":"NPN","pins":{"Collector":"net16","Base":"net12","Emitter":"net17"},"why":"Q20 is an NPN: collector to R10, emitter to V-"}
+]}

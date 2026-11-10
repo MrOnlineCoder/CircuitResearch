@@ -1,0 +1,14 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net4",
+        "net2"
+      ],
+      "why": "The VP1 gate line joins the gates of all three top PMOS devices (M2, M3, M1). The pipeline left M1's gate on a separate net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

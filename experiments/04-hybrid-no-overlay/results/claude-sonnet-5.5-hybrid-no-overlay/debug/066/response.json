@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270487-eV1MuJ1dwfMaYyYv5Hmm",
+  "object": "chat.completion",
+  "created": 1794270487,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working out the actual circuit from the schematic and comparing it against the pipeline labels. The PMOS pair at the top is a current mirror, with the left device diode-connected at its drain and gate, and the labels don't line up with the names on the schematic, so I'm matching positions instead.\n\nI'm checking the rest of the net connections against the labels. The right PMOS gate ties to the left device's drain, and the M6 gate sits on net1, with the output on net3 and the source on VDD. Next I'm mapping the NMOS pair and the tail wiring, including where the \"+\" input wire crosses the tail.\n\nI'm checking the remaining connections: the + input gate, the cap to ground, and the missing bodies all look fine. I'm also confirming that the M5 and M4 sources both sit on net5 and that the tail reaches the M5 drain, which it does.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out the actual circuit from the schematic and comparing it against the pipeline labels. The PMOS pair at the top is a current mirror, with the left device diode-connected at its drain and gate, and the labels don't line up with the names on the schematic, so I'm matching positions instead.\n\nI'm checking the rest of the net connections against the labels. The right PMOS gate ties to the left device's drain, and the M6 gate sits on net1, with the output on net3 and the source on VDD. Next I'm mapping the NMOS pair and the tail wiring, including where the \"+\" input wire crosses the tail.\n\nI'm checking the remaining connections: the + input gate, the cap to ground, and the missing bodies all look fine. I'm also confirming that the M5 and M4 sources both sit on net5 and that the tail reaches the M5 drain, which it does.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2531,
+    "completion_tokens": 757,
+    "total_tokens": 3288,
+    "cost": 0.012632,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012632,
+      "upstream_inference_prompt_cost": 0.005062,
+      "upstream_inference_completions_cost": 0.00757
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 748,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

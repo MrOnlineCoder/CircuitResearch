@@ -1,0 +1,35 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net5",
+        "net4"
+      ],
+      "why": "M2 drain, Cc right plate and the output node (509,145) are one net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Body",
+      "net": "net3",
+      "why": "M2 body goes to the VDD/source rail, not the output"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M5",
+      "pin": "Body",
+      "why": "The body pin is a spurious dangling wire"
+    },
+    "ok": true,
+    "error": null
+  }
+]

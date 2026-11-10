@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269378-N8G1NbMUhsJGZThaAVVB",
+  "object": "chat.completion",
+  "created": 1794269378,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm reading the schematic: M1 and M2 are PMOS with sources on VDD and their gates tied together to M2's drain. M1's drain is VREF, which goes to Q1's collector and base, so Q1 is diode-connected and Q2's base shares that same net.\n\nI'm tracing the remaining connections: Q1's emitter runs down to the X node between R1 and R2, with R1 linking Q2's emitter to that node and R2 running from X to ground. I'm checking the net labels on those components and confirming they line up, and the gate-to-drain wiring on the PMOS pair also checks out.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm reading the schematic: M1 and M2 are PMOS with sources on VDD and their gates tied together to M2's drain. M1's drain is VREF, which goes to Q1's collector and base, so Q1 is diode-connected and Q2's base shares that same net.\n\nI'm tracing the remaining connections: Q1's emitter runs down to the X node between R1 and R2, with R1 linking Q2's emitter to that node and R2 running from X to ground. I'm checking the net labels on those components and confirming they line up, and the gate-to-drain wiring on the PMOS pair also checks out.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2040,
+    "completion_tokens": 449,
+    "total_tokens": 2489,
+    "cost": 0.00857,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00857,
+      "upstream_inference_prompt_cost": 0.00408,
+      "upstream_inference_completions_cost": 0.00449
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 440,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

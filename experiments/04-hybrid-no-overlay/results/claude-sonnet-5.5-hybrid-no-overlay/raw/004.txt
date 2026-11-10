@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net1","net2"],"why":"The bottom of RD connects to the Vout node and the drain of the cascode transistor (the pipeline's M1). The pipeline left it dangling."}]}

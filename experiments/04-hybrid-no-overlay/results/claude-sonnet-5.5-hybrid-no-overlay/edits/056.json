@@ -1,0 +1,24 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "The drain of the top-right PMOS (M11) goes to the source of the PMOS below it (M6). It must not be merged with the left-side net, which joins the other top PMOS (M10) drain to the source of M7."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "new1",
+      "why": "This source joins the right-hand top PMOS drain (M11) on its own net, separate from the left-hand net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

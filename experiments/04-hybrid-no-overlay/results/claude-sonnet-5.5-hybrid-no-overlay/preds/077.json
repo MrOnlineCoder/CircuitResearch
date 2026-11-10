@@ -1,0 +1,248 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "nY",
+                "Base": "nY",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net2",
+                "Base": "net2",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "nZ",
+                "Base": "nY",
+                "Emitter": "net3"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net3",
+                "Base": "net1",
+                "Emitter": "net5"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "nY",
+                "Base": "net6",
+                "Emitter": "net7"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "nY",
+                "Base": "net8",
+                "Emitter": "net9"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net2",
+                "Neg": "nA"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net5",
+                "Emitter": "net10"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net11",
+                "Neg": "net1"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net1",
+                "Base": "net11",
+                "Emitter": "net12"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "nZ",
+                "Emitter": "net9"
+            }
+        },
+        {
+            "component_type": "PNP",
+            "port_connection": {
+                "Collector": "net13",
+                "Base": "nZ",
+                "Emitter": "net7"
+            }
+        },
+        {
+            "component_type": "Cap",
+            "port_connection": {
+                "Pos": "net1",
+                "Neg": "net4"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net5",
+                "Neg": "net10"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net11",
+                "Neg": "net12"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net12",
+                "Base": "net4",
+                "Emitter": "net14"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net3",
+                "Base": "net13",
+                "Emitter": "net15"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net10",
+                "Neg": "net16"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net12",
+                "Base": "net14",
+                "Emitter": "new1"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net16",
+                "Base": "net12",
+                "Emitter": "net17"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "new1",
+                "Emitter": "net17"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net4",
+                "Base": "net15",
+                "Emitter": "net18"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "nZ",
+                "Base": "nA",
+                "Emitter": "net19"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "net13",
+                "Base": "net15",
+                "Emitter": "net20"
+            }
+        },
+        {
+            "component_type": "NPN",
+            "port_connection": {
+                "Collector": "nA",
+                "Base": "nA",
+                "Emitter": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net20",
+                "Neg": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net14",
+                "Neg": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net15",
+                "Neg": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net19",
+                "Neg": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "net18",
+                "Neg": "net17"
+            }
+        },
+        {
+            "component_type": "Res",
+            "port_connection": {
+                "Pos": "new1",
+                "Neg": "net17"
+            }
+        }
+    ]
+}

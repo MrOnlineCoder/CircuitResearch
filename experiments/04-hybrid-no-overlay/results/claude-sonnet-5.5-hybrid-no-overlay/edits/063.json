@@ -1,0 +1,26 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M16",
+      "pin": "Gate",
+      "net": "net17",
+      "why": "M16's gate is joined to M15's gate/drain (net17) by the wire between x=380 and x=392, not to its own drain net13."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "swap_pins",
+      "component": "M7",
+      "pins": [
+        "Drain",
+        "Source"
+      ],
+      "why": "M7's source arrow is on the right, toward net7, so the source is net7 and the drain is net12. This is mirrored with M6."
+    },
+    "ok": true,
+    "error": null
+  }
+]

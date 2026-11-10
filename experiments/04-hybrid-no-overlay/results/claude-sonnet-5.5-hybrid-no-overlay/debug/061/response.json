@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270308-8kqhuH0i8122JBgaMnVT",
+  "object": "chat.completion",
+  "created": 1794270308,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm comparing the schematic against the netlist, starting with the transistor placement. In the image M1 sits on the left and M2 on the right, but the pipeline labels put M1 on the right, so the names are swapped relative to the picture. I'm checking whether that matters for the connections, and I'm now reading off the drain and source nets for the right-hand device.\n\nI'm checking the op-amp inputs and the resistor and diode connections against the netlist, and each one lines up with the schematic even though the labels are swapped. The PMOS source is at the top, the diode directions look right, and the ground net matches GND, so everything seems consistent.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm comparing the schematic against the netlist, starting with the transistor placement. In the image M1 sits on the left and M2 on the right, but the pipeline labels put M1 on the right, so the names are swapped relative to the picture. I'm checking whether that matters for the connections, and I'm now reading off the drain and source nets for the right-hand device.\n\nI'm checking the op-amp inputs and the resistor and diode connections against the netlist, and each one lines up with the schematic even though the labels are swapped. The PMOS source is at the top, the diode directions look right, and the ground net matches GND, so everything seems consistent.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2690,
+    "completion_tokens": 560,
+    "total_tokens": 3250,
+    "cost": 0.01098,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01098,
+      "upstream_inference_prompt_cost": 0.00538,
+      "upstream_inference_completions_cost": 0.0056
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 551,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "net3",
+      "why": "The middle resistor's bottom is node N, which is separate from M"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InN",
+      "net": "net3",
+      "why": "The inverting input connects to node N, which joins R2's bottom and R3's top"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M1",
+      "type": "PNP",
+      "pins": {
+        "Emitter": "net4",
+        "Base": "GND",
+        "Collector": "GND"
+      },
+      "why": "Q2 is a diode-connected PNP with base and collector grounded and the emitter at R3's bottom"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M2",
+      "type": "PNP",
+      "pins": {
+        "Emitter": "net2",
+        "Base": "GND",
+        "Collector": "GND"
+      },
+      "why": "Q1 is a diode-connected PNP with base and collector grounded and the emitter at node M"
+    },
+    "ok": true,
+    "error": null
+  }
+]

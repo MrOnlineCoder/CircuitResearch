@@ -1,0 +1,289 @@
+{
+  "id": "071",
+  "variant": "v2",
+  "pipeline_seconds": 0.175,
+  "image_size": [
+    752,
+    544
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.909,
+      "box": [
+        143,
+        100,
+        193,
+        163
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net1",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          194,
+          132
+        ],
+        "Source": [
+          148,
+          98
+        ],
+        "Drain": [
+          148,
+          164
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.902,
+      "box": [
+        293,
+        101,
+        341,
+        162
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net1",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          290,
+          132
+        ],
+        "Source": [
+          336,
+          98
+        ],
+        "Drain": [
+          336,
+          164
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage-lines",
+      "confidence": 0.544,
+      "box": [
+        612,
+        233,
+        654,
+        271
+      ],
+      "pins": {
+        "Positive": "net4",
+        "Negative": "net5"
+      },
+      "pin_xy": {
+        "Positive": [
+          628,
+          230
+        ],
+        "Negative": [
+          628,
+          274
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.928,
+      "box": [
+        332,
+        257,
+        381,
+        318
+      ],
+      "pins": {
+        "Drain": "net6",
+        "Gate": "net7",
+        "Source": "net3"
+      },
+      "pin_xy": {
+        "Gate": [
+          382,
+          287
+        ],
+        "Source": [
+          336,
+          254
+        ],
+        "Drain": [
+          350,
+          253
+        ]
+      }
+    },
+    {
+      "id": "M4",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.92,
+      "box": [
+        105,
+        257,
+        153,
+        319
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net8",
+        "Source": "net9"
+      },
+      "pin_xy": {
+        "Gate": [
+          102,
+          287
+        ],
+        "Source": [
+          148,
+          320
+        ],
+        "Drain": [
+          148,
+          254
+        ]
+      }
+    },
+    {
+      "id": "M5",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.919,
+      "box": [
+        199,
+        397,
+        246,
+        458
+      ],
+      "pins": {
+        "Drain": "net9",
+        "Gate": "net10",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          196,
+          426
+        ],
+        "Source": [
+          242,
+          460
+        ],
+        "Drain": [
+          242,
+          394
+        ]
+      }
+    },
+    {
+      "id": "V2",
+      "type": "Voltage",
+      "detector_label": "voltage-lines",
+      "confidence": 0.948,
+      "box": [
+        139,
+        447,
+        190,
+        487
+      ],
+      "pins": {
+        "Positive": "net10",
+        "Negative": "GND"
+      },
+      "pin_xy": {
+        "Positive": [
+          164,
+          444
+        ],
+        "Negative": [
+          164,
+          488
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M1: 1 extra line(s) touch the box but were not assigned to any pin, at (163, 164).",
+    "V1.Positive: attached through a very small blob, maybe text rather than a wire (net4).",
+    "V1.Negative: attached through a very small blob, maybe text rather than a wire (net5).",
+    "M3: 1 extra line(s) touch the box but were not assigned to any pin, at (336, 320).",
+    "M4: 1 extra line(s) touch the box but were not assigned to any pin, at (156, 252).",
+    "M5: 1 extra line(s) touch the box but were not assigned to any pin, at (250, 392).",
+    "net4: only one pin (V1.Positive) and no input/output port - a dangling wire, or it should join another net.",
+    "net5: only one pin (V1.Negative) and no input/output port - a dangling wire, or it should join another net.",
+    "net6: only one pin (M3.Drain) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net1",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net1",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net4",
+          "Negative": "net5"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net6",
+          "Gate": "net7",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net8",
+          "Source": "net9"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net9",
+          "Gate": "net10",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net10",
+          "Negative": "GND"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,569 @@
+{
+  "id": "127",
+  "variant": "v2",
+  "pipeline_seconds": 1.963,
+  "image_size": [
+    3275,
+    2575
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.896,
+      "box": [
+        493,
+        204,
+        725,
+        499
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net1",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          373,
+          491
+        ],
+        "Source": [
+          608,
+          50
+        ],
+        "Drain": [
+          701,
+          127
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.911,
+      "box": [
+        2480,
+        204,
+        2712,
+        499
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net3",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          2833,
+          492
+        ],
+        "Source": [
+          2596,
+          50
+        ],
+        "Drain": [
+          2513,
+          127
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.905,
+      "box": [
+        1856,
+        205,
+        2082,
+        499
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net4",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          1888,
+          523
+        ],
+        "Source": [
+          1968,
+          50
+        ],
+        "Drain": [
+          1981,
+          126
+        ]
+      }
+    },
+    {
+      "id": "M4",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.927,
+      "box": [
+        1121,
+        205,
+        1348,
+        499
+      ],
+      "pins": {
+        "Drain": "VDD",
+        "Gate": "net4",
+        "Source": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          1315,
+          525
+        ],
+        "Source": [
+          1234,
+          50
+        ],
+        "Drain": [
+          1222,
+          126
+        ]
+      }
+    },
+    {
+      "id": "M5",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.919,
+      "box": [
+        2478,
+        749,
+        2713,
+        1045
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net3",
+        "Source": "net5"
+      },
+      "pin_xy": {
+        "Gate": [
+          2834,
+          756
+        ],
+        "Source": [
+          2437,
+          897
+        ],
+        "Drain": [
+          2444,
+          611
+        ]
+      }
+    },
+    {
+      "id": "M6",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.913,
+      "box": [
+        500,
+        750,
+        730,
+        1049
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net1",
+        "Source": "net6"
+      },
+      "pin_xy": {
+        "Gate": [
+          377,
+          755
+        ],
+        "Source": [
+          758,
+          900
+        ],
+        "Drain": [
+          764,
+          612
+        ]
+      }
+    },
+    {
+      "id": "M7",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.9,
+      "box": [
+        2283,
+        1067,
+        2516,
+        1365
+      ],
+      "pins": {
+        "Drain": "net7",
+        "Gate": "net4",
+        "Source": "net8"
+      },
+      "pin_xy": {
+        "Gate": [
+          2180,
+          1215
+        ],
+        "Source": [
+          2665,
+          1504
+        ],
+        "Drain": [
+          2498,
+          1463
+        ]
+      }
+    },
+    {
+      "id": "M8",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.91,
+      "box": [
+        692,
+        1067,
+        930,
+        1364
+      ],
+      "pins": {
+        "Drain": "net9",
+        "Gate": "net4",
+        "Source": "net10"
+      },
+      "pin_xy": {
+        "Gate": [
+          1033,
+          1216
+        ],
+        "Source": [
+          718,
+          1467
+        ],
+        "Drain": [
+          653,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "M9",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.915,
+      "box": [
+        2473,
+        1562,
+        2713,
+        1863
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "net7",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          2498,
+          1463
+        ],
+        "Source": [
+          2382,
+          1966
+        ],
+        "Drain": [
+          2498,
+          1966
+        ]
+      }
+    },
+    {
+      "id": "M10",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.903,
+      "box": [
+        2167,
+        1563,
+        2403,
+        1863
+      ],
+      "pins": {
+        "Drain": "GND",
+        "Gate": "net11",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          2111,
+          1786
+        ],
+        "Source": [
+          2382,
+          1966
+        ],
+        "Drain": [
+          2498,
+          1966
+        ]
+      }
+    },
+    {
+      "id": "M11",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.904,
+      "box": [
+        451,
+        1563,
+        683,
+        1863
+      ],
+      "pins": {
+        "Drain": "net10",
+        "Gate": "GND",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          665,
+          1967
+        ],
+        "Source": [
+          779,
+          1965
+        ],
+        "Drain": [
+          719,
+          1535
+        ]
+      }
+    },
+    {
+      "id": "M12",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.905,
+      "box": [
+        760,
+        1564,
+        992,
+        1861
+      ],
+      "pins": {
+        "Drain": "net10",
+        "Gate": "net12",
+        "Source": "GND"
+      },
+      "pin_xy": {
+        "Gate": [
+          1050,
+          1785
+        ],
+        "Source": [
+          665,
+          1966
+        ],
+        "Drain": [
+          719,
+          1535
+        ]
+      }
+    },
+    {
+      "id": "I1",
+      "type": "Current",
+      "detector_label": "current",
+      "confidence": 0.654,
+      "box": [
+        946,
+        1906,
+        1170,
+        2128
+      ],
+      "pins": {
+        "In": "net12",
+        "Out": "GND"
+      },
+      "pin_xy": {
+        "In": [
+          1050,
+          1785
+        ],
+        "Out": [
+          964,
+          2222
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage",
+      "confidence": 0.712,
+      "box": [
+        1994,
+        1906,
+        2216,
+        2129
+      ],
+      "pins": {
+        "Positive": "net11",
+        "Negative": "GND"
+      },
+      "pin_xy": {
+        "Positive": [
+          2111,
+          1786
+        ],
+        "Negative": [
+          2204,
+          2221
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M1: 1 extra line(s) touch the box but were not assigned to any pin, at (761, 593).",
+    "M2: 1 extra line(s) touch the box but were not assigned to any pin, at (2445, 593).",
+    "M5: 5 extra line(s) touch the box but were not assigned to any pin, at (2475, 927), (2499, 1056), (2579, 1229), (2276, 1216), (2628, 1247).",
+    "M6: 5 extra line(s) touch the box but were not assigned to any pin, at (805, 926), (714, 1057), (654, 1230), (934, 1216), (690, 1246).",
+    "M7: 10 extra line(s) touch the box but were not assigned to any pin, at (2437, 897), (2718, 898), (2475, 927), (2499, 1056), (2578, 1234), (2627, 1261), (2167, 1504), (2212, 1532), (2247, 1532), (2712, 1531).",
+    "M8: 10 extra line(s) touch the box but were not assigned to any pin, at (758, 900), (492, 898), (805, 926), (714, 1057), (690, 1246), (527, 1501), (943, 1501), (573, 1529), (989, 1529), (1024, 1529).",
+    "M9: 4 extra line(s) touch the box but were not assigned to any pin, at (2665, 1504), (2713, 1531), (2438, 1626), (2826, 1712).",
+    "M10: 6 extra line(s) touch the box but were not assigned to any pin, at (2498, 1463), (2167, 1504), (2212, 1532), (2247, 1532), (2438, 1626), (2002, 1887).",
+    "M11: 3 extra line(s) touch the box but were not assigned to any pin, at (527, 1501), (573, 1529), (337, 1712).",
+    "M12: 7 extra line(s) touch the box but were not assigned to any pin, at (555, 1477), (943, 1501), (573, 1529), (989, 1529), (1024, 1529), (1171, 1890), (779, 1964).",
+    "I1: 1 extra line(s) touch the box but were not assigned to any pin, at (1171, 1890).",
+    "V1: 1 extra line(s) touch the box but were not assigned to any pin, at (2002, 1887).",
+    "net5: only one pin (M5.Source) and no input/output port - a dangling wire, or it should join another net.",
+    "net6: only one pin (M6.Source) and no input/output port - a dangling wire, or it should join another net.",
+    "net8: only one pin (M7.Source) and no input/output port - a dangling wire, or it should join another net.",
+    "net9: only one pin (M8.Drain) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net1",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net3",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net4",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "VDD",
+          "Gate": "net4",
+          "Source": "net2"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net3",
+          "Source": "net5"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net1",
+          "Source": "net6"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net7",
+          "Gate": "net4",
+          "Source": "net8"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net9",
+          "Gate": "net4",
+          "Source": "net10"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "net7",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "GND",
+          "Gate": "net11",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net10",
+          "Gate": "GND",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net10",
+          "Gate": "net12",
+          "Source": "GND"
+        }
+      },
+      {
+        "component_type": "Current",
+        "port_connection": {
+          "In": "net12",
+          "Out": "GND"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net11",
+          "Negative": "GND"
+        }
+      }
+    ]
+  }
+}

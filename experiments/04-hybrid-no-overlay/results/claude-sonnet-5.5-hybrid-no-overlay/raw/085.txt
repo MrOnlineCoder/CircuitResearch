@@ -1,0 +1,1 @@
+{"edits":[{"op":"merge_nets","nets":["net6","net4"],"why":"M1's body arrow is labeled V_SS, so it connects to the same V_SS supply as M2's source."}]}

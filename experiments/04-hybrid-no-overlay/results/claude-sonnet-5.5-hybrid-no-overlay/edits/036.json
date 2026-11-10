@@ -1,0 +1,46 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "vss",
+      "why": "Mx0 source goes to VSS, not the bias node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Source",
+      "net": "vss",
+      "why": "the diode-connected mirror device has its source on VSS"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "vss",
+      "why": "Mx2 drain goes down to the VSS rail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "vss",
+      "why": "Mx1 drain goes down to the VSS rail"
+    },
+    "ok": true,
+    "error": null
+  }
+]

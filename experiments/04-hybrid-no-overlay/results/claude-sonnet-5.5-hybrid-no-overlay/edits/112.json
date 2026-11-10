@@ -1,0 +1,37 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Source",
+      "net": "net7",
+      "why": "The left input NMOS source goes to the tail node shared with M5, not to the mirror gate net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net4"
+      ],
+      "why": "The mirror gates are tied to the left PMOS drain, which is also the M4 drain (diode-connected)."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net3",
+        "net5"
+      ],
+      "why": "Both are labeled Vo: the left gate input connects to the output node."
+    },
+    "ok": true,
+    "error": null
+  }
+]

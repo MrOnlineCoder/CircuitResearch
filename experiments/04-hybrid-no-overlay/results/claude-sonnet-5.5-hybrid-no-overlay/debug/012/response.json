@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269373-cVttbIHH5mnMsaz0z2Xq",
+  "object": "chat.completion",
+  "created": 1794269373,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm reading the schematic from the top: V1 feeds R1 into a node (net1), which goes through R2 to the output and also connects to the inverting input. The left resistor at x 93-175 looks like R1 with its positive side on V1's net and negative side on net1, and the pipeline's R1 at [362,48,444,85] is wired differently, from net1 to the output net. The naming mismatch doesn't matter, so I'm moving on to A1, with its non-inverting input on net4, inverting input on net1, and its output.\n\nI'm checking the pin assignments against the wiring: the pipeline's R1 runs from net1 to net2, and the output wire drops from R2's right end to the op amp output at x=490. The other connections, R3 from V2 to net4 and R4 from net4 to ground, look right too.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm reading the schematic from the top: V1 feeds R1 into a node (net1), which goes through R2 to the output and also connects to the inverting input. The left resistor at x 93-175 looks like R1 with its positive side on V1's net and negative side on net1, and the pipeline's R1 at [362,48,444,85] is wired differently, from net1 to the output net. The naming mismatch doesn't matter, so I'm moving on to A1, with its non-inverting input on net4, inverting input on net1, and its output.\n\nI'm checking the pin assignments against the wiring: the pipeline's R1 runs from net1 to net2, and the output wire drops from R2's right end to the op amp output at x=490. The other connections, R3 from V2 to net4 and R4 from net4 to ground, look right too.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSgAkKEAgTGAI4AUIIdGhpbmtpbmcSDDXJ9JU6HeygOqqRRhoMpWf70v8vbkntxzzRIjCyshNScDTE/hgvEWtHsUeWy4lBRezQXqRW4lfRiwB+xerlsI+IAV7ghgmgOkUoQmkqnQjkObTJqSOSU8KECRTGlmkUv6xLcJj9p9ev9ynnbqD5VxVv75uwadAmNpB3lDWjcIaSW0sS9IRffSiT8Rz5mFzPgda2CRCQdNF0yNhorFriWmYKKacVmh6rDyfTqV3JuqmqqoO55Pwxtwl58OVj2PaZ3aqEcCP4lyrHur1XrMEbahQCcOX3k5qiXCKgIe+LqL/irfjv33FeS43dsLlp4JHSJ+1jwULn1AS/oIT42yQtLidpyco96ynKzsN/WZhC/cggLRKwbK6gHk/R8GqI47UptyGX3OqTRjGiIAXCvSah1YjcYttvWG6tUKYi+UVUP6lzoTpwhq/Wacm4Up5MejC7g8cF81Gb40ItUFiGsTOwA6AapnklLFpgyD1vHPl3xu9DjnKXfNMiCNaBwW+6ldzQHGAfRQe4ZDC0MctbMholi6rcl5Q48K0XwubmopiNHfYXxHNzpe4J6IcBjI6qsXFz77yVLnjwqgSye2KybUdm85aOyjCsavcDRMJAvPHlYsu3zb3seRGSevp69ZY9XmQUF6cj3VpU4QzVD0cFF4qyl/ZhJmnXJhUwzfVrh+TuKQ29if/SaR+wIormsy9zGFFODMnufI0zbNg5M5Imf8Ws59CEd4bnV6C0dyfxltAGNplL1hM+6mNcbMQZjTrTL5jMQRI40lm23XTmWqPENEY8FXe6X3QulPm5TFRUwKToU4GzsJteCjzxuuYcsmZiMLt3plM4utHugFRwt9qum2s7c/zWmB7de/Ki1Gb16MCnvVx8xJWiEg95Ap3GXffvZMC7cn0A63g8MiqwJMXctFP+0R78M6MLTGJSoCdI4isd9iJjFaZ9voDpRXjTbTzB9bjbDtBhL/OfX7lwksAi1YLBGq/RJyE/G2Zj+I/WEcGA8mQ1IRJRcgNDt+4NX+nC9VA7hCCWbgVcVcSdu9l1DpKGgvLMkbzQgcPC9r+PugTbYEmTUCSCiOAJAa4qZIm4+wBotKJ159Ly6/gMxx0EycXDyLmi3HX574V5FFuppIxCwcmCln81EpS8ky4ekVAdh94CUEVoFqeGPMCthGJvrKZhqSN+1fZ/YV3nUjq8qURCUgW13K+1oM8SZUpb73XQFxV8SyenLGMoEbyf0ObMZHJItkX4EDmH+3PbkCkiExvGAG5fFRhM9KGmliPpXc5loFc3Anui9Jth9BwroUTZDAtqBxKs5khTMwz0+rzkNn1+kaVHsbLXcIhTx7ZQHZcYbGKj1drCbUAdvMBwZBbLdBVqrCleE/RO8OQ1UwtJldHo5SN5hL7D+Uic7E1JKRMzOH+e0PlgMGk9OZVqpJihcPU1YVLS2WYaaxv8P/Z4jcpX8IFxk1phNy7ZtUVBgvj38DLYgooEaMJJdwueOj7w6ECH7Wow1Ee4qoYBIc0GoCcYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2120,
+    "completion_tokens": 264,
+    "total_tokens": 2384,
+    "cost": 0.00688,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00688,
+      "upstream_inference_prompt_cost": 0.00424,
+      "upstream_inference_completions_cost": 0.00264
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 255,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

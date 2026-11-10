@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270793-vXpkOOUxBsun9RHVX2hC",
+  "object": "chat.completion",
+  "created": 1794270793,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working through the amplifier wiring: VREF on the negative input, the feedback node on the positive input, and the output driving the PMOS gate. Then I'm checking the pipeline nets, where A1's inputs are confirmed and M1's drain and source positions are being pinned down.\n\nI'm checking the remaining connections: R1 runs between net1 and net4, R2 from net1 to ground, and the capacitor and current source both sit on net4 to ground. VREF only feeds the negative input of the amplifier, and the PMOS gate is a bubble-marked device, so everything looks consistent.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working through the amplifier wiring: VREF on the negative input, the feedback node on the positive input, and the output driving the PMOS gate. Then I'm checking the pipeline nets, where A1's inputs are confirmed and M1's drain and source positions are being pinned down.\n\nI'm checking the remaining connections: R1 runs between net1 and net4, R2 from net1 to ground, and the capacitor and current source both sit on net4 to ground. VREF only feeds the negative input of the amplifier, and the PMOS gate is a bubble-marked device, so everything looks consistent.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSpQoKEAgTGAI4AUIIdGhpbmtpbmcSDJL7chRuLXVfadSYvRoM1k1P5xLMjO3TivjsIjDZLme31mHwzVA2QTumA6GNu1+Dp7oRdIuKlEAirPrDvI3R4aE16RB9U0DC4kwIYT4qwgl3lqufvPmkDJ0rBvUGC30KfYyc0gINVsN5cIaz+ubUJhli7PdNyvVtaSXf3EilSfR8rB40aTwTB+i8BGrkrAeNB9r/p3eRKpisyq5tt/GIHZ1aGwAM62uHEG8pO0dRECSM7xeRP0+iR7yub++wpnR92l5L5IRm7fseMh/T3E6vRMqT62J6jptSpne6CTb1ruVMyzwX/isS/v9CWnzZchcL0N8KjKfsdZfL6+AKIu4wigLO0Hj5lm8hRlazvAIE18tfUR74JAjoBoaOJ/jU8u2YuGyJf6eMRaoO/5MYAmAmg0AAa8NMLYcV7AIKAFL17MuRmg4X6Qi1Y7hC0w+6yw973+OOLj++5KAwH3tg6LeHH5aFzz2CudD1J1Xq0Fq8lkUH0z7QGqr2Ta4/LeJE94BZLdssCc3iqBNZUfQlmChRbdZou8X8EkobbsQ62qC6RPHz/fQ2tnABemKI6EQl1qn1XYHKnYCC+5d9hgho3ylYYHbbBSsYdnuqFvmV1VEuNcJpoCw1k9gWOYbHkzjNVlo6xtpy4W9HZpvT5ABVgTMgFuKsWbcgQ2zNlUWnPj8xVBsXao+h7bLkHHruAzBaXE/+NhMESU6/m6JAB8tc2p/3GzIKfzX6836WtMsLAGLWvxodgVO5ToQAFXxwqBIfHgSYXH3MtxNft6gTOdiHHidCsH4qjrxRdJJ1UipHu+QTwKy9kiF5FOPxs617zt1v8aDMomEahlielrYQuwUtNyPocOzSYlPB/Ld5b2vzh/Oi3QL1OjR07L/vDgrUiXupZBmH97mHnCS8+Hhd3bWqUc5Ufuq8VogPShI0qXjwdIe3pfXjCVCnS7se4qwXclsAB88FNgp/urHfhCejLYn5Sj9OePb0MzYaKaOVTRm+R15HQ8foK5fZHyt3+Qn3/7t4nltYgOs/illxqNLjaE0lVI666AbfiBm/D3Lu5/MQ1G7ePBZVDSjlyP7D8lOD3lSE2t47eYOqKk7nuJvXJ8z2iKIuKfEdy2K9SFxeYMtLLPmc+sfKb8g6GwdYWHaPw2/ePNrB53qJb+oLBsUPdckrTtrcyu9CNQqgA+WhqOgPHX3doP1/hnSxCjDjHaBDNmradUag4CGi26bm7IpsaRx29kMDhOX1nJ3CDgfb5nm4bfT6DsPH9XC/QTP21mmp8yavq5rh+2WzvfuEv6Rkirq4H/wFMDNdeUBCdwbvKTR5qn4qR2OCdnTTW9CSXeL5xRMC2dkzTvOo8vMTJL1LtSGEwtHP2XuPfjkF2d6NFBG9t43J3fP1XPpWHFBXYY04XWw+nyOVNzv5tnPiG0TLdYCTX5QOB/22Ijdz6zJDi73GNV1sCqKwobek9L0UbZTkVKyAJbLRR30YDbzZPtk0+voWeieHIaBkh/zBpATwpj/0KVMJtyFv/qElU3yai6Z1Sx0fYCkCrD6iyXL+pOa8Szr5pCHV9bIuvxfEp3gYh6Hoh6Etzsmixgc07ltPEBUu/zmhgp1IQEpeH03aKICo85u/KM+jiIHUSLOgPqvVM/QKacq2bC3RNyPs/1A2Y8e6La2Iduf6CxvuW9hdHrnqPZHRqgOWfYvFO7a/crbg+By4kTKX7kN8ieSGI00+pQ/2BMdzaPkBQPAYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1850,
+    "completion_tokens": 314,
+    "total_tokens": 2164,
+    "cost": 0.00684,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00684,
+      "upstream_inference_prompt_cost": 0.0037,
+      "upstream_inference_completions_cost": 0.00314
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 305,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

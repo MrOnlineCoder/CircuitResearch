@@ -1,0 +1,40 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M1",
+      "type": "PMOS",
+      "pins": {
+        "Drain": "net5",
+        "Source": "net4",
+        "Gate": "net3",
+        "Body": "net5"
+      },
+      "why": "The pass element is a PMOS with its source at VIN (top) and its drain at VOUT (bottom)."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "I1",
+      "pin": "In",
+      "net": "net5",
+      "why": "The load current source draws current from VOUT."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "I1",
+      "pin": "Out",
+      "net": "GND",
+      "why": "The bottom of the load current source goes to the ground shared with CO."
+    },
+    "ok": true,
+    "error": null
+  }
+]

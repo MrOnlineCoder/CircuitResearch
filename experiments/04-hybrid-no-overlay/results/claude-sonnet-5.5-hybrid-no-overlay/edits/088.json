@@ -1,0 +1,24 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "top symbol is supply"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "top symbol is supply"
+    },
+    "ok": true,
+    "error": null
+  }
+]

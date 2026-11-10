@@ -1,0 +1,68 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "Image M4 drain (1.5I) is its own net. It feeds the M2 (image) drain and the M7 (image) source, not the bias net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Source",
+      "net": "new1",
+      "why": "Image M7 source connects to the M4 drain net, not the bias net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Drain",
+      "net": "new1",
+      "why": "Image M2 drain connects to the M4 drain net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "net3",
+      "why": "Image M1 drain connects to the M3 drain net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "net9",
+      "why": "Image M1 source goes to the tail node."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Source",
+      "net": "net12",
+      "why": "Image M5 source goes to -3V, shared with the other bottom sources."
+    },
+    "ok": true,
+    "error": null
+  }
+]

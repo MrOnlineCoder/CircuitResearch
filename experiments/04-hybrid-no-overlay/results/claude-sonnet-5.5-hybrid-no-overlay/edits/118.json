@@ -1,0 +1,101 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Source",
+      "net": "net10",
+      "why": "M12 source goes to VDD, the same supply as the bottom PMOS sources"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "nv1",
+      "why": "gate of the right PMOS connects to Vout1, not Vout2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Gate",
+      "net": "nv1",
+      "why": "gate of the left PMOS connects to Vout1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Gate",
+      "net": "nv1",
+      "why": "gate connects to Vout1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Source",
+      "net": "GND",
+      "why": "source goes to ground"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Drain",
+      "net": "net4",
+      "why": "drain connects to Vout2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "nv1",
+      "why": "gate connects to Vout1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "GND",
+      "why": "source goes to ground"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "nv1",
+      "why": "drain ties to Vout1 and the gate of M7"
+    },
+    "ok": true,
+    "error": null
+  }
+]

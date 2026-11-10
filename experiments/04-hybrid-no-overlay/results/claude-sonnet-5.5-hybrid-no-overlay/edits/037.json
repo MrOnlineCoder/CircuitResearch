@@ -1,0 +1,48 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "net10",
+      "why": "The drain of the PMOS cascode on the left (image M6) goes down to the left output node, not to a dangling wire."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "new1",
+      "why": "The gate of the right input transistor (image M2) connects to the negative input terminal, not to the tail node."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net9",
+        "net14"
+      ],
+      "why": "The input pair sources join the drain of the tail transistor (image M3)."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net15",
+        "net16"
+      ],
+      "why": "Both bias points carry the same V_NB1 label, so they are one net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

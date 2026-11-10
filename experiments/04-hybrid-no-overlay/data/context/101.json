@@ -1,0 +1,195 @@
+{
+  "id": "101",
+  "variant": "v2",
+  "pipeline_seconds": 0.159,
+  "image_size": [
+    561,
+    593
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.896,
+      "box": [
+        175,
+        72,
+        314,
+        201
+      ],
+      "pins": {
+        "InP": "net1",
+        "InN": "net2",
+        "Out": "net3"
+      },
+      "pin_xy": {
+        "InP": [
+          170,
+          162
+        ],
+        "InN": [
+          170,
+          104
+        ],
+        "Out": [
+          318,
+          136
+        ]
+      }
+    },
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.898,
+      "box": [
+        393,
+        109,
+        442,
+        166
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net3",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          388,
+          136
+        ],
+        "Source": [
+          438,
+          104
+        ],
+        "Drain": [
+          438,
+          170
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.892,
+      "box": [
+        426,
+        228,
+        450,
+        274
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net1"
+      },
+      "pin_xy": {
+        "Pos": [
+          438,
+          222
+        ],
+        "Neg": [
+          438,
+          278
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.88,
+      "box": [
+        529,
+        333,
+        553,
+        379
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          541,
+          328
+        ],
+        "Neg": [
+          541,
+          382
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.878,
+      "box": [
+        426,
+        432,
+        450,
+        479
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          438,
+          428
+        ],
+        "Neg": [
+          438,
+          484
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net1",
+          "InN": "net2",
+          "Out": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net3",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

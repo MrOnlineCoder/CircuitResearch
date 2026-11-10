@@ -1,0 +1,184 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Drain",
+      "net": "n6",
+      "why": "M6 is diode-connected and its drain feeds only the next stack device, not the shared output net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M6",
+      "pin": "Gate",
+      "net": "n6"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "n6"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Drain",
+      "net": "n7d",
+      "why": "the stack bottom device drain joins the drain of the NMOS below it, not the bias line"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "n7d"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Gate",
+      "net": "g13",
+      "why": "this gate runs along y=250 to the gate of the compensation transistor"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "g13"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "tail",
+      "why": "input-pair sources and the tail transistor drain form the tail net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Source",
+      "net": "tail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Drain",
+      "net": "tail"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M15",
+      "pin": "Gate",
+      "net": "net9",
+      "why": "bias bus along the bottom"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M13",
+      "pin": "Gate",
+      "net": "net9"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Gate",
+      "net": "net9"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M12",
+      "pin": "Body"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M13",
+      "pin": "Body"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M15",
+      "pin": "Body"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Gate",
+      "net": "net4",
+      "why": "mirror gate line is shared with the other top PMOS gates"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "remove_pin",
+      "component": "M5",
+      "pin": "Body"
+    },
+    "ok": true,
+    "error": null
+  }
+]

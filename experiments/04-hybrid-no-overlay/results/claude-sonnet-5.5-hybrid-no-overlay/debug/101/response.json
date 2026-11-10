@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794271186-2Oosy0Ke16Rs2uAMCjEC",
+  "object": "chat.completion",
+  "created": 1794271186,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm checking the schematic: the op-amp has VREF on the inverting input and the feedback node on the non-inverting input, and the pipeline nets match that. The PMOS wiring (source to VIN, drain to Vout, gate to the amp output) looks right, and I'm confirming the resistor placements next, including R1 running between Vout and the feedback node.\n\nI've confirmed the VREF and feedback connections, the PMOS wiring, and the pipeline net assignments, and they all check out. The VREF net only goes to the amp, and the VDD source placement looks fine too, so the schematic seems consistent.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the schematic: the op-amp has VREF on the inverting input and the feedback node on the non-inverting input, and the pipeline nets match that. The PMOS wiring (source to VIN, drain to Vout, gate to the amp output) looks right, and I'm confirming the resistor placements next, including R1 running between Vout and the feedback node.\n\nI've confirmed the VREF and feedback connections, the PMOS wiring, and the pipeline net assignments, and they all check out. The VREF net only goes to the amp, and the VDD source placement looks fine too, so the schematic seems consistent.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSgwgKEAgTGAI4AUIIdGhpbmtpbmcSDLyQJ1LPqpjd1ofLTBoMz35sv77a0QgWxswwIjBv+ZhxIQYOadhYrXCQ9WYyK1fG9RAFl71cRXS3XEHlKloK+5UxWE1PV7DXeHnE+Z0qoAdE9MzvdR3+TqYAr1vVzykbwi8EdTFuAPYQn/tlz0vbg9IEp5+K+UDZ+aTam+SYDzWFOKNwuD/e96Xf0Vd9HJEz5IfXdwxcOYN6HtGZyC4VxVSS/5ap4muKol6lL5gD363LMR67bNfi1wa1sCNhMWB2EnRpMRZQR3dH6xq6YbgQGB1oKEQxPlfSpGzNGFTCBuGUSTYtp9fn8fRo6Bau/1g1OKVk/94I6Kb6VlDYg0RqBc/tMpq1Hu9/CbbKASqSv4u2VN/DayH7Dgb+QZQhRED9/9DIxVVn7XNAfMj4jFJTantCq+e20IVa3D4Ekrbt6KTMzYLzY9eXSqkBRlwh2MJKNkwU2z7MnWBubozSiaXHSY/+9wWXPQeX3KHkQcwBDgFCX4QdkMLEaNsLp0ZPBaF8U3Bv+PlC9JCCtevsMFhk77szOpXGFMhO7t19urZVIeePaN8dF4tsNu2RtuoMpQhpdV3S/GSKd+SfsdMRc8Z3CQJu2utoKlPoxL+x3nAA/6JS+sP6o1YI23fwtTRNvd4WfeewRvs7SWLvqUBdU75OCRPafZAzvj8Ay/6K4UOEjVRI0bmB4ua/c/HY89PRT84C4WwYpZWqDlP8G01ormF0CckmkB4OWWo7Vn0yNG6BODvphAjcl0blQ0sPDx/jslNEpj+2JZoBdGBMHT0vOUQ+Cz11co/kvGgI0tfkbQnMnfGGgGxmlw3YE+aZDHJ2MAP+mKyLrjm5X7+afNH4rlhwc7ivWrxhkVHRoX3fTGGRXpjZXdzsfki/HIvkujjggyRwSQIMZzmeVi2lXolIovgcQNMDKmkrGv34acGANFmQjFnhpYRo4E2kBEM3+USzyt5GVWyRA6859yCu7Wbr7ZrLbm43vkyraT303vZ9M7hW/cGyGkLz76kP72lAuqLofmZXKu4Z2IoV3qt8+7ID/telDRmPa0vGGEgAqZUCz+FfQlOMXmrPzd6DgXL3UaRgFz/PV/FJ3aU6/xLhTjENQGnW/0vRTzDJsEU9RaV0QKtqP7RYsNyQqnQRDv0eIpAvjRGEjTJl/5gMNJGw6DfAzwc1d+iwRUyWUuCmwfm+wOWyJnCBzlepb2SQkW02fZkdpkOT6r2eVeNx5fEeXb8LiBS7vzCQayrMEMRZCl+n20tXnrwrjPHaWQ31T07/5IWVaNKwkeWZLfr7kGMKb8tce9bG4hYKFMMwBmx5zxM+M0+KRdviCb6nnwpEUwmZoUUtTzLDGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2141,
+    "completion_tokens": 200,
+    "total_tokens": 2341,
+    "cost": 0.006282,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006282,
+      "upstream_inference_prompt_cost": 0.004282,
+      "upstream_inference_completions_cost": 0.002
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 191,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Drain",
+      "net": "net8",
+      "why": "M20's drain is its bottom lead at (582,90). That lead joins the M21/M22 source node and M17's drain wire, which is net8."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Source",
+      "net": "net3",
+      "why": "M21's source is its top lead, which connects up to M19's drain. The wire from M17 hops over this line, so the two are not joined."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net17",
+        "net19"
+      ],
+      "why": "M23's source runs straight down to M25's drain. The hop arcs mean the Vn1 and Vn2 gate wires do not connect to this line."
+    },
+    "ok": true,
+    "error": null
+  }
+]

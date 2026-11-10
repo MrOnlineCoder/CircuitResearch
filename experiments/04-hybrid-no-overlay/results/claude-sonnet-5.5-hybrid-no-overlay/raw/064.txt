@@ -1,0 +1,18 @@
+{"edits":[
+{"op":"set_pin","component":"M6","pin":"Gate","net":"net5","why":"tail PMOS gate is the bias wire from the M2/M3 diode node (hop at J1 is not a connection)"},
+{"op":"set_pin","component":"M6","pin":"Source","net":"VDD","why":"tail source goes up to Vdd"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"net8","why":"diff-pair source ties to the tail drain"},
+{"op":"set_pin","component":"M10","pin":"Drain","net":"net20","why":"drain goes down to the diode-connected mirror device (pipeline M14)"},
+{"op":"set_pin","component":"M8","pin":"Source","net":"net8","why":"diff-pair source ties to the tail drain"},
+{"op":"set_pin","component":"M8","pin":"Drain","net":"net23","why":"drain goes down to the diode-connected mirror device (pipeline M16)"},
+{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"source goes to the top supply rail"},
+{"op":"set_pin","component":"M1","pin":"Drain","net":"net2","why":"drain is wired to its own gate and to the left mirror transistor"},
+{"op":"set_pin","component":"M13","pin":"Drain","net":"net2","why":"drain connects up to the M1 drain/gate node"},
+{"op":"set_pin","component":"M13","pin":"Source","net":"net18","why":"source goes to Vss"},
+{"op":"set_pin","component":"M14","pin":"Source","net":"net18","why":"source goes to Vss"},
+{"op":"set_pin","component":"M16","pin":"Source","net":"net18","why":"source goes to Vss"},
+{"op":"change_type","component":"M7","type":"NMOS","pins":{"Drain":"net4","Source":"net17","Gate":"new_g"},"why":"output-stage NMOS between the PMOS load and Vout"},
+{"op":"set_pin","component":"M12","pin":"Drain","net":"net17","why":"drain at the Vout node"},
+{"op":"set_pin","component":"M12","pin":"Gate","net":"net7","why":"gate wired to the first-stage output node"},
+{"op":"set_pin","component":"M12","pin":"Source","net":"net25","why":"source goes to the drain of the bottom NMOS"}
+]}

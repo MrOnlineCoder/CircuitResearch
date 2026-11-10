@@ -1,0 +1,167 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "M9 in the image has its source at the top on VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M1",
+      "pin": "Gate",
+      "net": "net8",
+      "why": "gate is on the left and joins the mirror gate net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Source",
+      "net": "VDD",
+      "why": "M4 in the image has its source on VDD"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M2",
+      "pin": "Gate",
+      "net": "net8",
+      "why": "gate is on the right and joins the mirror gate net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net7",
+        "net8"
+      ],
+      "why": "the M0/M1 gates connect to the M1 drain"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net7",
+        "net17"
+      ],
+      "why": "M12 drain joins the M1/M3 drain node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net9",
+        "net22"
+      ],
+      "why": "M13 gate connects to the M2/M3 gate net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net10",
+        "net18"
+      ],
+      "why": "M7 is diode-connected, so its drain, its gate and the M8 gate are one net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Drain",
+      "net": "net15",
+      "why": "M8 drain joins the M6 drain, R2 and the M10 gate"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "net12",
+      "why": "M6 gate is VIP"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Source",
+      "net": "net4"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Drain",
+      "net": "net15"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Gate",
+      "net": "net15",
+      "why": "M10 gate connects to the M6/M8 drain node"
+    },
+    "ok": true,
+    "error": null
+  }
+]

@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"Q9","pin":"Emitter","net":"net10","why":"Q6's emitter goes to the -5V rail, not to the base bus"},{"op":"set_pin","component":"Q8","pin":"Base","net":"net6","why":"Q7's base is on the same bias bus as the bases of Q8 and Q6"},{"op":"set_pin","component":"Q8","pin":"Emitter","net":"net10","why":"Q7's emitter goes to the -5V rail"}]}

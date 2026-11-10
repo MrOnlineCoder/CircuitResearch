@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M5","pin":"Gate","net":"net6","why":"M5 here is the diode-connected NMOS mirror device (true M3). Its gate wire joins its drain and M4's gate, which is net6."}]}

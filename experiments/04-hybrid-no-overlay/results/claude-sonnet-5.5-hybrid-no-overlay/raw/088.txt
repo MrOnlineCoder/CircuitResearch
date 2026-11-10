@@ -1,0 +1,13 @@
+Looking at the schematic: the top two transistors are PMOS with their sources tied to VDD (the top symbol is a supply bar, not ground). The pipeline labelled that net GND, so the sources of M1 and M2 should be on a VDD net.
+
+The bottom two transistors, M3 and M4, are drawn with arrows on the source side, pointing into the device from the source. In the image, the arrow on the bottom-left transistor is at the source (bottom) and points inward toward the channel, which is the usual NMOS symbol. The pipeline's NMOS type for M3 and M4 is therefore correct.
+
+Connectivity:
+- M1 is diode-connected: its drain connects to its gate, and the drain node at (88, 228) continues down to the M3 drain. This matches net1 in the pipeline.
+- M2's drain connects to the M4 drain, and M4's drain connects to the M3/M4 gate line. The pipeline has this as net2, which is correct.
+- M1's gate connects to M2's gate through net1. Correct.
+- M3's source goes through R1 to ground, and M4's source goes to ground. Correct.
+
+The only error is the supply net. The pipeline gives the M1 and M2 sources as GND, but the top symbol is a supply, so both sources need a VDD net.
+
+{"edits":[{"op":"set_pin","component":"M1","pin":"Source","net":"VDD","why":"top symbol is supply"},{"op":"set_pin","component":"M2","pin":"Source","net":"VDD","why":"top symbol is supply"}]}

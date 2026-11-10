@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270229-SaM1i6G7ddogbDbyaQq7",
+  "object": "chat.completion",
+  "created": 1794270229,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching the pipeline's component labels to the schematic, since M1 in the netlist corresponds to M3. I've checked I1, which runs from VDD to net1 and looks correct, and I'm starting on the pipeline M1 entry.\n\nNext I'm checking the remaining pipeline MOS entries against the schematic, and each one lines up with its counterpart. The capacitors and the ground connection look right too, so I'm moving on to the M8 and M5 matches.\n\nNow I'm confirming that the current source feeds M8's drain and that its gate ties back to the box at the top right. Both connections check out, so there are no edits to make here.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the pipeline's component labels to the schematic, since M1 in the netlist corresponds to M3. I've checked I1, which runs from VDD to net1 and looks correct, and I'm starting on the pipeline M1 entry.\n\nNext I'm checking the remaining pipeline MOS entries against the schematic, and each one lines up with its counterpart. The capacitors and the ground connection look right too, so I'm moving on to the M8 and M5 matches.\n\nNow I'm confirming that the current source feeds M8's drain and that its gate ties back to the box at the top right. Both connections check out, so there are no edits to make here.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2504,
+    "completion_tokens": 735,
+    "total_tokens": 3239,
+    "cost": 0.012358,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012358,
+      "upstream_inference_prompt_cost": 0.005008,
+      "upstream_inference_completions_cost": 0.00735
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 726,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

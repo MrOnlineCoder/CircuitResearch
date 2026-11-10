@@ -1,0 +1,92 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net1",
+                "Gate": "net2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net3",
+                "Gate": "net2",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "net3",
+                "InN": "net1",
+                "Out": "net4"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Gate": "net4",
+                "Source": "net3"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "net7",
+                "Gate": "net4",
+                "Source": "net1"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net7",
+                "Gate": "net10",
+                "Source": "net9"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net5",
+                "Gate": "net10",
+                "Source": "net11"
+            }
+        },
+        {
+            "component_type": "Diso_amp",
+            "port_connection": {
+                "InP": "net11",
+                "InN": "net9",
+                "Out": "net10"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net11",
+                "Gate": "net12",
+                "Source": "net13"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net9",
+                "Gate": "net14",
+                "Source": "net13"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "net13",
+                "Gate": "net15",
+                "Source": "GND"
+            }
+        }
+    ]
+}

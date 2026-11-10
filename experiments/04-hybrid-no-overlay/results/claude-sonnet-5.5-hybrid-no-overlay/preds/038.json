@@ -1,0 +1,108 @@
+{
+    "ckt_netlist": [
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nB",
+                "Gate": "n_latch",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nOm",
+                "Gate": "n_latch",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nOp",
+                "Gate": "nOm",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nOp",
+                "Gate": "n_latch",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nOm",
+                "Gate": "nOp",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "PMOS",
+            "port_connection": {
+                "Drain": "nA",
+                "Gate": "n_latch",
+                "Source": "VDD"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nOm",
+                "Gate": "nOp",
+                "Source": "nA"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nOp",
+                "Gate": "nOm",
+                "Source": "nB"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nB",
+                "Gate": "nVrp",
+                "Source": "nT"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nA",
+                "Gate": "nVrn",
+                "Source": "nT"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nA",
+                "Gate": "nVip",
+                "Source": "nT"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nB",
+                "Gate": "nVin",
+                "Source": "nT"
+            }
+        },
+        {
+            "component_type": "NMOS",
+            "port_connection": {
+                "Drain": "nT",
+                "Gate": "n_latch",
+                "Source": "GND"
+            }
+        }
+    ]
+}

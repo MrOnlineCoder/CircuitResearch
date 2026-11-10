@@ -1,0 +1,113 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M5",
+      "pin": "Drain",
+      "net": "nA",
+      "why": "M8 (pipeline M5) drain goes down to the M6 drain/gate node, not to V1"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Drain",
+      "net": "nA",
+      "why": "M6 drain joins the M8 drain and its own gate"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "nA",
+      "why": "M6 is diode-connected and its gate is tied to M7's gate"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "net10",
+      "why": "M6 source goes to VSS"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "nA",
+      "why": "M7 gate is mirrored from the M6 gate node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "out",
+      "why": "Mpass drain is VOUT, not V2"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R4",
+      "pin": "Pos",
+      "net": "out",
+      "why": "RF1 top connects to VOUT"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C2",
+      "pin": "Pos",
+      "net": "out",
+      "why": "CF1 top connects to VOUT"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "C1",
+      "pin": "Neg",
+      "net": "out",
+      "why": "CM connects to VOUT"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net9",
+        "net8"
+      ],
+      "why": "the dotted line joins Vfb' to Vfb"
+    },
+    "ok": true,
+    "error": null
+  }
+]

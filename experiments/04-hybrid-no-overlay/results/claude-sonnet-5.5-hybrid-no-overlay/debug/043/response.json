@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270049-v8nAM6P0FQFWAa5Afs0s",
+  "object": "chat.completion",
+  "created": 1794270049,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working through the schematic's two branches: M01 on the left feeds through R4, n1, R1 to Q1's emitter, while M02 on the right runs through R3 and R2 to n2 and Q2. I'm checking whether the right side has an equivalent of R1 before I go further.\n\nI'm checking the right-hand mapping against the pipeline labels, confirming that R3 and R2 lead to n2 and Q2 and that R4 and R1 carry the left branch to Q1. I'm also confirming how the op amp inputs and outputs connect to the net labels.\n\nI'm checking the op amp's + and - inputs against their coordinates on the schematic, and confirming the transistors are PNP, since the arrow sits on the emitter and that matches a bandgap substrate PNP. Everything in the schematic appears to line up.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working through the schematic's two branches: M01 on the left feeds through R4, n1, R1 to Q1's emitter, while M02 on the right runs through R3 and R2 to n2 and Q2. I'm checking whether the right side has an equivalent of R1 before I go further.\n\nI'm checking the right-hand mapping against the pipeline labels, confirming that R3 and R2 lead to n2 and Q2 and that R4 and R1 carry the left branch to Q1. I'm also confirming how the op amp inputs and outputs connect to the net labels.\n\nI'm checking the op amp's + and - inputs against their coordinates on the schematic, and confirming the transistors are PNP, since the arrow sits on the emitter and that matches a bandgap substrate PNP. Everything in the schematic appears to line up.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2280,
+    "completion_tokens": 783,
+    "total_tokens": 3063,
+    "cost": 0.01239,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01239,
+      "upstream_inference_prompt_cost": 0.00456,
+      "upstream_inference_completions_cost": 0.00783
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 774,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

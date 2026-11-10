@@ -1,0 +1,261 @@
+{
+  "id": "003",
+  "variant": "v2",
+  "pipeline_seconds": 0.297,
+  "image_size": [
+    768,
+    802
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.857,
+      "box": [
+        530,
+        162,
+        567,
+        219
+      ],
+      "pins": {
+        "Pos": "VDD",
+        "Neg": "net1"
+      },
+      "pin_xy": {
+        "Pos": [
+          549,
+          158
+        ],
+        "Neg": [
+          549,
+          222
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.85,
+      "box": [
+        252,
+        162,
+        289,
+        219
+      ],
+      "pins": {
+        "Pos": "VDD",
+        "Neg": "net2"
+      },
+      "pin_xy": {
+        "Pos": [
+          272,
+          160
+        ],
+        "Neg": [
+          272,
+          220
+        ]
+      }
+    },
+    {
+      "id": "M1",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.816,
+      "box": [
+        218,
+        373,
+        278,
+        440
+      ],
+      "pins": {
+        "Drain": "net2",
+        "Gate": "net3",
+        "Source": "net4"
+      },
+      "pin_xy": {
+        "Gate": [
+          216,
+          406
+        ],
+        "Source": [
+          272,
+          442
+        ],
+        "Drain": [
+          272,
+          370
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "NMOS",
+      "detector_label": "nmos",
+      "confidence": 0.848,
+      "box": [
+        541,
+        374,
+        602,
+        440
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net3",
+        "Source": "net4"
+      },
+      "pin_xy": {
+        "Gate": [
+          604,
+          406
+        ],
+        "Source": [
+          549,
+          442
+        ],
+        "Drain": [
+          549,
+          370
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage",
+      "confidence": 0.906,
+      "box": [
+        56,
+        451,
+        111,
+        506
+      ],
+      "pins": {
+        "Positive": "net3",
+        "Negative": "GND"
+      },
+      "pin_xy": {
+        "Positive": [
+          84,
+          448
+        ],
+        "Negative": [
+          84,
+          508
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.882,
+      "box": [
+        497,
+        563,
+        535,
+        622
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net5"
+      },
+      "pin_xy": {
+        "Pos": [
+          516,
+          560
+        ],
+        "Neg": [
+          516,
+          624
+        ]
+      }
+    },
+    {
+      "id": "I1",
+      "type": "Current",
+      "detector_label": "current",
+      "confidence": 0.93,
+      "box": [
+        384,
+        564,
+        439,
+        620
+      ],
+      "pins": {
+        "In": "net4",
+        "Out": "net5"
+      },
+      "pin_xy": {
+        "In": [
+          412,
+          560
+        ],
+        "Out": [
+          412,
+          622
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "VDD",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "VDD",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net2",
+          "Gate": "net3",
+          "Source": "net4"
+        }
+      },
+      {
+        "component_type": "NMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net3",
+          "Source": "net4"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net3",
+          "Negative": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net5"
+        }
+      },
+      {
+        "component_type": "Current",
+        "port_connection": {
+          "In": "net4",
+          "Out": "net5"
+        }
+      }
+    ]
+  }
+}

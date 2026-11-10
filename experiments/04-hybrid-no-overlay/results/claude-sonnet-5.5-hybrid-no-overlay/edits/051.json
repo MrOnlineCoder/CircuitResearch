@@ -1,0 +1,72 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net11",
+        "net21"
+      ],
+      "why": "The Mp8 drain wire runs down to the Mn4 drain; the pipeline left that wire as a dangling net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net14",
+        "net23"
+      ],
+      "why": "The Mp9 drain wire runs down to the Mn5 drain at the node on x=964"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M14",
+      "pin": "Gate",
+      "net": "net14",
+      "why": "The Mn10 gate connects through the y=693 wire to the Mp9/Mn5 drain node, not to the Ib3 bias net"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M19",
+      "pin": "Gate",
+      "net": "net14",
+      "why": "The Mn7 gate goes up the x=1382 wire to the same y=693 node"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net7"
+      ],
+      "why": "Both gates carry the Vbp label"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net27",
+        "net28"
+      ],
+      "why": "All Vbn-labelled gates share one net"
+    },
+    "ok": true,
+    "error": null
+  }
+]

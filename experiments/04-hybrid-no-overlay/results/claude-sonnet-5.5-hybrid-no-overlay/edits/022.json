@@ -1,0 +1,35 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M7",
+      "pin": "Gate",
+      "net": "vbn",
+      "why": "Gate is tied to the V_BN bias line, not GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M8",
+      "pin": "Gate",
+      "net": "vbn",
+      "why": "Gate is tied to the V_BN bias line, not GND"
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Gate",
+      "net": "vbn",
+      "why": "Gate is tied to the V_BN bias line, not GND"
+    },
+    "ok": true,
+    "error": null
+  }
+]

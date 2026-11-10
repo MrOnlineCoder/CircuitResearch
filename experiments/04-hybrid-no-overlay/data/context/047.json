@@ -1,0 +1,312 @@
+{
+  "id": "047",
+  "variant": "v2",
+  "pipeline_seconds": 0.105,
+  "image_size": [
+    805,
+    378
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos-bulk",
+      "confidence": 0.806,
+      "box": [
+        125,
+        61,
+        221,
+        144
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "net3",
+        "Body": "net4"
+      },
+      "pin_xy": {
+        "Gate": [
+          172,
+          147
+        ],
+        "Source": [
+          220,
+          58
+        ],
+        "Drain": [
+          122,
+          68
+        ],
+        "Body": [
+          131,
+          57
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.871,
+      "box": [
+        387,
+        100,
+        432,
+        168
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net6"
+      },
+      "pin_xy": {
+        "Pos": [
+          409,
+          96
+        ],
+        "Neg": [
+          409,
+          171
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.866,
+      "box": [
+        540,
+        101,
+        585,
+        170
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net7"
+      },
+      "pin_xy": {
+        "Pos": [
+          562,
+          98
+        ],
+        "Neg": [
+          562,
+          172
+        ]
+      }
+    },
+    {
+      "id": "C1",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.256,
+      "box": [
+        126,
+        102,
+        219,
+        143
+      ],
+      "pins": {
+        "Pos": "net8",
+        "Neg": "net2"
+      },
+      "pin_xy": {
+        "Pos": [
+          220,
+          146
+        ],
+        "Neg": [
+          172,
+          146
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.917,
+      "box": [
+        193,
+        155,
+        320,
+        304
+      ],
+      "pins": {
+        "InP": "net6",
+        "InN": "net9",
+        "Out": "net2"
+      },
+      "pin_xy": {
+        "InP": [
+          323,
+          202
+        ],
+        "InN": [
+          323,
+          273
+        ],
+        "Out": [
+          190,
+          158
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.865,
+      "box": [
+        679,
+        171,
+        724,
+        241
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          701,
+          167
+        ],
+        "Neg": [
+          701,
+          243
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.864,
+      "box": [
+        388,
+        240,
+        431,
+        310
+      ],
+      "pins": {
+        "Pos": "net6",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          409,
+          236
+        ],
+        "Neg": [
+          409,
+          312
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "type": "Cap",
+      "detector_label": "capacitor",
+      "confidence": 0.914,
+      "box": [
+        525,
+        249,
+        601,
+        285
+      ],
+      "pins": {
+        "Pos": "net10",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          523,
+          257
+        ],
+        "Neg": [
+          563,
+          287
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [
+    "M1: 3 extra line(s) touch the box but were not assigned to any pin, at (223, 68), (220, 146), (131, 147).",
+    "C1: detected as Cap with low confidence (0.26).",
+    "C1: 1 extra line(s) touch the box but were not assigned to any pin, at (131, 147).",
+    "A1: 2 extra line(s) touch the box but were not assigned to any pin, at (213, 151), (190, 230).",
+    "R3: 1 extra line(s) touch the box but were not assigned to any pin, at (726, 167).",
+    "C2: 1 extra line(s) touch the box but were not assigned to any pin, at (562, 246).",
+    "net10: only one pin (C2.Pos) and no input/output port - a dangling wire, or it should join another net.",
+    "net3: only one pin (M1.Source) and no input/output port - a dangling wire, or it should join another net.",
+    "net4: only one pin (M1.Body) and no input/output port - a dangling wire, or it should join another net.",
+    "net7: only one pin (R2.Neg) and no input/output port - a dangling wire, or it should join another net.",
+    "net8: only one pin (C1.Pos) and no input/output port - a dangling wire, or it should join another net."
+  ],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "net3",
+          "Body": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net7"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net8",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net6",
+          "InN": "net9",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net6",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "Cap",
+        "port_connection": {
+          "Pos": "net10",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}

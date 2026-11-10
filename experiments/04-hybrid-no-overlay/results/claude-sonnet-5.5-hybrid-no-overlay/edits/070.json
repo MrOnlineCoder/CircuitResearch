@@ -1,0 +1,68 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M4",
+      "pin": "Drain",
+      "net": "net5",
+      "why": "The drain of the PMOS at x\u2248413 (M11 in the image) runs down past the hop arc to the M8 drain and the M6B drain. It does not join the M4/M2 drain net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Drain",
+      "net": "net7",
+      "why": "The tail transistor's drain connects to the M1/M2 sources through the tail wire, which hops over the + input wire."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M12",
+      "pin": "Source",
+      "net": "net11",
+      "why": "The source goes to VSS, not to the VBIAS net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M9",
+      "pin": "Source",
+      "net": "net11",
+      "why": "The source goes to VSS, not to the VBIAS net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M10",
+      "pin": "Source",
+      "net": "net11",
+      "why": "The source goes to VSS, not to the VBIAS net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M11",
+      "pin": "Source",
+      "net": "net11",
+      "why": "The source goes to VSS, not to the VBIAS net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

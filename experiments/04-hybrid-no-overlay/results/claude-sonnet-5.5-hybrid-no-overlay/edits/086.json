@@ -1,0 +1,26 @@
+[
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net4",
+        "net9"
+      ],
+      "why": "The top of CL joins the output node V0 through the dashed wire."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "GND",
+        "net10"
+      ],
+      "why": "The bottom of CL joins ground through the dashed wire."
+    },
+    "ok": true,
+    "error": null
+  }
+]

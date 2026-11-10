@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270653-WCiqcS2kiVJFxabQRKNT",
+  "object": "chat.completion",
+  "created": 1794270653,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm matching the pipeline's component names to the labels in the image, since several of them are swapped: M1 is really M4 (PMOS), M2 is M3 (PMOS), M3 is M6 (PMOS), M4 is M2 (NMOS), M5 is M1 (NMOS), M6 is M7, and M7 is M5.\n\nI'm now checking the connections against the schematic: the diode-connected PMOS, the drain nets feeding the compensation capacitor and the output stage, and the tail current source. So far each pipeline net lines up with the schematic, and the input pair's gates are tied to Vin+ and Vin- as expected.\n\nI'm checking the remaining connections, and the drain of M7 at the sources node looks right. The component types also check out: PMOS on top and NMOS on the bottom, so there's nothing to edit.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching the pipeline's component names to the labels in the image, since several of them are swapped: M1 is really M4 (PMOS), M2 is M3 (PMOS), M3 is M6 (PMOS), M4 is M2 (NMOS), M5 is M1 (NMOS), M6 is M7, and M7 is M5.\n\nI'm now checking the connections against the schematic: the diode-connected PMOS, the drain nets feeding the compensation capacitor and the output stage, and the tail current source. So far each pipeline net lines up with the schematic, and the input pair's gates are tied to Vin+ and Vin- as expected.\n\nI'm checking the remaining connections, and the drain of M7 at the sources node looks right. The component types also check out: PMOS on top and NMOS on the bottom, so there's nothing to edit.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2450,
+    "completion_tokens": 754,
+    "total_tokens": 3204,
+    "cost": 0.01244,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01244,
+      "upstream_inference_prompt_cost": 0.0049,
+      "upstream_inference_completions_cost": 0.00754
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 745,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794269967-CA9193Lo6Y2MPLtKtGlf",
+  "object": "chat.completion",
+  "created": 1794269967,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm working out the schematic first, sorting out which resistor is which since the labels don't match their positions. R1 sits in the left column and R2 in the middle, and the pipeline's label is off, so I'll trust the positions over the names as I go through the connections.\n\nNow I'm checking how the wires connect across the middle column, and whether the op-amp inputs land on the nodes I expect. The net labels look inconsistent with the positions, so I'm tracing each connection by where it actually sits.\n\nNext I'm checking the transistor bases and collectors, which all look correctly grounded. The op-amp output ties back to the top rail, so that part checks out too. What I can't settle from the image is whether the transistors are PNP. With the emitters at the top and current flowing in from the resistors, PNP is the expected choice for this bandgap arrangement, but the arrow on the emitter is hard to make out.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out the schematic first, sorting out which resistor is which since the labels don't match their positions. R1 sits in the left column and R2 in the middle, and the pipeline's label is off, so I'll trust the positions over the names as I go through the connections.\n\nNow I'm checking how the wires connect across the middle column, and whether the op-amp inputs land on the nodes I expect. The net labels look inconsistent with the positions, so I'm tracing each connection by where it actually sits.\n\nNext I'm checking the transistor bases and collectors, which all look correctly grounded. The op-amp output ties back to the top rail, so that part checks out too. What I can't settle from the image is whether the transistors are PNP. With the emitters at the top and current flowing in from the resistors, PNP is the expected choice for this bandgap arrangement, but the arrow on the emitter is hard to make out.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2164,
+    "completion_tokens": 847,
+    "total_tokens": 3011,
+    "cost": 0.012798,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012798,
+      "upstream_inference_prompt_cost": 0.004328,
+      "upstream_inference_completions_cost": 0.00847
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 838,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

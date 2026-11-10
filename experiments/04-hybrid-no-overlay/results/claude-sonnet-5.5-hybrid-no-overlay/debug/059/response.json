@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270294-whhXUVhSVSMhelnAznGS",
+  "object": "chat.completion",
+  "created": 1794270294,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I need to match the pipeline's component names to the schematic. The pipeline's M1 at x=367 is the schematic's output PMOS M6, its M2 at x=195 is the right-hand PMOS M4, and its M3 at x=121 is the diode-connected left PMOS M3.\n\nI'm checking the remaining pipeline-to-schematic mappings and confirming that each connection in the netlist matches the schematic.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I need to match the pipeline's component names to the schematic. The pipeline's M1 at x=367 is the schematic's output PMOS M6, its M2 at x=195 is the right-hand PMOS M4, and its M3 at x=121 is the diode-connected left PMOS M3.\n\nI'm checking the remaining pipeline-to-schematic mappings and confirming that each connection in the netlist matches the schematic.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "CAQSvw0KEAgTGAI4AUIIdGhpbmtpbmcSDKsLoZdfcL2HcbDByRoMgk+5+O0OiPMq/mi3IjC4w99PTUirDEA4k5mL8NpWxCdPbuY+iWJCaW6YmE/1jNAqt3p2aJiaqPfU9xVyjVUq3AyxcR7To5zFF9Raff3rMDGNB99+ryFIfBlyXK0ZoBXMnaER4ilNd8vG+PdhSOq5SSiwc090a7Py4lPZcJpQogUkbBJNaqziG3d8UiMxVv3fxb+nyiyVFAqIgohGFiBzJsdDABVXR667PhYW3H4TBglDH0xIgpZnINX4EFPTkJD2WXkVlxMjjJKDb/3aUtiYVmTQNlQyxBTH09+H4BXj1DotnwdIe+6aDg32yMx99RYDCSIo8jhxNs67jGfrAaojmSupZXl+d0+2ZfmnXCtYx701CeRlcdnb7hMjIjTC3yNbmDa3k5+GeavsotMXVjJzw4BnCjzoxPPM1cH8+2hDNB/01Af1nMne4jYoAJa3JSXb94mZpFA1+52UDW6uLiF6b9HFoHYkMVc8smChNcwkhq7gHZ5wlgxyY6EtwjdUgFlXJScgcDzLX59TOwbcBywZhUwxJ2t/LPbvtcGpbxxv3KAdjtvA8uopOsTLwg+kcndqtBoJZ5m2sYw09lb1Q3Dlrj5IWQoBuAzQpLc1Ht7EbSFOL33GU+MhqKlgT9UlaVNOm1vb1JcSuFy5vVz8aUgYGoRu7f+KUL4cOKjfoWB3Tu2XStA6SJJ2hNV40hvv6VVZ27rtqpZ/32LLd7NZPnEz0A2oNUd0etohYlCXZHL/f2VpXAZYXR22E8+XuwUvo5QeRjpZ4JTVvkSZ0JlNh+qSUamzO+JFShcOer+KnXvbfMz9V0MW/GeG1N2mXSQ1ve9S0uxWKsp1wEyOQs/piauYN7gQsNqT0Py+TXsUoArkGwDGvEHUhm+IOYPaod6xj/WRjUwR/GxNHgTstJcv0vw6izNri7jVr6jzPHX9b75k05TppvIkl9sqicA+rYav/sGC1Hy0n5SHgFA+fevHN7m8RFq8PyTpo59Wrc8oCpGJONXxionTX2/4/LkZwKqCBvfh0NvUx1kVlzu2SWQ6k0M9nxPtLu5zMIYt/MY0Lp/974A3uiGP68bbn6MxXxqMdlxWsjn1axD7LIB9temiUZ3f81OrQeMSWCpYl7vxfNKRmPjWA41eZOZpHYUjehoL6STew6tw8zqSuRKGIlL/AixMBM2WpS8wmuRo5RDZemGp1vT53Q79K84+/iS6jRI8Y+cOP9P3f0War38XQHMHCsPBPKDhZzFHO27Bw4NLlPI3rTLc7qUKGwfcNU4AgOkEhcXFqsRCjh+P0kAl0xDfBN+SHsDKwoVLCbGzbnPNfdqZPvQKYnBJnW0xRAfKxU/isk5D76tLQlQ3WNcYszsXHss+qHP4K84iGd1HC3RiMdHP+lSTCq4FghFZj3C7zr/q/B+qjw1ceXrRWQV6kyjLBKo+QJ9SaioVP6tqRjPbdt3gn6TGtPeAJzFnpyZF3EkNJBv1jTpXF4P8Fu5DynruPI5qS7FEtuuM+nuyQwk54Wz644fwfiYn1y1ualZbs+C/ljZyFTr2wfE/9xUNsn+inpnsMkFIn8rIsVTHn3GBtXrbFfmVaRRMC2OLb8o6NCR7Km6B5rpy4YNgVaUJI2N/kBiAdXeGCWREePOPE4pAlVetLBNWdsWmXhQqxpAMu0c5BQ9/KT0bjW5RQNY2H9vjgZIzZ7igNoV816NftsbdeE2YuQy/xDWEvXXqdKngK70EVLe35oCjhooyIllPPYOIhQZ1OLGeJ7yC6+b+xPY630nEJlBQNBcJWskXlRxbO2nlyV6mWlbZpSI/8hJ4LZd/1EUjNpbotoNKjFSLyRswUW6HyAmPRTCK44jtzP+DHz6uYE2qyI5UAWoEBepoKOjMIpwnBU/NcnSOLR+Vz9DmuKYhLIsaoq67nJRxpwkDqX3WbBGd3q/tMTfp08wO4C88W7SB5oQeXtXwDT/EO2JuLa/c3V0k7c4d/R4mNDowjk1+q/X61Krz6JrqP8ZBNcu7WXnd12cmtwmg4O/mNcGeiaezSIHhoRl2TeypPy6spYG9JMfY5DySAqKnrxG1DNBp3OI6AlG3urPgkngh0krxJyGyKKkkJ8trFvoM13jLSjUwb0tO9uEdKIjQGPK/t2/keMkZAtsBvkJAWj41PsYxmz6acRHPGht+LoUkPNVCnvFiYgiewC8+X47pv48cloFLrtuwxvpRRS6OomORSWMdkqhrnsDLRNtfNnI8jnYocJutzQzYqZ2ht9UF7Y+JQspTQRgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2192,
+    "completion_tokens": 587,
+    "total_tokens": 2779,
+    "cost": 0.010254,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010254,
+      "upstream_inference_prompt_cost": 0.004384,
+      "upstream_inference_completions_cost": 0.00587
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 578,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

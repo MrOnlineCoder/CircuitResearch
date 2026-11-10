@@ -1,0 +1,1 @@
+{"edits":[{"op":"set_pin","component":"M3","pin":"Drain","net":"net5","why":"The middle PMOS drain runs down the x=360 wire to the op-amp '-' input node and R2 (the resistor at x=360). The hop arc at the gate wire means the two are not joined there, so the drain is not dangling."}]}

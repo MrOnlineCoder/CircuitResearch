@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270159-Ft5brqnDyCjQPsty0bMc",
+  "object": "chat.completion",
+  "created": 1794270159,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"set_pin\",\"component\":\"R1\",\"pin\":\"Neg\",\"net\":\"net3\",\"why\":\"The middle resistor's bottom is node N, which is separate from M\"},{\"op\":\"set_pin\",\"component\":\"A1\",\"pin\":\"InN\",\"net\":\"net3\",\"why\":\"The inverting input connects to node N, which joins R2's bottom and R3's top\"},{\"op\":\"change_type\",\"component\":\"M1\",\"type\":\"PNP\",\"pins\":{\"Emitter\":\"net4\",\"Base\":\"GND\",\"Collector\":\"GND\"},\"why\":\"Q2 is a diode-connected PNP with base and collector grounded and the emitter at R3's bottom\"},{\"op\":\"change_type\",\"component\":\"M2\",\"type\":\"PNP\",\"pins\":{\"Emitter\":\"net2\",\"Base\":\"GND\",\"Collector\":\"GND\"},\"why\":\"Q1 is a diode-connected PNP with base and collector grounded and the emitter at node M\"}]}",
+        "refusal": null,
+        "reasoning": "I'm working out the actual circuit from the wire coordinates. R1 runs from the top rail down to node M, and R2 runs from the top to node N, so R2's bottom end, N, and R3's top end sit on the same net. Q1 is a PNP with its emitter tied to M and its base and collector both grounded, which makes it diode-connected.\n\nNow I'm sorting out the remaining wiring: Q2 is a PNP with its emitter on R3's bottom end and its base and collector grounded. For the op-amp inputs, R1's bottom end and the amp's inverting input should go onto net3 alongside R3's top, so I'll switch both to net3 and leave net2 holding R2's bottom, the non-inverting input, and M2's drain.\n\nI'm switching the two transistors to PNP with their emitters on the nets they sit on and their base and collector tied to ground. For M2 that means the emitter goes to net2, and I'm dropping the body pin since PNP doesn't use one.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm working out the actual circuit from the wire coordinates. R1 runs from the top rail down to node M, and R2 runs from the top to node N, so R2's bottom end, N, and R3's top end sit on the same net. Q1 is a PNP with its emitter tied to M and its base and collector both grounded, which makes it diode-connected.\n\nNow I'm sorting out the remaining wiring: Q2 is a PNP with its emitter on R3's bottom end and its base and collector grounded. For the op-amp inputs, R1's bottom end and the amp's inverting input should go onto net3 alongside R3's top, so I'll switch both to net3 and leave net2 holding R2's bottom, the non-inverting input, and M2's drain.\n\nI'm switching the two transistors to PNP with their emitters on the nets they sit on and their base and collector tied to ground. For M2 that means the emitter goes to net2, and I'm dropping the body pin since PNP doesn't use one.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2503,
+    "completion_tokens": 1059,
+    "total_tokens": 3562,
+    "cost": 0.015596,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.015596,
+      "upstream_inference_prompt_cost": 0.005006,
+      "upstream_inference_completions_cost": 0.01059
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 755,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "M3",
+      "pin": "Drain",
+      "net": "net9",
+      "why": "In the schematic this is M5. Its drain connects to the common source node of the input pair (M1 and M2), not to a dangling stub."
+    },
+    "ok": true,
+    "error": null
+  }
+]

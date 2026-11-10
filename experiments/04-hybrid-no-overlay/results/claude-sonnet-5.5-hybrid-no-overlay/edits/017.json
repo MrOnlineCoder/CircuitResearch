@@ -1,0 +1,68 @@
+[
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R1",
+      "pin": "Neg",
+      "net": "new1",
+      "why": "The bottom of the left upper resistor goes to the junction with the lower resistor, not to the drain net."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R4",
+      "pin": "Pos",
+      "net": "new1",
+      "why": "The top of the left lower resistor is the same junction, which also feeds the op-amp - input."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InN",
+      "net": "new1",
+      "why": "The - input connects to the left resistor junction."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R2",
+      "pin": "Neg",
+      "net": "new2",
+      "why": "The bottom of the right upper resistor goes to the junction with the lower resistor."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "R5",
+      "pin": "Pos",
+      "net": "new2",
+      "why": "The top of the right lower resistor is the same junction, which also feeds the op-amp + input."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "set_pin",
+      "component": "A1",
+      "pin": "InP",
+      "net": "new2",
+      "why": "The + input connects to the right resistor junction."
+    },
+    "ok": true,
+    "error": null
+  }
+]

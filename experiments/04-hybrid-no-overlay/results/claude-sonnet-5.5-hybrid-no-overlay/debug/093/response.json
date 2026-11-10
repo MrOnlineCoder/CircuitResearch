@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794270973-0ZUT9twS4bKLY27BXzv9",
+  "object": "chat.completion",
+  "created": 1794270973,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\":[{\"op\":\"change_type\",\"component\":\"M6\",\"type\":\"NMOS\",\"pins\":{\"Drain\":\"net1\",\"Gate\":\"net7\",\"Source\":\"GND\"},\"why\":\"MO9 is an NMOS with its source at GND and its drain at VOUT\"}]}",
+        "refusal": null,
+        "reasoning": "I'm matching each component in the pipeline to its place in the schematic, starting with the PMOS mirror at top left and working through the input pair and the NMOS mirror below it.\n\nI'm checking the pipeline's transistors against the schematic: the MO8 position holds M1, and M6 is actually MO9, which is wrong as a PMOS. It needs to become an NMOS with drain on net1, source on GND, and gate on net7, so I'll change its type and remap the pins.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm matching each component in the pipeline to its place in the schematic, starting with the PMOS mirror at top left and working through the input pair and the NMOS mirror below it.\n\nI'm checking the pipeline's transistors against the schematic: the MO8 position holds M1, and M6 is actually MO9, which is wrong as a PMOS. It needs to become an NMOS with drain on net1, source on GND, and gate on net7, so I'll change its type and remap the pins.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2594,
+    "completion_tokens": 661,
+    "total_tokens": 3255,
+    "cost": 0.011798,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011798,
+      "upstream_inference_prompt_cost": 0.005188,
+      "upstream_inference_completions_cost": 0.00661
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 568,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

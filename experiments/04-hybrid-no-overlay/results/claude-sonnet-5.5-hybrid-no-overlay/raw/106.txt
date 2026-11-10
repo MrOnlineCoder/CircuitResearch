@@ -1,0 +1,10 @@
+{"edits":[
+{"op":"set_pin","component":"M2","pin":"Drain","net":"nL","why":"left load node, not ground"},
+{"op":"set_pin","component":"R1","pin":"Pos","net":"nL"},
+{"op":"set_pin","component":"M6","pin":"Drain","net":"nL"},
+{"op":"set_pin","component":"M8","pin":"Gate","net":"nL","why":"gate is wired to the left node (M1 drain)"},
+{"op":"set_pin","component":"M4","pin":"Drain","net":"nR","why":"right load node, not ground"},
+{"op":"set_pin","component":"R3","pin":"Neg","net":"nR"},
+{"op":"set_pin","component":"M7","pin":"Drain","net":"nR"},
+{"op":"set_pin","component":"M5","pin":"Gate","net":"nR","why":"gate is wired to the right node (M2 drain)"}
+]}

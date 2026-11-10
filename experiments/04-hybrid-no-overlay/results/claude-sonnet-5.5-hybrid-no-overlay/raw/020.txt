@@ -1,0 +1,19 @@
+{"edits":[
+{"op":"set_pin","component":"M7","pin":"Drain","net":"net13","why":"real M6 drain goes to the Vin output node"},
+{"op":"set_pin","component":"M6","pin":"Drain","net":"net14","why":"real M7 drain goes to the Vip output node"},
+{"op":"set_pin","component":"M13","pin":"Drain","net":"net13","why":"real M8 drain goes to the Vin node"},
+{"op":"set_pin","component":"M13","pin":"Source","net":"net16","why":"real M8 source joins the M1 drain / M10 drain node"},
+{"op":"set_pin","component":"M12","pin":"Drain","net":"net14","why":"real M9 drain goes to the Vip node"},
+{"op":"set_pin","component":"M17","pin":"Source","net":"GND"},
+{"op":"set_pin","component":"M8","pin":"Gate","net":"net13","why":"M1 gate is tied to the Vin node"},
+{"op":"remove_pin","component":"M8","pin":"Body"},
+{"op":"set_pin","component":"M9","pin":"Gate","net":"net14","why":"M2 gate is tied to the Vip node"},
+{"op":"remove_pin","component":"M9","pin":"Body"},
+{"op":"set_pin","component":"M10","pin":"Source","net":"GND","why":"MZ1 MOS capacitor lower terminal goes to ground"},
+{"op":"swap_pins","component":"M11","pins":["Drain","Gate"],"why":"MZ2 gate is the Vip node, the other terminal goes to ground"},
+{"op":"set_pin","component":"M11","pin":"Source","net":"GND"},
+{"op":"set_pin","component":"M15","pin":"Gate","net":"net16","why":"real M14 gate is tied to the node between M8 and M10"},
+{"op":"set_pin","component":"M14","pin":"Gate","net":"net18","why":"real M15 gate is tied to the node between M9 and M11"},
+{"op":"set_pin","component":"M14","pin":"Source","net":"GND"},
+{"op":"merge_nets","nets":["net15","net7"],"why":"M13 drain connects to Voutp"}
+]}

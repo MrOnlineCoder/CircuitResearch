@@ -1,0 +1,55 @@
+{
+  "id": "gen-1794271180-k3npPrQh8L2hPv3E0Soq",
+  "object": "chat.completion",
+  "created": 1794271180,
+  "model": "anthropic/claude-sonnet-5.5",
+  "provider": "Claude Platform on AWS",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "message": {
+        "role": "assistant",
+        "content": "{\"edits\": []}",
+        "refusal": null,
+        "reasoning": "I'm reading through the circuit in the image, starting with the left branch: a PMOS whose drain feeds a VREF node, then a resistor R2 down to the node that ties to the amplifier's inverting input and Q1's emitter. On the right side, the PMOS drain goes to the non-inverting input through R1, which sits above Q2's emitter.\n\nI'm checking the resistor connections against the labels: the left resistor's terminals sit on the source-side PMOS drain and the V_CTAT node, and the right one connects the other PMOS drain to Q2's emitter. The gates, sources, and transistor bases all look consistent, and the amplifier inputs match the nodes I expected.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm reading through the circuit in the image, starting with the left branch: a PMOS whose drain feeds a VREF node, then a resistor R2 down to the node that ties to the amplifier's inverting input and Q1's emitter. On the right side, the PMOS drain goes to the non-inverting input through R1, which sits above Q2's emitter.\n\nI'm checking the resistor connections against the labels: the left resistor's terminals sit on the source-side PMOS drain and the V_CTAT node, and the right one connects the other PMOS drain to Q2's emitter. The gates, sources, and transistor bases all look consistent, and the amplifier inputs match the nodes I expected.\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0,
+            "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1zb25uZXQtNS41LTIwMjYwOTI4fGNsYXVkZS1vbi1hd3MifQ"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2979,
+    "completion_tokens": 531,
+    "total_tokens": 3510,
+    "cost": 0.011268,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011268,
+      "upstream_inference_prompt_cost": 0.005958,
+      "upstream_inference_completions_cost": 0.00531
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 522,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

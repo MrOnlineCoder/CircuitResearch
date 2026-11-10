@@ -1,0 +1,41 @@
+[
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M7",
+      "type": "NMOS",
+      "pins": {
+        "Drain": "net5",
+        "Source": "net3",
+        "Gate": "net1"
+      },
+      "why": "M7 mirrors M8, so it is an NMOS latch transistor with its drain on the top node (net5) and its source on the bottom node (net3)."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "change_type",
+      "component": "M6",
+      "type": "PMOS",
+      "why": "M6 is the clock precharge device mirroring M2, so it is a PMOS."
+    },
+    "ok": true,
+    "error": null
+  },
+  {
+    "edit": {
+      "op": "merge_nets",
+      "nets": [
+        "net2",
+        "net4",
+        "net7",
+        "net11"
+      ],
+      "why": "All of these pins carry the FCLK label, so they are one net."
+    },
+    "ok": true,
+    "error": null
+  }
+]

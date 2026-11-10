@@ -1,0 +1,1 @@
+{"edits":[{"op":"change_type","component":"Q1","type":"PNP","why":"Q1's emitter arrow points toward the base, so it is a PNP with the emitter at the top (on R1's lower node) and the collector grounded, like Q2."}]}

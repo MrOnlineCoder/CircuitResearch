@@ -1,0 +1,468 @@
+{
+  "id": "108",
+  "variant": "v2",
+  "pipeline_seconds": 0.146,
+  "image_size": [
+    877,
+    433
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.896,
+      "box": [
+        765,
+        65,
+        795,
+        114
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          762,
+          90
+        ],
+        "Source": [
+          792,
+          62
+        ],
+        "Drain": [
+          792,
+          116
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.913,
+      "box": [
+        136,
+        65,
+        166,
+        114
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net4",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          168,
+          90
+        ],
+        "Source": [
+          140,
+          62
+        ],
+        "Drain": [
+          140,
+          116
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "type": "PMOS",
+      "detector_label": "pmos-bulk",
+      "confidence": 0.741,
+      "box": [
+        615,
+        65,
+        644,
+        114
+      ],
+      "pins": {
+        "Drain": "net5",
+        "Gate": "net4",
+        "Source": "VDD",
+        "Body": "net2"
+      },
+      "pin_xy": {
+        "Gate": [
+          612,
+          90
+        ],
+        "Source": [
+          641,
+          62
+        ],
+        "Drain": [
+          641,
+          116
+        ],
+        "Body": [
+          646,
+          90
+        ]
+      }
+    },
+    {
+      "id": "M4",
+      "type": "PMOS",
+      "detector_label": "pmos-cross",
+      "confidence": 0.929,
+      "box": [
+        261,
+        66,
+        290,
+        114
+      ],
+      "pins": {
+        "Drain": "net3",
+        "Gate": "net4",
+        "Source": "VDD"
+      },
+      "pin_xy": {
+        "Gate": [
+          258,
+          90
+        ],
+        "Source": [
+          287,
+          62
+        ],
+        "Drain": [
+          287,
+          116
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.904,
+      "box": [
+        380,
+        99,
+        511,
+        246
+      ],
+      "pins": {
+        "InP": "net3",
+        "InN": "net3",
+        "Out": "net4"
+      },
+      "pin_xy": {
+        "InP": [
+          376,
+          204
+        ],
+        "InN": [
+          376,
+          150
+        ],
+        "Out": [
+          513,
+          172
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.887,
+      "box": [
+        728,
+        193,
+        778,
+        211
+      ],
+      "pins": {
+        "Pos": "net6",
+        "Neg": "net1"
+      },
+      "pin_xy": {
+        "Pos": [
+          724,
+          202
+        ],
+        "Neg": [
+          780,
+          202
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.857,
+      "box": [
+        656,
+        193,
+        706,
+        211
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net6"
+      },
+      "pin_xy": {
+        "Pos": [
+          652,
+          202
+        ],
+        "Neg": [
+          708,
+          202
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.908,
+      "box": [
+        277,
+        232,
+        297,
+        282
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net7"
+      },
+      "pin_xy": {
+        "Pos": [
+          287,
+          228
+        ],
+        "Neg": [
+          284,
+          285
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.935,
+      "box": [
+        782,
+        265,
+        802,
+        316
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          791,
+          262
+        ],
+        "Neg": [
+          792,
+          318
+        ]
+      }
+    },
+    {
+      "id": "Q1",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.914,
+      "box": [
+        620,
+        301,
+        646,
+        354
+      ],
+      "pins": {
+        "Collector": "net5",
+        "Base": "net5",
+        "Emitter": "GND"
+      },
+      "pin_xy": {
+        "Base": [
+          616,
+          328
+        ],
+        "Emitter": [
+          641,
+          356
+        ],
+        "Collector": [
+          641,
+          298
+        ]
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.913,
+      "box": [
+        118,
+        302,
+        144,
+        354
+      ],
+      "pins": {
+        "Collector": "net3",
+        "Base": "net3",
+        "Emitter": "GND"
+      },
+      "pin_xy": {
+        "Base": [
+          116,
+          328
+        ],
+        "Emitter": [
+          140,
+          356
+        ],
+        "Collector": [
+          139,
+          298
+        ]
+      }
+    },
+    {
+      "id": "Q3",
+      "type": "NPN",
+      "detector_label": "npn",
+      "confidence": 0.927,
+      "box": [
+        265,
+        303,
+        292,
+        354
+      ],
+      "pins": {
+        "Collector": "net7",
+        "Base": "net7",
+        "Emitter": "GND"
+      },
+      "pin_xy": {
+        "Base": [
+          262,
+          328
+        ],
+        "Emitter": [
+          287,
+          356
+        ],
+        "Collector": [
+          287,
+          299
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net4",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net5",
+          "Gate": "net4",
+          "Source": "VDD",
+          "Body": "net2"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net3",
+          "Gate": "net4",
+          "Source": "VDD"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net3",
+          "InN": "net3",
+          "Out": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net6",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net7"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "GND"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net5",
+          "Base": "net5",
+          "Emitter": "GND"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net3",
+          "Base": "net3",
+          "Emitter": "GND"
+        }
+      },
+      {
+        "component_type": "NPN",
+        "port_connection": {
+          "Collector": "net7",
+          "Base": "net7",
+          "Emitter": "GND"
+        }
+      }
+    ]
+  }
+}

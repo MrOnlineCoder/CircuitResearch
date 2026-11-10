@@ -1,0 +1,333 @@
+{
+  "id": "061",
+  "variant": "v2",
+  "pipeline_seconds": 0.464,
+  "image_size": [
+    811,
+    784
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "M1",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.893,
+      "box": [
+        544,
+        154,
+        607,
+        225
+      ],
+      "pins": {
+        "Drain": "net1",
+        "Gate": "net2",
+        "Source": "net3"
+      },
+      "pin_xy": {
+        "Gate": [
+          540,
+          189
+        ],
+        "Source": [
+          602,
+          148
+        ],
+        "Drain": [
+          601,
+          228
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "type": "PMOS",
+      "detector_label": "pmos",
+      "confidence": 0.887,
+      "box": [
+        198,
+        156,
+        261,
+        224
+      ],
+      "pins": {
+        "Drain": "net4",
+        "Gate": "net2",
+        "Source": "net3"
+      },
+      "pin_xy": {
+        "Gate": [
+          266,
+          189
+        ],
+        "Source": [
+          204,
+          150
+        ],
+        "Drain": [
+          204,
+          228
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.92,
+      "box": [
+        316,
+        239,
+        492,
+        403
+      ],
+      "pins": {
+        "InP": "net4",
+        "InN": "net5",
+        "Out": "net2"
+      },
+      "pin_xy": {
+        "InP": [
+          367,
+          406
+        ],
+        "InN": [
+          442,
+          406
+        ],
+        "Out": [
+          403,
+          234
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "type": "Voltage",
+      "detector_label": "voltage",
+      "confidence": 0.91,
+      "box": [
+        420,
+        413,
+        464,
+        459
+      ],
+      "pins": {
+        "Positive": "net5",
+        "Negative": "net1"
+      },
+      "pin_xy": {
+        "Positive": [
+          442,
+          408
+        ],
+        "Negative": [
+          442,
+          462
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.871,
+      "box": [
+        575,
+        511,
+        629,
+        617
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net6"
+      },
+      "pin_xy": {
+        "Pos": [
+          602,
+          505
+        ],
+        "Neg": [
+          601,
+          621
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.873,
+      "box": [
+        698,
+        572,
+        749,
+        681
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net7"
+      },
+      "pin_xy": {
+        "Pos": [
+          723,
+          566
+        ],
+        "Neg": [
+          723,
+          686
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor",
+      "confidence": 0.869,
+      "box": [
+        57,
+        572,
+        109,
+        682
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "net7"
+      },
+      "pin_xy": {
+        "Pos": [
+          83,
+          568
+        ],
+        "Neg": [
+          83,
+          686
+        ]
+      }
+    },
+    {
+      "id": "D1",
+      "type": "Diode",
+      "detector_label": "diode",
+      "confidence": 0.925,
+      "box": [
+        184,
+        589,
+        225,
+        620
+      ],
+      "pins": {
+        "In": "net4",
+        "Out": "net7"
+      },
+      "pin_xy": {
+        "In": [
+          204,
+          584
+        ],
+        "Out": [
+          204,
+          624
+        ]
+      }
+    },
+    {
+      "id": "D2",
+      "type": "Diode",
+      "detector_label": "diode",
+      "confidence": 0.912,
+      "box": [
+        581,
+        652,
+        622,
+        683
+      ],
+      "pins": {
+        "In": "net6",
+        "Out": "net7"
+      },
+      "pin_xy": {
+        "In": [
+          601,
+          646
+        ],
+        "Out": [
+          601,
+          688
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net1",
+          "Gate": "net2",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "PMOS",
+        "port_connection": {
+          "Drain": "net4",
+          "Gate": "net2",
+          "Source": "net3"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net4",
+          "InN": "net5",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Voltage",
+        "port_connection": {
+          "Positive": "net5",
+          "Negative": "net1"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net6"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net7"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "net7"
+        }
+      },
+      {
+        "component_type": "Diode",
+        "port_connection": {
+          "In": "net4",
+          "Out": "net7"
+        }
+      },
+      {
+        "component_type": "Diode",
+        "port_connection": {
+          "In": "net6",
+          "Out": "net7"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "id": "012",
+  "variant": "v2",
+  "pipeline_seconds": 0.301,
+  "image_size": [
+    660,
+    511
+  ],
+  "ink_mode": "otsu",
+  "components": [
+    {
+      "id": "R1",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.934,
+      "box": [
+        362,
+        48,
+        444,
+        85
+      ],
+      "pins": {
+        "Pos": "net1",
+        "Neg": "net2"
+      },
+      "pin_xy": {
+        "Pos": [
+          359,
+          66
+        ],
+        "Neg": [
+          446,
+          66
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.924,
+      "box": [
+        93,
+        48,
+        175,
+        85
+      ],
+      "pins": {
+        "Pos": "net3",
+        "Neg": "net1"
+      },
+      "pin_xy": {
+        "Pos": [
+          90,
+          66
+        ],
+        "Neg": [
+          178,
+          66
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "type": "Diso_amp",
+      "detector_label": "single-end-amp",
+      "confidence": 0.907,
+      "box": [
+        312,
+        137,
+        483,
+        298
+      ],
+      "pins": {
+        "InP": "net4",
+        "InN": "net1",
+        "Out": "net2"
+      },
+      "pin_xy": {
+        "InP": [
+          308,
+          256
+        ],
+        "InN": [
+          308,
+          180
+        ],
+        "Out": [
+          485,
+          218
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.904,
+      "box": [
+        87,
+        236,
+        169,
+        274
+      ],
+      "pins": {
+        "Pos": "net5",
+        "Neg": "net4"
+      },
+      "pin_xy": {
+        "Pos": [
+          83,
+          254
+        ],
+        "Neg": [
+          172,
+          254
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "type": "Res",
+      "detector_label": "resistor2",
+      "confidence": 0.915,
+      "box": [
+        184,
+        307,
+        228,
+        396
+      ],
+      "pins": {
+        "Pos": "net4",
+        "Neg": "GND"
+      },
+      "pin_xy": {
+        "Pos": [
+          206,
+          304
+        ],
+        "Neg": [
+          206,
+          398
+        ]
+      }
+    }
+  ],
+  "crossings": [],
+  "uncertain": [],
+  "netlist": {
+    "ckt_netlist": [
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net1",
+          "Neg": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net3",
+          "Neg": "net1"
+        }
+      },
+      {
+        "component_type": "Diso_amp",
+        "port_connection": {
+          "InP": "net4",
+          "InN": "net1",
+          "Out": "net2"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net5",
+          "Neg": "net4"
+        }
+      },
+      {
+        "component_type": "Res",
+        "port_connection": {
+          "Pos": "net4",
+          "Neg": "GND"
+        }
+      }
+    ]
+  }
+}
