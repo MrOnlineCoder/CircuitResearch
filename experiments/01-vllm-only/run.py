@@ -17,7 +17,7 @@ Output (under RESULTS_DIR/<model-slug>/):
 
 # ============================ EDITABLE CONSTANTS ============================
 
-OPENROUTER_API_KEY = "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"  # leave empty to read the OPENROUTER_API_KEY env var
+OPENROUTER_API_KEY = ""  # leave empty to read the OPENROUTER_API_KEY env var
 MODEL = "anthropic/claude-sonnet-5.5"  # any OpenRouter model id with image input
 DATASET_DIR = "../../datasets/ci2n_datasets-main/validation"  # has images/ and golden/
 NUM_FILES = None  # how many images to process (sorted by name); None = all 122
